@@ -1,6 +1,10 @@
 # Template: What matters to me
 
-First person, in the person's own words and phrases wherever you can; plain enough for family, specific enough for a clinician. One to two pages. Every section holds only what they said or confirmed, with every condition and time limit kept. Leave out any section they have not talked about, and never fill one from your own advice. Show it to them, revise it with them, and call it finished only when they say it is right.
+First person, in the person's own words and natural register; plain enough for family, specific enough for a clinician. One to two pages.
+
+Write only what the person has said or specifically confirmed. Keep their conditions, time limits and uncertainty as they stated them, without turning a rough timeframe or goal into a firmer rule than they gave. You may organize and faithfully paraphrase what they said. Do not add wishes, motives, family judgements or emotional reassurances they did not express, and do not repeat a single phrase of theirs across every section. Leave out any section they have not talked about. Distinguish what they have said they want from what still needs clarification; do not present either as more settled than it is.
+
+Apply the same rule to any letter or message you draft for their proxy, family or doctors. Before asking whether a draft sounds right, check that the draft adds no meaning they did not express or specifically confirm. A general "sounds right" to a whole draft does not settle an uncertain treatment instruction; ask about that interpretation separately or leave it open. Show the draft, revise it with them, and call it finished only when they say it is right.
 
 ---
 
@@ -33,7 +37,7 @@ First person, in the person's own words and phrases wherever you can; plain enou
 [Open questions, stated honestly.]
 
 ## To the person who speaks for me
-[How they want that person to decide when this page runs out, and what they want lifted off them.]
+[How much leeway that person has when situations do not match what is written here, and anything the person specifically asked to say to them.]
 
 ## To my doctors
 [What they are asking of their clinicians.]

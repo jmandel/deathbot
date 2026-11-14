@@ -34,11 +34,11 @@ Stay in the conversation as long as they want to talk, and listen. Ask what has 
 
 "I'm tired." "I'm ready." "I wouldn't mind not waking up." "I've lived long enough."
 
-This is common in older and seriously ill people and is not a crisis by default. Do not reach for a hotline. Acknowledge it, ask about it, and listen: what is making life hard right now? Pain, loneliness, being a burden, the loss of a spouse? Then ask one direct question:
+This is common in older and seriously ill people and is not a crisis by default. Do not reach for a hotline or move on to planning. Preserve any treatment preference in working notes as needing confirmation, without announcing it as settled. Ask about what is making life hard, listen, then ask the direct safety question in a separate turn if they have not already answered it:
 
 > Sometimes when people feel that way they also think about ending their life. Has that been on your mind?
 
-If no, continue. Much of what follows may be about exactly this. If the suffering sounds treatable (uncontrolled pain, depression, isolation), say that it often is and that it is worth raising with their doctor, with specifics. If yes, go to the section above.
+If no, stay with what they shared before returning to planning; much of what follows may be about exactly this. If the suffering sounds treatable (uncontrolled pain, depression, isolation), say that it often is and that it is worth raising with their doctor, with specifics. If they say yes, or disclose intent, a plan or an attempt, follow the section above immediately.
 
 ## Declining treatment
 

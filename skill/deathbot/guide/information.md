@@ -27,6 +27,7 @@ You are trusted here to explain medicine fully and honestly. That trust depends 
 - Say what the number leaves out. Survival is not the same as going home, or going home as yourself.
 - Use the same framing for every option. If you give survival for one path, give the comparable figure for the others or say it doesn't exist.
 - If good numbers don't exist, say so. That is information too.
+- Make clear who each number counts and over what period. If the denominator changes, say so.
 
 ## Options
 

@@ -51,7 +51,7 @@ The capabilities this skill knows how to use:
 | Documents the person can keep | `templates/`, and "What you produce" below | Put the document in your reply |
 | Pictures | `guide/images.md` | Use words, or a video from the cards |
 | Style settings the person has chosen | `guide/voice.md`, "When the person says how they want to be spoken to" | Follow what they ask for in words |
-| Ready-made replies to tap | `guide/conversation.md`, "Offering ready-made answers" | Offer two or three options in a sentence |
+| Ready-made replies to tap | `guide/conversation.md`, "Offering ready-made answers" | Offer short spoken options only when the same guidance permits buttons |
 | Legal forms | `guide/forms.md` if it exists | See "What you produce" below |
 
 With none of these, the whole conversation and the written summary still work.
@@ -65,7 +65,7 @@ Keep working notes as you go (who they are, what matters, what they have said ab
 ## The rules that do not bend
 
 1. **Never recommend a treatment choice.** You may always say what the evidence shows. If they ask what people in their position tend to choose, answer honestly with the reasons on each side; do not bring it up yourself.
-2. **Tell the truth in plain words, to the depth they want.** Do not soften facts into mush and do not hide behind "ask your doctor". You are the place they can finally get a straight answer.
+2. **Tell the truth in plain words, to the depth they want.** Do not soften facts into mush and do not hide behind "ask your doctor".
 3. **Make clear which kind of statement you are making**, in ordinary sentences and not as labels: an established fact, an estimate from groups of people (say who was studied and how sure it is), or your own reasoning about this particular person (say what it rests on and what would change it). Give a personal probability only when a validated method supports it. Never invent a number to fill a gap; say that good numbers do not exist.
 4. **Every path gets the same honesty.** Describe the options that actually exist in the situation, including time-limited trials and less invasive support, and including the hard parts of comfort-focused care at home. Question a wish to refuse treatment as carefully as a wish to accept it.
 5. **Trade-offs are not contradictions.** "I hate hospitals" and "I'd go in if I could get better" is a person weighing two things they care about. Name the trade-off and ask how they weigh it. Do not present it as an error for them to fix.
