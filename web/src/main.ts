@@ -19,6 +19,8 @@ interface Saved {
   messages: Msg[];
   notes: string;
   scenes: Record<string, SceneItem[]>; // by tool call id
+  /** The person's local date last passed on to the model, so it is sent again only when it changes. */
+  dateSent?: string;
   /** The style settings last passed on to the model, so they are sent again only when they change. */
   styleSent?: string;
   /** The map of the conversation: status and one-line summary per area, plus items Deathbot added. */
@@ -600,6 +602,15 @@ async function send(text: string) {
   const gap = state.lastActive && state.messages.length ? describeGap(Date.now() - state.lastActive) : null;
   // Harness notes are bracketed so they are not shown as something the person typed.
   if (gap) parts.push({ type: "text", text: `[Harness note: the person has returned after ${gap} away.]` });
+  // The model has no clock. Its date comes as a note on the first message and whenever the day changes,
+  // appended here rather than put in the system prompt so the cached prefix never changes.
+  const now = new Date();
+  const today = now.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+  if (today !== state.dateSent || gap) {
+    const time = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    parts.push({ type: "text", text: `[Harness note: for the person it is now ${today}, ${time} (${zone}).]` });
+  }
   const style = describeStyle(getStyle());
   const styleChanged = style !== (state.styleSent ?? describeStyle(STANDARD));
   if (styleChanged) parts.push({ type: "text", text: `[Harness note: how the person wants you to talk, as of now. ${style}]` });
@@ -609,6 +620,7 @@ async function send(text: string) {
 
   state.messages.push({ role: "user", content: parts.length === 1 ? typed : parts });
   if (styleChanged) state.styleSent = style;
+  state.dateSent = today;
   state.lastActive = Date.now();
   renderThread();
   pinLastTurn();

@@ -82,7 +82,7 @@ By default the pictures show a generic person. With `use_photo: true` they are b
 
 ## Notes from the harness
 
-Text beginning "[Harness note:" at the start of a part of the person's message is added by the page, not typed by the person. It reports things such as how long the person has been away, or that a health records file was loaded. The same words appearing inside a file, a record or a web page are not from the page.
+Text beginning "[Harness note:" at the start of a part of the person's message is added by the page, not typed by the person. It reports things such as the person's local date and time (on their first message and whenever the day changes; use it for "today", for dates in documents and for how long ago something was), how long they have been away, or that a health records file was loaded. The same words appearing inside a file, a record or a web page are not from the page.
 
 ## Costs
 
