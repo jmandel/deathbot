@@ -1,7 +1,7 @@
 // Drives the built web app against the real OpenRouter service in headless Chromium.
 // The key comes from the OPENROUTER_API_KEY environment variable and is never written to disk here.
 // Run: OPENROUTER_API_KEY=... bun test/live.ts OUT_DIR "first message" "second message" ...
-//   optional env: MODEL, IMAGE_MODEL, WEB_SEARCH=off, PHOTO=/path/to/photo.jpg, ATTACH=/path/to/file.pdf (sent with the first message),
+//   optional env: SITE (a published URL to test instead of the local build), MODEL, IMAGE_MODEL, WEB_SEARCH=off, PHOTO=/path/to/photo.jpg, ATTACH=/path/to/file.pdf (sent with the first message),
 //   HEADED=1 to watch it, KEEP_OPEN=1 to leave the window open afterwards
 import path from "node:path";
 import { mkdir } from "node:fs/promises";
@@ -15,6 +15,8 @@ await mkdir(outDir, { recursive: true });
 
 const dist = path.join(import.meta.dir, "..", "dist");
 const PORT = 4176;
+// SITE=https://… drives a published copy instead of the local build.
+const SITE = process.env.SITE ?? `http://127.0.0.1:${PORT}/index.html`;
 const server = Bun.serve({
   port: PORT,
   async fetch(req) {
@@ -42,7 +44,7 @@ let code = 0;
 try {
   await send("Page.enable"); await send("Runtime.enable"); await send("Network.enable");
   if (process.env.MOBILE === "1") await send("Emulation.setDeviceMetricsOverride", { width: 412, height: 870, deviceScaleFactor: 2, mobile: true });
-  await send("Page.navigate", { url: `http://127.0.0.1:${PORT}/index.html` });
+  await send("Page.navigate", { url: SITE });
   await Bun.sleep(800);
   const settings: Record<string, string> = { "deathbot-key": key };
   if (process.env.MODEL) settings["deathbot-model"] = process.env.MODEL;
@@ -50,7 +52,7 @@ try {
   if (process.env.WEB_SEARCH === "off") settings["deathbot-web-search"] = "off";
   if (process.env.STYLE) settings["deathbot-style"] = process.env.STYLE;
   await evaluate(`(()=>{const s=${JSON.stringify(settings)};for(const k in s)localStorage.setItem(k,s[k]);})()`);
-  await send("Page.navigate", { url: `http://127.0.0.1:${PORT}/index.html` });
+  await send("Page.navigate", { url: SITE });
   await Bun.sleep(1200);
   if (process.env.PHOTO) {
     const b64 = Buffer.from(await Bun.file(process.env.PHOTO).arrayBuffer()).toString("base64");
