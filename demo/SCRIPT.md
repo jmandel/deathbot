@@ -19,7 +19,7 @@ Talks in short, dry sentences. Gets to the point. Fuller persona: `eval/personas
 
 | # | Beat | How Frank does it | What it shows |
 | --- | --- | --- | --- |
-| 1 | Opening | Taps the starter "What is this, exactly?" | One-sentence AI disclosure, ready-made replies |
+| 1 | Opening | Taps the starter "I want to plan ahead." (or "What is this, exactly?") | The welcome screen's one-line AI disclosure; ready-made replies |
 | 2 | Why he's here | Attaches the portal summary, then **speaks**: Lisa keeps nagging, COPD, oxygen, two hospital stays | Dictation; Deathbot reading the record back accurately |
 | 3 | How he wants it | Opens Style: ticks "Keep it short", writes "Call me Frank. Don't sugarcoat it." Then taps a reply | Style settings |
 | 4 | Who speaks for him | **Speaks**: Lisa's the one; Mike would want everything done; Marie's three weeks in the ICU | Proxy conversation, picking up family conflict |
