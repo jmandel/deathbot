@@ -62,7 +62,7 @@ export const clientTools = [
       next: { type: "array", maxItems: 2, items: str, description: "Ids of up to two items to show as suggested next steps. Send an empty list to clear them." },
     }, ["items"]),
   fn("show_document", "Puts a document in the conversation with buttons to read, print, copy and download, and lists it under Your file. Sending the same kind again replaces the earlier one there, except kind \"other\".",
-    { kind: { type: "string", enum: ["summary", "proxy_letter", "clinician_note", "other"] }, title: str, markdown: str },
+    { kind: { type: "string", enum: ["summary", "other"], description: "summary for \"What matters to me\"; other for anything else" }, title: str, markdown: str },
     ["kind", "title", "markdown"]),
   fn("show_scenes", "Draws one to three pictures and shows them together in the conversation. Shows whichever are drawn and reports any that failed; returns an error only if none could be drawn. Usually under a minute; gives up after two. Governed by guide/images.md in the skill.",
     {

@@ -1,39 +1,42 @@
 # Template: What matters to me
 
-Write this in the first person, in the person's own words and phrases wherever you can. Plain text, one to two pages. Leave out any section they have not talked about; do not pad. Keep every condition and time limit they stated. Show it to them, revise it with them, and only call it finished when they say it is right.
+First person, in the person's own words and phrases wherever you can; plain enough for family, specific enough for a clinician. One to two pages. Every section holds only what they said or confirmed, with every condition and time limit kept. Leave out any section they have not talked about, and never fill one from your own advice. Show it to them, revise it with them, and call it finished only when they say it is right.
 
 ---
 
 # What matters to me
 
-**[Name, if they want it included]** · Written [date] · A snapshot of my thinking today. I may change my mind, and I'll update this if I do.
+**[Name]** · [Date of birth, if they want it] · Written [date] · This is my thinking today. If I change my mind I'll update this and replace the old copies.
+
+## Who speaks for me
+[Name, relationship, how to reach them. Whether they have agreed. Whether the proxy form is signed. A backup. Or: "I haven't chosen anyone yet."]
 
 ## Who I am
-[A few lines: what my life is like, who is in it, what a good day looks like.]
+[What my life is like, who is in it, what a good day looks like.]
 
 ## My health, as I understand it
-[Conditions and outlook in their own words. Note where this came from: "what my doctors have told me", "from my records".]
+[Conditions and outlook in their words, and where it came from: "what my doctors have told me", "from my records".]
 
 ## What matters most to me
-[The things they said they would not want to live without, and what they are living for.]
+[What they would not want to live without; what they are living for; faith, where they want to be, who they want there.]
 
 ## What I am afraid of
 [In their words.]
 
 ## What I would and would not want
-[Specific treatments or situations they addressed. Each one with its conditions, for example: "I'd accept a breathing machine for a short time if there's a real chance I'd recover. I don't want to be kept on one for more than a couple of weeks if I'm not getting better."]
+[Each treatment or situation they addressed, with its conditions: "I'd accept a ventilator for a short trial if there's a real chance I'd recover. Not more than a couple of weeks if I'm not getting better."]
 
 ## How I weigh the hard trade-offs
-[For example time against comfort, or a chance at recovery against the risk of surviving in a state they would hate. Their words.]
+[Time against comfort, a chance of recovery against surviving in a state they would hate. Their words.]
 
 ## What I haven't decided
-[Open questions, stated honestly. "I don't know how I feel about a feeding tube yet."]
+[Open questions, stated honestly.]
 
-## Who speaks for me
-[Name and relationship. Whether they have agreed. Backup. Or: "I haven't chosen anyone yet."]
+## To the person who speaks for me
+[How they want that person to decide when this page runs out, and what they want lifted off them.]
 
-## What I want the people making decisions to know
-[Anything else: faith, family, who should be there, where they want to be, what they want said or not said.]
+## To my doctors
+[What they are asking of their clinicians.]
 
 ---
 

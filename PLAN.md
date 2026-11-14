@@ -45,7 +45,7 @@ Harnesses in tranche 1:
 
 | Tier | Host has | Deathbot does |
 | --- | --- | --- |
-| 0 | Text only | Full conversation, education from cards and model knowledge, summary and proxy letter as text, bundled links |
+| 0 | Text only | Full conversation, education from cards and model knowledge, "What matters to me" as text, bundled links |
 | 1 | + web search | Live research for the long tail, rechecks links, finds current official state forms |
 | 2 | + files and code | Reads uploaded records, produces PDFs |
 | 3 | + image generation | Optional image module |
@@ -122,7 +122,7 @@ Card format: the three layers kept separate; what it is like for patient and fam
 
 ## 6. Documents
 
-- Summary, proxy letter and clinician note as markdown templates; PDF rendering at tier 2.
+- "What matters to me" as a markdown template; PDF rendering at tier 2.
 - **State forms, done narrowly and done properly.** Three starter states (California, New York and Texas), each with the official statutory form, a version date, execution rules (witnesses, notary, who may not witness), how to revoke, state-specific traps (for example, New York limits a proxy's authority over artificial nutrition and hydration unless the proxy knows the person's wishes), and explicit confirmation of every consequential field before it is written.
 - **Every other state:** a link to the official form and a preparation checklist drawn from the conversation. No search-driven form walkthrough.
 - The bot says forms are a starting point, not a guarantee of legal validity.

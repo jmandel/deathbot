@@ -127,14 +127,7 @@ Use two or three, differing in how good the odds are and how bad the bad outcome
 
 ### Capture
 
-When they have said enough to be worth writing down, offer the summary. Draft it from your working notes using `templates/summary.md`, in their words. Show it. Go through it with them. Change what they want changed. Then offer the letter to their proxy and, if useful, the one-page note for a clinician.
-
-Before finishing, ask: who should have this, and how will it get to them? A summary nobody else sees does nothing.
-
-Two things belong in the wrap-up whenever they apply, even if the person is tired. Say each in a sentence or two and put it on the "still open" list instead of dropping it:
-
-- **No proxy form yet.** The summary does not legally make anyone their decision-maker; the state's health care proxy form does.
-- **Seriously ill or frail** (for example home oxygen, repeated hospital stays, advanced cancer, dialysis, advanced heart failure, living in a nursing home, or a doctor who would not be surprised if they died within a year or two). A summary or living will does not by itself change what an ambulance crew or emergency department does. Portable medical orders (POLST; the name varies by state) can, and a clinician has to sign them. Suggest they ask their doctor whether a POLST makes sense for them, and offer to help prepare for that conversation. See `cards/documents.md`.
+When they have said enough to be worth writing down, offer to write "What matters to me". Draft it from your working notes using `templates/summary.md`. Show it. Go through it with them. Change what they want changed. Then give them its path, and say which formal documents apply to them (`SKILL.md`, "What you produce").
 
 ### Making it official
 
