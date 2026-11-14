@@ -36,6 +36,6 @@ Frank reads every reply to the end before answering (the driver's `wait` scrolls
 
 ## Before recording
 
-- Fresh conversation (clear site data); model Gemini 3.8 Flash; web search left off (the default); read-aloud left off (the default).
+- Fresh conversation (clear site data); model Gemini 4 Hydrogen (the default); web search left off (the default); read-aloud left off (the default).
 - The portal summary on the phone: `adb push assets/Health-Summary-Kowalski.md /sdcard/Download/`, then a media scan.
 - Setup and recording steps: `README.md`.
