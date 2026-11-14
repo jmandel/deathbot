@@ -48,9 +48,9 @@ h1, h2, h3, p { margin: 0; }
 .actions button { font-size: .9rem; padding: .4rem .8rem; }
 
 /* header: one row */
-.top { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+.top { flex: none; display: flex; align-items: center; justify-content: space-between; gap: .2rem 1rem; flex-wrap: wrap;
   padding: .45rem var(--gutter); padding-top: max(.45rem, env(safe-area-inset-top)); border-bottom: 1px solid var(--line); }
-.brand { display: flex; align-items: center; gap: .45rem; min-width: 0; }
+.brand { display: flex; align-items: center; gap: .45rem; flex: none; }
 .mark { width: 1.35rem; height: 1.35rem; flex: none; }
 .mark g { fill: var(--gold); } .mark circle { fill: var(--flower-eye); }
 .wordmark { font: 800 1.25rem/1 var(--voice); letter-spacing: -.01em; }
@@ -67,6 +67,19 @@ main { flex: 1; min-height: 0; display: flex; }
 .welcome p { margin: 0 0 .9rem; }
 .lede { font: 600 clamp(1.3rem, 5.4vw, 1.75rem)/1.25 var(--voice); letter-spacing: -.012em; margin: .25rem 0 .7rem; text-wrap: balance; }
 .sub { font: 400 1.05rem/1.55 var(--voice); margin-bottom: 1.5rem !important; }
+/* the first screen's short form */
+.intake > label, .intake legend { display: block; font-weight: 700; margin: 1.1rem 0 .35rem; }
+.intake .opt { font-weight: 400; color: var(--muted); }
+.intake input[type="text"], .intake select, .intake textarea { display: block; width: 100%; font: inherit; }
+.intake textarea { resize: vertical; padding: .55rem .7rem; border: 1.5px solid var(--line); border-radius: .5rem; background: var(--surface); line-height: 1.4; }
+.intake .hint { color: var(--muted); font-size: .92rem; margin: .3rem 0 .5rem !important; }
+.intake fieldset { border: 0; padding: 0; margin: 0; }
+.intake legend { padding: 0; }
+.intake label.check { display: flex; gap: .7rem; align-items: flex-start; margin: 0; padding: .55rem 0; border-bottom: 1px solid var(--line); line-height: 1.35; }
+.intake label.check:first-of-type { border-top: 1px solid var(--line); }
+.intake label.check input { width: 1.3rem; height: 1.3rem; margin-top: .1rem; flex: none; accent-color: var(--gold); }
+.intake #connect { margin-top: 1.4rem; }
+.intake #btn-start { margin-top: 1.2rem; width: 100%; min-height: 3rem; }
 .prompt-label { color: var(--muted); font-size: .92rem; margin-bottom: .2rem !important; }
 .starter-list { list-style: none; margin: 0 0 1.3rem; padding: 0; border-top: 1px solid var(--line); }
 .starter-list li { border-bottom: 1px solid var(--line); }

@@ -79,10 +79,11 @@ export function buildSystemPrompt(opts: { webSearch: boolean }): string {
     (which === "on") === opts.webSearch ? body : "")
     .replace("<!--MAP-->", areas.map((a) => `| \`${a.id}\` | ${a.title}${a.optional ? " (optional)" : ""} |`).join("\n"));
   const onDemand = Object.keys(skillFiles)
-    .filter((f) => f !== "SKILL.md" && !PRELOADED.includes(f))
+    .filter((f) => f !== "SKILL.md" && !PRELOADED.includes(f) && !(f.startsWith("states/") && f !== "states/INDEX.md"))
     .sort()
     .map((f) => `- \`${f}\`${f.startsWith("cards/") ? ` (${cardTitle(f)})` : ""}`)
-    .join("\n");
+    .join("\n")
+    + (Object.keys(skillFiles).some((f) => /^states\/[a-z]{2}\.md$/.test(f)) ? "\n- `states/<code>.md`, one per state and DC, by two-letter code (for example `states/ny.md`)" : "");
   const preloaded = PRELOADED.filter((f) => skillFiles[f])
     .map((f) => `<skill_file path="${f}">\n${skillFiles[f]}\n</skill_file>`)
     .join("\n\n");

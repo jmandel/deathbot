@@ -197,11 +197,11 @@ try {
   await send("Page.navigate", { url: `http://127.0.0.1:${PORT}/setup.html?nokey` });
   await waitFor(`document.getElementById("welcome") && !document.getElementById("welcome").hidden`, "welcome");
   check(await visible("#btn-signin"), "with no key, the opening offers sign-in");
-  check(!(await visible("#composer")) && !(await visible(".starter")), "with no key, there is no message box or starter list yet");
+  check(!(await visible("#composer")) && !(await visible("#btn-start")), "with no key, there is no message box or start button yet");
   check(!(await evaluate(`document.getElementById("settings").open`)), "no settings dialog is forced open");
   if (shots) await shot("0-first-visit.png");
-  await evaluate(`(()=>{document.getElementById("have-key").open=true;document.getElementById("key-first").value="sk-or-test";document.getElementById("key-form").requestSubmit();})()`);
-  check(await visible(".starter") && await visible("#composer"), "pasting a key reveals the starters and the message box");
+  await evaluate(`(()=>{document.getElementById("have-key").open=true;document.getElementById("key-first").value="sk-or-test";document.getElementById("key-use").click();})()`);
+  check(await visible("#intake") && await visible("#btn-start") && !(await visible("#composer")), "pasting a key reveals the start button; the message box waits for the conversation to start");
 
   // A stand-in for the browser's speech-to-text, so dictation can be tested without a microphone.
   await send("Page.addScriptToEvaluateOnNewDocument", { source: `
@@ -214,8 +214,31 @@ try {
       say(text, final) { this.onresult({ results: [Object.assign([{ transcript: text }], { isFinal: final })] }); if (final) this.stop(); }
     };` });
   await send("Page.navigate", { url: `http://127.0.0.1:${PORT}/setup.html` });
-  await waitFor(`document.querySelector(".starter") && !document.getElementById("starters").hidden`, "starters");
+  await waitFor(`document.getElementById("btn-start") && !document.getElementById("btn-start").hidden`, "start button");
 
+  // give the app a photo (the control lives in Your file), then start a conversation
+  // The photo arrives the easy way: attached to a message with the paperclip, not added under Your file.
+  await evaluate(`(async()=>{const dt=new DataTransfer();dt.items.add(new File([Uint8Array.from(atob("${PNG}"),c=>c.charCodeAt(0))],"me.png",{type:"image/png"}));const i=document.getElementById("file-input");i.files=dt.files;i.dispatchEvent(new Event("change"));})()`);
+  await waitFor(`document.getElementById("attachments").textContent.includes("me.png")`, "photo attached");
+  if (shots) await shot("1-opening.png");
+  // The first screen: name, state and a choice become the first message, with a note naming the state's file.
+  check((await evaluate(`document.getElementById("intake-state").options.length`)) === 54, "the state list has the 50 states, DC, outside the US and rather not say");
+  await evaluate(`(()=>{document.getElementById("intake-name").value="Frank";const s=document.getElementById("intake-state");s.value="NY";s.dispatchEvent(new Event("change",{bubbles:true}));document.querySelectorAll("#intake-topics input")[0].click();document.getElementById("intake-other").value="What is this, exactly?";document.getElementById("intake").requestSubmit();})()`);
+  await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("What do you notice"))`, "final reply");
+  await waitFor(`document.getElementById("stop").hidden`, "turn finished");
+
+  check((await text("#log")).includes("I'm Deathbot. Here's the short version on CPR."), "streamed text is assembled and rendered as markdown");
+  check((await text(".msg.user")).startsWith("I'm Frank. I live in New York. Today I'd like to understand what treatments like CPR, breathing machines and feeding tubes are really like. What is this, exactly?"), `the first screen's answers arrive as the person's first message (got: ${await text(".msg.user")})`);
+  check(JSON.stringify(requests[0]).includes("states/ny.md"), "the chosen state's file is named in a note to the model");
+  check(await visible("#composer") && !(await visible("#welcome")), "once the conversation starts, the message box replaces the first screen");
+  // Reading aloud: a button under the reply reads it with the device's voice; typing stops it.
+  check(await evaluate(`!!document.querySelector(".turn .read-aloud")`) && (await evaluate(`window.__spoken.length`)) === 0, "each reply offers Read aloud, and nothing is read unasked");
+  await evaluate(`document.querySelector(".turn .read-aloud").click()`);
+  const spoken = await evaluate(`window.__spoken.join(" ")`);
+  check(spoken.includes("short version on CPR") && !spoken.includes("**") && !spoken.includes("<"), `the reply is read as plain words (got: ${spoken.slice(0, 80)})`);
+  check((await text(".turn .read-aloud")) === "Stop reading", "the button turns into Stop reading");
+  await evaluate(`(()=>{const i=document.getElementById("input");i.value="x";i.dispatchEvent(new Event("input"));i.value="";})()`);
+  check((await text(".turn .read-aloud")) === "Read aloud", "typing in the message box stops the reading");
   // Dictation: the microphone fills the message box, a phrase at a time, and nothing is sent until the person sends it.
   check(await visible("#mic"), "a microphone button is offered when the browser can turn speech into text");
   await evaluate(`document.getElementById("mic").click()`);
@@ -227,28 +250,10 @@ try {
   await Bun.sleep(100);
   const dictated = await evaluate(`document.getElementById("input").value`);
   check(dictated === "My daughter lisa would speak for me. I have not asked her yet", `spoken phrases are joined into the message box as sentences (got: ${dictated})`);
-  check((await evaluate(`document.querySelectorAll(".msg.user").length`)) === 0, "dictation does not send anything by itself");
+  check((await evaluate(`document.querySelectorAll(".msg.user").length`)) === 1, "dictation does not send anything by itself");
   await evaluate(`document.getElementById("mic").click()`);
   check((await evaluate(`document.getElementById("mic").getAttribute("aria-pressed")`)) === "false" && !(await visible("#listening")), "tapping again stops listening");
   await evaluate(`(()=>{const i=document.getElementById("input");i.value="";i.dispatchEvent(new Event("input"));})()`);
-  // give the app a photo (the control lives in Your file), then start a conversation
-  // The photo arrives the easy way: attached to a message with the paperclip, not added under Your file.
-  await evaluate(`(async()=>{const dt=new DataTransfer();dt.items.add(new File([Uint8Array.from(atob("${PNG}"),c=>c.charCodeAt(0))],"me.png",{type:"image/png"}));const i=document.getElementById("file-input");i.files=dt.files;i.dispatchEvent(new Event("change"));})()`);
-  await waitFor(`document.getElementById("attachments").textContent.includes("me.png")`, "photo attached");
-  if (shots) await shot("1-opening.png");
-  await evaluate(`(()=>{document.getElementById("input").value="What is this, exactly?";document.getElementById("composer").requestSubmit();})()`);
-  await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("What do you notice"))`, "final reply");
-  await waitFor(`document.getElementById("stop").hidden`, "turn finished");
-
-  check((await text("#log")).includes("I'm Deathbot. Here's the short version on CPR."), "streamed text is assembled and rendered as markdown");
-  // Reading aloud: a button under the reply reads it with the device's voice; typing stops it.
-  check(await evaluate(`!!document.querySelector(".turn .read-aloud")`) && (await evaluate(`window.__spoken.length`)) === 0, "each reply offers Read aloud, and nothing is read unasked");
-  await evaluate(`document.querySelector(".turn .read-aloud").click()`);
-  const spoken = await evaluate(`window.__spoken.join(" ")`);
-  check(spoken.includes("short version on CPR") && !spoken.includes("**") && !spoken.includes("<"), `the reply is read as plain words (got: ${spoken.slice(0, 80)})`);
-  check((await text(".turn .read-aloud")) === "Stop reading", "the button turns into Stop reading");
-  await evaluate(`(()=>{const i=document.getElementById("input");i.value="x";i.dispatchEvent(new Event("input"));i.value="";})()`);
-  check((await text(".turn .read-aloud")) === "Read aloud", "typing in the message box stops the reading");
   check(await evaluate(`(()=>{const r=document.getElementById("composer").getBoundingClientRect();return r.bottom<=innerHeight+1&&r.top>0})()`), "the message box is on screen");
   check(await evaluate(`document.querySelector(".top").getBoundingClientRect().height < 70`), "the header is a single row");
   check(await evaluate(`(()=>{const r=[...document.querySelectorAll(".composer-controls > :not([hidden]):not(.grow)")].map(e=>e.getBoundingClientRect());return r.every(x=>Math.abs(x.height-r[0].height)<1&&Math.abs(x.top-r[0].top)<1)})()`), "the controls under the message box are one row of equal height");

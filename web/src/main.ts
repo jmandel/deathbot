@@ -24,6 +24,8 @@ interface Saved {
   dateSent?: string;
   /** The style settings last passed on to the model, so they are sent again only when they change. */
   styleSent?: string;
+  /** What the person told the first screen: what to call them and their state (a two-letter code, "outside" or "none"). */
+  profile?: { name?: string; state?: string };
   /** The map of the conversation: status and one-line summary per area, plus items Deathbot added. */
   progress: Record<string, { status: ProgressStatus; summary?: string; title?: string }>;
   next: string[];
@@ -375,8 +377,9 @@ function renderWelcome() {
   const connected = !!getSettings().apiKey, fresh = state.messages.length === 0;
   $("welcome").hidden = !fresh;
   $("connect").hidden = connected;
-  $("starters").hidden = !connected;
-  $("composer").hidden = !connected;
+  $("btn-start").hidden = !connected;
+  // On the first screen the intake form is the way in; the message box appears once the conversation starts.
+  $("composer").hidden = !connected || fresh;
 }
 
 // ---------- Your file ----------
@@ -619,7 +622,7 @@ function tidyRecords(settings: Settings, turnStart: number) {
     .catch((e) => console.warn("Could not tidy the map and notes.", e));
 }
 
-async function send(text: string) {
+async function send(text: string, notes: string[] = []) {
   if (dictating) stopDictation();
   voice.stop();
   if (busy || (!text.trim() && !pendingFiles.length)) return;
@@ -644,6 +647,7 @@ async function send(text: string) {
   const style = describeStyle(getStyle());
   const styleChanged = style !== (state.styleSent ?? describeStyle(STANDARD));
   if (styleChanged) parts.push({ type: "text", text: `[Harness note: how the person wants you to talk, as of now. ${style}]` });
+  for (const n of notes) parts.push({ type: "text", text: n });
   parts.push({ type: "text", text: typed });
   pendingFiles = []; renderAttachments();
   input.value = ""; fitInput();
@@ -724,6 +728,84 @@ async function answer() {
     state.lastActive = Date.now();
     await save();
   }
+}
+
+// ---------- the first screen ----------
+// A short form instead of a blank box: what to call them, their state (forms and signing rules differ
+// by state), and what they came for. Their answers become their first message, in their own voice.
+
+const STATES: [string, string][] = [["AL","Alabama"],["AK","Alaska"],["AZ","Arizona"],["AR","Arkansas"],["CA","California"],["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],["DC","District of Columbia"],["FL","Florida"],["GA","Georgia"],["HI","Hawaii"],["ID","Idaho"],["IL","Illinois"],["IN","Indiana"],["IA","Iowa"],["KS","Kansas"],["KY","Kentucky"],["LA","Louisiana"],["ME","Maine"],["MD","Maryland"],["MA","Massachusetts"],["MI","Michigan"],["MN","Minnesota"],["MS","Mississippi"],["MO","Missouri"],["MT","Montana"],["NE","Nebraska"],["NV","Nevada"],["NH","New Hampshire"],["NJ","New Jersey"],["NM","New Mexico"],["NY","New York"],["NC","North Carolina"],["ND","North Dakota"],["OH","Ohio"],["OK","Oklahoma"],["OR","Oregon"],["PA","Pennsylvania"],["RI","Rhode Island"],["SC","South Carolina"],["SD","South Dakota"],["TN","Tennessee"],["TX","Texas"],["UT","Utah"],["VT","Vermont"],["VA","Virginia"],["WA","Washington"],["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"]];
+/** Each choice: what the box says, and how it reads after "Today I'd like to". */
+const TOPICS: [string, string][] = [
+  ["Understand what treatments like CPR, breathing machines and feeding tubes are really like", "understand what treatments like CPR, breathing machines and feeding tubes are really like"],
+  ["Work out what I'd want if I couldn't speak for myself", "work out what I'd want if I couldn't speak for myself"],
+  ["Choose or prepare the person who would speak for me", "think through who would speak for me and how to prepare them"],
+  ["Get help with a form (health care proxy, living will or POLST)", "get help with a form (a health care proxy, living will or POLST)"],
+  ["Talk about living with a serious illness", "talk about living with a serious illness"],
+  ["Help or make decisions for someone else", "talk through helping or making decisions for someone else"],
+  ["Talk about someone who died", "talk about someone who died"],
+  ["Just see what this is", "see what this is and how it works"],
+];
+const INTAKE_DRAFT = "deathbot-intake"; // kept for the tab only, so signing in with OpenRouter does not lose it
+
+function readIntake() {
+  return {
+    name: $<HTMLInputElement>("intake-name").value.trim(),
+    state: $<HTMLSelectElement>("intake-state").value,
+    topics: [...document.querySelectorAll<HTMLInputElement>("#intake-topics input:checked")].map((b) => Number(b.value)),
+    other: $<HTMLTextAreaElement>("intake-other").value.trim(),
+  };
+}
+function intakeMessage(f: ReturnType<typeof readIntake>): string {
+  const out: string[] = [];
+  if (f.name) out.push(`I'm ${f.name}.`);
+  if (f.state === "DC") out.push("I live in Washington, DC.");
+  else if (f.state === "outside") out.push("I live outside the US.");
+  else { const st = STATES.find(([c]) => c === f.state); if (st) out.push(`I live in ${st[1]}.`); }
+  const frags = f.topics.map((i) => TOPICS[i]?.[1]).filter(Boolean);
+  if (frags.length) {
+    const list = frags.length === 1 ? frags[0] : frags.length === 2 ? `${frags[0]} and ${frags[1]}` : `${frags.slice(0, -1).join(", ")}, and ${frags[frags.length - 1]}`;
+    out.push(`Today I'd like to ${list}.`);
+  }
+  if (f.other) out.push(/[.?!]["”')]?$/.test(f.other) ? f.other : f.other + ".");
+  return out.length ? out.join(" ") : "Hello. I'd like to see what this is and how it works.";
+}
+function wireIntake() {
+  const sel = $<HTMLSelectElement>("intake-state");
+  for (const [code, name] of STATES) sel.add(new Option(name, code));
+  sel.add(new Option("Outside the US", "outside"));
+  sel.add(new Option("I'd rather not say", "none"));
+  const box = $("intake-topics");
+  TOPICS.forEach(([label], i) => {
+    const l = h("label", "check");
+    const c = document.createElement("input");
+    c.type = "checkbox"; c.value = String(i);
+    l.append(c, " ", h("span", "", label));
+    box.append(l);
+  });
+  const form = $<HTMLFormElement>("intake");
+  try {
+    const d = JSON.parse(sessionStorage.getItem(INTAKE_DRAFT) ?? "null");
+    if (d) {
+      $<HTMLInputElement>("intake-name").value = d.name ?? "";
+      sel.value = d.state ?? "";
+      $<HTMLTextAreaElement>("intake-other").value = d.other ?? "";
+      for (const c of box.querySelectorAll<HTMLInputElement>("input")) c.checked = (d.topics ?? []).includes(Number(c.value));
+    }
+  } catch { /* no draft */ }
+  const keep = () => sessionStorage.setItem(INTAKE_DRAFT, JSON.stringify(readIntake()));
+  form.addEventListener("input", keep);
+  form.addEventListener("change", keep);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!getSettings().apiKey) return;
+    const f = readIntake();
+    state.profile = { name: f.name || undefined, state: f.state || undefined };
+    const notes: string[] = [];
+    if (/^[A-Z]{2}$/.test(f.state)) notes.push(`[Harness note: the person chose their state on the first screen: ${STATES.find(([c]) => c === f.state)![1]}. Its forms and signing rules are in states/${f.state.toLowerCase()}.md.]`);
+    sessionStorage.removeItem(INTAKE_DRAFT);
+    send(intakeMessage(f), notes);
+  });
 }
 
 // ---------- dictation ----------
@@ -918,14 +1000,16 @@ function wireSettings() {
     lsSet("web-search", $<HTMLInputElement>("web-search").checked ? "on" : "off");
     renderWelcome();
   });
-  $("key-form").addEventListener("submit", (e) => {
-    e.preventDefault();
+  const useKey = () => {
     const k = $<HTMLInputElement>("key-first").value.trim();
     if (!k) return;
     lsSet("key", k);
     renderWelcome();
-    input.focus();
-  });
+    $("btn-start").focus();
+  };
+  $("key-use").onclick = useKey;
+  $("key-first").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); useKey(); } });
+  wireIntake();
   $("btn-share").onclick = async () => {
     const k = $<HTMLInputElement>("key").value.trim();
     if (!k) { $("share-status").textContent = "Enter a key first."; return; }
@@ -972,7 +1056,6 @@ async function start() {
     if (t.files) attach(t.files);
     t.value = "";
   });
-  for (const c of document.querySelectorAll<HTMLButtonElement>(".starter")) c.onclick = () => send(c.textContent ?? "");
   fileBtn.onclick = () => setFileOpen(!filePanel.classList.contains("open"));
   $("btn-file-close").onclick = () => setFileOpen(false);
   $("reader-close").onclick = () => reader.close();

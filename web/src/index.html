@@ -27,33 +27,41 @@
     <div id="scroll" class="scroll">
       <div id="welcome" class="welcome" hidden>
         <h1 class="lede">Talk through how you want the end of your life to go.</h1>
-        <p class="sub">I'm an AI. I can explain what treatments like CPR and breathing machines are really like, help you work out what you'd want, and write it down for whoever would speak for you.</p>
+        <p class="sub">I'm an AI. I can explain what treatments like CPR and breathing machines are really like, help you work out what you'd want, and write it down for whoever would speak for you. Your conversation is kept in this browser on your device, and messages are sent through OpenRouter to the AI model.</p>
 
-        <div id="connect" hidden>
-          <p>To talk, this page needs to reach an AI service called OpenRouter. You sign in with your own account and pay them for what you use, usually a few cents a conversation.</p>
-          <p><button id="btn-signin" type="button" class="primary">Sign in with OpenRouter</button></p>
-          <details id="have-key">
-            <summary>I already have a key</summary>
-            <form id="key-form" class="key-form">
-              <label for="key-first">OpenRouter key</label>
-              <div class="inline-field">
-                <input id="key-first" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-…">
-                <button class="quiet">Use this key</button>
+        <form id="intake" class="intake">
+          <label for="intake-name">What should I call you? <span class="opt">(optional)</span></label>
+          <input id="intake-name" type="text" autocomplete="given-name" placeholder="First name or nickname">
+
+          <label for="intake-state">Which state do you live in? <span class="opt">(optional)</span></label>
+          <select id="intake-state"><option value="">Select a state</option></select>
+          <p class="hint">The forms and signing rules depend on your state.</p>
+
+          <fieldset id="intake-topics">
+            <legend>What would you like to do today?</legend>
+            <p class="hint">Pick any that fit, or skip straight to the conversation.</p>
+          </fieldset>
+
+          <label for="intake-other">Anything else on your mind? <span class="opt">(optional)</span></label>
+          <textarea id="intake-other" rows="2" placeholder="Write a sentence or two in your own words, or leave this blank."></textarea>
+
+          <div id="connect" hidden>
+            <p>OpenRouter is the service that runs the AI model; signing in lets this page talk to it using your account, which usually costs a few cents a conversation.</p>
+            <p><button id="btn-signin" type="button" class="primary">Sign in with OpenRouter</button></p>
+            <details id="have-key">
+              <summary>I already have a key</summary>
+              <div class="key-form">
+                <label for="key-first">OpenRouter key</label>
+                <div class="inline-field">
+                  <input id="key-first" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-…">
+                  <button id="key-use" type="button" class="quiet">Use this key</button>
+                </div>
               </div>
-            </form>
-          </details>
-        </div>
+            </details>
+          </div>
 
-        <div id="starters" hidden>
-          <p class="prompt-label">What brought you here? Pick one, or type your own.</p>
-          <ul class="starter-list">
-            <li><button class="starter">What is this, exactly?</button></li>
-            <li><button class="starter">I want to plan ahead.</button></li>
-            <li><button class="starter">I'm living with a serious illness.</button></li>
-            <li><button class="starter">I want to talk about someone who died.</button></li>
-            <li><button class="starter">I need help with a form.</button></li>
-          </ul>
-        </div>
+          <p><button id="btn-start" type="submit" class="primary" hidden>Start the conversation</button></p>
+        </form>
       </div>
       <div id="log" class="log"></div>
     </div>
