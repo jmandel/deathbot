@@ -6,9 +6,9 @@
 //   bun drive.ts tap SELECTOR [N]         tap the Nth element matching SELECTOR (CSS) with a real touch
 //   bun drive.ts taptext TEXT [SCOPE]     tap the visible button or link whose text contains TEXT
 //   bun drive.ts type TEXT                tap the message box and type TEXT
-//   bun drive.ts speak WAV                dictate: mic on, play WAV through the phone, transcribe, mic off
+//   bun drive.ts speak WAV                dictate: mic on, inject WAV into the emulator mic, mic off (voice mixed in by edit.py)
 //   bun drive.ts send                     tap Send
-//   bun drive.ts wait                     wait until Deathbot has finished replying
+//   bun drive.ts wait [MIN]               wait for the reply, then read all of it at reading pace (at least MIN seconds)
 //   bun drive.ts cut start|end            mark a stretch to remove from the recording
 //   bun drive.ts eval JS                  evaluate in the page
 //   bun drive.ts scroll SELECTOR DY       scroll an element by DY CSS pixels
@@ -18,6 +18,8 @@ import path from "node:path";
 const PORT = process.env.CDP_PORT ?? "9471";
 const OUT = process.env.DEMO_OUT ?? path.join(process.env.HOME!, "hobby/.agent-scratch/deathbot-demo");
 const MARKS = path.join(OUT, "marks.log");
+// Injects audio into the emulator's microphone over its gRPC interface (48 kHz, real time).
+const SAY = process.env.SAY ?? path.join(process.env.HOME!, "hobby/.agent-scratch/mic-debug/tools/say.sh");
 // Where the page's top-left sits on the phone screen, in device pixels (status bar + Chrome toolbar).
 const TOP = Number(process.env.VIEW_TOP ?? 0);
 
@@ -109,21 +111,16 @@ try {
       break;
     }
     case "speak": {
+      // Frank speaks: the clip is injected into the emulator's microphone and Chrome's own speech
+      // recognition transcribes it live into the message box. The soundtrack gets his voice in the edit:
+      // the injection time is logged to marks.log ("voice START WAV") and edit.py mixes the clip in there.
       const wav = args[0];
       await tapRect(await rectOf(`document.getElementById("mic")`), "mic");
-      await sleep(900);
-      const b64 = Buffer.from(await Bun.file(wav).arrayBuffer()).toString("base64");
-      const played = await evaluate(`new Promise((res)=>{const a=new Audio("data:audio/wav;base64,${b64}");a.onended=()=>res("ended");a.onerror=()=>res("error");a.play().catch(e=>res("blocked "+e))})`);
-      if (played !== "ended") throw new Error(`playback: ${played}`);
-      await sleep(600);
-      await mark("cut-start");
-      // The emulator's microphone input garbles audio, so the words come from transcribing the clip the
-      // phone just played (the same sound that is on the recording's soundtrack), not from the mic.
-      const said = (await $`gemini-api analyze -i ${wav} ${"Transcribe the speech in this recording exactly as spoken, with normal punctuation. Output only the transcript, nothing else."}`.quiet().text()).trim();
-      console.log(`heard: ${said}`);
-      await mark("cut-end");
-      await evaluate(`window.__demoRec.emit(${JSON.stringify(said)})`);
-      await sleep(500);
+      await sleep(1200);
+      await mark(`voice ${path.resolve(wav)}`);
+      await $`${SAY} ${wav}`.quiet();
+      await sleep(1500); // let the recognizer finish the last words
+      console.log(`heard: ${await evaluate(`document.getElementById("input").value`)}`);
       await tapRect(await rectOf(`document.getElementById("mic")`), "mic");
       break;
     }
@@ -145,12 +142,19 @@ try {
       }
       console.log(`replied in ${Math.round((Date.now() - t0) / 1000)}s`);
       await sleep(800);
-      const dwell = Number(args[0] ?? 5) * 1000;
-      const steps = Math.max(1, Math.round(dwell / 1200));
-      for (let i = 0; i < steps; i++) {
-        await evaluate(`(()=>{const s=document.getElementById("scroll");const left=s.scrollHeight-s.clientHeight-s.scrollTop;s.scrollBy({top:Math.min(left, s.clientHeight*0.45),behavior:"smooth"})})()`);
-        await sleep(1200);
+      // Read the whole reply as a person would: scroll a screen at a time, pausing for the text each step
+      // reveals (about 220 words a minute), until the end of the reply and its buttons are in view.
+      const minimum = Number(args[0] ?? 3) * 1000;
+      const started = Date.now();
+      for (let step = 0; step < 40; step++) {
+        const view = await evaluate(`(()=>{const s=document.getElementById("scroll");return {left:s.scrollHeight-s.clientHeight-s.scrollTop,h:s.clientHeight,words:(document.getElementById("log").lastElementChild?.innerText||"").split(/\\s+/).length,total:s.scrollHeight}})()`);
+        const screenWords = Math.max(20, Math.round(view.words * Math.min(1, view.h / Math.max(view.total, 1))));
+        await sleep(Math.min(9000, Math.max(1800, screenWords / 220 * 60_000)));
+        if (view.left < 8) break;
+        await evaluate(`document.getElementById("scroll").scrollBy({top:Math.min(${view.left}, ${Math.round(view.h * 0.7)}),behavior:"smooth"})`);
+        await sleep(600);
       }
+      if (Date.now() - started < minimum) await sleep(minimum - (Date.now() - started));
       break;
     }
     case "xy":
