@@ -15,7 +15,9 @@ export type Part =
   | { type: "file"; file: { filename: string; file_data: string } };
 export type Msg =
   | { role: "user"; content: string | Part[] }
-  | { role: "assistant"; content: string | null; tool_calls?: ToolCall[]; reasoning_details?: unknown[]; _sources?: Source[]; _model?: string }
+  | { role: "assistant"; content: string | null; tool_calls?: ToolCall[]; reasoning_details?: unknown[]; _sources?: Source[]; _model?: string;
+      /** The order the model produced its output in: "r:N" reasoning item N, "t" the text, "c:N" tool call N. */
+      _order?: string[] }
   | { role: "tool"; tool_call_id: string; content: string | Part[] };
 
 export const CHAT_MODELS: { id: string; label: string }[] = [
@@ -81,10 +83,14 @@ function toInput(messages: Msg[], model: string): unknown[] {
     if (m.role === "user") {
       out.push({ type: "message", role: "user", content: typeof m.content === "string" ? [{ type: "input_text", text: m.content }] : m.content.map(inputPart) });
     } else if (m.role === "assistant") {
-      // Reasoning items belong to the model that wrote them; another model may reject them.
-      if (m._model === model) for (const r of m.reasoning_details ?? []) if ((r as any)?.type === "reasoning") out.push(r);
-      if (m.content) out.push({ type: "message", role: "assistant", id: `msg_${i}`, status: "completed", content: [{ type: "output_text", text: m.content, annotations: [] }] });
-      (m.tool_calls ?? []).forEach((c, j) => out.push({ type: "function_call", id: `fc_${i}_${j}`, call_id: c.id, name: c.function.name, arguments: c.function.arguments || "{}" }));
+      // Reasoning items belong to the model that wrote them; another model may reject them. They are sent back
+      // in the order the model produced them, between the text and calls they came with: a model that ties its
+      // reasoning to particular output (Gemini does) is confused by a reordered history.
+      const reasoning = (k: number) => { const r = m.reasoning_details?.[k] as any; if (m._model === model && r?.type === "reasoning") out.push(r); };
+      const text = () => { if (m.content) out.push({ type: "message", role: "assistant", id: `msg_${i}`, status: "completed", content: [{ type: "output_text", text: m.content, annotations: [] }] }); };
+      const call = (j: number) => { const c = m.tool_calls?.[j]; if (c) out.push({ type: "function_call", id: `fc_${i}_${j}`, call_id: c.id, name: c.function.name, arguments: c.function.arguments || "{}" }); };
+      const order = m._order ?? [...(m.reasoning_details ?? []).map((_, k) => `r:${k}`), "t", ...(m.tool_calls ?? []).map((_, j) => `c:${j}`)];
+      for (const o of order) { const [kind, n] = o.split(":"); if (kind === "r") reasoning(Number(n)); else if (kind === "t") text(); else call(Number(n)); }
     } else {
       out.push({ type: "function_call_output", call_id: m.tool_call_id, output: typeof m.content === "string" ? m.content : m.content.map(inputPart) });
     }
@@ -136,6 +142,7 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
   let text = "", streamed = "", finish: string | null = null;
   const calls: ToolCall[] = [];
   const reasoning: any[] = [];
+  const order: string[] = [];
   const sources: Source[] = [];
   const addSource = (a: any) => {
     const url = a?.url ?? a?.url_citation?.url, title = a?.title ?? a?.url_citation?.title;
@@ -164,12 +171,15 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
       if (e.type === "response.output_item.done") {
         const item = e.item ?? {};
         if (item.type === "message") {
+          if (!order.includes("t")) order.push("t");
           for (const c of item.content ?? []) {
             if (c.type === "output_text") { text += c.text ?? ""; for (const a of c.annotations ?? []) addSource(a); }
           }
         } else if (item.type === "function_call") {
+          order.push(`c:${calls.length}`);
           calls.push({ id: item.call_id, type: "function", function: { name: item.name, arguments: item.arguments ?? "" } });
         } else if (item.type === "reasoning") {
+          order.push(`r:${reasoning.length}`);
           reasoning.push(item);
         }
       }
@@ -184,6 +194,7 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
   if (calls.length) message.tool_calls = calls;
   if (reasoning.length) { message.reasoning_details = reasoning; message._model = s.model; }
   if (sources.length) message._sources = sources;
+  if (reasoning.length || calls.length) message._order = order.includes("t") || !text ? order : [...order, "t"];
   return { message, finish };
 }
 

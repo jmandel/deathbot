@@ -9,6 +9,7 @@ import { launch } from "./browser";
 const dist = path.join(import.meta.dir, "..", "dist");
 const PORT = 4175;
 const requests: any[] = [];
+const rawInputs: string[][] = [];
 const scribeRequests: any[] = [];
 let failedOnce = false;
 let outage = 4;
@@ -37,8 +38,9 @@ function sse(chunks: any[]): Response {
     for (const rd of d.reasoning_details ?? []) { thought.push(rd.text ?? ""); if (rd.signature) signature = rd.signature; }
     for (const a of d.annotations ?? []) annotations.push({ type: "url_citation", url: a.url_citation.url, title: a.url_citation.title });
   }
-  if (thought.length) ev.push({ type: "response.output_item.done", item: { type: "reasoning", id: "rs_1", summary: [], encrypted_content: `${thought.join("")}|${signature}` } });
+  // In Gemini's order: the text, then the reasoning that goes with the tool calls, then the calls.
   if (text) ev.push({ type: "response.output_item.done", item: { type: "message", role: "assistant", content: [{ type: "output_text", text, annotations }] } });
+  if (thought.length) ev.push({ type: "response.output_item.done", item: { type: "reasoning", id: "rs_1", summary: [], encrypted_content: `${thought.join("")}|${signature}` } });
   for (const c of calls) if (c) ev.push({ type: "response.output_item.done", item: { type: "function_call", call_id: c.id, name: c.name, arguments: c.args } });
   ev.push({ type: "response.completed", response: { status: "completed" } });
   const body = ": OPENROUTER PROCESSING\n\n" + ev.map((e) => `event: ${e.type}\ndata: ${JSON.stringify(e)}\n\n`).join("") + "data: [DONE]\n\n";
@@ -79,6 +81,7 @@ const server = Bun.serve({
     if (url.pathname === "/api/v1/chat/completions" || url.pathname === "/api/v1/responses") {
       const raw = await req.json();
       const body = url.pathname.endsWith("/responses") ? fromResponses(raw) : raw;
+      if (url.pathname.endsWith("/responses")) rawInputs.push(raw.input.map((it: any) => it.type === "message" ? `${it.role}-message` : it.type));
       // The scribe's quiet bookkeeping pass is not streamed; answer it separately so it does not disturb the counts below.
       if (!body.stream) {
         scribeRequests.push(body);
@@ -327,6 +330,8 @@ try {
   const assistant1 = chat[1].messages.find((m: any) => m.role === "assistant");
   check(assistant1?.tool_calls?.length === 5 && assistant1.tool_calls[1].function.arguments === '{"path":"cards/cpr.md"}', "split tool-call arguments were reassembled");
   check(assistant1?.reasoning_details?.[0]?.type === "reasoning" && assistant1.reasoning_details[0].encrypted_content === "think more|sig", "the reasoning item is sent back with the next request");
+  const order1 = (rawInputs.find((r) => r.includes("reasoning")) ?? []).filter((t) => t !== "user-message" && t !== "function_call_output");
+  check(order1.slice(0, 3).join(",") === "assistant-message,reasoning,function_call", `the model's output goes back in the order it came: text, reasoning, calls (got ${order1.slice(0, 3).join(",")})`);
   const toolResults = chat[1].messages.filter((m: any) => m.role === "tool");
   check(toolResults[0].content.includes("Layer 1") && toolResults[0].content.includes("Applying this to one person"), "read_skill_file returns the whole card to the model");
   const sys = chat[0].messages[0].content[0].text;
