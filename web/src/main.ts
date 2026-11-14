@@ -839,7 +839,11 @@ function startDictation() {
   lsSet("mic-told", "1");
   listenOnce();
 }
-/** One utterance at a time, restarted while dictation is on: the most dependable way across phones. */
+/**
+ * One utterance at a time, restarted while dictation is on: the most dependable way across phones.
+ * Android ends recognition at every pause and takes a moment to report it, so the next recognizer starts
+ * as soon as this one has its final words, not when it says it has ended; words said in between are kept.
+ */
 function listenOnce() {
   const committed = input.value.trim();
   const join = (said: string) => {
@@ -853,7 +857,10 @@ function listenOnce() {
   rec.lang = SPEECH_LANG[getStyle().language] ?? navigator.language ?? "en-US";
   rec.interimResults = true;
   rec.continuous = false;
+  let next = false;
+  const again = () => { if (!next && dictating && recognizer === rec) { next = true; listenOnce(); } };
   rec.onresult = (e: any) => {
+    if (recognizer !== rec) return;
     let said = "";
     for (let i = 0; i < e.results.length; i++) said += e.results[i][0].transcript;
     input.value = join(said);
@@ -861,6 +868,7 @@ function listenOnce() {
     // Once the box is at its full height, keep the newest words in view, with the cursor after them.
     input.scrollTop = input.scrollHeight;
     input.setSelectionRange(input.value.length, input.value.length);
+    if (e.results[e.results.length - 1].isFinal) again();
   };
   rec.onerror = (e: any) => {
     if (e.error === "no-speech" || e.error === "aborted") return; // silence is fine; keep listening
@@ -869,7 +877,7 @@ function listenOnce() {
       ? "The browser did not allow the microphone. Allow it for this page in your browser's settings, or type instead."
       : "Speech-to-text stopped working just now. You can try again or type instead.");
   };
-  rec.onend = () => { if (dictating && recognizer === rec) listenOnce(); };
+  rec.onend = again;
   try { rec.start(); } catch { stopDictation(); }
 }
 function wireDictation() {
