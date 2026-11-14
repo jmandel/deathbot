@@ -191,6 +191,23 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
  * Runs one user turn to completion, including tool round-trips.
  * Appends to `messages` in place so the caller can persist after every step.
  */
+// Tools that only change what the person sees. Once Deathbot has said something to the person and called
+// only these, the turn is over: calling the model again invites it to carry on as if the person had replied.
+const DISPLAY_TOOLS = new Set(["update_notes", "update_progress", "show_card", "show_video", "show_document"]);
+
+/**
+ * A reply that runs past its ready-made answers is the model answering its own question. Keep it up to the
+ * first <replies> block and drop the rest, along with any tool calls made for the part that is dropped.
+ */
+function stopAtFirstQuestion(message: StreamResult["message"]): boolean {
+  const text = message.content ?? "";
+  const end = text.indexOf("</replies>");
+  if (end < 0 || !text.slice(end + "</replies>".length).trim()) return false;
+  message.content = text.slice(0, end + "</replies>".length);
+  delete message.tool_calls;
+  return true;
+}
+
 export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: TurnHandlers, signal?: AbortSignal): Promise<void> {
   const system = buildSystemPrompt({ webSearch: s.webSearch });
   for (let round = 0; round < 12; round++) {
@@ -211,6 +228,7 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
     if (finish === "length" && calls.length) {
       throw new AgentError("The reply was cut off. Try sending your message again.", "other");
     }
+    if (stopAtFirstQuestion(message)) { messages.push(message); return; }
     messages.push(message);
     if (!calls.length) return;
 
@@ -228,6 +246,8 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
       }
       messages.push({ role: "tool", tool_call_id: call.id, content });
     }
+    // Spoke to the person and only updated the screen: their turn now.
+    if (message.content?.trim() && calls.every((c) => DISPLAY_TOOLS.has(c.function.name))) return;
   }
   throw new AgentError("The reply took too many steps. Try sending your message again.", "other");
 }

@@ -62,6 +62,8 @@ I'm not sure
 
 The block is not shown as text. Each line becomes a button under your latest message, and tapping one sends it as the person's next message. The buttons disappear once the person replies. The typing box is always there as well. Only the first five lines are used.
 
+The block ends your message. After it, stop and wait for the person; anything you write after it is cut off and never shown. When you have asked the person something and only updated the screen (notes, map, a card, a video, a document), your turn ends there and you are not called again until they reply.
+
 ## Health records
 
 The person gets their records from a separate service, health-skillz (health-skillz.joshuamandel.com): they sign in to their patient portal there and download a file. That takes them a few minutes on another site.
