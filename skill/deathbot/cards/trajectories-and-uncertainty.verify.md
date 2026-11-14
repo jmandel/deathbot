@@ -1,0 +1,48 @@
+Read the card, format rules, and resolution file. No files edited. **Blocked** means I could not retrieve the source text; search snippets and the resolution’s assurances were not accepted as verification. API/Europe PMC attempts also encountered access failures.
+
+| Claim | Source | Verdict (confirmed / wrong / population mismatch / blocked / outdated) | What the source actually says |
+|---|---|---|---|
+| 7,966 Medicare deaths, 1993–1998; 47% frailty, 22% cancer, 16% organ failure, 7% sudden, 8% unclassified | [Lunney 2002](https://pubmed.ncbi.nlm.nih.gov/12110073/) | confirmed | Abstract reports these figures; 92% classified. Historical claims-based population matches. |
+| All eight activity-dependence means and CIs; 4,190 decedents; interview timing | [Lunney 2003](https://pubmed.ncbi.nlm.nih.gov/12746362/) | blocked | Could not independently check figures or the different later measurement times. |
+| Four trajectory descriptions and quotations | [Murray 2005](https://pmc.ncbi.nlm.nih.gov/articles/PMC557152/) | blocked | PMC CAPTCHA; publisher also blocked. Quotations remain unverified. |
+| 383/754 participants; dementia 67.9% of 53; sudden death 50% of 10; other trajectories ≤34% | [Gill 2010](https://pubmed.ncbi.nlm.nih.gov/20357280/) | blocked | Abstract and full-text routes failed. |
+| 468 patients, 343 doctors, five hospices; 24-day median; 20%/63%/17%; 5.3-fold overestimate; relationship-duration association | [Christakis 2000](https://pubmed.ncbi.nlm.nih.gov/10678857/) | blocked | Could not read source text. |
+| 1,563 predictions, eight studies; 42 versus 29 days; 25% within a week; 27% ≥4 weeks too long | [Glare 2003](https://pubmed.ncbi.nlm.nih.gov/12881260/) | confirmed | Abstract states all figures and increasing variability with longer predictions. Applies to terminal cancer, as labelled. |
+| 42 studies; heterogeneity prevented pooling; no consistently superior clinician group | [White 2016](https://pubmed.ncbi.nlm.nih.gov/27560380/) | confirmed | Abstract supports all three statements; search ended June 2015. |
+| 56 cohorts, 68,829 patients; all surprise-question estimates and CIs | [Gupta](https://pubmed.ncbi.nlm.nih.gov/38925876/) | blocked | Search returned an abstract, but direct article/API/PDF openings failed; not independently verified under the requested standard. |
+| Twelve-month surprise-question wording; 16 studies/11,621 patients; noncancer AUC 0.77 versus cancer 0.83, with stated CIs | [Downar 2017](https://pubmed.ncbi.nlm.nih.gov/28385893/) | confirmed | Abstract matches; study outcomes were death at **6–18 months**. Does not establish that organ failure is the hardest condition to prognosticate. |
+| 54% estimated six-month survival within three days of death | [Levenson 2000](https://pubmed.ncbi.nlm.nih.gov/10809463/) | blocked | Could not read source text. |
+| 2,607 discharged survivors; 75% survived six months; 70% of 923 meeting broad criteria survived | [Fox 1999](https://pubmed.ncbi.nlm.nih.gov/10553790/) | blocked | Discharge-survivor wording was added, as the resolution says; numerical verification failed. |
+| Medicare hospice certification, election and continuation beyond six months | [Medicare](https://www.medicare.gov/coverage/hospice-care) | wrong | Six-month threshold and recertification are correct, but conditions are omitted: Part A, hospice and regular doctor certification if applicable, signed election, related conditions, and face-to-face recertification requirements. |
+| Hospice room and board are not covered | [Medicare](https://www.medicare.gov/coverage/hospice-care) | wrong | Ordinarily excluded, **but hospice-arranged short-term inpatient or respite stays are covered**. |
+| Review through 2011: 16 indices, none C≥0.90, only two independently validated | [Yourman 2012](https://pubmed.ncbi.nlm.nih.gov/22235089/) | blocked | Could not read source text. |
+| Lee/Schonberg: ages 50+, four-to-fourteen-year outcomes; C=0.82/0.75; 1997–2004 surveys | [UCSF](https://eprognosis.ucsf.edu/leeschonberg.php), [Schonberg 2011](https://pubmed.ncbi.nlm.nih.gov/21797837/) | population mismatch | Combined page lists ages 50+, but Schonberg’s population is **65+**. The 0.75 statistic concerns five-year mortality; UCSF gives 0.73/0.72 for ten/fourteen years. Survey dates match. |
+| Lee four-year mortality <4% at 0–5 points to 64% at ≥14 | [Lee 2006](https://pubmed.ncbi.nlm.nih.gov/16478903/) | blocked | Original paper unavailable; opened calculator page did not supply these score-band figures. |
+| BODE HR 1.34 per point, CI 1.26–1.42; C=0.74; six-minute walk; avoid acute exacerbations | [Celli 2004](https://pubmed.ncbi.nlm.nih.gov/14999112/), [MDCalc](https://www.mdcalc.com/calc/3916/bode-index-copd-survival) | confirmed | Abstract supports figures: 207 derivation and 625 validation patients. MDCalc explicitly excludes acute exacerbations. |
+| Seattle one-to-three-year survival; AUC 0.729 (0.714–0.744); underprediction in 445 referrals | [Levy](https://pubmed.ncbi.nlm.nih.gov/16534009/), [Kalogeropoulos](https://pubmed.ncbi.nlm.nih.gov/19161882/) | blocked | Direct papers unavailable. Cannot independently confirm figures or outcome definition. |
+| Seattle calculator requires clinician presence | [University of Washington](https://depts.washington.edu/shfm/) | confirmed | Site explicitly says patients should use it with their healthcare provider present. |
+| PaP: 30-day survival; 451 Italian patients, 1999 | [Pirovano](https://pubmed.ncbi.nlm.nih.gov/10203875/), [Maltoni](https://pubmed.ncbi.nlm.nih.gov/10203876/) | blocked | Original abstracts unavailable. |
+| PaP evidence represented only by 1999 studies | [2024 systematic review](https://pmc.ncbi.nlm.nih.gov/articles/PMC11682862/) | outdated | Opened review includes 39 studies/10,617 patients and evaluates 30-day prediction. The old study is not the current evidence summary. |
+| PPS: 4,779 patients, 2018–2020; discrimination 0.74/0.67; survival estimates 2.3–11.7-fold longer | [Bischoff 2024](https://pubmed.ncbi.nlm.nih.gov/38976269/) | confirmed | Abstract matches; single academic centre, inpatient/outpatient palliative consultations; discrimination is integrated time-dependent AUC. |
+| Linked PPS calculator corresponds to modern evidence | [Linked calculator](https://eprognosis.ucsf.edu/pps.php?p=hospice) | population mismatch | Page instead describes community hospice and an older 396-person validation requiring a stay of at least five days. |
+| ADEPT: 12 items; six-month mortality; 606 residents; AUC 0.67 (0.62–0.72) | [Mitchell 2010](https://pubmed.ncbi.nlm.nih.gov/21045099/), [calculator](https://eprognosis.ucsf.edu/mitchell.php) | confirmed | Twelve calculator items; validation in 21 Boston nursing homes, 2007–2009, advanced dementia. Figures and quoted goals-of-care conclusion match. |
+| NCI explainer has three patient/doctor videos | [NCI](https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis) | blocked | Redirect/access failures; content and playback unverified. |
+| *Being Mortal*, 2015, 54 minutes; trailer/full-film links | [PBS](https://www.pbs.org/wgbh/frontline/documentary/being-mortal/) | blocked | HTTP 403; browser-agent GET retry also failed. |
+| ePrognosis reading link loads and provides calculators | [UCSF](https://eprognosis.ucsf.edu/) | confirmed | Homepage and calculator directory load. |
+| “Left for other cards”: Teasdale data through June 2023 | [Teasdale full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10774989/) | blocked | CAPTCHA; date coverage unverified. |
+
+1. **Correct the Medicare paragraph.** Restore the eligibility/election conditions and inpatient/respite exception above. The resolution’s claim that this issue was resolved is incomplete. An official Medicare page satisfies the format rules; reading the regulation is not additionally required.
+
+2. **Separate Lee and Schonberg before allowing calculations.** Specify each tool’s age eligibility, horizon, inputs and corresponding validation statistic. Replace “people who answered as you did … died” with “the model estimates approximately…”; the former implies directly observed outcomes in an identical subgroup.
+
+3. **Fix the PPS calculator link.** Link a calculator actually implementing the cited modern study, or explicitly identify the linked tool’s older hospice population. Updating the evidence row alone did not resolve this mismatch.
+
+4. **Do not retain acknowledged unverified quotations in the body.** Murray’s quotations remain both in the body and under “Not verified,” contrary to the format rules. Verify them directly or remove them. Other blocked findings above remain unresolved, not disproved.
+
+5. **Finish the Seattle outcome correction.** The resolution records a composite of death, urgent transplant or LVAD; the card still says only “underestimated risk.” Name the endpoint after obtaining readable source text. I could not independently verify that paper.
+
+6. **Update and qualify evidence currency.** PaP has a newer systematic review; a [2026 heart-failure review](https://pmc.ncbi.nlm.nih.gov/articles/PMC13020396/) also documents later Seattle validations. Historical figures need not be deleted, but should not stand in for current validation. I could not establish supersession status for every blocked study.
+
+7. **Complete the care-path balance.** Explicitly include declining a particular intervention, less invasive alternatives, and palliative support alongside treatment. Describe comfort-care benefits and practical caregiving burdens, with actual cross-links. No explicit treatment recommendation was found, but “nobody knows” and “prediction is hardest in organ failure” overstate uncertainty; use narrower, sourced wording.
+
+**Overall verdict: PASS WITH FIXES.**

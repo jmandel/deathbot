@@ -1,0 +1,2302 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT03609177",
+   "orgStudyIdInfo": {
+    "id": "18-276"
+   },
+   "secondaryIdInfos": [
+    {
+     "id": "UG3AG060626",
+     "type": "NIH",
+     "link": "https://reporter.nih.gov/quickSearch/UG3AG060626"
+    }
+   ],
+   "organization": {
+    "fullName": "Dana-Farber Cancer Institute",
+    "class": "OTHER"
+   },
+   "briefTitle": "Advance Care Planning: Promoting Effective and Aligned Communication in the Elderly",
+   "officialTitle": "Improving Advance Care Planning in Oncology: A Pragmatic, Cluster-Randomized Trial Integrating Patient Videos and Clinician Communication Training",
+   "acronym": "ACP-PEACE"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2025-10",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2020-04-15",
+    "type": "ACTUAL"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2022-11-23",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2024-09-30",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2018-07-25",
+   "studyFirstSubmitQcDate": "2018-07-25",
+   "studyFirstPostDateStruct": {
+    "date": "2018-08-01",
+    "type": "ACTUAL"
+   },
+   "resultsFirstSubmitDate": "2025-05-05",
+   "resultsFirstSubmitQcDate": "2025-09-10",
+   "resultsFirstPostDateStruct": {
+    "date": "2025-09-11",
+    "type": "ACTUAL"
+   },
+   "lastUpdateSubmitDate": "2025-10-03",
+   "lastUpdatePostDateStruct": {
+    "date": "2025-10-21",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "PRINCIPAL_INVESTIGATOR",
+    "investigatorFullName": "James A. Tulsky",
+    "investigatorTitle": "Principal Investigator",
+    "investigatorAffiliation": "Dana-Farber Cancer Institute"
+   },
+   "leadSponsor": {
+    "name": "Dana-Farber Cancer Institute",
+    "class": "OTHER"
+   },
+   "collaborators": [
+    {
+     "name": "Massachusetts General Hospital",
+     "class": "OTHER"
+    },
+    {
+     "name": "Boston Medical Center",
+     "class": "OTHER"
+    },
+    {
+     "name": "Northwell Health",
+     "class": "OTHER"
+    },
+    {
+     "name": "Mayo Clinic",
+     "class": "OTHER"
+    },
+    {
+     "name": "Duke University",
+     "class": "OTHER"
+    },
+    {
+     "name": "National Institute on Aging (NIA)",
+     "class": "NIH"
+    }
+   ]
+  },
+  "oversightModule": {
+   "oversightHasDmc": false,
+   "isFdaRegulatedDrug": false,
+   "isFdaRegulatedDevice": false
+  },
+  "descriptionModule": {
+   "briefSummary": "In this research study, the investigators are working to help oncologists better serve patients by delivering more patient-centered, goal-concordant care that may improve health care delivery.\n\n\\- It is expected that about 30,000 people will take part in this research study, 29,550 of these patients, the vast majority, will be included only for medical record review.",
+   "detailedDescription": "The purpose of this study is to improve the quality of care provided to millions of older Americans with cancer. The investigators are working to help oncologists better serve patients by delivering more patient-centered, goal-concordant care that may dramatically improve health care delivery.\n\nThis is pragmatic stepped wedge cluster randomized trial (SW-CRT) of a Comprehensive ACP (Advance Care Planning) Program among older oncology patients. The ACP Program will include training clinicians in communication skills and using video decision aids for participants.\n\n\\- This study will involve medical record review of 30,000 people age 65 or older with advanced cancer.\n\nWe will also recruit 450 eligible patients (150 patients from each of our three sites broken down into 75 patients during the control phase and 75 patients during the intervention phase) to conduct a survey for our secondary patient-centered outcomes (confidence, satisfaction with physician communication, patient decisional satisfaction and regret). From among this sub-group we will engage 240 participants (80 from each of our three sites broken down into 40 patients during the control phase and 40 patients during the intervention phase) in an activity to film video declarations of their preferences.\n\nDuring the first year, three pilot sites (one at each health care system) will trial the intervention. The subjects recruited at these pilot sites will not be included in the final analysis. Thus, the main trial will begin during year 2 and continue through year 5 with recruitment of 30,000 subjects for the primary outcome at 30 oncology clinics. The first year pilot will serve to inform the larger roll-out and the intervention may change during the first year based on pilot-clinic experience."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "Other Cancer"
+   ],
+   "keywords": [
+    "Cancer Care"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "PARALLEL",
+    "primaryPurpose": "HEALTH_SERVICES_RESEARCH",
+    "maskingInfo": {
+     "masking": "NONE"
+    }
+   },
+   "enrollmentInfo": {
+    "count": 13800,
+    "type": "ACTUAL"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "Advance Care Planning",
+     "type": "EXPERIMENTAL",
+     "description": "-Survey:\n\n* A group of older patients with advanced cancer (N=450) will have a survey over the course of the 36 months of recruitment.\n* Participants will be provided written copies of the questions to follow along during the interviews",
+     "interventionNames": [
+      "Other: Clinician Communication Skills Training",
+      "Other: Advance Care Planning (ACP) Decisions Videos Decisions Aids"
+     ]
+    },
+    {
+     "label": "Advance Care Planning-Video Declaration",
+     "type": "EXPERIMENTAL",
+     "description": "Video Declaration:\n\n* From among this group of 450 participants, the video declaration of preferences activity will be conducted with 240 patients.\n* For those participants that agree to the video declaration, they will proceed with recording of their video declarations\n* The RA will begin by reading a standardized introduction to aid the subject do the video",
+     "interventionNames": [
+      "Other: Clinician Communication Skills Training",
+      "Other: Advance Care Planning (ACP) Decisions Videos Decisions Aids",
+      "Other: Video Declarations (ViDec)"
+     ]
+    },
+    {
+     "label": "Comprehensive Record Review of ACP",
+     "type": "OTHER",
+     "description": "* A review of Medical orders for resuscitation preferences in the electronic health record\n* A review of Medical orders for Palliative care consultations preferences in the electronic health record\n* A review of Medical orders for Hospice use preferences in the electronic health record",
+     "interventionNames": [
+      "Other: Clinician Communication Skills Training",
+      "Other: Advance Care Planning (ACP) Decisions Videos Decisions Aids",
+      "Other: Video Declarations (ViDec)"
+     ]
+    },
+    {
+     "label": "Main Study Arm",
+     "type": "EXPERIMENTAL",
+     "description": "Patients with cancer being seen at the 30 oncology clinics will be exposed to clinicians who have had communication skills training (Vital Talk) and who are using video decision aids (ACP Decisions). Our main outcome is advance care planning documentation.",
+     "interventionNames": [
+      "Other: Clinician Communication Skills Training",
+      "Other: Advance Care Planning (ACP) Decisions Videos Decisions Aids",
+      "Other: Video Declarations (ViDec)"
+     ]
+    }
+   ],
+   "interventions": [
+    {
+     "type": "OTHER",
+     "name": "Clinician Communication Skills Training",
+     "description": "Communication skills training",
+     "armGroupLabels": [
+      "Advance Care Planning",
+      "Advance Care Planning-Video Declaration",
+      "Comprehensive Record Review of ACP",
+      "Main Study Arm"
+     ],
+     "otherNames": [
+      "Vital Talk Communication Skills Training"
+     ]
+    },
+    {
+     "type": "OTHER",
+     "name": "Advance Care Planning (ACP) Decisions Videos Decisions Aids",
+     "description": "ACP Decisions video decision aids",
+     "armGroupLabels": [
+      "Advance Care Planning",
+      "Advance Care Planning-Video Declaration",
+      "Comprehensive Record Review of ACP",
+      "Main Study Arm"
+     ]
+    },
+    {
+     "type": "OTHER",
+     "name": "Video Declarations (ViDec)",
+     "description": "Recording of patient advance care planning videos",
+     "armGroupLabels": [
+      "Advance Care Planning-Video Declaration",
+      "Comprehensive Record Review of ACP",
+      "Main Study Arm"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Number of Participants With Advance Care Planning Documentation",
+     "description": "Any advance directive (e.g., living will, POLST, etc.) and changes of resuscitation orders or any indication in the EHR of a goals-of-care or advance care planning conversation",
+     "timeFrame": "6 months"
+    }
+   ],
+   "secondaryOutcomes": [
+    {
+     "measure": "Number of Participants With CODE Status Limitations",
+     "description": "Documented choices regarding CPR and mechanical ventilation in the EHR",
+     "timeFrame": "6 months"
+    },
+    {
+     "measure": "Rate of Palliative Care Consultation",
+     "description": "Use of palliative care services (consults, outpatient visits) in the EHR",
+     "timeFrame": "6 months"
+    },
+    {
+     "measure": "Rate of Hospice Use",
+     "description": "Use of hospice documented in the EHR",
+     "timeFrame": "6 months"
+    },
+    {
+     "measure": "Confidence in Future Care",
+     "description": "(in person survey) patient confidence that they will receive the right care at the right time by their health system. The scale ranged from 1 Not at all confident to 5 Very confident. Higher values represent a better outcome.",
+     "timeFrame": "6 months"
+    },
+    {
+     "measure": "Communication and Decisional Satisfaction",
+     "description": "(In person survey) patient satisfaction with communication and decision making.The scale range is from 1- Strongly Disagree to 5 - Strongly Disagree. Higher values represent better outcomes. Subscales were combined questions were summed to compute a total score. The lowest possible score is a 9 and the highest possible score is 45. Lower scores indicate lower communication and decisional satisfaction.",
+     "timeFrame": "6 months"
+    },
+    {
+     "measure": "Decisional Regret",
+     "description": "(In person survey) patient regret regarding decision making. The response range is 1 - Strongly Disagree to 5 - Strongly agree. Higher numbers represent a worse outcome. Scale questions were summed to compute a total score. The lowest possible score is 2 and the highest possible score is 10. Lower scores indicate less decisional regret.",
+     "timeFrame": "6 months"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "Inclusion Criteria for clinics:\n\nClinic eligibility criteria include:\n\n* More than one oncologist\n* Serve a patient population that is at least 30% aged 65 or older\n* Disease-based oncology clinic\n\nSubject Eligibility: (for the in-person surveys):\n\n\\- Any patient affiliated with one of the study clinics who speaks English and is aged 65 or older with advanced cancer is eligible for participation. Advanced cancer is defined as metastatic disease for solid tumors and recurrent or refractory disease for hematological malignancies. There are no exclusions based on gender, race, or ethnicity.\n\nExclusion Criteria:\n\n* Adults unable to consent\n* Individuals who are not yet adults (infants, children, teenagers)\n* Pregnant women\n* Prisoners",
+   "healthyVolunteers": false,
+   "sex": "ALL",
+   "minimumAge": "65 Years",
+   "stdAges": [
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "James A. Tulsky, MD",
+     "affiliation": "Dana-Farber Cancer Institute",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "Dana Farber Cancer Institute",
+     "city": "Boston",
+     "state": "Massachusetts",
+     "zip": "02215",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 42.35843,
+      "lon": -71.05977
+     }
+    },
+    {
+     "facility": "Mayo Clinic",
+     "city": "Rochester",
+     "state": "Minnesota",
+     "zip": "55905",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 44.02163,
+      "lon": -92.4699
+     }
+    },
+    {
+     "facility": "Northwell Health",
+     "city": "New Hyde Park",
+     "state": "New York",
+     "zip": "11040",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 40.7351,
+      "lon": -73.68791
+     }
+    },
+    {
+     "facility": "Duke Health",
+     "city": "Durham",
+     "state": "North Carolina",
+     "zip": "27710",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 35.99403,
+      "lon": -78.89862
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "40343696",
+     "type": "DERIVED",
+     "citation": "Volandes AE, Chang Y, Lakin JR, Paasche-Orlow MK, Lindvall C, Zupanc SN, Martins-Welch D, Carney MT, Burns EA, Itty J, Emmert-Tangredi K, Martin NJ, Sanghani S, Tilburt J, Pollak KI, Davis AD, Garde C, Barry MJ, El-Jawahri A, Quintiliani L, Sciacca K, Goldman J, Tulsky JA. An Intervention to Increase Advance Care Planning Among Older Adults With Advanced Cancer: A Randomized Clinical Trial. JAMA Netw Open. 2025 May 1;8(5):e259150. doi: 10.1001/jamanetworkopen.2025.9150."
+    },
+    {
+     "pmid": "33826860",
+     "type": "DERIVED",
+     "citation": "Lakin JR, Gundersen DA, Lindvall C, Paasche-Orlow MK, Tulsky JA, Brannen EN, Pollak KI, Kennedy D, McLeggon JA, Stout JJ, Volandes A; ACP-PEACE Investigators. A Yet Unrealized Promise: Structured Advance Care Planning Elements in the Electronic Health Record. J Palliat Med. 2021 Aug;24(8):1221-1225. doi: 10.1089/jpm.2020.0774. Epub 2021 Apr 7."
+    },
+    {
+     "pmid": "32665394",
+     "type": "DERIVED",
+     "citation": "Lakin JR, Brannen EN, Tulsky JA, Paasche-Orlow MK, Lindvall C, Chang Y, Gundersen DA, El-Jawahri A, Volandes A; ACP-PEACE Investigators. Advance Care Planning: Promoting Effective and Aligned Communication in the Elderly (ACP-PEACE): the study protocol for a pragmatic stepped-wedge trial of older patients with cancer. BMJ Open. 2020 Jul 14;10(7):e040999. doi: 10.1136/bmjopen-2020-040999."
+    }
+   ]
+  },
+  "ipdSharingStatementModule": {
+   "ipdSharing": "NO"
+  }
+ },
+ "resultsSection": {
+  "participantFlowModule": {
+   "preAssignmentDetails": "This is a stepped-wedge, cluster randomized trial where clinics were randomized at various steps to move from a control period to the intervention periods. A total of 13,800 unique participants from 29 clinics were enrolled in the study. Participants could have contributed data multiple times during any step of the study.",
+   "recruitmentDetails": "Recruitment was from April, 2020 - November, 2022. Locations: 36 cancer clinics",
+   "typeUnitsAnalyzed": "clinic",
+   "groups": [
+    {
+     "id": "FG000",
+     "title": "Sequence 1: Control (6 Months), Intervention (24 Months)",
+     "description": "Clinics participated in a baseline control period for 6 months followed by 24 months of intervention"
+    },
+    {
+     "id": "FG001",
+     "title": "Sequence 2: Control (12 Months), Intervention (18 Months)",
+     "description": "Clinics participated in control periods for 12 months followed by 18 months of intervention"
+    },
+    {
+     "id": "FG002",
+     "title": "Sequence 3: Control (18 Months), Intervention (12 Months)",
+     "description": "Clinics participated in control periods for 18 months followed by 12 months of intervention"
+    },
+    {
+     "id": "FG003",
+     "title": "Sequence 4: Control (24 Months), Intervention (6 Months)",
+     "description": "Clinics participated in control periods for 24 months followed by 6 months of intervention"
+    }
+   ],
+   "periods": [
+    {
+     "title": "Baseline",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1571",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1604",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1151",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1376",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "Intervention",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      },
+      {
+       "type": "Control",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1571",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1604",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1151",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1376",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1571",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1604",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1151",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1376",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Step 1",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1593",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1538",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1152",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1253",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "Intervention",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1593",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      },
+      {
+       "type": "Control",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1538",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1152",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1253",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1593",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1538",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1152",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1253",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Step 2",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1741",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1589",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1033",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1440",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "Intervention",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1741",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1589",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      },
+      {
+       "type": "Control",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1033",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1440",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1741",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1589",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1033",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1440",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Step 3",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1961",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1464",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1177",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1485",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "Intervention",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1961",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1464",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1177",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      },
+      {
+       "type": "Control",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1485",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1961",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1461",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1177",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1485",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "3",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Step 4",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1789",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1519",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1318",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1603",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "Intervention",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1789",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1519",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1318",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1603",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "Control",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1789",
+         "numUnits": "6"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1519",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "1318",
+         "numUnits": "9"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "1603",
+         "numUnits": "5"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "baselineCharacteristicsModule": {
+   "populationDescription": "No difference",
+   "groups": [
+    {
+     "id": "BG000",
+     "title": "Intervention Arm",
+     "description": "Patients with cancer being seen at the 30 oncology clinics will be exposed to clinicians who have had communication skills training (Vital Talk) and who are using video decision aids (ACP Decisions). Our main outcome is advance care planning documentation.\n\nClinician Communication Skills Training: Communication skills training\n\nAdvance Care Planning (ACP) Decisions Videos Decisions Aids: ACP Decisions video decision aids\n\nVideo Declarations (ViDec): Recording of patient advance care planning videos"
+    },
+    {
+     "id": "BG001",
+     "title": "Usual Care Arm",
+     "description": "Patients who were not exposed to any intervention"
+    },
+    {
+     "id": "BG002",
+     "title": "Total",
+     "description": "Total of all reporting groups"
+    }
+   ],
+   "denoms": [
+    {
+     "units": "Participants",
+     "counts": [
+      {
+       "groupId": "BG000",
+       "value": "15754"
+      },
+      {
+       "groupId": "BG001",
+       "value": "13603"
+      },
+      {
+       "groupId": "BG002",
+       "value": "29357"
+      }
+     ]
+    }
+   ],
+   "measures": [
+    {
+     "title": "Age, Continuous",
+     "paramType": "MEAN",
+     "dispersionType": "STANDARD_DEVIATION",
+     "unitOfMeasure": "Years",
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "74.4",
+           "spread": "6.6"
+          },
+          {
+           "groupId": "BG001",
+           "value": "74.6",
+           "spread": "6.7"
+          },
+          {
+           "groupId": "BG002",
+           "value": "74.5",
+           "spread": "6.6"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Sex: Female, Male",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "Female",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "7284"
+          },
+          {
+           "groupId": "BG001",
+           "value": "6729"
+          },
+          {
+           "groupId": "BG002",
+           "value": "14013"
+          }
+         ]
+        },
+        {
+         "title": "Male",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "8470"
+          },
+          {
+           "groupId": "BG001",
+           "value": "6874"
+          },
+          {
+           "groupId": "BG002",
+           "value": "15344"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Ethnicity (NIH/OMB)",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "Hispanic or Latino",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "454"
+          },
+          {
+           "groupId": "BG001",
+           "value": "392"
+          },
+          {
+           "groupId": "BG002",
+           "value": "846"
+          }
+         ]
+        },
+        {
+         "title": "Not Hispanic or Latino",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "14750"
+          },
+          {
+           "groupId": "BG001",
+           "value": "12,801"
+          },
+          {
+           "groupId": "BG002",
+           "value": "27551"
+          }
+         ]
+        },
+        {
+         "title": "Unknown or Not Reported",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "550"
+          },
+          {
+           "groupId": "BG001",
+           "value": "410"
+          },
+          {
+           "groupId": "BG002",
+           "value": "960"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Race (NIH/OMB)",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "American Indian or Alaska Native",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "35"
+          },
+          {
+           "groupId": "BG001",
+           "value": "27"
+          },
+          {
+           "groupId": "BG002",
+           "value": "62"
+          }
+         ]
+        },
+        {
+         "title": "Asian",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "556"
+          },
+          {
+           "groupId": "BG001",
+           "value": "479"
+          },
+          {
+           "groupId": "BG002",
+           "value": "1035"
+          }
+         ]
+        },
+        {
+         "title": "Native Hawaiian or Other Pacific Islander",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "7"
+          },
+          {
+           "groupId": "BG001",
+           "value": "3"
+          },
+          {
+           "groupId": "BG002",
+           "value": "10"
+          }
+         ]
+        },
+        {
+         "title": "Black or African American",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "1978"
+          },
+          {
+           "groupId": "BG001",
+           "value": "1455"
+          },
+          {
+           "groupId": "BG002",
+           "value": "3433"
+          }
+         ]
+        },
+        {
+         "title": "White",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "11830"
+          },
+          {
+           "groupId": "BG001",
+           "value": "10441"
+          },
+          {
+           "groupId": "BG002",
+           "value": "22271"
+          }
+         ]
+        },
+        {
+         "title": "More than one race",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "1"
+          },
+          {
+           "groupId": "BG001",
+           "value": "10"
+          },
+          {
+           "groupId": "BG002",
+           "value": "11"
+          }
+         ]
+        },
+        {
+         "title": "Unknown or Not Reported",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "1347"
+          },
+          {
+           "groupId": "BG001",
+           "value": "1188"
+          },
+          {
+           "groupId": "BG002",
+           "value": "2535"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Language",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "English",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "15096"
+          },
+          {
+           "groupId": "BG001",
+           "value": "13067"
+          },
+          {
+           "groupId": "BG002",
+           "value": "28163"
+          }
+         ]
+        },
+        {
+         "title": "Other",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "554"
+          },
+          {
+           "groupId": "BG001",
+           "value": "490"
+          },
+          {
+           "groupId": "BG002",
+           "value": "1044"
+          }
+         ]
+        },
+        {
+         "title": "Unknown",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "104"
+          },
+          {
+           "groupId": "BG001",
+           "value": "46"
+          },
+          {
+           "groupId": "BG002",
+           "value": "150"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "outcomeMeasuresModule": {
+   "outcomeMeasures": [
+    {
+     "type": "PRIMARY",
+     "title": "Number of Participants With Advance Care Planning Documentation",
+     "description": "Any advance directive (e.g., living will, POLST, etc.) and changes of resuscitation orders or any indication in the EHR of a goals-of-care or advance care planning conversation",
+     "populationDescription": "The primary outcome measure was assessed at the participant level (all eligible patients) and not at the unit level.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Intervention Arm",
+       "description": "Patients with cancer being seen at the 30 oncology clinics will be exposed to clinicians who have had communication skills training (Vital Talk) and who are using video decision aids (ACP Decisions). Our main outcome is advance care planning documentation.\n\nClinician Communication Skills Training: Communication skills training\n\nAdvance Care Planning (ACP) Decisions Videos Decisions Aids: ACP Decisions video decision aids\n\nVideo Declarations (ViDec): Recording of patient advance care planning videos"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care Arm",
+       "description": "Patients who were not exposed to any intervention"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "15754"
+        },
+        {
+         "groupId": "OG001",
+         "value": "13603"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "title": "Baseline",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "0"
+          },
+          {
+           "groupId": "OG001",
+           "value": "1163"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 1",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "349"
+          },
+          {
+           "groupId": "OG001",
+           "value": "901"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 2",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "886"
+          },
+          {
+           "groupId": "OG001",
+           "value": "511"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 3",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "1047"
+          },
+          {
+           "groupId": "OG001",
+           "value": "259"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 4",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "1698"
+          },
+          {
+           "groupId": "OG001",
+           "value": "0"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "pValue": "<0.05",
+       "statisticalMethod": "binomial regression with identity link",
+       "paramType": "Risk Difference (RD)",
+       "paramValue": "6.8",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "2.8",
+       "ciUpperLimit": "10.8"
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Number of Participants With CODE Status Limitations",
+     "description": "Documented choices regarding CPR and mechanical ventilation in the EHR",
+     "populationDescription": "The secondary outcome measure was assessed at the participant level (all eligible patients) and not at the unit level.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Intervention Arm",
+       "description": "Patient Physician Experienced Training"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "Usual Care Group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "15754"
+        },
+        {
+         "groupId": "OG001",
+         "value": "13603"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "title": "Baseline",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "0"
+          },
+          {
+           "groupId": "OG001",
+           "value": "303"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 1",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "58"
+          },
+          {
+           "groupId": "OG001",
+           "value": "205"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 2",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "155"
+          },
+          {
+           "groupId": "OG001",
+           "value": "142"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 3",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "280"
+          },
+          {
+           "groupId": "OG001",
+           "value": "74"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 4",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "354"
+          },
+          {
+           "groupId": "OG001",
+           "value": "0"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "pValue": "<0.05",
+       "statisticalMethod": "binomial regression with identity link",
+       "paramType": "Risk Difference (RD)",
+       "paramValue": "-0.1",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "-0.7",
+       "ciUpperLimit": "0.6"
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Rate of Palliative Care Consultation",
+     "description": "Use of palliative care services (consults, outpatient visits) in the EHR",
+     "populationDescription": "The secondary outcome measure was assessed at the participant level (all eligible patients) and not at the unit level.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Intervention Arm",
+       "description": "Patients with cancer being seen at the 30 oncology clinics will be exposed to clinicians who have had communication skills training (Vital Talk) and who are using video decision aids (ACP Decisions). Our main outcome is advance care planning documentation.\n\nClinician Communication Skills Training: Communication skills training\n\nAdvance Care Planning (ACP) Decisions Videos Decisions Aids: ACP Decisions video decision aids\n\nVideo Declarations (ViDec): Recording of patient advance care planning videos"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care Arm",
+       "description": "Patients who were not exposed to any intervention"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "15754"
+        },
+        {
+         "groupId": "OG001",
+         "value": "13603"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "title": "Baseline",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "0"
+          },
+          {
+           "groupId": "OG001",
+           "value": "531"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 1",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "102"
+          },
+          {
+           "groupId": "OG001",
+           "value": "375"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 2",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "324"
+          },
+          {
+           "groupId": "OG001",
+           "value": "253"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 3",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "443"
+          },
+          {
+           "groupId": "OG001",
+           "value": "128"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 4",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "648"
+          },
+          {
+           "groupId": "OG001",
+           "value": "0"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "pValue": "<0.05",
+       "statisticalMethod": "binomial regression with identity link",
+       "paramType": "Risk Difference (RD)",
+       "paramValue": "0.7",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "-0.5",
+       "ciUpperLimit": "1.90"
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Rate of Hospice Use",
+     "description": "Use of hospice documented in the EHR",
+     "populationDescription": "The secondary outcome measure was assessed at the participant level (all eligible patients) and not at the unit level.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Intervention",
+       "description": "Patient Physician Experienced Training"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "Usual Care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "15754"
+        },
+        {
+         "groupId": "OG001",
+         "value": "13603"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "title": "Baseline",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "0"
+          },
+          {
+           "groupId": "OG001",
+           "value": "491"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 1",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "50"
+          },
+          {
+           "groupId": "OG001",
+           "value": "348"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 2",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "260"
+          },
+          {
+           "groupId": "OG001",
+           "value": "202"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 3",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "350"
+          },
+          {
+           "groupId": "OG001",
+           "value": "108"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Step 4",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "468"
+          },
+          {
+           "groupId": "OG001",
+           "value": "0"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "pValue": "<0.05",
+       "statisticalMethod": "binomial regression with identity link",
+       "paramType": "Risk Difference (RD)",
+       "paramValue": "0.3",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "-0.4",
+       "ciUpperLimit": "1.0"
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Confidence in Future Care",
+     "description": "(in person survey) patient confidence that they will receive the right care at the right time by their health system. The scale ranged from 1 Not at all confident to 5 Very confident. Higher values represent a better outcome.",
+     "populationDescription": "The secondary outcome measure was assessed at the participant level (all eligible patients) and not at the unit level.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Control",
+       "description": "Participants who have filled out a survey from the control group"
+      },
+      {
+       "id": "OG001",
+       "title": "Intervention",
+       "description": "Participants who have filled out a survey from the intervention group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "196"
+        },
+        {
+         "groupId": "OG001",
+         "value": "122"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "None to little confidence",
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "4"
+          },
+          {
+           "groupId": "OG001",
+           "value": "4"
+          }
+         ]
+        },
+        {
+         "title": "Somewhat confident",
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "13"
+          },
+          {
+           "groupId": "OG001",
+           "value": "8"
+          }
+         ]
+        },
+        {
+         "title": "Fairly confident",
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "27"
+          },
+          {
+           "groupId": "OG001",
+           "value": "15"
+          }
+         ]
+        },
+        {
+         "title": "Very Confident",
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "137"
+          },
+          {
+           "groupId": "OG001",
+           "value": "90"
+          }
+         ]
+        },
+        {
+         "title": "Unknown",
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "15"
+          },
+          {
+           "groupId": "OG001",
+           "value": "5"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Communication and Decisional Satisfaction",
+     "description": "(In person survey) patient satisfaction with communication and decision making.The scale range is from 1- Strongly Disagree to 5 - Strongly Disagree. Higher values represent better outcomes. Subscales were combined questions were summed to compute a total score. The lowest possible score is a 9 and the highest possible score is 45. Lower scores indicate lower communication and decisional satisfaction.",
+     "populationDescription": "The secondary outcome measure was assessed at the participant level (all eligible patients) and not at the unit level.",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Inter-Quartile Range",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Control",
+       "description": "Participants who have filled out a survey from the control group"
+      },
+      {
+       "id": "OG001",
+       "title": "Intervention",
+       "description": "Participants who have filled out a survey from the intervention group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "196"
+        },
+        {
+         "groupId": "OG001",
+         "value": "122"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "44",
+           "lowerLimit": "39",
+           "upperLimit": "45"
+          },
+          {
+           "groupId": "OG001",
+           "value": "44",
+           "lowerLimit": "37",
+           "upperLimit": "45"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Decisional Regret",
+     "description": "(In person survey) patient regret regarding decision making. The response range is 1 - Strongly Disagree to 5 - Strongly agree. Higher numbers represent a worse outcome. Scale questions were summed to compute a total score. The lowest possible score is 2 and the highest possible score is 10. Lower scores indicate less decisional regret.",
+     "populationDescription": "The secondary outcome measure was assessed at the participant level (all eligible patients) and not at the unit level.",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Inter-Quartile Range",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Control",
+       "description": "Participants who have filled out a survey from the control group"
+      },
+      {
+       "id": "OG001",
+       "title": "Intervention",
+       "description": "Participants who have filled out a survey from the intervention group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "196"
+        },
+        {
+         "groupId": "OG001",
+         "value": "122"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "2",
+           "lowerLimit": "2",
+           "upperLimit": "4"
+          },
+          {
+           "groupId": "OG001",
+           "value": "2",
+           "lowerLimit": "2",
+           "upperLimit": "4"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "adverseEventsModule": {
+   "frequencyThreshold": "0",
+   "timeFrame": "Participants were assessed for adverse events from baseline up to 4 years and 5.5 months.",
+   "eventGroups": [
+    {
+     "id": "EG000",
+     "title": "Advance Care Planning",
+     "description": "-Survey:\n\n* A group of older patients with advanced cancer (N=450) will have a survey over the course of the 36 months of recruitment.\n* Participants will be provided written copies of the questions to follow along during the interviews\n\nClinician Communication Skills Training: Communication skills training\n\nAdvance Care Planning (ACP) Decisions Videos Decisions Aids: ACP Decisions video decision aids",
+     "deathsNumAffected": 0,
+     "deathsNumAtRisk": 5702,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 5702,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 5702
+    },
+    {
+     "id": "EG001",
+     "title": "Advance Care Planning-Video Declaration",
+     "description": "Video Declaration:\n\n* From among this group of 450 participants, the video declaration of preferences activity will be conducted with 240 patients.\n* For those participants that agree to the video declaration, they will proceed with recording of their video declarations\n* The RA will begin by reading a standardized introduction to aid the subject do the video\n\nClinician Communication Skills Training: Communication skills training\n\nAdvance Care Planning (ACP) Decisions Videos Decisions Aids: ACP Decisions video decision aids\n\nVideo Declarations (ViDec): Recording of patient advance care planning videos",
+     "deathsNumAffected": 0,
+     "deathsNumAtRisk": 5702,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 5702,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 5702
+    },
+    {
+     "id": "EG002",
+     "title": "Comprehensive Record Review of ACP",
+     "description": "* A review of Medical orders for resuscitation preferences in the electronic health record\n* A review of Medical orders for Palliative care consultations preferences in the electronic health record\n* A review of Medical orders for Hospice use preferences in the electronic health record\n\nClinician Communication Skills Training: Communication skills training\n\nAdvance Care Planning (ACP) Decisions Videos Decisions Aids: ACP Decisions video decision aids\n\nVideo Declarations (ViDec): Recording of patient advance care planning videos",
+     "deathsNumAffected": 0,
+     "deathsNumAtRisk": 5702,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 5702,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 5702
+    },
+    {
+     "id": "EG003",
+     "title": "Main Study Arm",
+     "description": "Patients with cancer being seen at the 30 oncology clinics will be exposed to clinicians who have had communication skills training (Vital Talk) and who are using video decision aids (ACP Decisions). Our main outcome is advance care planning documentation.\n\nClinician Communication Skills Training: Communication skills training\n\nAdvance Care Planning (ACP) Decisions Videos Decisions Aids: ACP Decisions video decision aids\n\nVideo Declarations (ViDec): Recording of patient advance care planning videos",
+     "deathsNumAffected": 3958,
+     "deathsNumAtRisk": 5702,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 5702,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 5702
+    }
+   ]
+  },
+  "moreInfoModule": {
+   "limitationsAndCaveats": {
+    "description": "Stepped-wedge designs present challenges. Our study occurred entirely during COVID. We assessed ACP documentation in the EHR to measure whether the ix could lead to better communication. We didn't assess the quality of the documentation in the entire sample. We were not able to track video use at the patient level that allowed linkage to either patients or EHR-based outcomes. The video decision aids in this trial are intended to support clinicians who have been trained in communication skills."
+   },
+   "certainAgreement": {
+    "piSponsorEmployee": true,
+    "restrictiveAgreement": false
+   },
+   "pointOfContact": {
+    "title": "James Tulsky, MD, Chair of Suppportive Oncology Department",
+    "organization": "Dana Farber Cancer Institute",
+    "email": "JamesA_Tulsky@dfci.harvard.edu",
+    "phone": "617-582-9201"
+   }
+  }
+ },
+ "documentSection": {
+  "largeDocumentModule": {
+   "largeDocs": [
+    {
+     "typeAbbrev": "Prot_SAP",
+     "hasProtocol": true,
+     "hasSap": true,
+     "hasIcf": false,
+     "label": "Study Protocol and Statistical Analysis Plan",
+     "date": "2019-08-05",
+     "uploadDate": "2019-09-06T14:55",
+     "filename": "Prot_SAP_000.pdf",
+     "size": 609066
+    }
+   ]
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  },
+  "interventionBrowseModule": {
+   "meshes": [
+    {
+     "id": "D032722",
+     "term": "Advance Care Planning"
+    }
+   ],
+   "ancestors": [
+    {
+     "id": "D010347",
+     "term": "Patient Care Planning"
+    },
+    {
+     "id": "D003191",
+     "term": "Comprehensive Health Care"
+    },
+    {
+     "id": "D010346",
+     "term": "Patient Care Management"
+    },
+    {
+     "id": "D006298",
+     "term": "Health Services Administration"
+    }
+   ]
+  }
+ },
+ "hasResults": true
+}

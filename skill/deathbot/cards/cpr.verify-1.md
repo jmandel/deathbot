@@ -1,0 +1,58 @@
+Read both files; no files changed. “Confirmed” below means the cited historical result matches, **not** that it is a current personal prognosis. I could not establish whether every older study has been superseded.
+
+| Claim | Source | Verdict | What the source actually says |
+|---|---|---|---|
+| Outside hospital: 136,516 adults; 10.5% survive, 8.2% CPC 1–2 | [CARES 2025, p. 5](https://mycares.net/sitepages/uploads/2026/CARES%202025%20Non-Traumatic%20National%20Survival%20Report.pdf) | confirmed | Same figures for people **over 18**, nontraumatic arrests, resuscitation attempted; supports “about 1 in 10.” |
+| Nursing-home arrests: 15,509; survival 4.4%, CPC 1–2 1.9% | CARES, above | confirmed | Same population and figures. |
+| Nonshockable 81%; survival by rhythm 28.9% versus 6.2% | CARES, above | confirmed | Adult nonshockable proportion is 81.3%; survival percentages match. |
+| Unwitnessed 4.3%; bystander-witnessed 15.9%; public 20.8%; home 8.9% | CARES, above | confirmed | All match the adult table. |
+| In-hospital arrests: 81% nonshockable | [Andersen 2019](https://pubmed.ncbi.nlm.nih.gov/30912843/) | could not open | PubMed returned an empty shell. |
+| 348,996 arrests, 2000–2021; epinephrine 88.9%, intubation 50%, already ventilated 21.4% | [Okubo 2024, accessible paper](https://knowledge.uchicago.edu/record/11258/files/Duration-of-cardiopulmonary-resuscitation-and-outcomes.pdf) | confirmed | Population, dates and treatment figures match. |
+| CPR duration: median 7 minutes (3–13) before circulation returned; 20 (14–30) when unsuccessful | Okubo, above | confirmed | Matches; these are separate outcome groups. |
+| Survival 22.6%; circulation restored 66.9%; CPC 1–2 15.6% | Okubo, above | population mismatch | First two match. **15.6% uses 333,351 patients with known functional outcomes**, not all 348,996. |
+| Survival below 1% by 39 minutes | Okubo, above | population mismatch | Applies to patients without first return of circulation, under an assumption that earlier termination decisions were correct. Excluding previously terminated attempts yielded substantially higher estimates. |
+| 570 French relatives; fewer PTSD symptoms at 90 days when offered presence | [Jabre 2013](https://pubmed.ncbi.nlm.nih.gov/23484827/) | confirmed | Prehospital randomized trial; control-group adjusted odds of PTSD symptoms were higher: 1.7 (95% CI 1.2–2.5). |
+| DNR after resuscitation: median 10 hours, IQR 2–70 | [Abbo 2013, full paper](https://sites.bu.edu/geriatricsfellowship/files/2014/07/Zitnay_February-2013.pdf) | confirmed | Abstract reports 10 (2–70); body reports 10 (2–72). This concerns orders actually signed, not a deadline for decisions. |
+| Dependence lowers survival: community OR 0.76; nursing-home OR 0.79 | Abbo, above | population mismatch | Numbers and CIs match, but **both compare against independent community residents**, not independent people within each residence setting. |
+| Medicare age 65+: 433,985; survival 18.3% (18.2–18.5), 1992–2005 | [Ehlenbach 2009](https://pubmed.ncbi.nlm.nih.gov/19571280/) | could not open | PubMed returned an empty shell. |
+| Medicare age 65+: 45,567; one-year survival 9.4%, 2000–2011 | [Thompson, institutional abstract](https://scholars.mssm.edu/en/publications/long-term-survival-trends-of-medicare-patients-after-in-hospital-/) | confirmed | Matches the pooled unadjusted estimate. The study also reports improving adjusted survival over time. |
+| Age-band survival 18.7%, 15.4%, 11.6%; 29 studies | [van Gijn 2014](https://pubmed.ncbi.nlm.nih.gov/24760957/) | could not open | PubMed empty; DOI attempt also inaccessible. |
+| Advanced cancer: adjusted survival 7.4% (6.6–8.4) versus 13.4% (12.1–14.8) | [Bruckel 2017](https://pubmed.ncbi.nlm.nih.gov/28763260/) | confirmed | Matches 47,157 arrests, April 2006–June 2010; metastatic or hematologic malignancy. |
+| Dialysis: survival 21.9% (21.4–22.3); subsequent median survival 5.0 months (0.7–16.8) | [Wong 2015, full paper](https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2278949) | confirmed | Matches Medicare dialysis cohort and conditional postdischarge survival. Historical data, not a current individual estimate. |
+| Frailty: 3 studies, 1,134 patients, mean age 71; adjusted OR 2.93 (2.43–3.53) | [Mowbray 2021](https://pubmed.ncbi.nlm.nih.gov/34166743/) | could not open | PubMed empty; DOI inaccessible. |
+| Injuries: 74 studies, 16,629; any 60%, ribs 55%, sternum 24%, with stated CIs | [van Wijck 2024, full paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC11458643/) | confirmed | Figures match. Individual outcomes use smaller subsets; detection also included radiographs and clinical assessment, not only autopsy/CT. |
+| Older in-hospital survivors: 6,972; neurologic status 48.1%; destinations 40.0/55.3/4.8%; one-year survival 58.5%; age-specific 63.7/58.6/49.7% | [Chan 2013](https://pubmed.ncbi.nlm.nih.gov/23484828/) | could not open | PubMed empty, PMC challenge, publisher blocked. The associated “about half have more than mild disability” statement remains unverified. |
+| Older out-of-hospital survivors: 1,127; home 52.6%; one-year mortality 31.8% | [Chan 2016, full paper](https://pdfs.semanticscholar.org/f09a/29f34ea260d6d978878f00275b2ba0feb2e4.pdf) | confirmed | Matches discharged survivors aged 65+, CARES 2005–2010. |
+| 2015–2022 survival 22.3%, CPC 1–2 15.1% | [Mohamed 2026](https://pubmed.ncbi.nlm.nih.gov/41404748/) | could not open | PubMed empty and PMC challenge; pooled figures not independently verified. |
+| GO-FAR: 51,240; 366 hospitals; 2007–2009; C statistic 0.78; groups 0.9/1.7/9.4/27.5% | [Ebell 2013](https://pubmed.ncbi.nlm.nih.gov/24018585/) | confirmed | Original abstract matches. It also links a **2021 patient-count discrepancy notice** beyond the stated 2015 erratum; corrections were not fully verified. |
+| GO-FAR needs age plus 12 items “at admission” | [MDCalc](https://www.mdcalc.com/calc/10033/go-far-good-outcome-following-attempted-resuscitation-score) | wrong | Uses pre-arrest information with differing time windows; hypotension/hypoperfusion explicitly concerns the four hours before arrest. |
+| External validation pooled C statistic 0.78 (0.69–0.85) | [Grandbois van Ravenhorst 2023](https://pubmed.ncbi.nlm.nih.gov/36670450/) | could not open | PubMed empty; alternate PDFs inaccessible. |
+| GO-FAR 2 predicts CPC 1–2; authors requested validation | [George 2020](https://pubmed.ncbi.nlm.nih.gov/31821836/) | confirmed | Correct historically. [ILCOR’s 2025 update](https://www.ilcor.org/uploads/EIT-2025-Appendix-B-Evidence-Updates.pdf) identifies subsequent external validation; current-status discussion needs updating. |
+| 287 Denver outpatients: CPR preference 41%→22% | [Murphy 1994](https://pubmed.ncbi.nlm.nih.gov/8302322/) | could not open | PubMed empty; publisher blocked. |
+| Television survival 67–75% | [Diem](https://pubmed.ncbi.nlm.nih.gov/8628340/), [Portanova](https://pubmed.ncbi.nlm.nih.gov/26296584/) | could not open | Both PubMed pages empty; attempted Diem publisher page blocked. |
+| 500 California respondents in 2016; at least half estimated success above 75% | [Bandolin 2020](https://pubmed.ncbi.nlm.nih.gov/32661063/) | confirmed | Abstract reports 51–64% across scenarios; population and dates match. |
+| Without CPR, death within minutes is certain | [NHLBI](https://www.nhlbi.nih.gov/health/cardiac-arrest) | wrong | Describes death **often** within minutes; does not establish the card’s absolute certainty or universal timing. |
+| DNR concerns CPR, not other treatments; clinician records it; patient may change mind | [MedlinePlus](https://medlineplus.gov/ency/patientinstructions/000473.htm) | confirmed | Supports these rules; reviewed January 2026. It does not guarantee that every other treatment automatically continues. |
+| Without an order staff always attempt CPR; EMS require listed documents | [NIA](https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care); [AHA 2025 ethics](https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/ethics) | wrong | NIA inaccessible. AHA describes exceptions and some communities accepting verbal requests with medical oversight. |
+| DNI is separate; living will is not a medical order | NIA, above | could not open | Could not verify against the cited page. |
+| Unverified frailty survival 31.7% versus 1.8% | No opened citation supplied | could not open | Properly segregated, but still an unsupported numerical claim. |
+| Patient links: MedlinePlus and NHLBI | Links above | confirmed | Both load and match their descriptions. |
+| Patient links: both NIA pages; seven-minute Vimeo video | [Living will](https://www.nia.nih.gov/health/advance-care-planning/preparing-living-will), [advance directives](https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care), [Vimeo](https://vimeo.com/48147363) | could not open | NIA returned 405 errors; Vimeo inaccessible. Video identity, duration and content not verified. |
+
+1. **Correct the prediction guidance.** Replace GO-FAR’s “at admission” instructions with its actual definitions and timing; resolve both correction notices. Replace “facts that settle the picture” with “facts that inform discussion.” Explicitly prohibit personal outcome guarantees, including from a clinician-calculated score. Update validation status using the ILCOR review.
+
+2. **Qualify the duration estimate.** Explain its population and termination assumption; do not present 39 minutes as a stopping threshold. Correct the CPC denominator and the functional-dependence comparator.
+
+3. **Fix categorical treatment and paperwork statements.** Replace “usually with electric shocks” with “shocks when indicated”—the card’s own data contradict “usually.” Qualify CPR defaults and EMS documentation by jurisdiction. Replace “everything else continues” with “DNR alone does not decide other treatments.” Remove unsupported certainty about timing of death.
+
+4. **Expand the alternatives proportionately.** Comfort-focused care is effectively absent; “CPR, then reassess” is much thinner than CPR’s burdens. Add symptom treatment, family support, remaining distress and uncertainty, and a clinician-supported plan for reassessment after resuscitation. Explain treatment before arrest under DNR/DNI and avoid implying partial CPR is an established gentler substitute.
+
+5. **Remove subtle slant.** No explicit choice recommendation appears. However, treatment harms receive substantial detail while recovery support and intermediate paths receive little. The old preference-change example can suggest that informed patients should decline CPR; omit it or keep it strictly contextual.
+
+6. **Complete verification before patient use.** Move inaccessible claims out of the body until verified, particularly the neurologic-disability interpretation. Label older cohorts as historical and finish the supersession check. Replace or independently verify the three inaccessible patient links.
+
+7. **Address practical older-US-patient needs.** Explain appointing a proxy, keeping locally valid orders available across care settings, and planning rehabilitation/caregiver support. No Medicare benefit-rule claims appear; none were verified.
+
+8. **Meet the format limit.** The card has approximately **1,573 words before Sources**, already exceeding the required 700–1,200. Cut historical preference/television detail before cutting balanced care-path explanations.
+
+**Overall verdict: FAIL.**

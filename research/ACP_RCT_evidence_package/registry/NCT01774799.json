@@ -1,0 +1,1078 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT01774799",
+   "orgStudyIdInfo": {
+    "id": "12-013"
+   },
+   "secondaryIdInfos": [
+    {
+     "id": "R01AG043440",
+     "type": "NIH",
+     "link": "https://reporter.nih.gov/quickSearch/R01AG043440"
+    }
+   ],
+   "organization": {
+    "fullName": "Hebrew SeniorLife",
+    "class": "OTHER"
+   },
+   "briefTitle": "Educational Video to Improve Nursing Home Care in End-stage Dementia",
+   "officialTitle": "Educational Video to Improve Nursing Home Care in End-stage Dementia",
+   "acronym": "EVINCE"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2019-10",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2013-03"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2017-08",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2017-08",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2013-01-21",
+   "studyFirstSubmitQcDate": "2013-01-21",
+   "studyFirstPostDateStruct": {
+    "date": "2013-01-24",
+    "type": "ESTIMATED"
+   },
+   "resultsFirstSubmitDate": "2018-08-01",
+   "resultsFirstSubmitQcDate": "2019-10-02",
+   "resultsFirstPostDateStruct": {
+    "date": "2019-10-23",
+    "type": "ACTUAL"
+   },
+   "lastUpdateSubmitDate": "2019-10-02",
+   "lastUpdatePostDateStruct": {
+    "date": "2019-10-23",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "PRINCIPAL_INVESTIGATOR",
+    "investigatorFullName": "Susan Mitchell, MD",
+    "investigatorTitle": "Senior Scientist",
+    "investigatorAffiliation": "Hebrew SeniorLife"
+   },
+   "leadSponsor": {
+    "name": "Hebrew SeniorLife",
+    "class": "OTHER"
+   },
+   "collaborators": [
+    {
+     "name": "National Institute on Aging (NIA)",
+     "class": "NIH"
+    },
+    {
+     "name": "National Institutes of Health (NIH)",
+     "class": "NIH"
+    }
+   ]
+  },
+  "oversightModule": {
+   "oversightHasDmc": true
+  },
+  "descriptionModule": {
+   "briefSummary": "This is a 5-year cluster RCT of a video Advance Care Planning intervention vs. control among 360 nursing home residents with advanced dementia (N=180/arm) in 20 matched nursing homes (10 intervention/10 control). Clinical outcomes will be collected at baseline, and quarterly (up to 12-months) regarding goals of care preferences, advance care planning, and treatments received. The primary outcome is decisions not to be hospitalized at 6 months.",
+   "detailedDescription": "The over-riding goal of the EVINCE study is to conduct a cluster RCT of a video Advance Care Planning intervention in nursing home residents with advanced dementia. A total of 360 nursing home residents with advanced dementia (N=180/arm) in 20 matched nursing homes (10 intervention/10 control) will be recruited. These residents' proxies with also be recruited for a total sample size of 720 residents and proxies (resident/proxy dyads). Outcomes will be compared between residents in the intervention vs, control nursing homes at baseline and every 3 months up to 12 months. At baseline proxies of residents in the intervention nursing homes will view a 12-minutes video describing three level of care options in advanced dementia (intensive, basic and comfort) and their choice will be communicated to the resident's primary care providers. Residents in the control nursing homes will receive the usual advance care planning practiced in those facilities.\n\nUPDATE SEPT 19, 2014: During the first 18 months of the study, recruitment of resident/proxy dyads was lower per facility than anticipated at the time of study design. Therefore, the number of matched pairs of NH recruited was increased. As of September 19, 2014, 19 NH pairs (38 NHs) were recruited and randomized with a plans to continue to up to 30 pairs as needed.\n\nNHs were originally randomized using a paired approach matched for for-profit status and whether or not the NH had a special care dementia unit (SCU). In March 2014, the state of Massachusetts changed legislation defining an SCU. Many of the changes focused on specifics of staff training. As a result, SCUs in several participating facilities did not meet the new criteria and lost this official designation, although the actual clinical structure of the existing units did not change. Nonetheless, we opted to maintain the initial matching criteria of the first 19 NHs which included SCU based on the definition before the Massachusetts legislation change, but dropped this matching criterion after the legislation change. Thus, beginning with matched pair 20, NHs were matched solely on for-profit status.\n\nUPDATE MARCH 2016 To reach subject recruitment numbers, additional facilities were recruited. As of this date, 60 NHs (30/arm) have been recruited, randomized and have had subject enrolled.\n\nTo achieve additional for power for Outcome 2, (aquisition of new decisions to forego hospitalizations) the target sample size was increased to 400."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "Advanced Dementia"
+   ],
+   "keywords": [
+    "advanced dementia",
+    "advance care planning",
+    "nursing home"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "PARALLEL",
+    "primaryPurpose": "OTHER",
+    "maskingInfo": {
+     "masking": "DOUBLE",
+     "whoMasked": [
+      "INVESTIGATOR",
+      "OUTCOMES_ASSESSOR"
+     ]
+    }
+   },
+   "enrollmentInfo": {
+    "count": 804,
+    "type": "ACTUAL"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "Advance care planning intervention",
+     "type": "EXPERIMENTAL",
+     "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form.",
+     "interventionNames": [
+      "Behavioral: Advance care planning intervention"
+     ]
+    },
+    {
+     "label": "Usual care",
+     "type": "ACTIVE_COMPARATOR",
+     "description": "Residents in control nursing homes with receive the usual advance care planning that occurs in their nursing home.",
+     "interventionNames": [
+      "Other: Control group"
+     ]
+    }
+   ],
+   "interventions": [
+    {
+     "type": "BEHAVIORAL",
+     "name": "Advance care planning intervention",
+     "armGroupLabels": [
+      "Advance care planning intervention"
+     ]
+    },
+    {
+     "type": "OTHER",
+     "name": "Control group",
+     "armGroupLabels": [
+      "Usual care"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Documented Decisions to Forgo Hospitalization",
+     "description": "The proportion of residents with this outcome will be considered cumulatively at 6 months, including those who died; i.e., a composite of the percent of residents alive at six months who had a decision not to hospitalize and those who died before six months with this outcome prior to death. This cumulative outcome will only be based on time points following baseline as the baseline chart review data is conducted before the baseline proxy interview (i.e., before the proxy has seen the video in the intervention arm or heard options verbally in the control arm).\n\n(Decisions to forehospitalizations will be examined in a similar fashion at 3, 9, and 12 months, however the six month time frame is the primary trial outcome)",
+     "timeFrame": "by six months"
+    }
+   ],
+   "secondaryOutcomes": [
+    {
+     "measure": "Acquisition of Decisions Not to Hospitalize",
+     "description": "This is a sub primary outcome. The modified ITT population will be the subgroup of residents who begin the study without a documented decision to forego hospitalization, and the outcome will be acquisition of a documented decision to forego hospitalization over the 12 month follow-up period. The analysis will utilize Cox proportional hazards regression. Results will be summarized using a hazard ratio and associated 95% confidence interval as well as plots of the cumulative incidence by group.",
+     "timeFrame": "by 12 months"
+    },
+    {
+     "measure": "Acquisition of Preference for Level of Care",
+     "description": "The proportion of proxies who have chosen comfort care (versus intermediate or intensive care) based on telephone interviews will be considered cumulatively at each assessment. At 6 months the outcome will include the proportion of proxies choosing comfort care up to and including the 6 month interview. Cumulative proportions will include data from the baseline interview for the control group, and baseline immediate post video interview for intervention group.The proportion of proxies choosing comfort care will be compared between the intervention and control groups using an extension of logistic regression based on general estimating equations (GEE) to account for clustering at the NH level at each time period.",
+     "timeFrame": "6 months"
+    }
+   ],
+   "otherOutcomes": [
+    {
+     "measure": "Acquisition of Other Documented Advance Care Planning",
+     "description": "The proportion of residents who acquired a documented advance directive to forego tube-feeding will be compared in the intervention versus control group.",
+     "timeFrame": "by 6 months"
+    },
+    {
+     "measure": "Burdensome Treatments",
+     "description": "Burdensome treatments include: Hospitals transfers (hospitalizations or emergency room visits), tube feeding or parenteral therapy. The rate of burdensome treatments per 1000 resident days was compared between the intervention and control arms.",
+     "timeFrame": "by 12 months"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "Inclusion Criteria:\n\n* Age \\> 65\n* A diagnosis of dementia (any type)\n* Global Deterioration Scale (GDS) score of 7\n* Nursing home length of stay \\> 30 days\n* Proxy is available who can speak in English\n* Proxy must either live within a 60 mile radius of Boston or be available to come to the residents nursing home within 2 weeks of recruitment in order to conduct the in-person baseline interview.\n\nExclusion Criteria:\n\n* Residents with cognitive impairment due to causes other than dementia (e.g. head trauma) and in short-term, sub-acute SNFs will be excluded",
+   "healthyVolunteers": false,
+   "sex": "ALL",
+   "minimumAge": "65 Years",
+   "stdAges": [
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "Susan L Mitchell, MD, MPH",
+     "affiliation": "Hebrew SeniorLife",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    },
+    {
+     "name": "Angelo Volandes, MD, MPH",
+     "affiliation": "Massachusetts General Hospital",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "Hebrew Rehabilitation Center",
+     "city": "Boston",
+     "state": "Massachusetts",
+     "zip": "02131",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 42.35843,
+      "lon": -71.05977
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "29868778",
+     "type": "DERIVED",
+     "citation": "Mitchell SL, Shaffer ML, Cohen S, Hanson LC, Habtemariam D, Volandes AE. An Advance Care Planning Video Decision Support Tool for Nursing Home Residents With Advanced Dementia: A Cluster Randomized Clinical Trial. JAMA Intern Med. 2018 Jul 1;178(7):961-969. doi: 10.1001/jamainternmed.2018.1506."
+    }
+   ]
+  },
+  "ipdSharingStatementModule": {
+   "ipdSharing": "YES",
+   "description": "De-identified data form study are available through link porvided",
+   "infoTypes": [
+    "CSR"
+   ],
+   "timeFrame": "Now, indefinetly",
+   "accessCriteria": "open",
+   "url": "https://ifar-dataverse.hsl.harvard.edu/dataverse/evince"
+  }
+ },
+ "resultsSection": {
+  "participantFlowModule": {
+   "preAssignmentDetails": "Participants are analyzed as dyads; proxies and patients.There are 402 dyads, for a total of 804 participants.",
+   "groups": [
+    {
+     "id": "FG000",
+     "title": "Advance Care Planning Intervention Residents",
+     "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form.\n\nAdvance care planning intervention"
+    },
+    {
+     "id": "FG001",
+     "title": "Usual Care (Control) Residents",
+     "description": "Residents in control nursing homes with receive the usual advance care planning that occurs in their nursing home.\n\nControl group"
+    },
+    {
+     "id": "FG002",
+     "title": "Advance Care Planning Intervention Proxies",
+     "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form."
+    },
+    {
+     "id": "FG003",
+     "title": "Usual Care (Control) Proxies",
+     "description": "Proxies in control nursing homes experienced he usual advance care planning that occurs in their nursing home.\n\nControl group"
+    }
+   ],
+   "periods": [
+    {
+     "title": "Overall Study",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "212"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "190"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "212"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "190"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "211"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "189"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "212"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "190"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0"
+        }
+       ]
+      }
+     ],
+     "dropWithdraws": [
+      {
+       "type": "Lost to Follow-up",
+       "reasons": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "1"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1"
+        },
+        {
+         "groupId": "FG002",
+         "numSubjects": "0"
+        },
+        {
+         "groupId": "FG003",
+         "numSubjects": "0"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "baselineCharacteristicsModule": {
+   "groups": [
+    {
+     "id": "BG000",
+     "title": "Advance Care Planning Intervention Residents",
+     "description": "Residents with advanced dementia in intervention group"
+    },
+    {
+     "id": "BG001",
+     "title": "Usual Care (Control Group) Residents",
+     "description": "Residents with advanced dementia in control group"
+    },
+    {
+     "id": "BG002",
+     "title": "Advance Care Planning Intervention Proxies",
+     "description": "Proxies of residents with advanced dementia in intervention group"
+    },
+    {
+     "id": "BG003",
+     "title": "Usual Care (Control Group) Proxies",
+     "description": "Proxies of residents with advanced dementia in control group"
+    },
+    {
+     "id": "BG004",
+     "title": "Total",
+     "description": "Total of all reporting groups"
+    }
+   ],
+   "denoms": [
+    {
+     "units": "Participants",
+     "counts": [
+      {
+       "groupId": "BG000",
+       "value": "212"
+      },
+      {
+       "groupId": "BG001",
+       "value": "190"
+      },
+      {
+       "groupId": "BG002",
+       "value": "212"
+      },
+      {
+       "groupId": "BG003",
+       "value": "190"
+      },
+      {
+       "groupId": "BG004",
+       "value": "804"
+      }
+     ]
+    }
+   ],
+   "measures": [
+    {
+     "title": "Age, Continuous",
+     "paramType": "MEAN",
+     "dispersionType": "STANDARD_DEVIATION",
+     "unitOfMeasure": "years",
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "86.0",
+           "spread": "7.4"
+          },
+          {
+           "groupId": "BG001",
+           "value": "87.4",
+           "spread": "7.3"
+          },
+          {
+           "groupId": "BG002",
+           "value": "61.8",
+           "spread": "10.9"
+          },
+          {
+           "groupId": "BG003",
+           "value": "62.8",
+           "spread": "10.6"
+          },
+          {
+           "groupId": "BG004",
+           "value": "74.5",
+           "spread": "9.1"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Sex: Female, Male",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "Female",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "167"
+          },
+          {
+           "groupId": "BG001",
+           "value": "156"
+          },
+          {
+           "groupId": "BG002",
+           "value": "146"
+          },
+          {
+           "groupId": "BG003",
+           "value": "120"
+          },
+          {
+           "groupId": "BG004",
+           "value": "589"
+          }
+         ]
+        },
+        {
+         "title": "Male",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "45"
+          },
+          {
+           "groupId": "BG001",
+           "value": "34"
+          },
+          {
+           "groupId": "BG002",
+           "value": "66"
+          },
+          {
+           "groupId": "BG003",
+           "value": "70"
+          },
+          {
+           "groupId": "BG004",
+           "value": "215"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Race/Ethnicity, Customized",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "title": "white",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "178"
+          },
+          {
+           "groupId": "BG001",
+           "value": "172"
+          },
+          {
+           "groupId": "BG002",
+           "value": "177"
+          },
+          {
+           "groupId": "BG003",
+           "value": "173"
+          },
+          {
+           "groupId": "BG004",
+           "value": "700"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "non-white",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "34"
+          },
+          {
+           "groupId": "BG001",
+           "value": "18"
+          },
+          {
+           "groupId": "BG002",
+           "value": "35"
+          },
+          {
+           "groupId": "BG003",
+           "value": "17"
+          },
+          {
+           "groupId": "BG004",
+           "value": "104"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Region of Enrollment",
+     "paramType": "NUMBER",
+     "unitOfMeasure": "participants",
+     "classes": [
+      {
+       "title": "United States",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "212"
+          },
+          {
+           "groupId": "BG001",
+           "value": "190"
+          },
+          {
+           "groupId": "BG002",
+           "value": "212"
+          },
+          {
+           "groupId": "BG003",
+           "value": "190"
+          },
+          {
+           "groupId": "BG004",
+           "value": "804"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "outcomeMeasuresModule": {
+   "outcomeMeasures": [
+    {
+     "type": "PRIMARY",
+     "title": "Documented Decisions to Forgo Hospitalization",
+     "description": "The proportion of residents with this outcome will be considered cumulatively at 6 months, including those who died; i.e., a composite of the percent of residents alive at six months who had a decision not to hospitalize and those who died before six months with this outcome prior to death. This cumulative outcome will only be based on time points following baseline as the baseline chart review data is conducted before the baseline proxy interview (i.e., before the proxy has seen the video in the intervention arm or heard options verbally in the control arm).\n\n(Decisions to forehospitalizations will be examined in a similar fashion at 3, 9, and 12 months, however the six month time frame is the primary trial outcome)",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "by six months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Advance Care Planning Intervention",
+       "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form.\n\nAdvance care planning intervention"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "Residents in control nursing homes with receive the usual advance care planning that occurs in their nursing home.\n\nControl group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "211"
+        },
+        {
+         "groupId": "OG001",
+         "value": "189"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "133"
+          },
+          {
+           "groupId": "OG001",
+           "value": "119"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "paramType": "Odds Ratio (OR)",
+       "paramValue": "1.08",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "0.69",
+       "ciUpperLimit": "1.69"
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Acquisition of Decisions Not to Hospitalize",
+     "description": "This is a sub primary outcome. The modified ITT population will be the subgroup of residents who begin the study without a documented decision to forego hospitalization, and the outcome will be acquisition of a documented decision to forego hospitalization over the 12 month follow-up period. The analysis will utilize Cox proportional hazards regression. Results will be summarized using a hazard ratio and associated 95% confidence interval as well as plots of the cumulative incidence by group.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "by 12 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Advance Care Planning Intervention",
+       "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form.\n\nAdvance care planning intervention"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "Residents in control nursing homes with receive the usual advance care planning that occurs in their nursing home.\n\nControl group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "108"
+        },
+        {
+         "groupId": "OG001",
+         "value": "92"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "41"
+          },
+          {
+           "groupId": "OG001",
+           "value": "30"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "paramType": "Hazard Ratio (HR)",
+       "paramValue": "1.20",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "0.66",
+       "ciUpperLimit": "2.20"
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Acquisition of Preference for Level of Care",
+     "description": "The proportion of proxies who have chosen comfort care (versus intermediate or intensive care) based on telephone interviews will be considered cumulatively at each assessment. At 6 months the outcome will include the proportion of proxies choosing comfort care up to and including the 6 month interview. Cumulative proportions will include data from the baseline interview for the control group, and baseline immediate post video interview for intervention group.The proportion of proxies choosing comfort care will be compared between the intervention and control groups using an extension of logistic regression based on general estimating equations (GEE) to account for clustering at the NH level at each time period.",
+     "populationDescription": "Missing data are due to missing proxy interviews at certain follow-up time points",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "calculatePct": false,
+     "timeFrame": "6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Advance Care Planning Intervention",
+       "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form.\n\nAdvance care planning intervention"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "Residents in control nursing homes with receive the usual advance care planning that occurs in their nursing home.\n\nControl group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "209"
+        },
+        {
+         "groupId": "OG001",
+         "value": "182"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "151"
+          },
+          {
+           "groupId": "OG001",
+           "value": "133"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "paramType": "Odds Ratio (OR)",
+       "paramValue": "0.96",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "0.58",
+       "ciUpperLimit": "1.58"
+      }
+     ]
+    },
+    {
+     "type": "OTHER_PRE_SPECIFIED",
+     "title": "Acquisition of Other Documented Advance Care Planning",
+     "description": "The proportion of residents who acquired a documented advance directive to forego tube-feeding will be compared in the intervention versus control group.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "calculatePct": false,
+     "timeFrame": "by 6 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Advance Care Planning Intervention",
+       "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form.\n\nAdvance care planning intervention"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "Residents in control nursing homes with receive the usual advance care planning that occurs in their nursing home.\n\nControl group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "211"
+        },
+        {
+         "groupId": "OG001",
+         "value": "189"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "148"
+          },
+          {
+           "groupId": "OG001",
+           "value": "117"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "paramType": "Odds Ratio (OR)",
+       "paramValue": "1.79",
+       "ciPctValue": "95",
+       "ciNumSides": "TWO_SIDED",
+       "ciLowerLimit": "1.13",
+       "ciUpperLimit": "2.82"
+      }
+     ]
+    },
+    {
+     "type": "OTHER_PRE_SPECIFIED",
+     "title": "Burdensome Treatments",
+     "description": "Burdensome treatments include: Hospitals transfers (hospitalizations or emergency room visits), tube feeding or parenteral therapy. The rate of burdensome treatments per 1000 resident days was compared between the intervention and control arms.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "calculatePct": false,
+     "timeFrame": "by 12 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Advance Care Planning Intervention",
+       "description": "At baseline, health care proxies in the intervention arm will be shown a 12-minute Advance Care planning video that describes 3 levels of treatment in advanced dementia: comfort basic and intensive. After viewing the video, the proxies will be asked their preferred level of care for the resident and this choice will be communicated to the residents primary care team in a written form.\n\nAdvance care planning intervention"
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "Residents in control nursing homes with receive the usual advance care planning that occurs in their nursing home.\n\nControl group"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "211"
+        },
+        {
+         "groupId": "OG001",
+         "value": "189"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "33"
+          },
+          {
+           "groupId": "OG001",
+           "value": "25"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "analyses": [
+      {
+       "groupIds": [
+        "OG000",
+        "OG001"
+       ],
+       "nonInferiorityType": "SUPERIORITY",
+       "pValue": "0.32",
+       "statisticalMethod": "Regression, Linear"
+      }
+     ]
+    }
+   ]
+  },
+  "adverseEventsModule": {
+   "frequencyThreshold": "0",
+   "timeFrame": "12 months",
+   "description": "The only adverse event that was monitored for was serious distress by proxy watching the video. The residents were NOT monitored for any adverse events",
+   "eventGroups": [
+    {
+     "id": "EG000",
+     "title": "Advance Care Planning Intervention",
+     "description": "Adverse events were only monitored in the health care proxies who viewed the video\n\nAdvance care planning intervention",
+     "deathsNumAffected": 86,
+     "deathsNumAtRisk": 212,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 212,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 212
+    },
+    {
+     "id": "EG001",
+     "title": "Usual Care",
+     "description": "Adverse event monitoring was no applicable the proxies in the usual care group as they did not watch the video, and the only adverse event monitored in the trial related to reactions to watching the video\n\nControl group",
+     "deathsNumAffected": 89,
+     "deathsNumAtRisk": 190,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 0,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 190
+    }
+   ]
+  },
+  "moreInfoModule": {
+   "certainAgreement": {
+    "piSponsorEmployee": false,
+    "restrictiveAgreement": false
+   },
+   "pointOfContact": {
+    "title": "Dr. Susan Mitchell",
+    "organization": "Hebrew SeniorLife",
+    "email": "smitchell@hsl.harvard.edu",
+    "phone": "617-971-5326"
+   }
+  }
+ },
+ "documentSection": {
+  "largeDocumentModule": {
+   "largeDocs": [
+    {
+     "typeAbbrev": "Prot",
+     "hasProtocol": true,
+     "hasSap": false,
+     "hasIcf": false,
+     "label": "Study Protocol",
+     "date": "2015-12-21",
+     "uploadDate": "2019-02-25T12:18",
+     "filename": "Prot_000.pdf",
+     "size": 374560
+    },
+    {
+     "typeAbbrev": "SAP",
+     "hasProtocol": false,
+     "hasSap": true,
+     "hasIcf": false,
+     "label": "Statistical Analysis Plan",
+     "date": "2016-08-17",
+     "uploadDate": "2019-02-25T12:22",
+     "filename": "SAP_001.pdf",
+     "size": 365685
+    }
+   ]
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  },
+  "interventionBrowseModule": {
+   "meshes": [
+    {
+     "id": "D035061",
+     "term": "Control Groups"
+    }
+   ],
+   "ancestors": [
+    {
+     "id": "D015340",
+     "term": "Epidemiologic Research Design"
+    },
+    {
+     "id": "D004812",
+     "term": "Epidemiologic Methods"
+    },
+    {
+     "id": "D008919",
+     "term": "Investigative Techniques"
+    },
+    {
+     "id": "D012107",
+     "term": "Research Design"
+    },
+    {
+     "id": "D008722",
+     "term": "Methods"
+    }
+   ]
+  }
+ },
+ "hasResults": true
+}

@@ -1,0 +1,22 @@
+{
+  "name": "deathbot-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run build.ts",
+    "dev": "bun run build.ts && bunx serve dist -l 4173",
+    "typecheck": "tsc --noEmit",
+    "test": "bun run build.ts && bun test/mock-e2e.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/bitter": "^5.3.0",
+    "@fontsource/atkinson-hyperlegible": "^5.3.0",
+    "dompurify": "^3.2.0",
+    "idb-keyval": "^6.2.1",
+    "marked": "^15.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/bun": "latest"
+  }
+}

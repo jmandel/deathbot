@@ -1,0 +1,288 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT02017548",
+   "orgStudyIdInfo": {
+    "id": "UPenn 819325"
+   },
+   "organization": {
+    "fullName": "University of Pennsylvania",
+    "class": "OTHER"
+   },
+   "briefTitle": "Default Options in Advance Directives",
+   "officialTitle": "Default Options in Advance Directives"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2019-03",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2014-01",
+    "type": "ACTUAL"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2016-11",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2016-11",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2013-12-16",
+   "studyFirstSubmitQcDate": "2013-12-16",
+   "studyFirstPostDateStruct": {
+    "date": "2013-12-20",
+    "type": "ESTIMATED"
+   },
+   "lastUpdateSubmitDate": "2019-03-29",
+   "lastUpdatePostDateStruct": {
+    "date": "2019-04-01",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "PRINCIPAL_INVESTIGATOR",
+    "investigatorFullName": "Scott Halpern",
+    "investigatorTitle": "Assistant Professor of Medicine",
+    "investigatorAffiliation": "University of Pennsylvania"
+   },
+   "leadSponsor": {
+    "name": "University of Pennsylvania",
+    "class": "OTHER"
+   },
+   "collaborators": [
+    {
+     "name": "University of Pittsburgh",
+     "class": "OTHER"
+    }
+   ]
+  },
+  "oversightModule": {
+   "oversightHasDmc": true
+  },
+  "descriptionModule": {
+   "briefSummary": "In a multicenter, randomized clinical trial of default options in advance directives among patients with incurable diseases, we will determine whether this simple and readily scalable intervention can improve patients quality of life and reduce resource utilization without reducing the number of days that patients are alive and living outside of an acute-care hospital."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "This Study Will Focus on Advance Care Planning Among Patients With Life-limiting Illnesses"
+   ],
+   "keywords": [
+    "advance directives, advance care planning"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "PARALLEL",
+    "primaryPurpose": "HEALTH_SERVICES_RESEARCH",
+    "maskingInfo": {
+     "masking": "TRIPLE",
+     "whoMasked": [
+      "PARTICIPANT",
+      "INVESTIGATOR",
+      "OUTCOMES_ASSESSOR"
+     ]
+    }
+   },
+   "enrollmentInfo": {
+    "count": 270,
+    "type": "ESTIMATED"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "Life-extension default",
+     "type": "EXPERIMENTAL",
+     "description": "Subjects in this group will receive an advance directive form that defaults to an overall goal of care directed towards life extension (vs. comfort oriented care) unless the subject specifies otherwise. The form also states 4 specific life extending interventions (cardiopulmonary resuscitation, mechanical ventilation, hemodialysis, and feeding tube insertion) will be provided unless patients specifically opt-out from such selections. It also will state that upon discharge from the hospital, long-term care (vs. hospice care) will be provided unless the patient chooses otherwise.",
+     "interventionNames": [
+      "Behavioral: Life-extension default advance directive"
+     ]
+    },
+    {
+     "label": "Comfort default",
+     "type": "EXPERIMENTAL",
+     "description": "Subjects in this group will receive an advance directive form that defaults to an overall goal of care directed towards comfort and relief of pain and suffering (vs. life extension) unless the subject specifies otherwise. The form also states 4 specific life extending interventions (cardiopulmonary resuscitation, mechanical ventilation, hemodialysis, and feeding tube insertion) will be not provided unless patients specifically opts into such selections. It also will state that upon discharge from the hospital, hospice care (vs. long-term care) will be provided unless the patient chooses otherwise.",
+     "interventionNames": [
+      "Behavioral: Comfort default advance directive"
+     ]
+    },
+    {
+     "label": "Standard advance directive",
+     "type": "NO_INTERVENTION",
+     "description": "Subjects in the standard advance directive (AD) group will receive an AD that will have no options pre-selected."
+    }
+   ],
+   "interventions": [
+    {
+     "type": "BEHAVIORAL",
+     "name": "Life-extension default advance directive",
+     "armGroupLabels": [
+      "Life-extension default"
+     ]
+    },
+    {
+     "type": "BEHAVIORAL",
+     "name": "Comfort default advance directive",
+     "armGroupLabels": [
+      "Comfort default"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Hospital free days",
+     "description": "The primary outcome is \"Hospital-Free Days\" (HFDs), a measure that PI Halpern has been developing in collaboration with Dr. Jeffrey Silber at Penn's Center for Outcomes Research. As the name describes, HFDs represent the number of days alive and not in an acute care facility. Although this is a simple concept, and provides an outcome measure of obvious importance to patients, the use of HFDs as a primary outcome in an RCT is highly innovative. To bolster confidence in the results, we will evaluate two key variations on the theme. First, we will explore \"Healthcare Facility-Free Days,\" which represents the number of days alive where a patient is in neither an acute care facility, a chronic care facility, or a nursing home. We will also evaluate HFDs within a defined period of follow-up - 6 months in this case. This is analogous to the established outcome of ventilator-free days used commonly in RCTs among ICU patients",
+     "timeFrame": "6 months"
+    }
+   ],
+   "secondaryOutcomes": [
+    {
+     "measure": "Hospital and ICU admissions",
+     "description": "The numbers of admissions will be analyzed as count data. From the dates of hospital and ICU admissions, we will calculate the proportion of each patient's total survival time during study follow-up that was spent in the hospital or ICU.",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Costs of care",
+     "description": "We will combine all costs of inpatient and outpatient hospice, hospital stays, and life-sustaining procedures. The perspective will be that of all potential payers. Costs will be inflated to the date on which analyses are performed using the U.S. gross domestic product deflator",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Hospice utilization",
+     "description": "We will analyze hospice utilization in 2 ways: (a) time from advance directive completion to hospice enrollment; and (b) duration of hospice utilization prior to death.",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Choices to receive 4 potentially life-sustaining interventions, and the concordance of these choices with whether the interventions were actually received",
+     "description": "We will record selections that patients made on their advance directives about 4 specific life-sustaining interventions. Utilizing data from the Pennsylvania Healthcare Cost Containment Consortium and the New Jersey Department of Health and Senior Services, we will be able to determine which patients received each intervention. Thus, we will be able to reliably evaluate the proportions of patients who received unwanted interventions. Because we cannot determine the denominator of patients with indications for these interventions, we will not evaluate the proportions of patients who went without desired services.",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Choices regarding post-hospitalization care, and the concordance of these choices with the care actually received",
+     "description": "Patients will indicate on their advance directives forms their selections for post-hospitalization care. We will utilize data from the Pennsylvania Health Care Cost Containment Consortium and New Jersey Department of Health and Senior Services to asses if the care patient indicate is the care they receive.",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Decision conflict",
+     "description": "The decision conflict scale is a well-validated instrument used to assess patients' certainty in making healthcare decisions. The DCS will be sent home with consenting patients to complete and return along with their advance directive forms and an instruction sheet explaining to patients that they should complete their advance directive forms first, followed by the DCS, and both should be mailed to the research team in the provided stamped envelope.",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Decision satisfaction",
+     "description": "Satisfaction will also be measured with the CANHELP instrument's global satisfaction with end-of-life care question.",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Quality of Life using the McGill Quality of Life (MQOL) instrument.",
+     "description": "The MQOL is a well-Validated and widely used scale designed specifically for patients with serious illnesses. The MQOL can be completed by family members on behalf of patients who have lost the capacity to complete it themselves. Thus, we will have surrogates (the individuals identified on patients' advance directive forms as their appointed healthcare agents) complete the MQOL for incapacitated patients to minimize missing data.",
+     "timeFrame": "up to 1 year"
+    },
+    {
+     "measure": "Surrogates' Perception of the quality of death and dying",
+     "description": "Because we are recruiting patients with serious life-limiting illnesses, we anticipate that some patients will die over the course of this study period. We will speak with surrogates of deceased patients to assess their perceived quality of death and dying using Prigerson's Quality of Death measure.",
+     "timeFrame": "within 3 months of patient death"
+    },
+    {
+     "measure": "Post-traumatic stress in surrogates",
+     "description": "The risk of post-traumatic stress disorder in surrogates among deceased patients will be assessed using the Impact of Events Scale. The IES is a valid and reliable scale that has been used frequently to assess PTSD risk among family members of critically ill patients.",
+     "timeFrame": "within 3 months of patient death"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "Inclusion Criteria:\n\n* Age 18 or older\n* Fluent in English\n* Has seen current physician at least once prior to current visit\n* Resident of Pennsylvania or New Jersey\n* One or more of the following diagnoses:\n* Amyotrophic lateral sclerosis\n* Stage IIIB or IV non-small cell lung cancer, pancreatic cancer, or cholangiocarcinoma\n* Stage IV breast, colon, esophageal, gastric, pancreatic, prostate, uterine, cervical, ovarian, or urothelial cancer; paraganglioma, or pheochromocytoma\n* Stage C or D hepatocellular carcinoma\n* Stage IV renal cell carcinoma\n* Stage IV or V chronic kidney disease\n* Mesothelioma or any malignancy metastatic to the pleura\n* Other incurable interstitial lung diseases with at least severe restriction on most recent pulmonary function tests or eligible for long-term oxygen therapy\n* Chronic obstructive pulmonary disease with at least severe airflow obstruction on most recent spirometry or eligible for long-term oxygen therapy\n* Congestive heart failure with NYHA Class IV status or Class III plus 1 heart failure related hospitalization in the past 12 months or ACC stage D or C classification with 1 heart failure related hospitalization in the past 12 months\n\nExclusion Criteria:\n\n* Currently listed for or being considered for solid organ transplant\n* Patients with a previously signed advance directive or living will.",
+   "healthyVolunteers": false,
+   "sex": "ALL",
+   "minimumAge": "18 Years",
+   "stdAges": [
+    "ADULT",
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "Scott D. Halpern, MD, PhD",
+     "affiliation": "University of Pennsylvania",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "Penn Presbyterian Medical Center",
+     "city": "Philadelphia",
+     "state": "Pennsylvania",
+     "zip": "19104",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.95238,
+      "lon": -75.16362
+     }
+    },
+    {
+     "facility": "The Perelman Center for Advance Medicine",
+     "city": "Philadelphia",
+     "state": "Pennsylvania",
+     "zip": "19104",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.95238,
+      "lon": -75.16362
+     }
+    },
+    {
+     "facility": "Pennsylvania Hospital",
+     "city": "Philadelphia",
+     "state": "Pennsylvania",
+     "zip": "19107",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.95238,
+      "lon": -75.16362
+     }
+    },
+    {
+     "facility": "University of Pittsburgh Medical Center",
+     "city": "Pittsburgh",
+     "state": "Pennsylvania",
+     "zip": "15213",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 40.44062,
+      "lon": -79.99589
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "32227179",
+     "type": "DERIVED",
+     "citation": "Halpern SD, Small DS, Troxel AB, Cooney E, Bayes B, Chowdhury M, Tomko HE, Angus DC, Arnold RM, Loewenstein G, Volpp KG, White DB, Bryce CL. Effect of Default Options in Advance Directives on Hospital-Free Days and Care Choices Among Seriously Ill Patients: A Randomized Clinical Trial. JAMA Netw Open. 2020 Mar 2;3(3):e201742. doi: 10.1001/jamanetworkopen.2020.1742."
+    },
+    {
+     "pmid": "27266769",
+     "type": "DERIVED",
+     "citation": "Gabler NB, Cooney E, Small DS, Troxel AB, Arnold RM, White DB, Angus DC, Loewenstein G, Volpp KG, Bryce CL, Halpern SD. Default options in advance directives: study protocol for a randomised clinical trial. BMJ Open. 2016 Jun 6;6(6):e010628. doi: 10.1136/bmjopen-2015-010628."
+    }
+   ]
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  }
+ },
+ "hasResults": false
+}

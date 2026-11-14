@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#ECEAF0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#281A31" media="(prefers-color-scheme: dark)">
+<title>Deathbot</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 24 24'%3E%3Cg fill='%23E3A008'%3E%3Cellipse rx='3' ry='10'/%3E%3Cellipse rx='3' ry='10' transform='rotate(45)'/%3E%3Cellipse rx='3' ry='10' transform='rotate(90)'/%3E%3Cellipse rx='3' ry='10' transform='rotate(135)'/%3E%3C/g%3E%3Ccircle r='3.2' fill='%235A2A6B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="mark" viewBox="-12 -12 24 24" aria-hidden="true"><g><ellipse rx="3" ry="10"/><ellipse rx="3" ry="10" transform="rotate(45)"/><ellipse rx="3" ry="10" transform="rotate(90)"/><ellipse rx="3" ry="10" transform="rotate(135)"/></g><circle r="3.2"/></svg>
+    <span class="wordmark">Deathbot</span>
+  </div>
+  <nav>
+    <button id="btn-file" class="link" aria-expanded="false" aria-controls="file">Your file</button>
+    <button id="btn-settings" class="link">Settings</button>
+  </nav>
+</header>
+
+<main>
+  <section class="chat" aria-label="Conversation">
+    <div id="scroll" class="scroll">
+      <div id="welcome" class="welcome" hidden>
+        <h1 class="lede">Talk through how you want the end of your life to go.</h1>
+        <p class="sub">I'm an AI. I can explain what treatments like CPR and breathing machines are really like, help you work out what you'd want, and write it down for whoever would speak for you.</p>
+
+        <div id="connect" hidden>
+          <p>To talk, this page needs to reach an AI service called OpenRouter. You sign in with your own account and pay them for what you use, usually a few cents a conversation.</p>
+          <p><button id="btn-signin" type="button" class="primary">Sign in with OpenRouter</button></p>
+          <details id="have-key">
+            <summary>I already have a key</summary>
+            <form id="key-form" class="key-form">
+              <label for="key-first">OpenRouter key</label>
+              <div class="inline-field">
+                <input id="key-first" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-…">
+                <button class="quiet">Use this key</button>
+              </div>
+            </form>
+          </details>
+        </div>
+
+        <div id="starters" hidden>
+          <p class="prompt-label">Start with one of these, or type your own below.</p>
+          <ul class="starter-list">
+            <li><button class="starter">What is this, exactly?</button></li>
+            <li><button class="starter">I've been diagnosed with something serious.</button></li>
+            <li><button class="starter">I watched someone die badly and I don't want that.</button></li>
+            <li><button class="starter">I just want to get my wishes written down.</button></li>
+          </ul>
+        </div>
+        <p class="fine">Deathbot is an AI, with no doctor, lawyer or other person watching this conversation. In an emergency call 911. In a crisis call or text 988.</p>
+        <p class="fine">This is an early demonstration. No clinician has reviewed its medical summaries yet.</p>
+      </div>
+      <div id="log" class="log"></div>
+    </div>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div id="listening" class="listening" role="status" hidden></div>
+    <form id="composer" class="composer" hidden>
+      <div id="attachments" class="attachments"></div>
+      <div class="composer-box">
+        <textarea id="input" rows="1" placeholder="Type here" aria-label="Your message"></textarea>
+        <div class="composer-controls">
+          <label class="round" title="Attach a file">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span class="sr">Attach a file</span>
+            <input id="file-input" type="file" accept=".pdf,.txt,.md,.csv,.json,application/json,image/*" multiple hidden>
+          </label>
+          <button id="btn-style" type="button" class="chip">Style</button>
+          <span class="grow"></span>
+          <button id="mic" type="button" class="round mic" aria-pressed="false" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="sr" id="mic-label">Speak instead of typing</span>
+          </button>
+          <button id="send" type="submit" class="send">Send</button>
+          <button id="stop" type="button" class="send stop" hidden>Stop</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <aside id="file" class="file" aria-label="Your file">
+    <div class="file-head">
+      <h2>Your file</h2>
+      <button id="btn-file-close" class="link">Back to the conversation</button>
+    </div>
+    <div id="file-body" class="file-body"></div>
+  </aside>
+</main>
+
+<dialog id="reader" class="reader">
+  <div class="reader-head">
+    <button id="reader-close" class="link">Close</button>
+    <div id="reader-actions" class="actions"></div>
+  </div>
+  <article id="reader-body" class="prose"></article>
+</dialog>
+
+<dialog id="style-dialog">
+  <form method="dialog" class="settings">
+    <h2>How Deathbot talks</h2>
+    <div id="style">
+      <label class="check"><input type="checkbox" data-pref="short"> <span>Keep it short</span></label>
+      <label class="check"><input type="checkbox" data-pref="plain"> <span>Use plain, everyday words</span></label>
+      <label class="check"><input type="checkbox" data-pref="data"> <span>Give me the numbers and the studies</span></label>
+      <label class="check"><input type="checkbox" data-pref="gentle"> <span>Go gently with hard news</span></label>
+      <label for="style-other">Anything else?</label>
+      <textarea id="style-other" rows="2" placeholder="For example: call me Frank. I'm a retired nurse. Don't ask so many questions."></textarea>
+      <label for="language">Language</label>
+      <select id="language">
+        <option value="English">English</option>
+        <option value="Spanish">Español</option>
+        <option value="Chinese (Simplified)">中文（简体）</option>
+        <option value="Chinese (Traditional)">中文（繁體）</option>
+        <option value="Vietnamese">Tiếng Việt</option>
+        <option value="Tagalog">Tagalog</option>
+        <option value="Korean">한국어</option>
+        <option value="Russian">Русский</option>
+        <option value="Arabic">العربية</option>
+        <option value="Haitian Creole">Kreyòl ayisyen</option>
+        <option value="Portuguese">Português</option>
+        <option value="French">Français</option>
+      </select>
+      <p class="fine">These apply from your next message. You can also just say it in the conversation.</p>
+    </div>
+    <div class="dialog-end"><button value="save" class="primary">Done</button></div>
+  </form>
+</dialog>
+
+<dialog id="settings">
+  <form method="dialog" class="settings">
+    <h2>Settings</h2>
+
+    <fieldset>
+      <legend>Text size</legend>
+      <div class="sizes" role="radiogroup" aria-label="Text size">
+        <button type="button" data-size="m" role="radio">Regular</button>
+        <button type="button" data-size="l" role="radio">Large</button>
+        <button type="button" data-size="xl" role="radio">Largest</button>
+      </div>
+    </fieldset>
+
+
+    <label class="check"><input id="web-search" type="checkbox"> <span>Let Deathbot search the web to check facts. Each search costs a little extra.</span></label>
+
+    <fieldset>
+      <legend>Connection</legend>
+      <p id="conn-status" class="fine"></p>
+      <button id="btn-signin-2" type="button" class="quiet">Sign in with OpenRouter</button>
+      <label for="key">OpenRouter key</label>
+      <input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-…">
+      <p class="fine">Your key is kept in this browser. This page has no server of its own.</p>
+    </fieldset>
+
+    <details>
+      <summary>Models</summary>
+      <label for="model">AI model</label>
+      <select id="model"></select>
+      <label for="image-model">Picture model</label>
+      <select id="image-model"></select>
+    </details>
+    <details>
+      <summary>Share access with a link</summary>
+      <p class="fine">This makes a link with your key inside it. Anyone who has the link can use your key and you pay for it. Use a key with a spending limit, and revoke it when you're done.</p>
+      <button id="btn-share" type="button" class="quiet">Copy share link</button> <span id="share-status" class="fine"></span>
+    </details>
+    <details>
+      <summary>Your data</summary>
+      <p class="fine">The conversation, notes, documents, pictures and any health records are stored only in this browser. Each message is sent through OpenRouter to the AI model's company to get a reply.</p>
+      <button id="btn-export" type="button" class="quiet">Download everything</button>
+      <button id="btn-erase" type="button" class="danger">Erase everything</button>
+    </details>
+    <details>
+      <summary>About</summary>
+      <p class="fine">Deathbot is an early demonstration. Its medical summaries cite published studies and have been checked by a second AI model, but no clinician has reviewed them yet.</p>
+      <p class="fine">It is open source: <a href="https://github.com/jmandel/deathbot" target="_blank" rel="noopener noreferrer">github.com/jmandel/deathbot</a>. The instructions and medical summaries this page runs on can be loaded into other AI tools: <a href="SKILL.zip" download>download SKILL.zip</a> <span id="release"></span>.</p>
+    </details>
+    <div class="dialog-end"><button value="save" class="primary">Done</button></div>
+  </form>
+</dialog>
+<div id="announce" class="sr" aria-live="polite"></div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

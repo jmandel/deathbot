@@ -1,0 +1,246 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT02299180",
+   "orgStudyIdInfo": {
+    "id": "LCPC IN14-0001"
+   },
+   "organization": {
+    "fullName": "Duke-NUS Graduate Medical School",
+    "class": "OTHER"
+   },
+   "briefTitle": "Impact of Advance Care Planning on Care for Patients With Advanced Heart Failure",
+   "officialTitle": "Impact of Advance Care Planning on Care for Patients With Advanced Heart Failure: A Randomized Controlled Trial"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2019-02",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2015-02"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2018-06",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2018-06",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2014-11-18",
+   "studyFirstSubmitQcDate": "2014-11-20",
+   "studyFirstPostDateStruct": {
+    "date": "2014-11-24",
+    "type": "ESTIMATED"
+   },
+   "lastUpdateSubmitDate": "2019-02-06",
+   "lastUpdatePostDateStruct": {
+    "date": "2019-02-08",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "PRINCIPAL_INVESTIGATOR",
+    "investigatorFullName": "Chetna Malhotra",
+    "investigatorTitle": "Assistant Professor",
+    "investigatorAffiliation": "Duke-NUS Graduate Medical School"
+   },
+   "leadSponsor": {
+    "name": "Duke-NUS Graduate Medical School",
+    "class": "OTHER"
+   },
+   "collaborators": [
+    {
+     "name": "National Heart Centre Singapore",
+     "class": "OTHER"
+    },
+    {
+     "name": "Singapore General Hospital",
+     "class": "OTHER"
+    }
+   ]
+  },
+  "oversightModule": {
+   "oversightHasDmc": false
+  },
+  "descriptionModule": {
+   "briefSummary": "Aims: Advance care planning (ACP) is considered to be one of the most promising interventions to enable patients with life limiting illnesses to receive treatment at the end of life (EOL) according to their own preferences and to promote EOL conversations between patients and their health care providers. Through a 2-arm randomized controlled trial (RCT) of patients with Class III and IV heart failure (New York Heart Association Functional Classification), we propose to assess:\n\n1. Whether patients in the ACP arm have a greater likelihood of receiving EOL care consistent with their preferences as stated in the latter of the last ACP document or the last patient interview, compared to patients in the control arm.\n2. Heath care costs during study duration between patients in ACP and control arms.\n3. Patient's understanding of own illness and their participation in decision making between the ACP and control arms.\n4. Patient's quality of life, anxiety and depression between ACP and control arms.\n\nMethodology: A total of 254 patients with advance heart failure will be randomized to receive intervention (ACP arm; N=127) or usual care (control arm; N=127).\n\nThe RCT will be conducted at the National Heart Centre and Singapore General Hospital. Patients in both arms will be followed for one year or till death, whichever is earlier, and interviewed every 4 months during this duration.\n\nClinical Significance: If benefits of ACP are shown to add value through this trial, then this study will help to promote acceptance of ACP among patients and health care providers across Singapore and elsewhere."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "Heart Failure"
+   ],
+   "keywords": [
+    "Advanced care planning",
+    "End of life care"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "SINGLE_GROUP",
+    "primaryPurpose": "SUPPORTIVE_CARE",
+    "maskingInfo": {
+     "masking": "NONE"
+    }
+   },
+   "enrollmentInfo": {
+    "count": 282,
+    "type": "ACTUAL"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "Control arm",
+     "type": "NO_INTERVENTION",
+     "description": "The control arm patients will not take part in ACP discussions and documentation, but will continue to receive usual care."
+    },
+    {
+     "label": "Intervention (ACP) arm",
+     "type": "EXPERIMENTAL",
+     "description": "The patient and his/her family members will be referred to an ACP facilitator and will undergo ACP as an ongoing process, integrated with patient's care, from the facilitator, in coordination with a coordinator/nurse, and treating physician. The ACP facilitator will be certified in providing ACP and will possess sufficient knowledge of the risks, benefits, and harms of treatments and procedures available to the patient. The ACP facilitator will be supported by the physician with the specialized knowledge of treatment options, especially with regards to prognosis. Family members will be encouraged to be present during the ACP discussion so that the whole family unit will be able to explore goals, values and beliefs towards the patient's medical care.",
+     "interventionNames": [
+      "Behavioral: ACP"
+     ]
+    }
+   ],
+   "interventions": [
+    {
+     "type": "BEHAVIORAL",
+     "name": "ACP",
+     "armGroupLabels": [
+      "Intervention (ACP) arm"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Proportion of patients receiving end of life care consistent with their stated preferences",
+     "description": "Patient's stated preferences for cardiopulmonary resuscitation (CPR) and life prolonging treatments (e.g. mechanical ventilation, dialysis, feeding tube, intravenous antibiotics, blood transfusion) will be assessed from their last survey or their ACP document. The actual treatment received by the patient will be assessed from medical records after the patient's death. Proportion of patients who died and received treatment consistent with their stated preferences will be calculated and compared between ACP and control arms",
+     "timeFrame": "one year"
+    }
+   ],
+   "secondaryOutcomes": [
+    {
+     "measure": "Total health care expenditure of patients during study duration",
+     "description": "Total healthcare expenditures during the study duration will be assessed from institutional databases and compared between ACP and control arms.",
+     "timeFrame": "one year"
+    },
+    {
+     "measure": "Patient scores for Quality of life",
+     "description": "Quality of life will be assessed through McGill Quality of Life scale and compared between ACP and control arms.",
+     "timeFrame": "every four months for one year"
+    },
+    {
+     "measure": "Patient's understanding of own illness",
+     "description": "Patient's understanding of own prognosis will be assessed and compared between ACP and control arms.",
+     "timeFrame": "every four months for one year"
+    },
+    {
+     "measure": "Patient scores for anxiety and depression",
+     "description": "Patient's anxiety and depression will be assessed through Hospital Anxiety and Depression scale and scores will be compared between ACP and control arms.",
+     "timeFrame": "every four months for one year"
+    },
+    {
+     "measure": "Patient's participation in decision-making",
+     "description": "Patient scores on decision conflict scale will be assessed and compared between ACP and control arms.",
+     "timeFrame": "every four months for one year"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "Inclusion Criteria:\n\nPatient participant:\n\n* Patients must be 21 years old or older and must be diagnosed with advanced heart failure (New York Heart Association Class III and IV). Patients must be aware of their diagnosis\n* Caregiver/Decision-maker participant: Subject must be 21 years old or older Participant must be either\n\n  * appointed substitute decision maker or\n  * most likely to be substitute decision maker for patient (if patient were to lose decision-making capacity)\n\nExclusion Criteria:\n\n* Patient participant: Patients must not have any psychiatric or cognitive disorders\n* Caregiver/Decision-maker participant: Cannot be a maid or foreign domestic worker",
+   "healthyVolunteers": false,
+   "sex": "ALL",
+   "minimumAge": "21 Years",
+   "stdAges": [
+    "ADULT",
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "Chetna Malhotra, MD, MPH",
+     "affiliation": "Duke-NUS Graduate Medical School",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "Singapore General Hospital",
+     "city": "Singapore",
+     "zip": "169608",
+     "country": "Singapore",
+     "geoPoint": {
+      "lat": 1.28967,
+      "lon": 103.85007
+     }
+    },
+    {
+     "facility": "National Heart Centre Singapore",
+     "city": "Singapore",
+     "zip": "169609",
+     "country": "Singapore",
+     "geoPoint": {
+      "lat": 1.28967,
+      "lon": 103.85007
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "32103441",
+     "type": "DERIVED",
+     "citation": "Malhotra C, Hu M, Malhotra R, Sim D, Jaufeerally FR, Bundoc FG, Finkelstein EA. Instability in End-of-Life Care Preference Among Heart Failure Patients: Secondary Analysis of a Randomized Controlled Trial in Singapore. J Gen Intern Med. 2020 Jul;35(7):2010-2016. doi: 10.1007/s11606-020-05740-2. Epub 2020 Feb 26."
+    },
+    {
+     "pmid": "30232107",
+     "type": "DERIVED",
+     "citation": "Malhotra C, Sim D, Jaufeerally F, Finkelstein EA. Associations between understanding of current treatment intent, communication with healthcare providers, preferences for invasive life-sustaining interventions and decisional conflict: results from a survey of patients with advanced heart failure in Singapore. BMJ Open. 2018 Sep 19;8(9):e021688. doi: 10.1136/bmjopen-2018-021688."
+    },
+    {
+     "pmid": "27287330",
+     "type": "DERIVED",
+     "citation": "Malhotra C, Sim DK, Jaufeerally F, Vikas NN, Sim GW, Tan BC, Ng CS, Tho PL, Lim J, Chuang CY, Fong FH, Liu J, Finkelstein EA. Impact of advance care planning on the care of patients with heart failure: study protocol for a randomized controlled trial. Trials. 2016 Jun 10;17(1):285. doi: 10.1186/s13063-016-1414-1."
+    }
+   ]
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  },
+  "conditionBrowseModule": {
+   "meshes": [
+    {
+     "id": "D006333",
+     "term": "Heart Failure"
+    }
+   ],
+   "ancestors": [
+    {
+     "id": "D006331",
+     "term": "Heart Diseases"
+    },
+    {
+     "id": "D002318",
+     "term": "Cardiovascular Diseases"
+    }
+   ]
+  }
+ },
+ "hasResults": false
+}

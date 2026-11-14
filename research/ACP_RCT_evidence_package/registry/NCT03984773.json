@@ -1,0 +1,274 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT03984773",
+   "orgStudyIdInfo": {
+    "id": "833178"
+   },
+   "organization": {
+    "fullName": "University of Pennsylvania",
+    "class": "OTHER"
+   },
+   "briefTitle": "Machine-Generated Mortality Estimates and Nudges to Promote Advance Care Planning Discussion Among Cancer Patients",
+   "officialTitle": "A Stepped-Wedge Cluster Randomized Trial Using Machine-Generated Mortality Estimates and Behavioral Nudges to Promote Advance Care Planning Discussion Among Cancer Patients"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2020-04",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2019-07-15",
+    "type": "ACTUAL"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2019-11-01",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2020-04-19",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2019-06-10",
+   "studyFirstSubmitQcDate": "2019-06-10",
+   "studyFirstPostDateStruct": {
+    "date": "2019-06-13",
+    "type": "ACTUAL"
+   },
+   "lastUpdateSubmitDate": "2020-04-23",
+   "lastUpdatePostDateStruct": {
+    "date": "2020-04-24",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "SPONSOR"
+   },
+   "leadSponsor": {
+    "name": "University of Pennsylvania",
+    "class": "OTHER"
+   }
+  },
+  "oversightModule": {
+   "oversightHasDmc": false,
+   "isFdaRegulatedDrug": false,
+   "isFdaRegulatedDevice": false
+  },
+  "descriptionModule": {
+   "briefSummary": "This study will use a stepped-wedge cluster randomized trial to evaluate the effect of a health system initiative using machine learning algorithms and behavioral nudges to prompt oncologists to have serious illness conversations with patients at high-risk of short-term mortality.",
+   "detailedDescription": "Patients with cancer often undergo costly therapy and acute care utilization that is discordant with their wishes, particularly at the end of life. Early serious illness conversations (SIC) improve goal-concordant care, and accurate prognostication is critical to inform the timing and content of these discussions. This study will use a stepped-wedge, cluster randomized trial to evaluate the effect of a health system initiative using machine learning algorithms and behavioral nudges to prompt oncologists to have serious illness conversations with patients at high-risk of short-term mortality. Oncology practices will be randomly assigned in sequential four-week blocks to receive the intervention."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "Oncology"
+   ],
+   "keywords": [
+    "serious illness conversations",
+    "advance care planning",
+    "mortality estimates",
+    "nudge",
+    "pre-commitment",
+    "opt-out"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "PARALLEL",
+    "interventionModelDescription": "Practices will be cluster-randomized in 4-week blocks to the intervention over a 16-week period, after which all practices will receive the email intervention.",
+    "primaryPurpose": "HEALTH_SERVICES_RESEARCH",
+    "maskingInfo": {
+     "masking": "DOUBLE",
+     "maskingDescription": "The principal study investigator and data analyst will not have knowledge of when the practices are randomized to the intervention.",
+     "whoMasked": [
+      "INVESTIGATOR",
+      "OUTCOMES_ASSESSOR"
+     ]
+    }
+   },
+   "enrollmentInfo": {
+    "count": 78,
+    "type": "ACTUAL"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "Control",
+     "type": "NO_INTERVENTION",
+     "description": "Clinicians will receive current standard communications regarding serious illness performance."
+    },
+    {
+     "label": "Mortality Estimates and Nudges",
+     "type": "EXPERIMENTAL",
+     "description": "Clinicians will receive a weekly email with upcoming patients that have high mortality estimates to consider for a serious illness conversation. Clinicians will have the opportunity to review the list and pre-commit (using an opt-out design) to patients appropriate for a conversation. They will receive a nudge on the day of the patient visit through a text message reminding them of their pre-commitment to conduct a serious illness conversation",
+     "interventionNames": [
+      "Behavioral: Nudge"
+     ]
+    }
+   ],
+   "interventions": [
+    {
+     "type": "BEHAVIORAL",
+     "name": "Nudge",
+     "description": "Oncology practices will be randomly assigned to receive an intervention, in which individual clinicians will receive a weekly audit email detailing how many serious illness conversations (SIC) they have had compared to the recommended level, and a link to a list of their patients scheduled in clinic next week at high risk of short-term mortality as identified by a mortality prediction algorithm. Clinicians will have the chance to review the opt-out list and pre-commit to a serious illness conversation with appropriate patients. Clinicians will receive nudge on the day of the patient visit via text message reminding them of their pre-commitment to conduct a serious illness conversation.",
+     "armGroupLabels": [
+      "Mortality Estimates and Nudges"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Change in the proportion of patients with a documented serious illness conversation (SIC)",
+     "description": "The change in the proportion of patients that have an outpatient oncology visit with documentation of a serious illness conversation (SIC)",
+     "timeFrame": "16 weeks"
+    }
+   ],
+   "secondaryOutcomes": [
+    {
+     "measure": "Change in the proportion of patients with a documented SIC among those identified as high-risk by the algorithm",
+     "description": "The change in the proportion of patients who have an outpatient oncology visit and are identified as high-risk by the machine learning algorithm with documentation of a SIC",
+     "timeFrame": "16 weeks"
+    },
+    {
+     "measure": "Change in the proportion of patients with a documented advanced care planning",
+     "description": "The change in the proportion of patients with documentation of advanced care planning.",
+     "timeFrame": "16 weeks"
+    },
+    {
+     "measure": "Change in the proportion of patients with a documented serious illness conversation (SIC) including follow-up",
+     "description": "The change in the proportion of patients that have an outpatient oncology visit with documentation of a serious illness conversation (SIC) including follow-up",
+     "timeFrame": "40 weeks"
+    },
+    {
+     "measure": "Change in the proportion of patients with a documented SIC among those identified as high-risk by the algorithm including follow-up",
+     "description": "The change in the proportion of patients who have an outpatient oncology visit and are identified as high-risk by the machine learning algorithm with documentation of a SIC including follow-up",
+     "timeFrame": "40 weeks"
+    },
+    {
+     "measure": "Change in the proportion of patients with a documented advanced care planning including follow-up",
+     "description": "The change in the proportion of patients with documentation of advanced care planning including follow-up",
+     "timeFrame": "40 weeks"
+    }
+   ],
+   "otherOutcomes": [
+    {
+     "measure": "Oncology Evaluation Center admissions",
+     "description": "The number of Oncology Evaluation Center admissions",
+     "timeFrame": "40 weeks"
+    },
+    {
+     "measure": "Healthcare utilization and receipt of chemotherapy in the last 30 days of life",
+     "description": "Healthcare utilization in the last 30 days of life in Penn Medicine facilities including acute care utilization as above and receipt of chemotherapy",
+     "timeFrame": "40 weeks"
+    },
+    {
+     "measure": "Number of Emergency department admissions",
+     "description": "The number of emergency department admissions",
+     "timeFrame": "40 weeks"
+    },
+    {
+     "measure": "Inpatient admissions",
+     "description": "The number of inpatient hospital admissions",
+     "timeFrame": "40 weeks"
+    },
+    {
+     "measure": "Intensive care unit admissions",
+     "description": "The number of intensive care unit admissions",
+     "timeFrame": "40 weeks"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "Inclusion Criteria:\n\n* Care for adults with cancer at the following clinics at Perelman Center for Advanced Medicine\n\n  * Breast Oncology\n  * Gastrointestinal Oncology\n  * Genitourinary Oncology\n  * Lymphoma\n  * Melanoma and Central Nervous System Oncology\n  * Myeloma\n  * Thoracic / Head and Neck Oncology\n* Care for adults with cancer at the Pennsylvania Hospital Oncology clinic\n\nExclusion Criteria:\n\n* Providers who care for only patients with benign hematologic disorders\n* Providers who see only genetic consults\n* Providers who see less than 12 high-risk patients in either the pre- or post- intervention periods\n* Visits for patients with lung cancer who are enrolled in an ongoing palliative care clinical trial that may lead to more SICs\n* Patient visits that are for oncology genetics consults (such patients may still be included if they see their primary oncologist during the trial)\n* Providers who have not undergone serious illness conversation program training (SIC)",
+   "healthyVolunteers": false,
+   "sex": "ALL",
+   "minimumAge": "18 Years",
+   "stdAges": [
+    "ADULT",
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "Mitesh S Patel, MD",
+     "affiliation": "University of Pennsylvania",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "Penn Medicine",
+     "city": "Philadelphia",
+     "state": "Pennsylvania",
+     "zip": "19103",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.95238,
+      "lon": -75.16362
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "39036423",
+     "type": "DERIVED",
+     "citation": "Patel TA, Heintz J, Chen J, LaPergola M, Bilker WB, Patel MS, Arya LA, Patel MI, Bekelman JE, Manz CR, Parikh RB. Spending Analysis of Machine Learning-Based Communication Nudges in Oncology. NEJM AI. 2024 Jun;1(6):10.1056/aioa2300228. doi: 10.1056/aioa2300228. Epub 2024 May 15."
+    },
+    {
+     "pmid": "36633868",
+     "type": "DERIVED",
+     "citation": "Manz CR, Zhang Y, Chen K, Long Q, Small DS, Evans CN, Chivers C, Regli SH, Hanson CW, Bekelman JE, Braun J, Rareshide CAL, O'Connor N, Kumar P, Schuchter LM, Shulman LN, Patel MS, Parikh RB. Long-term Effect of Machine Learning-Triggered Behavioral Nudges on Serious Illness Conversations and End-of-Life Outcomes Among Patients With Cancer: A Randomized Clinical Trial. JAMA Oncol. 2023 Mar 1;9(3):414-418. doi: 10.1001/jamaoncol.2022.6303."
+    },
+    {
+     "pmid": "35984992",
+     "type": "DERIVED",
+     "citation": "Parikh RB, Manz CR, Nelson MN, Ferrell W, Belardo Z, Temel JS, Patel MS, Shea JA. Oncologist Perceptions of Algorithm-Based Nudges to Prompt Early Serious Illness Communication: A Qualitative Study. J Palliat Med. 2022 Nov;25(11):1702-1707. doi: 10.1089/jpm.2022.0095. Epub 2022 Aug 18."
+    },
+    {
+     "pmid": "34767481",
+     "type": "DERIVED",
+     "citation": "Li EH, Ferrell W, Klaiman T, Kumar P, O'Connor N, Schuchter LM, Chen J, Patel MS, Manz CR, Parikh RB. Impact of Behavioral Nudges on the Quality of Serious Illness Conversations Among Patients With Cancer: Secondary Analysis of a Randomized Controlled Trial. JCO Oncol Pract. 2022 Apr;18(4):e495-e503. doi: 10.1200/OP.21.00024. Epub 2021 Nov 12."
+    },
+    {
+     "pmid": "33057696",
+     "type": "DERIVED",
+     "citation": "Manz CR, Parikh RB, Small DS, Evans CN, Chivers C, Regli SH, Hanson CW, Bekelman JE, Rareshide CAL, O'Connor N, Schuchter LM, Shulman LN, Patel MS. Effect of Integrating Machine Learning Mortality Estimates With Behavioral Nudges to Clinicians on Serious Illness Conversations Among Patients With Cancer: A Stepped-Wedge Cluster Randomized Clinical Trial. JAMA Oncol. 2020 Dec 1;6(12):e204759. doi: 10.1001/jamaoncol.2020.4759. Epub 2020 Dec 10."
+    },
+    {
+     "pmid": "31982648",
+     "type": "DERIVED",
+     "citation": "Manz CR, Parikh RB, Evans CN, Chivers C, Regli SH, Bekelman JE, Small D, Rareshide CAL, O'Connor N, Schuchter LM, Shulman LN, Patel MS. Integrating machine-generated mortality estimates and behavioral nudges to promote serious illness conversations for cancer patients: Design and methods for a stepped-wedge cluster randomized controlled trial. Contemp Clin Trials. 2020 Mar;90:105951. doi: 10.1016/j.cct.2020.105951. Epub 2020 Jan 23."
+    }
+   ]
+  },
+  "ipdSharingStatementModule": {
+   "ipdSharing": "NO"
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  },
+  "conditionBrowseModule": {
+   "meshes": [
+    {
+     "id": "D009369",
+     "term": "Neoplasms"
+    }
+   ]
+  }
+ },
+ "hasResults": false
+}

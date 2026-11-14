@@ -1,0 +1,2579 @@
+{
+  "package": {
+    "title": "Advance Care Planning: Randomized Trial Evidence on Preference-Sensitive End-of-Life Care and Costs",
+    "created": "2026-11-13",
+    "report_doc_url": "https://claude.ai/artifact/FJWyHCGwCNivPKTQVNW9TK",
+    "report_files": [
+      "report/ACP_RCT_evidence_report.md",
+      "report/ACP_RCT_evidence_report.pdf"
+    ],
+    "description": "Source package for the report: citation metadata, links, short evidence notes and available source files for each study.",
+    "folders": {
+      "papers/": "One PDF per study where available. Files ending __rendered_from_PMC.pdf were generated from PMC full-text XML.",
+      "fulltext/<ID>/": "PMC open-data full text (JATS XML, plain text, figures, supplements, PMC metadata).",
+      "registry/": "ClinicalTrials.gov records (JSON) and posted protocols, statistical analysis plans and consent forms.",
+      "report/": "The report exported from the doc (PDF and Markdown).",
+      "scripts/": "Scripts used to look up citations, collect files and build this package."
+    },
+    "field_guide": {
+      "availability": "pdf = publisher or repository PDF; rendered_pmc = PDF rendered from PMC full text; links_only = no free copy could be downloaded",
+      "effect_on_care": "Trials only: effect on preference-sensitive care received (Improved = less burdensome or more preference-concordant care on at least one outcome)",
+      "trial_group": "Papers reporting the same trial"
+    },
+    "licensing": "Files keep their original licenses (see license_or_access). CC BY / CC BY-NC items are open access. Items marked 'NIH author manuscript' are free-to-read PMC copies provided for text mining and personal use; do not redistribute them.",
+    "counts": {
+      "studies": 43,
+      "trials": 27,
+      "reviews_and_commentary": 16,
+      "with_publisher_or_repository_pdf": 8,
+      "with_pdf_rendered_from_pmc": 18,
+      "links_only": 17,
+      "registry_files": 20
+    }
+  },
+  "studies": [
+    {
+      "id": "T01",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "SUPPORT (1995)",
+      "title": "A controlled trial to improve care for seriously ill hospitalized patients: the Study to Understand Prognoses and Preferences for Outcomes and Risks of Treatments (SUPPORT)",
+      "authors": "SUPPORT Principal Investigators",
+      "journal": "JAMA",
+      "year": "1995",
+      "citation": "JAMA. 1995;274(20):1591-1598",
+      "doi": "10.1001/jama.1995.03530200027032",
+      "pmid": "7474243",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1001/jama.1995.03530200027032",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/7474243/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/7474243",
+        "registry": []
+      },
+      "setting": "Hospital; 5 US teaching hospitals",
+      "n": "4,804 seriously ill inpatients (phase II)",
+      "intervention": "Prognostic estimates to physicians plus a nurse facilitator for preferences and planning",
+      "care_outcomes": "No change in DNR timing (ratio 1.02), ICU/ventilation/coma before death (0.97, 95% CI 0.87-1.07) or hospital resource use (1.05)",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "T02",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Schneiderman (1992) offering advance directives",
+      "title": "Effects of offering advance directives on medical treatments and costs",
+      "authors": "Schneiderman LJ, Kronick R, Kaplan RM, Anderson JP, Langer RD.",
+      "journal": "Annals of internal medicine",
+      "year": "1992",
+      "citation": "Ann Intern Med. 1992;117(7):599-606",
+      "doi": "10.7326/0003-4819-117-7-599",
+      "pmid": "1524334",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.7326/0003-4819-117-7-599",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/1524334/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/1524334",
+        "registry": []
+      },
+      "setting": "University and VA medical center, California",
+      "n": "204 patients with life-threatening illness",
+      "intervention": "Offered a durable power of attorney for health care; summary placed in chart",
+      "care_outcomes": "No difference in treatments or charges (last-month charges $19,502 vs $19,700)",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "T03",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Molloy Let Me Decide (2000)",
+      "title": "Systematic implementation of an advance directive program in nursing homes: a randomized controlled trial",
+      "authors": "Molloy DW, Guyatt GH, Russo R, Goeree R, O'Brien BJ, Bédard M, Willan A, Watson J, Patterson C, Harrison C, Standish T, Strang D, Darzins PJ, Smith S, Dubois S.",
+      "journal": "JAMA",
+      "year": "2000",
+      "citation": "JAMA. 2000;283(11):1437-1444",
+      "doi": "10.1001/jama.283.11.1437",
+      "pmid": "10732933",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1001/jama.283.11.1437",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/10732933/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/10732933",
+        "registry": []
+      },
+      "setting": "Nursing homes, Ontario; 6 homes, pair-matched, 3 per arm",
+      "n": "1,292 residents",
+      "intervention": "Let Me Decide: staff/family education, facilitator, physician-signed directives that travel with the resident",
+      "care_outcomes": "Hospitalizations 0.27 vs 0.48 per resident; total cost Can $3,490 vs $5,239; deaths 24% vs 28% (no difference)",
+      "effect_on_care": "Improved",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "T04",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Detering Respecting Patient Choices (2010)",
+      "title": "The impact of advance care planning on end of life care in elderly patients: randomised controlled trial",
+      "authors": "Detering KM, Hancock AD, Reade MC, Silvester W.",
+      "journal": "BMJ (Clinical research ed.)",
+      "year": "2010",
+      "citation": "BMJ. 2010;340:c1345",
+      "doi": "10.1136/bmj.c1345",
+      "pmid": "20332506",
+      "pmcid": "PMC2844949",
+      "registry_ids": [
+        "ACTRN12608000539336"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1136/bmj.c1345",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/20332506/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2844949/",
+        "europepmc": "https://europepmc.org/article/MED/20332506",
+        "registry": [
+          "https://www.anzctr.org.au/ACTRN12608000539336.aspx"
+        ]
+      },
+      "setting": "Hospital, Melbourne",
+      "n": "309 inpatients aged 80+",
+      "intervention": "Respecting Patient Choices facilitated ACP",
+      "care_outcomes": "Among 56 decedents, end-of-life wishes known and respected 86% vs 30%",
+      "effect_on_care": "Improved",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY-NC",
+      "files": [
+        {
+          "path": "papers/T04_Detering_Respecting_Patient_Choices_2010__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC2844949."
+        },
+        {
+          "path": "fulltext/T04/PMC2844949.2.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/T04/PMC2844949.2.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/T04/PMC2844949.2.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/T04/detk699322.f1_default.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/T04/detk699322.ww1_default.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/T04/detk699322.ww2_default.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Hanson Goals of Care dementia (2017)",
+      "title": "Effect of the Goals of Care Intervention for Advanced Dementia: A Randomized Clinical Trial",
+      "authors": "Hanson LC, Zimmerman S, Song MK, Lin FC, Rosemond C, Carey TS, Mitchell SL.",
+      "journal": "JAMA internal medicine",
+      "year": "2017",
+      "citation": "JAMA Intern Med. 2017;177(1):24-31",
+      "doi": "10.1001/jamainternmed.2016.7031",
+      "pmid": "27893884",
+      "pmcid": "PMC5234328",
+      "registry_ids": [
+        "NCT01565642"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamainternmed.2016.7031",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/27893884/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5234328/",
+        "europepmc": "https://europepmc.org/article/MED/27893884",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT01565642"
+        ]
+      },
+      "setting": "Nursing homes, North Carolina; 22 homes",
+      "n": "302 residents with advanced dementia",
+      "intervention": "Goals-of-care video decision aid plus structured care-plan meeting",
+      "care_outcomes": "Hospital transfers 0.078 vs 0.163 per 90 person-days (RR 0.47); family-rated goal concordance 88% vs 71%; MOST orders 35% vs 16%",
+      "effect_on_care": "Improved",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T05_Hanson_Goals_of_Care_dementia_2017__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC5234328."
+        },
+        {
+          "path": "fulltext/T05/PMC5234328.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T05/PMC5234328.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T05/PMC5234328.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "registry/NCT01565642.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT01565642"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Mitchell EVINCE (2018)",
+      "title": "An Advance Care Planning Video Decision Support Tool for Nursing Home Residents With Advanced Dementia: A Cluster Randomized Clinical Trial",
+      "authors": "Mitchell SL, Shaffer ML, Cohen S, Hanson LC, Habtemariam D, Volandes AE.",
+      "journal": "JAMA internal medicine",
+      "year": "2018",
+      "citation": "JAMA Intern Med. 2018;178(7):961-969",
+      "doi": "10.1001/jamainternmed.2018.1506",
+      "pmid": "29868778",
+      "pmcid": "PMC6033645",
+      "registry_ids": [
+        "NCT01774799"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamainternmed.2018.1506",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/29868778/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6033645/",
+        "europepmc": "https://europepmc.org/article/MED/29868778",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT01774799"
+        ]
+      },
+      "setting": "Nursing homes, Boston; 64 homes",
+      "n": "402 residents with advanced dementia",
+      "intervention": "ACP video for proxies (EVINCE)",
+      "care_outcomes": "Do-not-hospitalize directives 63% both arms; burdensome treatments no difference; no-tube-feeding directives 70% vs 62%",
+      "effect_on_care": "No clear change",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T06_Mitchell_EVINCE_2018__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC6033645."
+        },
+        {
+          "path": "fulltext/T06/PMC6033645.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T06/PMC6033645.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T06/PMC6033645.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "registry/NCT01774799.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT01774799"
+        },
+        {
+          "path": "registry/NCT01774799_Prot_000.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Study Protocol",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/99/NCT01774799/Prot_000.pdf"
+        },
+        {
+          "path": "registry/NCT01774799_SAP_001.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Statistical Analysis Plan",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/99/NCT01774799/SAP_001.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "kind": "trial",
+      "trial_group": "PROVEN",
+      "short_name": "Mitchell PROVEN long-stay (2020)",
+      "title": "Advance Care Planning Video Intervention Among Long-Stay Nursing Home Residents: A Pragmatic Cluster Randomized Clinical Trial",
+      "authors": "Mitchell SL, Volandes AE, Gutman R, Gozalo PL, Ogarek JA, Loomer L, McCreedy EM, Zhai R, Mor V.",
+      "journal": "JAMA internal medicine",
+      "year": "2020",
+      "citation": "JAMA Intern Med. 2020;180(8):1070-1078",
+      "doi": "10.1001/jamainternmed.2020.2366",
+      "pmid": "32628258",
+      "pmcid": "PMC7399750",
+      "registry_ids": [
+        "NCT02612688"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamainternmed.2020.2366",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/32628258/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7399750/",
+        "europepmc": "https://europepmc.org/article/MED/32628258",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT02612688"
+        ]
+      },
+      "setting": "Nursing homes, 32 US states; 360 homes",
+      "n": "12,479 long-stay residents with advanced illness",
+      "intervention": "PROVEN ACP video program offered by facility champions",
+      "care_outcomes": "Hospital transfers 3.7 vs 3.9 per 1,000 person-days (diff -0.2, -0.5 to 0.2); burdensome treatments and hospice no difference; 21.9% viewed a video",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "Free to read on PMC, but not in the PMC open-data set and PMC blocks automated downloads; open the PMC link in a browser.",
+      "license_or_access": null,
+      "files": [
+        {
+          "path": "registry/NCT02612688.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT02612688"
+        },
+        {
+          "path": "registry/NCT02612688_Prot_SAP_000.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Study Protocol and Statistical Analysis Plan",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/88/NCT02612688/Prot_SAP_000.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "kind": "trial",
+      "trial_group": "PROVEN",
+      "short_name": "PROVEN short-stay (2021)",
+      "title": "Impact of an Advance Care Planning Video Intervention on Care of Short-Stay Nursing Home Patients",
+      "authors": "Loomer L, Ogarek JA, Mitchell SL, Volandes AE, Gutman R, Gozalo PL, McCreedy EM, Mor V.",
+      "journal": "Journal of the American Geriatrics Society",
+      "year": "2021",
+      "citation": "J Am Geriatr Soc. 2021;69(3):735-743",
+      "doi": "10.1111/jgs.16918",
+      "pmid": "33159697",
+      "pmcid": "PMC7969401",
+      "registry_ids": [
+        "NCT02612688"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1111/jgs.16918",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/33159697/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7969401/",
+        "europepmc": "https://europepmc.org/article/MED/33159697",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT02612688"
+        ]
+      },
+      "setting": "Nursing homes (PROVEN short-stay cohort)",
+      "n": "Short-stay post-acute patients in the same 360 homes",
+      "intervention": "PROVEN ACP video program",
+      "care_outcomes": "Hospital transfers 12.3 vs 13.2 per 1,000 person-days (not significant); ~14-15% shown videos",
+      "effect_on_care": "No clear change",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T08_PROVEN_short_stay_2021__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC7969401."
+        },
+        {
+          "path": "fulltext/T08/PMC7969401.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T08/PMC7969401.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T08/PMC7969401.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "registry/NCT02612688.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT02612688"
+        },
+        {
+          "path": "registry/NCT02612688_Prot_SAP_000.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Study Protocol and Statistical Analysis Plan",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/88/NCT02612688/Prot_SAP_000.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "kind": "trial",
+      "trial_group": "PROVEN",
+      "short_name": "Moyo PROVEN end-of-life transitions",
+      "title": "Effect of a Video-Assisted Advance Care Planning Intervention on End-of-Life Health Care Transitions Among Long-Stay Nursing Home Residents",
+      "authors": "Moyo P, Loomer L, Teno JM, Gutman R, McCreedy EM, Bélanger E, Volandes AE, Mitchell SL, Mor V.",
+      "journal": "Journal of the American Medical Directors Association",
+      "year": "2022",
+      "citation": "J Am Med Dir Assoc. 2022;23(3):394-398",
+      "doi": "10.1016/j.jamda.2021.09.014",
+      "pmid": "34627753",
+      "pmcid": "PMC8885779",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.jamda.2021.09.014",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/34627753/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8885779/",
+        "europepmc": "https://europepmc.org/article/MED/34627753",
+        "registry": []
+      },
+      "setting": "Nursing homes (PROVEN secondary analysis)",
+      "n": "Long-stay decedents with advanced illness",
+      "intervention": "PROVEN ACP video program",
+      "care_outcomes": "Hospital transfers in last 90 days 1.7 percentage points lower; no difference in multiple or late transitions",
+      "effect_on_care": "No clear change",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T09_Moyo_PROVEN_end_of_life_transitions__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC8885779."
+        },
+        {
+          "path": "fulltext/T09/PMC8885779.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T09/PMC8885779.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T09/PMC8885779.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "kind": "trial",
+      "trial_group": "Serious Illness Care Program",
+      "short_name": "Bernacki Serious Illness Care Program outcomes (2019)",
+      "title": "Effect of the Serious Illness Care Program in Outpatient Oncology: A Cluster Randomized Clinical Trial",
+      "authors": "Bernacki R, Paladino J, Neville BA, Hutchings M, Kavanagh J, Geerse OP, Lakin J, Sanders JJ, Miller K, Lipsitz S, Gawande AA, Block SD.",
+      "journal": "JAMA internal medicine",
+      "year": "2019",
+      "citation": "JAMA Intern Med. 2019;179(6):751-759",
+      "doi": "10.1001/jamainternmed.2019.0077",
+      "pmid": "30870563",
+      "pmcid": "PMC6547155",
+      "registry_ids": [
+        "NCT01786811"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamainternmed.2019.0077",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/30870563/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547155/",
+        "europepmc": "https://europepmc.org/article/MED/30870563",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT01786811"
+        ]
+      },
+      "setting": "Outpatient oncology, Dana-Farber",
+      "n": "278 patients, 91 clinicians",
+      "intervention": "Serious Illness Care Program: conversation guide, training, reminders",
+      "care_outcomes": "Goal-concordant care and peacefulness no difference (64 evaluable); less anxiety and depression",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "Free to read on PMC, but not in the PMC open-data set and PMC blocks automated downloads; open the PMC link in a browser.",
+      "license_or_access": null,
+      "files": [
+        {
+          "path": "registry/NCT01786811.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT01786811"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "kind": "trial",
+      "trial_group": "Serious Illness Care Program",
+      "short_name": "Paladino Serious Illness Care Program communication (2019)",
+      "title": "Evaluating an Intervention to Improve Communication Between Oncology Clinicians and Patients With Life-Limiting Cancer: A Cluster Randomized Clinical Trial of the Serious Illness Care Program",
+      "authors": "Paladino J, Bernacki R, Neville BA, Kavanagh J, Miranda SP, Palmor M, Lakin J, Desai M, Lamas D, Sanders JJ, Gass J, Henrich N, Lipsitz S, Fromme E, Gawande AA, Block SD.",
+      "journal": "JAMA oncology",
+      "year": "2019",
+      "citation": "JAMA Oncol. 2019;5(6):801-809",
+      "doi": "10.1001/jamaoncol.2019.0292",
+      "pmid": "30870556",
+      "pmcid": "PMC12634133",
+      "registry_ids": [
+        "NCT01786811"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamaoncol.2019.0292",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/30870556/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12634133/",
+        "europepmc": "https://europepmc.org/article/MED/30870556",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT01786811"
+        ]
+      },
+      "setting": "Outpatient oncology, Dana-Farber (same trial)",
+      "n": "278 patients",
+      "intervention": "Serious Illness Care Program",
+      "care_outcomes": "Documented conversations 96% vs 79%, about 2.4 months earlier (process outcome)",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "Free to read on PMC, but not in the PMC open-data set and PMC blocks automated downloads; open the PMC link in a browser.",
+      "license_or_access": null,
+      "files": [
+        {
+          "path": "registry/NCT01786811.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT01786811"
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "kind": "trial",
+      "trial_group": "Overbeek Respecting Choices (Netherlands)",
+      "short_name": "Overbeek frail older adults (2018)",
+      "title": "Advance Care Planning in Frail Older Adults: A Cluster Randomized Controlled Trial",
+      "authors": "Overbeek A, Korfage IJ, Jabbarian LJ, Billekens P, Hammes BJ, Polinder S, Severijnen J, Swart SJ, Witkamp FE, van der Heide A, Rietjens JAC.",
+      "journal": "Journal of the American Geriatrics Society",
+      "year": "2018",
+      "citation": "J Am Geriatr Soc. 2018;66(6):1089-1095",
+      "doi": "10.1111/jgs.15333",
+      "pmid": "29608789",
+      "pmcid": null,
+      "registry_ids": [
+        "NTR4454"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1111/jgs.15333",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/29608789/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/29608789",
+        "registry": []
+      },
+      "setting": "Care homes and home care, Rotterdam",
+      "n": "201 frail adults 75+",
+      "intervention": "Respecting Choices facilitated ACP",
+      "care_outcomes": "Advance directives 93% vs 34%; no difference in use of medical care",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "T13",
+      "kind": "trial",
+      "trial_group": "Overbeek Respecting Choices (Netherlands)",
+      "short_name": "Overbeek frail older adults costs (2019)",
+      "title": "Advance Care Planning for frail older adults: Findings on costs in a cluster randomised controlled trial",
+      "authors": "Overbeek A, Polinder S, Haagsma J, Billekens P, de Nooijer K, Hammes BJ, Muliaditan D, van der Heide A, Rietjens JA, Korfage IJ.",
+      "journal": "Palliative medicine",
+      "year": "2019",
+      "citation": "Palliat Med. 2019;33(3):291-300",
+      "doi": "10.1177/0269216318801751",
+      "pmid": "30269650",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1177/0269216318801751",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/30269650/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/30269650",
+        "registry": []
+      },
+      "setting": "Same trial as T12 (cost analysis)",
+      "n": "194 participants analyzed",
+      "intervention": "Respecting Choices facilitated ACP",
+      "care_outcomes": "Program cost EUR 76 per participant; medical care costs EUR 2,360 vs 2,235 (no difference)",
+      "effect_on_care": "No clear change",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "author version",
+      "files": [
+        {
+          "path": "papers/T13_Overbeek_frail_older_adults_costs_2019.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "Erasmus University repository (author version)",
+          "source_url": "https://repub.eur.nl/pub/115345/Repub_115345_O-A.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Malhotra heart failure Singapore (2020)",
+      "title": "Impact of a Formal Advance Care Planning Program on End-of-Life Care for Patients With Heart Failure: Results From a Randomized Controlled Trial",
+      "authors": "Malhotra C, Sim D, Jaufeerally FR, Hu M, Nadkarni N, Ng CSH, Wong G, Tan BC, Lim JF, Chuang CY, Finkelstein EA.",
+      "journal": "Journal of cardiac failure",
+      "year": "2020",
+      "citation": "J Card Fail. 2020;26(7):594-598",
+      "doi": "10.1016/j.cardfail.2020.01.015",
+      "pmid": "31991216",
+      "pmcid": null,
+      "registry_ids": [
+        "NCT02299180"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.cardfail.2020.01.015",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/31991216/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/31991216",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT02299180"
+        ]
+      },
+      "setting": "Hospitals, Singapore",
+      "n": "282 inpatients with NYHA III-IV heart failure",
+      "intervention": "Respecting Choices facilitated ACP",
+      "care_outcomes": "Among 89 decedents: treatment wishes followed 35% vs 44%; place-of-death wishes 52% vs 51%; CPR wishes 83% vs 62% (none significant)",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": [
+        {
+          "path": "registry/NCT02299180.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT02299180"
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Halpern default options in advance directives (2020)",
+      "title": "Effect of Default Options in Advance Directives on Hospital-Free Days and Care Choices Among Seriously Ill Patients: A Randomized Clinical Trial",
+      "authors": "Halpern SD, Small DS, Troxel AB, Cooney E, Bayes B, Chowdhury M, Tomko HE, Angus DC, Arnold RM, Loewenstein G, Volpp KG, White DB, Bryce CL.",
+      "journal": "JAMA network open",
+      "year": "2020",
+      "citation": "JAMA Netw Open. 2020;3(3):e201742",
+      "doi": "10.1001/jamanetworkopen.2020.1742",
+      "pmid": "32227179",
+      "pmcid": "PMC7315782",
+      "registry_ids": [
+        "NCT02017548"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamanetworkopen.2020.1742",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/32227179/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7315782/",
+        "europepmc": "https://europepmc.org/article/MED/32227179",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT02017548"
+        ]
+      },
+      "setting": "Pennsylvania; outpatients with serious illness",
+      "n": "515 randomized (492 analyzed)",
+      "intervention": "Advance directives with comfort or life-extending defaults vs none",
+      "care_outcomes": "Defaults shifted choices; no difference in hospital-free days (RR 1.05, 0.90-1.23), hospitalizations, ICU, place of death or inpatient costs",
+      "effect_on_care": "No clear change",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T15_Halpern_default_options_in_advance_directives_2020__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC7315782."
+        },
+        {
+          "path": "fulltext/T15/PMC7315782.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T15/PMC7315782.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T15/PMC7315782.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "registry/NCT02017548.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT02017548"
+        }
+      ]
+    },
+    {
+      "id": "T16",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Korfage ACTION (2020)",
+      "title": "Advance care planning in patients with advanced cancer: A 6-country, cluster-randomised clinical trial",
+      "authors": "Korfage IJ, Carreras G, Arnfeldt Christensen CM, Billekens P, Bramley L, Briggs L, Bulli F, Caswell G, Červ B, van Delden JJM, Deliens L, Dunleavy L, Eecloo K, Gorini G, Groenvold M, Hammes B, Ingravallo F, Jabbarian LJ, Kars MC, Kodba-Čeh H, Lunder U, Miccinesi G, Mimić A, Ozbič P, Payne SA, Polinder S, Pollock K, Preston NJ, Seymour J, Simonič A, Thit Johnsen A, Toccafondi A, Verkissen MN, Wilcock A, Zwakman M, van der Heide A, Rietjens JAC.",
+      "journal": "PLoS medicine",
+      "year": "2020",
+      "citation": "PLoS Med. 2020;17(11):e1003422",
+      "doi": "10.1371/journal.pmed.1003422",
+      "pmid": "33186365",
+      "pmcid": "PMC7665676",
+      "registry_ids": [
+        "ISRCTN63110516"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1371/journal.pmed.1003422",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/33186365/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7665676/",
+        "europepmc": "https://europepmc.org/article/MED/33186365",
+        "registry": [
+          "https://www.isrctn.com/ISRCTN63110516"
+        ]
+      },
+      "setting": "Oncology, 23 hospitals in 6 European countries",
+      "n": "1,117 patients with advanced lung or colorectal cancer",
+      "intervention": "ACTION Respecting Choices conversations",
+      "care_outcomes": "No difference in hospital admissions over 1 year; specialist palliative care 37% vs 27%; quality of life unchanged",
+      "effect_on_care": "No clear change",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY",
+      "files": [
+        {
+          "path": "papers/T16_Korfage_ACTION_2020.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "PLOS (publisher, CC BY)",
+          "source_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1003422&type=printable"
+        },
+        {
+          "path": "fulltext/T16/PMC7665676.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/PMC7665676.1.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/PMC7665676.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/PMC7665676.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.g001.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s001.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s002.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s003.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s004.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s005.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s006.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s007.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.s008.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.t001.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.t002.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.t003.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T16/pmed.1003422.t004.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        }
+      ]
+    },
+    {
+      "id": "T17",
+      "kind": "trial",
+      "trial_group": "Penn ML nudge trial",
+      "short_name": "Manz ML nudges, primary results (2020)",
+      "title": "Effect of Integrating Machine Learning Mortality Estimates With Behavioral Nudges to Clinicians on Serious Illness Conversations Among Patients With Cancer: A Stepped-Wedge Cluster Randomized Clinical Trial",
+      "authors": "Manz CR, Parikh RB, Small DS, Evans CN, Chivers C, Regli SH, Hanson CW, Bekelman JE, Rareshide CAL, O'Connor N, Schuchter LM, Shulman LN, Patel MS.",
+      "journal": "JAMA oncology",
+      "year": "2020",
+      "citation": "JAMA Oncol. 2020;6(12):e204759",
+      "doi": "10.1001/jamaoncol.2020.4759",
+      "pmid": "33057696",
+      "pmcid": "PMC7563672",
+      "registry_ids": [
+        "NCT03984773"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamaoncol.2020.4759",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/33057696/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7563672/",
+        "europepmc": "https://europepmc.org/article/MED/33057696",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT03984773"
+        ]
+      },
+      "setting": "Oncology, Penn (stepped-wedge)",
+      "n": "14,607 patients, 78 clinicians",
+      "intervention": "Machine-learning mortality flag plus behavioral nudges to oncologists",
+      "care_outcomes": "Serious illness conversations 1.3% to 4.6% of all encounters (process outcome)",
+      "effect_on_care": "Improved",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY",
+      "files": [
+        {
+          "path": "papers/T17_Manz_ML_nudges_primary_results_2020__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC7563672."
+        },
+        {
+          "path": "fulltext/T17/PMC7563672.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T17/PMC7563672.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T17/PMC7563672.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T17/jamaoncol-e204759-g001.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T17/jamaoncol-e204759-s001.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T17/jamaoncol-e204759-s002.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T17/jamaoncol-e204759-s003.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "registry/NCT03984773.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT03984773"
+        }
+      ]
+    },
+    {
+      "id": "T18",
+      "kind": "trial",
+      "trial_group": "Penn ML nudge trial",
+      "short_name": "Manz ML nudges, long-term EOL outcomes (2023)",
+      "title": "Long-term Effect of Machine Learning-Triggered Behavioral Nudges on Serious Illness Conversations and End-of-Life Outcomes Among Patients With Cancer: A Randomized Clinical Trial",
+      "authors": "Manz CR, Zhang Y, Chen K, Long Q, Small DS, Evans CN, Chivers C, Regli SH, Hanson CW, Bekelman JE, Braun J, Rareshide CAL, O'Connor N, Kumar P, Schuchter LM, Shulman LN, Patel MS, Parikh RB.",
+      "journal": "JAMA oncology",
+      "year": "2023",
+      "citation": "JAMA Oncol. 2023;9(3):414-418",
+      "doi": "10.1001/jamaoncol.2022.6303",
+      "pmid": "36633868",
+      "pmcid": "PMC9857721",
+      "registry_ids": [
+        "NCT03984773"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamaoncol.2022.6303",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/36633868/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857721/",
+        "europepmc": "https://europepmc.org/article/MED/36633868",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT03984773"
+        ]
+      },
+      "setting": "Oncology, Penn (40-week follow-up)",
+      "n": "20,506 patients",
+      "intervention": "Same as T17",
+      "care_outcomes": "Systemic therapy near death 7.5% vs 10.4% (aOR 0.25); hospice, inpatient death and end-of-life ICU no difference",
+      "effect_on_care": "Improved",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY",
+      "files": [
+        {
+          "path": "papers/T18_Manz_ML_nudges_long_term_EOL_outcomes_2023__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC9857721."
+        },
+        {
+          "path": "fulltext/T18/PMC9857721.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T18/PMC9857721.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T18/PMC9857721.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T18/jamaoncol-e226303-g001.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T18/jamaoncol-e226303-g002.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T18/jamaoncol-e226303-s001.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T18/jamaoncol-e226303-s002.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T18/jamaoncol-e226303-s003.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "registry/NCT03984773.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT03984773"
+        }
+      ]
+    },
+    {
+      "id": "T19",
+      "kind": "trial",
+      "trial_group": "Penn ML nudge trial",
+      "short_name": "Patel ML nudges spending analysis (2024)",
+      "title": "Spending Analysis of Machine Learning-Based Communication Nudges in Oncology",
+      "authors": "Patel TA, Heintz J, Chen J, LaPergola M, Bilker WB, Patel MS, Arya LA, Patel MI, Bekelman JE, Manz CR, Parikh RB.",
+      "journal": "NEJM AI",
+      "year": "2024",
+      "citation": "NEJM AI. 2024;1(6)",
+      "doi": "10.1056/aioa2300228",
+      "pmid": "39036423",
+      "pmcid": "PMC11259034",
+      "registry_ids": [
+        "NCT03984773"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1056/aioa2300228",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/39036423/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11259034/",
+        "europepmc": "https://europepmc.org/article/MED/39036423",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT03984773"
+        ]
+      },
+      "setting": "Oncology, Penn (spending analysis)",
+      "n": "1,187 decedents",
+      "intervention": "Same as T17",
+      "care_outcomes": "Daily spending last 6 months $378 vs $450 (adjusted -$75/day), driven by systemic therapy and outpatient care; acute-care and hospice spending no difference",
+      "effect_on_care": "Improved",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T19_Patel_ML_nudges_spending_analysis_2024__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC11259034."
+        },
+        {
+          "path": "fulltext/T19/PMC11259034.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T19/PMC11259034.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T19/PMC11259034.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "registry/NCT03984773.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT03984773"
+        }
+      ]
+    },
+    {
+      "id": "T20",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Gabbard ACPWise nurse navigator (2021)",
+      "title": "Effectiveness of a Nurse-Led Multidisciplinary Intervention vs Usual Care on Advance Care Planning for Vulnerable Older Adults in an Accountable Care Organization: A Randomized Clinical Trial",
+      "authors": "Gabbard J, Pajewski NM, Callahan KE, Dharod A, Foley KL, Ferris K, Moses A, Willard J, Williamson JD.",
+      "journal": "JAMA internal medicine",
+      "year": "2021",
+      "citation": "JAMA Intern Med. 2021;181(3):361-369",
+      "doi": "10.1001/jamainternmed.2020.5950",
+      "pmid": "33427851",
+      "pmcid": "PMC7802005",
+      "registry_ids": [
+        "NCT03609658"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamainternmed.2020.5950",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/33427851/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7802005/",
+        "europepmc": "https://europepmc.org/article/MED/33427851",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT03609658"
+        ]
+      },
+      "setting": "Primary care, North Carolina; 8 practices",
+      "n": "759 frail adults 65+",
+      "intervention": "Nurse navigator ACP plus EHR documentation tool",
+      "care_outcomes": "ACP documentation 42.2% vs 3.7%; ED visits and hospitalizations no difference (HR 1.17)",
+      "effect_on_care": "No clear change",
+      "availability": "links_only",
+      "availability_note": "Free to read on PMC, but not in the PMC open-data set and PMC blocks automated downloads; open the PMC link in a browser.",
+      "license_or_access": null,
+      "files": [
+        {
+          "path": "registry/NCT03609658.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT03609658"
+        },
+        {
+          "path": "registry/NCT03609658_Prot_SAP_000.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Study Protocol and Statistical Analysis Plan",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/58/NCT03609658/Prot_SAP_000.pdf"
+        },
+        {
+          "path": "registry/NCT03609658_ICF_001.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Informed Consent Form",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/58/NCT03609658/ICF_001.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T21",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Curtis Jumpstart inpatient (2023)",
+      "title": "Intervention to Promote Communication About Goals of Care for Hospitalized Patients With Serious Illness: A Randomized Clinical Trial",
+      "authors": "Curtis JR, Lee RY, Brumback LC, Kross EK, Downey L, Torrence J, LeDuc N, Mallon Andrews K, Im J, Heywood J, Brown CE, Sibley J, Lober WB, Cohen T, Weiner BJ, Khandelwal N, Abedini NC, Engelberg RA.",
+      "journal": "JAMA",
+      "year": "2023",
+      "citation": "JAMA. 2023;329(23):2028-2037",
+      "doi": "10.1001/jama.2023.8812",
+      "pmid": "37210665",
+      "pmcid": "PMC10201405",
+      "registry_ids": [
+        "NCT04281784"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jama.2023.8812",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/37210665/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10201405/",
+        "europepmc": "https://europepmc.org/article/MED/37210665",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT04281784"
+        ]
+      },
+      "setting": "Hospitals, Seattle; 3 hospitals",
+      "n": "2,512 older inpatients with serious illness",
+      "intervention": "Jumpstart: EHR-generated prompt for a goals-of-care talk",
+      "care_outcomes": "Goals-of-care talks 34.5% vs 30.4%; ICU within 30 days 27.3% vs 28.3%; ED 17.3% vs 18.6%",
+      "effect_on_care": "No clear change",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T21_Curtis_Jumpstart_inpatient_2023__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC10201405."
+        },
+        {
+          "path": "fulltext/T21/PMC10201405.2.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T21/PMC10201405.2.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T21/PMC10201405.2.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "registry/NCT04281784.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT04281784"
+        },
+        {
+          "path": "registry/NCT04281784_Prot_000.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Study Protocol",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/84/NCT04281784/Prot_000.pdf"
+        },
+        {
+          "path": "registry/NCT04281784_SAP_001.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Statistical Analysis Plan",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/84/NCT04281784/SAP_001.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T22",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Wolff SHARING Choices (2025)",
+      "title": "Advance Care Planning, End-of-Life Preferences, and Burdensome Care: A Pragmatic Cluster Randomized Clinical Trial",
+      "authors": "Wolff JL, Scerpella D, Giovannetti ER, Roth DL, Hanna V, Hussain N, Colburn JL, Saylor MA, Boyd CM, Cotter V, McGuire M, Rawlinson C, Sloan DH, Richards TM, Walker K, Smith KM, Dy SM, SHARING Choices Investigators.",
+      "journal": "JAMA internal medicine",
+      "year": "2025",
+      "citation": "JAMA Intern Med. 2025;185(2):162-170",
+      "doi": "10.1001/jamainternmed.2024.6215",
+      "pmid": "39621341",
+      "pmcid": "PMC11612918",
+      "registry_ids": [
+        "NCT04819191"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamainternmed.2024.6215",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/39621341/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11612918/",
+        "europepmc": "https://europepmc.org/article/MED/39621341",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT04819191"
+        ]
+      },
+      "setting": "Primary care, Maryland region; 51 practices",
+      "n": "64,915 adults 65+ (1,498 decedents with serious illness)",
+      "intervention": "SHARING Choices practice-wide ACP outreach and facilitation",
+      "care_outcomes": "New preference documentation 12.0% vs 6.6%; burdensome end-of-life care 28.8% vs 20.9% (aOR 1.40)",
+      "effect_on_care": "Worsened",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY",
+      "files": [
+        {
+          "path": "papers/T22_Wolff_SHARING_Choices_2025__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC11612918."
+        },
+        {
+          "path": "fulltext/T22/PMC11612918.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/PMC11612918.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/PMC11612918.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/jamainternmed-e246215-g001.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/jamainternmed-e246215-g002.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/jamainternmed-e246215-s001.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/jamainternmed-e246215-s002.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/jamainternmed-e246215-s003.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T22/jamainternmed-e246215-s004.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "registry/NCT04819191.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT04819191"
+        },
+        {
+          "path": "registry/NCT04819191_Prot_SAP_000.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Study Protocol and Statistical Analysis Plan",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/91/NCT04819191/Prot_SAP_000.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T23",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "ACP PEACE (2025)",
+      "title": "An Intervention to Increase Advance Care Planning Among Older Adults With Advanced Cancer: A Randomized Clinical Trial",
+      "authors": "Volandes AE, Chang Y, Lakin JR, Paasche-Orlow MK, Lindvall C, Zupanc SN, Martins-Welch D, Carney MT, Burns EA, Itty J, Emmert-Tangredi K, Martin NJ, Sanghani S, Tilburt J, Pollak KI, Davis AD, Garde C, Barry MJ, El-Jawahri A, Quintiliani L, Sciacca K, Goldman J, Tulsky JA.",
+      "journal": "JAMA network open",
+      "year": "2025",
+      "citation": "JAMA Netw Open. 2025;8(5):e259150",
+      "doi": "10.1001/jamanetworkopen.2025.9150",
+      "pmid": "40343696",
+      "pmcid": "PMC12065034",
+      "registry_ids": [
+        "NCT03609177"
+      ],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamanetworkopen.2025.9150",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/40343696/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12065034/",
+        "europepmc": "https://europepmc.org/article/MED/40343696",
+        "registry": [
+          "https://clinicaltrials.gov/study/NCT03609177"
+        ]
+      },
+      "setting": "Oncology, 29 clinics in 3 health systems (stepped-wedge)",
+      "n": "13,800 patients 65+",
+      "intervention": "ACP PEACE: patient video decision aids plus VitalTalk clinician training",
+      "care_outcomes": "ACP documentation 25.3% vs 20.8%; documented hospice, palliative care and treatment limits no difference",
+      "effect_on_care": "No clear change",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY",
+      "files": [
+        {
+          "path": "papers/T23_ACP_PEACE_2025__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC12065034."
+        },
+        {
+          "path": "fulltext/T23/PMC12065034.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T23/PMC12065034.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T23/PMC12065034.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T23/jamanetwopen-e259150-g001.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T23/jamanetwopen-e259150-g002.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T23/jamanetwopen-e259150-s001.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T23/jamanetwopen-e259150-s002.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T23/jamanetwopen-e259150-s003.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "registry/NCT03609177.json",
+          "type": "trial registry record (JSON)",
+          "description": "ClinicalTrials.gov record (JSON)",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://clinicaltrials.gov/study/NCT03609177"
+        },
+        {
+          "path": "registry/NCT03609177_Prot_SAP_000.pdf",
+          "type": "trial registry document (PDF)",
+          "description": "Study Protocol and Statistical Analysis Plan",
+          "source": "ClinicalTrials.gov",
+          "source_url": "https://cdn.clinicaltrials.gov/large-docs/77/NCT03609177/Prot_SAP_000.pdf"
+        }
+      ]
+    },
+    {
+      "id": "T24",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Epstein VOICE communication trial (2017)",
+      "title": "Effect of a Patient-Centered Communication Intervention on Oncologist-Patient Communication, Quality of Life, and Health Care Utilization in Advanced Cancer: The VOICE Randomized Clinical Trial",
+      "authors": "Epstein RM, Duberstein PR, Fenton JJ, Fiscella K, Hoerger M, Tancredi DJ, Xing G, Gramling R, Mohile S, Franks P, Kaesberg P, Plumb S, Cipri CS, Street RL, Shields CG, Back AL, Butow P, Walczak A, Tattersall M, Venuti A, Sullivan P, Robinson M, Hoh B, Lewis L, Kravitz RL.",
+      "journal": "JAMA oncology",
+      "year": "2017",
+      "citation": "JAMA Oncol. 2017;3(1):92-100",
+      "doi": "10.1001/jamaoncol.2016.4373",
+      "pmid": "27612178",
+      "pmcid": "PMC5832439",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1001/jamaoncol.2016.4373",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/27612178/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5832439/",
+        "europepmc": "https://europepmc.org/article/MED/27612178",
+        "registry": []
+      },
+      "setting": "Oncology, New York and California",
+      "n": "265 patients, 38 oncologists",
+      "intervention": "VOICE: oncologist communication training plus patient coaching",
+      "care_outcomes": "Communication improved; aggressive treatment and hospice use in last 30 days no difference",
+      "effect_on_care": "No clear change",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/T24_Epstein_VOICE_communication_trial_2017__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC5832439."
+        },
+        {
+          "path": "fulltext/T24/PMC5832439.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T24/PMC5832439.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/T24/PMC5832439.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        }
+      ]
+    },
+    {
+      "id": "T25",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Martin goals of care in residential aged care (2019)",
+      "title": "Introducing Goals of Patient Care in Residential Aged Care Facilities to Decrease Hospitalization: A Cluster Randomized Controlled Trial",
+      "authors": "Martin RS, Hayes BJ, Hutchinson A, Tacey M, Yates P, Lim WK.",
+      "journal": "Journal of the American Medical Directors Association",
+      "year": "2019",
+      "citation": "J Am Med Dir Assoc. 2019;20(10):1318-1324.e2",
+      "doi": "10.1016/j.jamda.2019.06.017",
+      "pmid": "31422065",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.jamda.2019.06.017",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/31422065/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/31422065",
+        "registry": []
+      },
+      "setting": "Residential aged care, Melbourne; 6 facilities",
+      "n": "326 residents",
+      "intervention": "Geriatrician-led Goals of Patient Care medical treatment orders vs ACP alone",
+      "care_outcomes": "ED visits plus hospitalizations: not significant at 6 months (primary), IRR 0.63 at 12 months; more deaths in facility (RR 2.19 at 6 months)",
+      "effect_on_care": "Improved",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "T26",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Sinclair nurse-led ACP in severe respiratory disease (2020)",
+      "title": "Impact of a Nurse-Led Advance Care Planning Intervention on Satisfaction, Health-Related Quality of Life, and Health Care Utilization Among Patients With Severe Respiratory Disease: A Randomized Patient-Preference Trial",
+      "authors": "Sinclair C, Auret KA, Evans SF, Jane F, Dormer S, Wilkinson A, Greeve K, Koay MA, Brims F.",
+      "journal": "Journal of pain and symptom management",
+      "year": "2020",
+      "citation": "J Pain Symptom Manage. 2020;59(4):848-855",
+      "doi": "10.1016/j.jpainsymman.2019.11.018",
+      "pmid": "31790750",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.jpainsymman.2019.11.018",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/31790750/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/31790750",
+        "registry": []
+      },
+      "setting": "Severe respiratory disease, Western Australia (patient-preference randomized)",
+      "n": "149 patients (54 decedents)",
+      "intervention": "Nurse-led facilitated ACP",
+      "care_outcomes": "ED visits and admissions no difference; among decedents fewer acute-hospital nights (7.8 vs 11.5) and more palliative-care nights (5.5 vs 2.1)",
+      "effect_on_care": "Improved",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "submittedVersion, cc-by-nc-nd",
+      "files": [
+        {
+          "path": "papers/T26_Sinclair_nurse_led_ACP_in_severe_respiratory_disease_2020.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "UNSWorks (University of New South Wales, Sydney, Australia) (submittedVersion, cc-by-nc-nd)",
+          "source_url": "https://unsworks.unsw.edu.au/bitstreams/df275777-5ba2-4657-a0fb-9ebb91b68775/download"
+        }
+      ]
+    },
+    {
+      "id": "T27",
+      "kind": "trial",
+      "trial_group": null,
+      "short_name": "Johnson ACP for incurable cancer (2018)",
+      "title": "A randomised controlled trial of an advance care planning intervention for patients with incurable cancer",
+      "authors": "Johnson SB, Butow PN, Bell ML, Detering K, Clayton JM, Silvester W, Kiely BE, Clarke S, Vaccaro L, Stockler MR, Beale P, Fitzgerald N, Tattersall MHN.",
+      "journal": "British journal of cancer",
+      "year": "2018",
+      "citation": "Br J Cancer. 2018;119(10):1182-1190",
+      "doi": "10.1038/s41416-018-0303-7",
+      "pmid": "30369600",
+      "pmcid": "PMC6251033",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1038/s41416-018-0303-7",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/30369600/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6251033/",
+        "europepmc": "https://europepmc.org/article/MED/30369600",
+        "registry": []
+      },
+      "setting": "Oncology, 7 Australian centers",
+      "n": "208 patient-family pairs",
+      "intervention": "Facilitated ACP",
+      "care_outcomes": "Wishes discussed and met 43% vs 33% (not significant); no difference in end-of-life care received",
+      "effect_on_care": "No clear change",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY",
+      "files": [
+        {
+          "path": "papers/T27_Johnson_ACP_for_incurable_cancer_2018.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "British Journal of Cancer (publishedVersion, cc-by)",
+          "source_url": "https://www.nature.com/articles/s41416-018-0303-7.pdf"
+        },
+        {
+          "path": "fulltext/T27/41416_2018_303_Fig1_HTML.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T27/41416_2018_303_MOESM1_ESM.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T27/PMC6251033.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T27/PMC6251033.1.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T27/PMC6251033.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/T27/PMC6251033.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        }
+      ]
+    },
+    {
+      "id": "R01",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Malhotra systematic review of 132 RCTs (2022)",
+      "title": "What is the evidence for efficacy of advance care planning in improving patient outcomes? A systematic review of randomised controlled trials",
+      "authors": "Malhotra C, Shafiq M, Batcagan-Abueg A.",
+      "journal": "BMJ open",
+      "year": "2022",
+      "citation": "BMJ Open. 2022;12(7):e060201",
+      "doi": "10.1136/bmjopen-2021-060201",
+      "pmid": null,
+      "pmcid": "PMC9301802",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1136/bmjopen-2021-060201",
+        "pubmed": null,
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9301802/",
+        "europepmc": null,
+        "registry": []
+      },
+      "finding": "132 RCTs; vote count only (no pooling, too heterogeneous). Lower use/costs in 4 of 22; goal-concordant care in 3 of 12; documentation improved in 34 of 54",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY-NC",
+      "files": [
+        {
+          "path": "papers/R01_Malhotra_systematic_review_of_132_RCTs_2022__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC9301802."
+        },
+        {
+          "path": "fulltext/R01/PMC9301802.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/PMC9301802.1.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/PMC9301802.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/PMC9301802.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/bmjopen-2021-060201.draft_revisions.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/bmjopen-2021-060201.reviewer_comments.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/bmjopen-2021-060201f01.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/bmjopen-2021-060201f02.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R01/bmjopen-2021-060201supp001.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "McMahan scoping review of ACP RCTs (2021)",
+      "title": "Deconstructing the Complexities of Advance Care Planning Outcomes: What Do We Know and Where Do We Go? A Scoping Review",
+      "authors": "McMahan RD, Tellez I, Sudore RL.",
+      "journal": "Journal of the American Geriatrics Society",
+      "year": "2021",
+      "citation": "J Am Geriatr Soc. 2021;69(1):234-244",
+      "doi": "10.1111/jgs.16801",
+      "pmid": "32894787",
+      "pmcid": "PMC7856112",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1111/jgs.16801",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/32894787/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7856112/",
+        "europepmc": "https://europepmc.org/article/MED/32894787",
+        "registry": []
+      },
+      "finding": "Scoping review of 69 RCTs (2010-2020); utilization results mixed",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/R02_McMahan_scoping_review_of_ACP_RCTs_2021__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC7856112."
+        },
+        {
+          "path": "fulltext/R02/PMC7856112.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/R02/PMC7856112.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/R02/PMC7856112.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        }
+      ]
+    },
+    {
+      "id": "R03",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Pimsen nursing-home hospitalization meta-analysis (2022)",
+      "title": "The Effect of Advance Care Planning Intervention on Hospitalization Among Nursing Home Residents: A Systematic Review and Meta-Analysis",
+      "authors": "Pimsen A, Kao CY, Hsu ST, Shu BC.",
+      "journal": "Journal of the American Medical Directors Association",
+      "year": "2022",
+      "citation": "J Am Med Dir Assoc. 2022;23(9):1448-1460.e1",
+      "doi": "10.1016/j.jamda.2022.07.017",
+      "pmid": "35964662",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.jamda.2022.07.017",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/35964662/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/35964662",
+        "registry": []
+      },
+      "finding": "Nursing homes; 9 studies of mixed design, 5 pooled; hospitalization RR 0.54 (0.47-0.63); no effect on ED visits or hospice",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "R04",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Khandelwal ACP/palliative care and ICU use review (2015)",
+      "title": "Estimating the effect of palliative care interventions and advance care planning on ICU utilization: a systematic review",
+      "authors": "Khandelwal N, Kross EK, Engelberg RA, Coe NB, Long AC, Curtis JR.",
+      "journal": "Critical care medicine",
+      "year": "2015",
+      "citation": "Crit Care Med. 2015;43(5):1102-1111",
+      "doi": "10.1097/ccm.0000000000000852",
+      "pmid": "25574794",
+      "pmcid": "PMC4499326",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1097/ccm.0000000000000852",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/25574794/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499326/",
+        "europepmc": "https://europepmc.org/article/MED/25574794",
+        "registry": []
+      },
+      "finding": "9 RCTs + 13 non-randomized trials of ACP or palliative care; ACP associated with ~37% lower ICU admission (3 studies)",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/R04_Khandelwal_ACP_palliative_care_and_ICU_use_review_2015__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC4499326."
+        },
+        {
+          "path": "fulltext/R04/PMC4499326.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/R04/PMC4499326.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/R04/PMC4499326.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Levoy cancer ACP meta-analysis (2023)",
+      "title": "Don't Throw the Baby Out With the Bathwater: Meta-Analysis of Advance Care Planning and End-of-life Cancer Care",
+      "authors": "Levoy K, Sullivan SS, Chittams J, Myers RL, Hickman SE, Meghani SH.",
+      "journal": "Journal of pain and symptom management",
+      "year": "2023",
+      "citation": "J Pain Symptom Manage. 2023;65(6):e715-e743",
+      "doi": "10.1016/j.jpainsymman.2023.02.003",
+      "pmid": "36764411",
+      "pmcid": "PMC10192153",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.jpainsymman.2023.02.003",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/36764411/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10192153/",
+        "europepmc": "https://europepmc.org/article/MED/36764411",
+        "registry": []
+      },
+      "finding": "20 cancer studies (16 observational); lower odds of hospital death, ICU, admissions (OR 0.55) and late chemo; hospice benefit only in observational studies",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/R05_Levoy_cancer_ACP_meta_analysis_2023.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "IUScholarWorks (Indiana University) (submittedVersion, license n/a)",
+          "source_url": "https://scholarworks.indianapolis.iu.edu/bitstreams/8852e04a-db37-4145-bb1a-ad1a57c83e8f/download"
+        },
+        {
+          "path": "fulltext/R05/PMC10192153.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/R05/PMC10192153.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/R05/PMC10192153.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        }
+      ]
+    },
+    {
+      "id": "R06",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Dixon economic evidence review (2015)",
+      "title": "The economic evidence for advance care planning: Systematic review of evidence",
+      "authors": "Dixon J, Matosevic T, Knapp M.",
+      "journal": "Palliative medicine",
+      "year": "2015",
+      "citation": "Palliat Med. 2015;29(10):869-884",
+      "doi": "10.1177/0269216315586659",
+      "pmid": "26060176",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1177/0269216315586659",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/26060176/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/26060176",
+        "registry": []
+      },
+      "finding": "Economic review; no cost-effectiveness studies; savings only for some groups (dementia, nursing homes, high-spending regions)",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "submittedVersion, license n/a",
+      "files": [
+        {
+          "path": "papers/R06_Dixon_economic_evidence_review_2015.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "London School of Economics and Political Science Research Online (London School of Economics and Political Science) (submittedVersion, license n/a)",
+          "source_url": "https://researchonline.lse.ac.uk/id/eprint/61793/1/__lse.ac.uk_storage_LIBRARY_Secondary_libfile_shared_repository_Content_Dixon%2C%20J_Economic%20evidence_Dixon_Economic%20evidence_2015.pdf"
+        }
+      ]
+    },
+    {
+      "id": "R07",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Klingler facilitated ACP costs review (2016)",
+      "title": "Does facilitated Advance Care Planning reduce the costs of care near the end of life? Systematic review and ethical considerations",
+      "authors": "Klingler C, in der Schmitten J, Marckmann G.",
+      "journal": "Palliative medicine",
+      "year": "2016",
+      "citation": "Palliat Med. 2016;30(5):423-433",
+      "doi": "10.1177/0269216315601346",
+      "pmid": "26294218",
+      "pmcid": "PMC4838173",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1177/0269216315601346",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/26294218/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4838173/",
+        "europepmc": "https://europepmc.org/article/MED/26294218",
+        "registry": []
+      },
+      "finding": "Facilitated ACP and costs; limited data suggest possible net savings; robust trials needed",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY-NC",
+      "files": [
+        {
+          "path": "papers/R07_Klingler_facilitated_ACP_costs_review_2016.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "Open access LMU (Ludwid Maxmilian's Universitat Munchen) (submittedVersion, license n/a)",
+          "source_url": "https://epub.ub.uni-muenchen.de/46087/1/Schmittler_Does_facilitated_Advance_Care_Planning.pdf"
+        },
+        {
+          "path": "fulltext/R07/10.1177_0269216315601346-fig1.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R07/10.1177_0269216315601346-table1.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R07/10.1177_0269216315601346-table2.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R07/PMC4838173.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R07/PMC4838173.1.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R07/PMC4838173.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R07/PMC4838173.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        }
+      ]
+    },
+    {
+      "id": "R08",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Taylor advance directives and hospital resource use review (1999)",
+      "title": "How advance directives affect hospital resource use. Systematic review of the literature",
+      "authors": "Taylor JS, Heyland DK, Taylor SJ.",
+      "journal": "Canadian family physician Medecin de famille canadien",
+      "year": "1999",
+      "citation": "Can Fam Physician. 1999;45:2408-2413",
+      "doi": null,
+      "pmid": "10540700",
+      "pmcid": "PMC2328634",
+      "registry_ids": [],
+      "links": {
+        "doi": null,
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/10540700/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2328634/",
+        "europepmc": "https://europepmc.org/article/MED/10540700",
+        "registry": []
+      },
+      "finding": "Advance directives and hospital resource use; savings in retrospective studies only, none in prospective trials",
+      "availability": "links_only",
+      "availability_note": "Free to read on PMC, but not in the PMC open-data set and PMC blocks automated downloads; open the PMC link in a browser.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "R09",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Teno illusion of resource savings (SUPPORT secondary, 1997)",
+      "title": "The illusion of end-of-life resource savings with advance directives. SUPPORT Investigators. Study to Understand Prognoses and Preferences for Outcomes and Risks of Treatment",
+      "authors": "Teno J, Lynn J, Connors AF, Wenger N, Phillips RS, Alzola C, Murphy DP, Desbiens N, Knaus WA.",
+      "journal": "Journal of the American Geriatrics Society",
+      "year": "1997",
+      "citation": "J Am Geriatr Soc. 1997;45(4):513-518",
+      "doi": "10.1111/j.1532-5415.1997.tb05180.x",
+      "pmid": "9100723",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1111/j.1532-5415.1997.tb05180.x",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/9100723/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/9100723",
+        "registry": []
+      },
+      "finding": "SUPPORT secondary analysis; increasing directive documentation did not reduce resource use",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "R10",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Weathers review of RCTs in older adults (2016)",
+      "title": "Advance care planning: A systematic review of randomised controlled trials conducted with older adults",
+      "authors": "Weathers E, O'Caoimh R, Cornally N, Fitzgerald C, Kearns T, Coffey A, Daly E, O'Sullivan R, McGlade C, Molloy DW.",
+      "journal": "Maturitas",
+      "year": "2016",
+      "citation": "Maturitas. 2016;91:101-109",
+      "doi": "10.1016/j.maturitas.2016.06.016",
+      "pmid": "27451328",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.maturitas.2016.06.016",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/27451328/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/27451328",
+        "registry": []
+      },
+      "finding": "RCTs in adults 65+; some reduction in hospitalization in long-term care; economic evidence weak",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "R11",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Crooks meta-review of ACP outcomes (2025)",
+      "title": "Evaluating outcomes of advance care planning interventions for adults living with advanced illness and people close to them: A systematic meta-review",
+      "authors": "Crooks J, Rizk N, Simpson-Greene C, Hopwood G, Smith O, Seddon K, Hudson B.",
+      "journal": "Palliative medicine",
+      "year": "2025",
+      "citation": "Palliat Med. 2025;39(8):833-848",
+      "doi": "10.1177/02692163251344428",
+      "pmid": "40537886",
+      "pmcid": "PMC12405694",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1177/02692163251344428",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/40537886/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12405694/",
+        "europepmc": "https://europepmc.org/article/MED/40537886",
+        "registry": []
+      },
+      "finding": "Meta-review of 39 reviews (2015-2025); 15 reported less hospital use",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY-NC",
+      "files": [
+        {
+          "path": "papers/R11_Crooks_meta_review_of_ACP_outcomes_2025__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC12405694."
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-fig1.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-fig2.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-fig3.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-fig4.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-img1.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-table1.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-table2.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-table3.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/10.1177_02692163251344428-table4.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/PMC12405694.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/PMC12405694.1.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/PMC12405694.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/PMC12405694.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/sj-docx-1-pmj-10.1177_02692163251344428.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        },
+        {
+          "path": "fulltext/R11/sj-docx-2-pmj-10.1177_02692163251344428.docx",
+          "type": "other",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY-NC"
+        }
+      ]
+    },
+    {
+      "id": "R12",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Houben meta-analysis of 55 RCTs (2014)",
+      "title": "Efficacy of advance care planning: a systematic review and meta-analysis",
+      "authors": "Houben CHM, Spruit MA, Groenen MTJ, Wouters EFM, Janssen DJA.",
+      "journal": "Journal of the American Medical Directors Association",
+      "year": "2014",
+      "citation": "J Am Med Dir Assoc. 2014;15(7):477-489",
+      "doi": "10.1016/j.jamda.2014.01.008",
+      "pmid": "24598477",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.jamda.2014.01.008",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/24598477/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/24598477",
+        "registry": []
+      },
+      "finding": "Meta-analysis of 55 RCTs; pooled gains in directive completion and discussions; communication-based ACP improved preference-care concordance",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "R13",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Ng nursing-home RCT meta-analysis (2022)",
+      "title": "The effects of advance care planning intervention on nursing home residents: A systematic review and meta-analysis of randomised controlled trials",
+      "authors": "Ng AYM, Takemura N, Xu X, Smith R, Kwok JY, Cheung DST, Lin CC.",
+      "journal": "International journal of nursing studies",
+      "year": "2022",
+      "citation": "Int J Nurs Stud. 2022;132:104276",
+      "doi": "10.1016/j.ijnurstu.2022.104276",
+      "pmid": "35667145",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.ijnurstu.2022.104276",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/35667145/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/35667145",
+        "registry": []
+      },
+      "finding": "Meta-analysis of 9 nursing-home RCTs (2,905 residents); documentation OR 1.95; family satisfaction no difference; care received not pooled",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "R14",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Schichtel heart failure RCT meta-analysis (2020)",
+      "title": "The Effect of Advance Care Planning on Heart Failure: a Systematic Review and Meta-analysis",
+      "authors": "Schichtel M, Wee B, Perera R, Onakpoya I.",
+      "journal": "Journal of general internal medicine",
+      "year": "2020",
+      "citation": "J Gen Intern Med. 2020;35(3):874-884",
+      "doi": "10.1007/s11606-019-05482-w",
+      "pmid": "31720968",
+      "pmcid": "PMC7080664",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1007/s11606-019-05482-w",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/31720968/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7080664/",
+        "europepmc": "https://europepmc.org/article/MED/31720968",
+        "registry": []
+      },
+      "finding": "Meta-analysis of 14 heart failure RCTs (2,924 patients); QoL SMD 0.38, satisfaction 0.39, communication 0.29; care received not pooled",
+      "availability": "pdf",
+      "availability_note": null,
+      "license_or_access": "Open access, CC BY",
+      "files": [
+        {
+          "path": "papers/R14_Schichtel_heart_failure_RCT_meta_analysis_2020.pdf",
+          "type": "pdf",
+          "description": "Article PDF (publisher or institutional-repository copy)",
+          "source": "Journal of General Internal Medicine (publishedVersion, cc-by)",
+          "source_url": "https://link.springer.com/content/pdf/10.1007/s11606-019-05482-w.pdf"
+        },
+        {
+          "path": "fulltext/R14/11606_2019_5482_Fig1_HTML.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/R14/11606_2019_5482_Fig2_HTML.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/R14/11606_2019_5482_Fig3_HTML.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/R14/11606_2019_5482_Fig4_HTML.jpg",
+          "type": "figure",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/R14/PMC7080664.2.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/R14/PMC7080664.2.pdf",
+          "type": "supplement (PDF)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/R14/PMC7080664.2.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        },
+        {
+          "path": "fulltext/R14/PMC7080664.2.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "Open access, CC BY"
+        }
+      ]
+    },
+    {
+      "id": "R15",
+      "kind": "review",
+      "trial_group": null,
+      "short_name": "Lin dementia nursing-home review (2026)",
+      "title": "Effectiveness of Advance Care Planning for End-of-Life Outcomes in Nursing Home Residents With Dementia: A Systematic Review and Meta-Analysis",
+      "authors": "Lin YJ, Chen YJ, Ling DI, Fang JR, Wu JY, Lo YT.",
+      "journal": "Journal of the American Medical Directors Association",
+      "year": "2026",
+      "citation": "J Am Med Dir Assoc. 2026;27(1):105974",
+      "doi": "10.1016/j.jamda.2025.105974",
+      "pmid": "41198038",
+      "pmcid": null,
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1016/j.jamda.2025.105974",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/41198038/",
+        "pmc": null,
+        "europepmc": "https://europepmc.org/article/MED/41198038",
+        "registry": []
+      },
+      "finding": "Dementia in nursing homes; 5 RCTs too heterogeneous to pool; very low certainty",
+      "availability": "links_only",
+      "availability_note": "No open-access copy found (checked OpenAlex open-access locations and PMC open data); publisher access required.",
+      "license_or_access": null,
+      "files": []
+    },
+    {
+      "id": "C01",
+      "kind": "commentary",
+      "trial_group": null,
+      "short_name": "Morrison, Meier, Arnold: What's wrong with ACP? (2021)",
+      "title": "What's Wrong With Advance Care Planning?",
+      "authors": "Morrison RS, Meier DE, Arnold RM.",
+      "journal": "JAMA",
+      "year": "2021",
+      "citation": "JAMA. 2021;326(16):1575-1576",
+      "doi": "10.1001/jama.2021.16430",
+      "pmid": "34623373",
+      "pmcid": "PMC9373875",
+      "registry_ids": [],
+      "links": {
+        "doi": "https://doi.org/10.1001/jama.2021.16430",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/34623373/",
+        "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9373875/",
+        "europepmc": "https://europepmc.org/article/MED/34623373",
+        "registry": []
+      },
+      "finding": "Viewpoint arguing ACP does not produce goal-concordant care; urges surrogate designation and in-the-moment decisions",
+      "availability": "rendered_pmc",
+      "availability_note": null,
+      "license_or_access": "NIH author manuscript in PMC (free to read; text-mining license, personal use)",
+      "files": [
+        {
+          "path": "papers/C01_Morrison_Meier_Arnold_What_s_wrong_with_ACP_2021__rendered_from_PMC.pdf",
+          "type": "pdf",
+          "description": "Readable PDF rendered from the PMC full-text XML (not the publisher's typeset layout)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/?prefix=PMC9373875."
+        },
+        {
+          "path": "fulltext/C01/PMC9373875.1.json",
+          "type": "PMC metadata",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/C01/PMC9373875.1.txt",
+          "type": "full text (plain text)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        },
+        {
+          "path": "fulltext/C01/PMC9373875.1.xml",
+          "type": "full-text XML (JATS)",
+          "source": "PMC Article Datasets (NIH open data)",
+          "license": "NIH author manuscript in PMC (free to read; text-mining license, personal use)"
+        }
+      ]
+    }
+  ]
+}

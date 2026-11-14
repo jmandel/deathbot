@@ -1,0 +1,16 @@
+# build output and dependencies
+node_modules/
+web/dist/
+web/src/skill.generated.json
+/dist/
+*.log
+
+# third-party papers and full texts: many are licensed for personal use only and must not be redistributed.
+# research/ACP_RCT_evidence_package/index.json links to every one of them.
+research/ACP_RCT_evidence_package/papers/
+research/ACP_RCT_evidence_package/fulltext/
+research/ACP_RCT_evidence_package/registry/*.pdf
+
+# private working notes and stray files
+research/log.md
+*.ics

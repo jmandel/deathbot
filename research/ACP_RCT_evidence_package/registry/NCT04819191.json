@@ -1,0 +1,1679 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT04819191",
+   "orgStudyIdInfo": {
+    "id": "IRB00224501"
+   },
+   "secondaryIdInfos": [
+    {
+     "id": "R33AG061882",
+     "type": "NIH",
+     "link": "https://reporter.nih.gov/quickSearch/R33AG061882"
+    }
+   ],
+   "organization": {
+    "fullName": "Johns Hopkins University",
+    "class": "OTHER"
+   },
+   "briefTitle": "Improving Communication for Primary Care Patients",
+   "officialTitle": "Improving Communication for Primary Care Patients (SHARING Choices)"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2025-02",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2021-03-01",
+    "type": "ACTUAL"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2023-11-20",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2023-11-20",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2021-03-24",
+   "studyFirstSubmitQcDate": "2021-03-24",
+   "studyFirstPostDateStruct": {
+    "date": "2021-03-26",
+    "type": "ACTUAL"
+   },
+   "resultsFirstSubmitDate": "2025-01-16",
+   "resultsFirstSubmitQcDate": "2025-02-13",
+   "resultsFirstPostDateStruct": {
+    "date": "2025-03-03",
+    "type": "ACTUAL"
+   },
+   "lastUpdateSubmitDate": "2025-02-13",
+   "lastUpdatePostDateStruct": {
+    "date": "2025-03-03",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "SPONSOR"
+   },
+   "leadSponsor": {
+    "name": "Johns Hopkins University",
+    "class": "OTHER"
+   },
+   "collaborators": [
+    {
+     "name": "Medstar Health Research Institute",
+     "class": "OTHER"
+    },
+    {
+     "name": "National Institute on Aging (NIA)",
+     "class": "NIH"
+    }
+   ]
+  },
+  "oversightModule": {
+   "oversightHasDmc": true,
+   "isFdaRegulatedDrug": false,
+   "isFdaRegulatedDevice": false
+  },
+  "descriptionModule": {
+   "briefSummary": "This is a pragmatic trial of SHARING Choices. Components of SHARING Choices include:\n\n1. A letter from the clinic introducing an initiative to prepare persons and families for Advance Care Planning (ACP);\n2. Access to a facilitator trained to lead ACP discussions;\n3. Patient-family agenda-setting to align perspectives about the role of family and stimulate discussion about ACP;\n4. Facilitated registration to the patient portal (for patient and family) as desired;\n5. Education \\& resources about Alzheimer's Disease and Related Dementias (ADRD) for clinic staff.",
+   "detailedDescription": "Engaging family in primary care is particularly important in Alzheimer's Disease and Related Dementias (ADRD) because of the important role assumed in medical decision-making, especially at the end of life. The investigators, study seeks to improve communication in primary care through methods to proactively engage family in ongoing interactions with primary care and stimulate and support Advance Care Planning (ACP) for all older adults and attention to ADRD in primary care throughout the ADRD disease trajectory. The investigators' premise is that individuals and families appreciate primary care involvement in ACP and information and referrals for ADRD needs, but that individual, family, and system factors including time, knowledge, and resources often inhibit these conversations from occurring.\n\nSHARING Choices integrates communication strategies that have been individually found to be effective but have thus far been deployed in isolation of one another. The investigators focus on all older primary care patients because of the importance of addressing ACP early, the under-diagnosis of ADRD and the greater implementation potential of a protocol with broad applicability.\n\nComponents of SHARING Choices include:\n\n1. A letter from the clinic introducing an initiative to prepare persons and families for Advance Care Planning (ACP);\n2. Access to a facilitator trained to lead ACP discussions;\n3. Patient-family agenda-setting to align perspectives about the role of family and stimulate discussion about ACP;\n4. Facilitated registration to the patient portal (for patient and family) as desired;\n5. Education \\& resources about ADRD for clinic staff."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "Advance Care Planning",
+    "Dementia"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "PARALLEL",
+    "primaryPurpose": "HEALTH_SERVICES_RESEARCH",
+    "maskingInfo": {
+     "masking": "NONE"
+    }
+   },
+   "enrollmentInfo": {
+    "count": 64915,
+    "type": "ACTUAL"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "SHARING Choices",
+     "type": "EXPERIMENTAL",
+     "description": "Components of SHARING Choices include:\n\nA letter from the clinic introducing an initiative to prepare persons and families for Advance Care Planning (ACP); Access to a facilitator trained to lead ACP discussions; Patient-family agenda-setting to align perspectives about the role of family and stimulate discussion about ACP; Facilitated registration to the patient portal (for patient and family) as desired; Education \\& resources about Alzheimer's Disease and Related Dementias (ADRD) for clinic staff.",
+     "interventionNames": [
+      "Behavioral: SHARING Choices"
+     ]
+    },
+    {
+     "label": "Usual care",
+     "type": "NO_INTERVENTION",
+     "description": "Usual care"
+    }
+   ],
+   "interventions": [
+    {
+     "type": "BEHAVIORAL",
+     "name": "SHARING Choices",
+     "description": "SHARING Choices is a multicomponent communication intervention to proactively engage family members or friends and to support advance care planning in primary care",
+     "armGroupLabels": [
+      "SHARING Choices"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Number of Patients 65 and Older With New Documentation of Any Advance Directive in the Electronic Health Record (EHR)",
+     "description": "Advance directive will be defined as a durable power of attorney, living will, Maryland Medical Order for Life Sustaining Treatment (MOLST), or District of Columbia Medical Order for Sustaining Treatment (MOST) based on information that is recorded in each care delivery system's electronic medical record 12 months after study entry. The initial visit date for each candidate patient after the inception of the trial serves as the beginning of the 12-month observation period and will be used to construct comparable observation periods for candidate patients at both intervention and control groups.",
+     "timeFrame": "1 year"
+    },
+    {
+     "measure": "Occurrence of Potentially Burdensome Procedures Reported Within 6 Months",
+     "description": "Potentially burdensome care will be measured as any (yes/no) procedures within the 6 months that precede death using dates and validated International Classification of Diseases (ICD)-10 codes for hospital services that will be extracted from CRISP, the regional health information exchange, which includes a repository of all hospital encounters in Maryland, Delaware, West Virginia, and the District of Columbia. Specific procedures and codes that will be used to reflect burdensome care include intubation and mechanical ventilation, tracheostomy, gastrostomy feeding tube placement, hemodialysis, enteral and parenteral nutrition, and cardiopulmonary resuscitation. Analysis limited to patients with diagnosis codes indicative of serious illness, for whom these procedures would be considered potentially burdensome, drawing from a list of ICD-10 codes.",
+     "timeFrame": "6 months preceding patient death"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "Inclusion Criteria:\n\nPractices included in this trial are:\n\n* Affiliated with Johns Hopkins Community Physicians (JHCP) or MedStar Health;\n* A primary care practice, defined as adult internal medicine, family medicine, or geriatric medicine;\n* Have 2 or more practicing clinicians; and\n* Have more than 500 patients aged 65 and over currently receiving care.\n\nPatients included in this trial are:\n\n* Age 65 and older, and\n* Established patient of primary care clinician at participating practice (\\>1 prior visit at the clinic). There will be no formal enrollment of participants into this pragmatic trial as this is a clinic-level initiative that will be available and offered to all eligible patients at clinics randomized to the intervention.\n\nExclusion criteria:\n\nPrimary care practices affiliated with Johns Hopkins Community Physicians (JHCP) or MedStar Health that are:\n\n* Not a primary care practice, defined as adult internal medicine, family medicine, or geriatric medicine;\n* Have fewer than 2 practicing clinicians; and\n* Have fewer than 500 patients aged 65 and over currently receiving care.\n\nPatients under the care of primary care practices affiliated with Johns Hopkins Community Physicians (JHCP) or MedStar Health that are:\n\n* Less than 65 years of age, or\n* Not established patients.",
+   "healthyVolunteers": true,
+   "sex": "ALL",
+   "minimumAge": "65 Years",
+   "stdAges": [
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "Jennifer Wolff, PhD",
+     "affiliation": "Johns Hopkins University",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "Johns Hopkins Community Physicians - I Street",
+     "city": "Washington D.C.",
+     "state": "District of Columbia",
+     "zip": "20005",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.89511,
+      "lon": -77.03637
+     }
+    },
+    {
+     "facility": "MedStar Georgetown University Hospital General Internal Medicine",
+     "city": "Washington D.C.",
+     "state": "District of Columbia",
+     "zip": "20007",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.89511,
+      "lon": -77.03637
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at MedStar Washington Hospital Center",
+     "city": "Washington D.C.",
+     "state": "District of Columbia",
+     "zip": "20010",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.89511,
+      "lon": -77.03637
+     }
+    },
+    {
+     "facility": "MedStar Washington Hospital Center Physician Group LLC",
+     "city": "Washington D.C.",
+     "state": "District of Columbia",
+     "zip": "20010",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.89511,
+      "lon": -77.03637
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at New Mexico Avenue",
+     "city": "Washington D.C.",
+     "state": "District of Columbia",
+     "zip": "20016",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.89511,
+      "lon": -77.03637
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Lafayette Centre",
+     "city": "Washington D.C.",
+     "state": "District of Columbia",
+     "zip": "20036",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.89511,
+      "lon": -77.03637
+     }
+    },
+    {
+     "facility": "MedStar Greater Annapolis Medical Group",
+     "city": "Annapolis",
+     "state": "Maryland",
+     "zip": "21401",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.97859,
+      "lon": -76.49184
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Remington",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21211",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "MedStar Union Memorial Adult Medicine Specialists at 33rd St.",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21218",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "Johns Hopkins Bayview Medical Center",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21224",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Canton Crossing",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21224",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Wilkens Center",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21229",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "MedStar Health at Federal Hill",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21230",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at North Parkville Health Center",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21234",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "Family Health Center at MedStar Franklin Square Medical Center",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21237",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Ridge Road",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21237",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "The Primary Care Center at MedStar Franklin Square Medical Center",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21237",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "MedStar Good Samaritan Hospital Medical Faculty Practice",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21239",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "The Center for Successful Aging at MedStar Good Samaritan Hospital",
+     "city": "Baltimore",
+     "state": "Maryland",
+     "zip": "21239",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.29038,
+      "lon": -76.61219
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Old Emmorton Rd",
+     "city": "Bel Air",
+     "state": "Maryland",
+     "zip": "21015",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.53594,
+      "lon": -76.34829
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Water's Edge",
+     "city": "Belcamp",
+     "state": "Maryland",
+     "zip": "21017",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.469,
+      "lon": -76.23329
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Downtown Bethesda",
+     "city": "Bethesda",
+     "state": "Maryland",
+     "zip": "20814",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.98067,
+      "lon": -77.10026
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Bethesda",
+     "city": "Bethesda",
+     "state": "Maryland",
+     "zip": "20815",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.98067,
+      "lon": -77.10026
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Bowie",
+     "city": "Bowie",
+     "state": "Maryland",
+     "zip": "20715",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.94278,
+      "lon": -76.73028
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at MedStar Health at Brandywine",
+     "city": "Brandywine",
+     "state": "Maryland",
+     "zip": "20613",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.69678,
+      "lon": -76.84775
+     }
+    },
+    {
+     "facility": "MedStar Medical Group Primary Care at Clinton",
+     "city": "Clinton",
+     "state": "Maryland",
+     "zip": "20735",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.76511,
+      "lon": -76.89831
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Howard County",
+     "city": "Columbia",
+     "state": "Maryland",
+     "zip": "21046",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.24038,
+      "lon": -76.83942
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Dundalk Professional Center",
+     "city": "Dundalk",
+     "state": "Maryland",
+     "zip": "21222",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.25066,
+      "lon": -76.52052
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Annapolis",
+     "city": "Edgewater",
+     "state": "Maryland",
+     "zip": "21037",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.938,
+      "lon": -76.557
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Dorsey Hall",
+     "city": "Ellicott City",
+     "state": "Maryland",
+     "zip": "21042",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.26733,
+      "lon": -76.79831
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Forest Hill",
+     "city": "Forest Hill",
+     "state": "Maryland",
+     "zip": "21050",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.58511,
+      "lon": -76.38774
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Frederick",
+     "city": "Frederick",
+     "state": "Maryland",
+     "zip": "21702",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.41427,
+      "lon": -77.41054
+     }
+    },
+    {
+     "facility": "MedStar Medical Group Primary Care at Fort Washington",
+     "city": "Ft. Washington",
+     "state": "Maryland",
+     "zip": "20744",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.70734,
+      "lon": -77.02303
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Fulton",
+     "city": "Fulton",
+     "state": "Maryland",
+     "zip": "20759",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.15094,
+      "lon": -76.92303
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Germantown",
+     "city": "Germantown",
+     "state": "Maryland",
+     "zip": "20876",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.17316,
+      "lon": -77.27165
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Glen Burnie",
+     "city": "Glen Burnie",
+     "state": "Maryland",
+     "zip": "21061",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.16261,
+      "lon": -76.62469
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Hagerstown",
+     "city": "Hagerstown",
+     "state": "Maryland",
+     "zip": "21742",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.64176,
+      "lon": -77.71999
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Hyattsville",
+     "city": "Hyattsville",
+     "state": "Maryland",
+     "zip": "20782",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.95594,
+      "lon": -76.94553
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Laurel",
+     "city": "Laurel",
+     "state": "Maryland",
+     "zip": "20707",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.09928,
+      "lon": -76.84831
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at St. Clement's",
+     "city": "Leonardtown",
+     "state": "Maryland",
+     "zip": "20650",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.29124,
+      "lon": -76.63579
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at St. Mary's",
+     "city": "Leonardtown",
+     "state": "Maryland",
+     "zip": "20650",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.29124,
+      "lon": -76.63579
+     }
+    },
+    {
+     "facility": "Johns Hopkins Health Care & Surgery Center - Green Spring Station",
+     "city": "Lutherville",
+     "state": "Maryland",
+     "zip": "21093",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.42122,
+      "lon": -76.62608
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Mitchellville",
+     "city": "Mitchellville",
+     "state": "Maryland",
+     "zip": "20721",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.92,
+      "lon": -76.808
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Odenton",
+     "city": "Odenton",
+     "state": "Maryland",
+     "zip": "21113",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.084,
+      "lon": -76.70025
+     }
+    },
+    {
+     "facility": "MedStar Medical Group 18111 Prince Philip",
+     "city": "Olney",
+     "state": "Maryland",
+     "zip": "20832",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.15316,
+      "lon": -77.06692
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Olney Professional Park",
+     "city": "Olney",
+     "state": "Maryland",
+     "zip": "20832",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.15316,
+      "lon": -77.06692
+     }
+    },
+    {
+     "facility": "MedStar Medical Group Family Practice at Olney",
+     "city": "Olney",
+     "state": "Maryland",
+     "zip": "20832",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.15316,
+      "lon": -77.06692
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Honeygo Center",
+     "city": "Perry Hall",
+     "state": "Maryland",
+     "zip": "21128",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.41261,
+      "lon": -76.46357
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Rockville (Montgomery Grove)",
+     "city": "Rockville",
+     "state": "Maryland",
+     "zip": "20850",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.084,
+      "lon": -77.15276
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - North Bethesda",
+     "city": "Rockville",
+     "state": "Maryland",
+     "zip": "20852",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.084,
+      "lon": -77.15276
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Silver Spring",
+     "city": "Silver Spring",
+     "state": "Maryland",
+     "zip": "20902",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.99067,
+      "lon": -77.02609
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Westminster",
+     "city": "Westminster",
+     "state": "Maryland",
+     "zip": "21157",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 39.57538,
+      "lon": -76.99581
+     }
+    },
+    {
+     "facility": "Johns Hopkins Community Physicians - Charles County",
+     "city": "White Plains",
+     "state": "Maryland",
+     "zip": "20695",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.5904,
+      "lon": -76.94025
+     }
+    },
+    {
+     "facility": "MedStar Medical Group at Alexandria",
+     "city": "Alexandria",
+     "state": "Virginia",
+     "zip": "22302",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 38.80484,
+      "lon": -77.04692
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "31486723",
+     "type": "BACKGROUND",
+     "citation": "Walling AM, Sudore RL, Bell D, Tseng CH, Ritchie C, Hays RD, Gibbs L, Rahimi M, Sanz J, Wenger NS. Population-Based Pragmatic Trial of Advance Care Planning in Primary Care in the University of California Health System. J Palliat Med. 2019 Sep;22(S1):72-81. doi: 10.1089/jpm.2019.0142."
+    },
+    {
+     "pmid": "31925998",
+     "type": "BACKGROUND",
+     "citation": "Wasp GT, Alam SS, Brooks GA, Khayal IS, Kapadia NS, Carmichael DQ, Austin AM, Barnato AE. End-of-life quality metrics among medicare decedents at minority-serving cancer centers: A retrospective study. Cancer Med. 2020 Mar;9(5):1911-1921. doi: 10.1002/cam4.2752. Epub 2020 Jan 11."
+    },
+    {
+     "pmid": "19820614",
+     "type": "BACKGROUND",
+     "citation": "Barnato AE, Farrell MH, Chang CC, Lave JR, Roberts MS, Angus DC. Development and validation of hospital \"end-of-life\" treatment intensity measures. Med Care. 2009 Oct;47(10):1098-105. doi: 10.1097/MLR.0b013e3181993191."
+    },
+    {
+     "pmid": "30022409",
+     "type": "BACKGROUND",
+     "citation": "Wolff JL, Roter DL, Boyd CM, Roth DL, Echavarria DM, Aufill J, Vick JB, Gitlin LN. Patient-Family Agenda Setting for Primary Care Patients with Cognitive Impairment: the SAME Page Trial. J Gen Intern Med. 2018 Sep;33(9):1478-1486. doi: 10.1007/s11606-018-4563-y. Epub 2018 Jul 18."
+    },
+    {
+     "pmid": "9487236",
+     "type": "BACKGROUND",
+     "citation": "Hammes BJ, Rooney BL. Death and end-of-life planning in one midwestern community. Arch Intern Med. 1998 Feb 23;158(4):383-90. doi: 10.1001/archinte.158.4.383."
+    },
+    {
+     "pmid": "24325558",
+     "type": "BACKGROUND",
+     "citation": "Pecanac KE, Repenshek MF, Tennenbaum D, Hammes BJ. Respecting Choices(R) and advance directives in a diverse community. J Palliat Med. 2014 Mar;17(3):282-7. doi: 10.1089/jpm.2013.0047. Epub 2013 Dec 10."
+    },
+    {
+     "pmid": "15011193",
+     "type": "BACKGROUND",
+     "citation": "Briggs LA, Kirchhoff KT, Hammes BJ, Song MK, Colvin ER. Patient-centered advance care planning in special patient populations: a pilot study. J Prof Nurs. 2004 Jan-Feb;20(1):47-58. doi: 10.1016/j.profnurs.2003.12.001."
+    },
+    {
+     "pmid": "35690262",
+     "type": "BACKGROUND",
+     "citation": "Dy SM, Scerpella DL, Cotter V, Colburn J, Roth DL, McGuire M, Giovannetti ER, Walker KA, Hussain N, Sloan DH, Boyd CM, Cockey K, Sharma N, Saylor MA, Smith KM, Wolff JL; SHARING Choices investigators. SHARING Choices: Design and rationale for a pragmatic trial of an advance care planning intervention for older adults with and without dementia in primary care. Contemp Clin Trials. 2022 Aug;119:106818. doi: 10.1016/j.cct.2022.106818. Epub 2022 Jun 8."
+    },
+    {
+     "pmid": "36398937",
+     "type": "BACKGROUND",
+     "citation": "Smith KM, Scerpella D, Guo A, Hussain N, Colburn JL, Cotter VT, Aufill J, Dy SM, Wolff JL. Perceived Barriers and Facilitators of Implementing a Multicomponent Intervention to Improve Communication With Older Adults With and Without Dementia (SHARING Choices) in Primary Care: A Qualitative Study. J Prim Care Community Health. 2022 Jan-Dec;13:21501319221137251. doi: 10.1177/21501319221137251."
+    },
+    {
+     "pmid": "37100306",
+     "type": "BACKGROUND",
+     "citation": "Colburn JL, Scerpella DL, Chapin M, Walker KA, Dy SM, Saylor MA, Sharma N, Rebala S, Anderson RE, McGuire M, Hussain N, Rawlinson C, Cotter V, Cockey K, Roth DL, Nicholson KLC, Giovannetti ER, Sancho MB, Echavarria D, Boyd CM, Wolff JL, Smith KM. SHARING Choices: Lessons Learned from a Primary-Care Focused Advance Care Planning Intervention. J Pain Symptom Manage. 2023 Aug;66(2):e255-e264. doi: 10.1016/j.jpainsymman.2023.04.014. Epub 2023 Apr 25."
+    },
+    {
+     "pmid": "39226471",
+     "type": "BACKGROUND",
+     "citation": "Cotter VT, Sloan DH, Scerpella DL, Smith KM, Abshire Saylor M, Wolff JL. Feasibility of Using Simulation to Evaluate Implementation Fidelity in an Advance Care Planning Pragmatic Trial. Am J Hosp Palliat Care. 2025 Aug;42(8):785-791. doi: 10.1177/10499091241282087. Epub 2024 Sep 3."
+    },
+    {
+     "pmid": "33325729",
+     "type": "RESULT",
+     "citation": "Wolff JL, Scerpella D, Cockey K, Hussain N, Funkhouser T, Echavarria D, Aufill J, Guo A, Sloan DH, Dy SM, Smith KM; SHARING Choices Investigators. SHARING Choices: A Pilot Study to Engage Family in Advance Care Planning of Older Adults With and Without Cognitive Impairment in the Primary Care Context. Am J Hosp Palliat Care. 2021 Nov;38(11):1314-1321. doi: 10.1177/1049909120978771. Epub 2020 Dec 16."
+    },
+    {
+     "pmid": "39211999",
+     "type": "RESULT",
+     "citation": "Dy SM, Scerpella DL, Hanna V, Walker KA, Sloan DH, Green CM, Cotter V, Wolff JL, Giovannetti ER, McGuire M, Hussain N, Smith KM, Saylor MA. Qualitative evaluation of the SHARING Choices trial of primary care advance care planning for adults with and without dementia. J Am Geriatr Soc. 2024 Nov;72(11):3413-3426. doi: 10.1111/jgs.19154. Epub 2024 Aug 30."
+    },
+    {
+     "pmid": "39621341",
+     "type": "RESULT",
+     "citation": "Wolff JL, Scerpella D, Giovannetti ER, Roth DL, Hanna V, Hussain N, Colburn JL, Saylor MA, Boyd CM, Cotter V, McGuire M, Rawlinson C, Sloan DH, Richards TM, Walker K, Smith KM, Dy SM; SHARING Choices Investigators. Advance Care Planning, End-of-Life Preferences, and Burdensome Care: A Pragmatic Cluster Randomized Clinical Trial. JAMA Intern Med. 2025 Feb 1;185(2):162-170. doi: 10.1001/jamainternmed.2024.6215."
+    }
+   ]
+  },
+  "ipdSharingStatementModule": {
+   "ipdSharing": "NO",
+   "description": "The following materials will be shared with the research community.\n\n* Study Protocol\n* Statistical Analysis Plan (SAP)\n* Analytic Code"
+  }
+ },
+ "resultsSection": {
+  "participantFlowModule": {
+   "typeUnitsAnalyzed": "Clinics",
+   "groups": [
+    {
+     "id": "FG000",
+     "title": "SHARING Choices Sites",
+     "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nSHARING Choices was embedded in randomized primary care practices between September 2020 and March 2021 in a phased process involving partnership and input from health system and primary care practice leaders and repeated meetings and contacts with clinicians and staff to socialize the study and refine workflows and monitoring.\n\nThe intervention comprises 5 components: 1) outreach from the primary care practice introducing SHARING Choices to prepare patients and families to engage in ACP conversations, 2) access to a facilitator trained in all elements of SHARING Choices, including Respecting CHOICES and leading ACP for persons with ADRD and their families, 3) person-family agenda-setting to align perspectives about the role of family and stimulate conversation about health care issues and ACP, 4) information about registration for the patient portal to enable and extend electronic interactions and information access to patients and family, and 5) ADRD educational materials and resources for staff and clinicians."
+    },
+    {
+     "id": "FG001",
+     "title": "Usual Care",
+     "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nPrimary care practices randomized to Usual Care received no intervention and provided standard care."
+    }
+   ],
+   "periods": [
+    {
+     "title": "Overall Study",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "22949",
+         "numUnits": "19"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "41966",
+         "numUnits": "32"
+        }
+       ]
+      },
+      {
+       "type": "Deceased Patients",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "542",
+         "numUnits": "19"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1162",
+         "numUnits": "32"
+        }
+       ]
+      },
+      {
+       "type": "Deceased Patients With Serious Illness",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "364",
+         "numUnits": "19"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "682",
+         "numUnits": "32"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "22949",
+         "numUnits": "19"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "41966",
+         "numUnits": "32"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "0",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "0",
+         "numUnits": "0"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "baselineCharacteristicsModule": {
+   "typeUnitsAnalyzed": "Clinics",
+   "groups": [
+    {
+     "id": "BG000",
+     "title": "SHARING Choices Sites",
+     "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nSHARING Choices was embedded in randomized primary care practices between September 2020 and March 2021 in a phased process involving partnership and input from health system and primary care practice leaders and repeated meetings and contacts with clinicians and staff to socialize the study and refine workflows and monitoring.\n\nThe intervention comprises 5 components: 1) outreach from the primary care practice introducing SHARING Choices to prepare patients and families to engage in ACP conversations, 2) access to a facilitator trained in all elements of SHARING Choices, including Respecting CHOICES and leading ACP for persons with ADRD and their families, 3) person-family agenda-setting to align perspectives about the role of family and stimulate conversation about health care issues and ACP, 4) information about registration for the patient portal to enable and extend electronic interactions and information access to patients and family, and 5) ADRD educational materials and resources for staff and clinicians."
+    },
+    {
+     "id": "BG001",
+     "title": "Usual Care",
+     "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nPrimary care practices randomized to the Usual Care received no intervention and provided standard care."
+    },
+    {
+     "id": "BG002",
+     "title": "Total",
+     "description": "Total of all reporting groups"
+    }
+   ],
+   "denoms": [
+    {
+     "units": "Participants",
+     "counts": [
+      {
+       "groupId": "BG000",
+       "value": "22,949"
+      },
+      {
+       "groupId": "BG001",
+       "value": "41,966"
+      },
+      {
+       "groupId": "BG002",
+       "value": "64915"
+      }
+     ]
+    },
+    {
+     "units": "Clinics",
+     "counts": [
+      {
+       "groupId": "BG000",
+       "value": "19"
+      },
+      {
+       "groupId": "BG001",
+       "value": "32"
+      },
+      {
+       "groupId": "BG002",
+       "value": "51"
+      }
+     ]
+    }
+   ],
+   "measures": [
+    {
+     "title": "Age, Continuous",
+     "paramType": "MEAN",
+     "dispersionType": "STANDARD_DEVIATION",
+     "unitOfMeasure": "years",
+     "denomUnitsSelected": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "73.9",
+           "spread": "7.2"
+          },
+          {
+           "groupId": "BG001",
+           "value": "74.0",
+           "spread": "7.1"
+          },
+          {
+           "groupId": "BG002",
+           "value": "74.0",
+           "spread": "7.1"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Sex: Female, Male",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "denomUnitsSelected": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "Female",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "13,575"
+          },
+          {
+           "groupId": "BG001",
+           "value": "25057"
+          },
+          {
+           "groupId": "BG002",
+           "value": "38632"
+          }
+         ]
+        },
+        {
+         "title": "Male",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "9374"
+          },
+          {
+           "groupId": "BG001",
+           "value": "16909"
+          },
+          {
+           "groupId": "BG002",
+           "value": "26283"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Race/Ethnicity, Customized",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "denomUnitsSelected": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "Black, non-Hispanic",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "7923"
+          },
+          {
+           "groupId": "BG001",
+           "value": "9984"
+          },
+          {
+           "groupId": "BG002",
+           "value": "17907"
+          }
+         ]
+        },
+        {
+         "title": "Hispanic",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "399"
+          },
+          {
+           "groupId": "BG001",
+           "value": "974"
+          },
+          {
+           "groupId": "BG002",
+           "value": "1373"
+          }
+         ]
+        },
+        {
+         "title": "White, non-Hispanic",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "12924"
+          },
+          {
+           "groupId": "BG001",
+           "value": "27421"
+          },
+          {
+           "groupId": "BG002",
+           "value": "40345"
+          }
+         ]
+        },
+        {
+         "title": "Other",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "1703"
+          },
+          {
+           "groupId": "BG001",
+           "value": "3587"
+          },
+          {
+           "groupId": "BG002",
+           "value": "5290"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Region of Enrollment",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "denomUnitsSelected": "Participants",
+     "classes": [
+      {
+       "title": "United States",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "22949"
+          },
+          {
+           "groupId": "BG001",
+           "value": "41966"
+          },
+          {
+           "groupId": "BG002",
+           "value": "64915"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Area Deprivation Index",
+     "description": "The ADI includes rankings of neighborhoods by socioeconomic disadvantage at the census block group level of geography.\n\nA ranking of 1 indicates the lowest level of \"disadvantage\" within the nation and an ADI with a ranking of 100 indicates the highest level of \"disadvantage\".",
+     "paramType": "MEAN",
+     "dispersionType": "STANDARD_DEVIATION",
+     "unitOfMeasure": "Scores on a scale",
+     "denomUnitsSelected": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "30.3",
+           "spread": "23.2"
+          },
+          {
+           "groupId": "BG001",
+           "value": "24.1",
+           "spread": "19.0"
+          },
+          {
+           "groupId": "BG002",
+           "value": "26.3",
+           "spread": "20.8"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "State of Residence",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "denomUnitsSelected": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "Maryland",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "19571"
+          },
+          {
+           "groupId": "BG001",
+           "value": "37380"
+          },
+          {
+           "groupId": "BG002",
+           "value": "56951"
+          }
+         ]
+        },
+        {
+         "title": "Virginia or Washington DC",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "2926"
+          },
+          {
+           "groupId": "BG001",
+           "value": "3017"
+          },
+          {
+           "groupId": "BG002",
+           "value": "5943"
+          }
+         ]
+        },
+        {
+         "title": "Other",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "452"
+          },
+          {
+           "groupId": "BG001",
+           "value": "1569"
+          },
+          {
+           "groupId": "BG002",
+           "value": "2021"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Decedents (patients with diagnosis codes indicative of serious illness)",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "denomUnitsSelected": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "521"
+          },
+          {
+           "groupId": "BG001",
+           "value": "977"
+          },
+          {
+           "groupId": "BG002",
+           "value": "1498"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "outcomeMeasuresModule": {
+   "outcomeMeasures": [
+    {
+     "type": "PRIMARY",
+     "title": "Number of Patients 65 and Older With New Documentation of Any Advance Directive in the Electronic Health Record (EHR)",
+     "description": "Advance directive will be defined as a durable power of attorney, living will, Maryland Medical Order for Life Sustaining Treatment (MOLST), or District of Columbia Medical Order for Sustaining Treatment (MOST) based on information that is recorded in each care delivery system's electronic medical record 12 months after study entry. The initial visit date for each candidate patient after the inception of the trial serves as the beginning of the 12-month observation period and will be used to construct comparable observation periods for candidate patients at both intervention and control groups.",
+     "populationDescription": "New Advance Directive or MO(L)ST Among Patients Without Documentation At Baseline - Excluding patients who did have an existing Advance Directive or MO(L)ST at the time of entry to the study cohort. Participants who had new uploads of Advance Directives or MO(L)ST after baseline are reported.",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "1 year",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "SHARING Choices Sites",
+       "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nSHARING Choices was embedded in randomized primary care practices between September 2020 and March 2021 in a phased process involving partnership and input from health system and primary care practice leaders and repeated meetings and contacts with clinicians and staff to socialize the study and refine workflows and monitoring.\n\nThe intervention comprises 5 components: 1) outreach from the primary care practice introducing SHARING Choices to prepare patients and families to engage in ACP conversations, 2) access to a facilitator trained in all elements of SHARING Choices, including Respecting CHOICES and leading ACP for persons with ADRD and their families, 3) person-family agenda-setting to align perspectives about the role of family and stimulate conversation about health care issues and ACP, 4) information about registration for the patient portal to enable and extend electronic interactions and information access to patients and family, and 5) ADRD educational materials and resources for staff and clinicians."
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nPrimary care practices randomized to Usual Care received no intervention and provided standard care."
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "22949"
+        },
+        {
+         "groupId": "OG001",
+         "value": "41966"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "title": "NEW Advance Directive or MO(L)ST Among Patients Without Documentation At Baseline",
+       "denoms": [
+        {
+         "units": "Participants",
+         "counts": [
+          {
+           "groupId": "OG000",
+           "value": "18314"
+          },
+          {
+           "groupId": "OG001",
+           "value": "32321"
+          }
+         ]
+        }
+       ],
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "2190"
+          },
+          {
+           "groupId": "OG001",
+           "value": "2130"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "NEW Advance Directive or MOLST Among Patients Without Documentation At Baseline - Diagnosed Dementia",
+       "denoms": [
+        {
+         "units": "Participants",
+         "counts": [
+          {
+           "groupId": "OG000",
+           "value": "1087"
+          },
+          {
+           "groupId": "OG001",
+           "value": "2084"
+          }
+         ]
+        }
+       ],
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "255"
+          },
+          {
+           "groupId": "OG001",
+           "value": "409"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "NEW Advance Directive Among Patients Without Documentation at Baseline",
+       "denoms": [
+        {
+         "units": "Participants",
+         "counts": [
+          {
+           "groupId": "OG000",
+           "value": "20517"
+          },
+          {
+           "groupId": "OG001",
+           "value": "37471"
+          }
+         ]
+        }
+       ],
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "1699"
+          },
+          {
+           "groupId": "OG001",
+           "value": "1010"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "NEW Advance Directive Among Patients Without Documentation at Baseline - Diagnosed Dementia",
+       "denoms": [
+        {
+         "units": "Participants",
+         "counts": [
+          {
+           "groupId": "OG000",
+           "value": "1364"
+          },
+          {
+           "groupId": "OG001",
+           "value": "2733"
+          }
+         ]
+        }
+       ],
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "166"
+          },
+          {
+           "groupId": "OG001",
+           "value": "206"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "PRIMARY",
+     "title": "Occurrence of Potentially Burdensome Procedures Reported Within 6 Months",
+     "description": "Potentially burdensome care will be measured as any (yes/no) procedures within the 6 months that precede death using dates and validated International Classification of Diseases (ICD)-10 codes for hospital services that will be extracted from CRISP, the regional health information exchange, which includes a repository of all hospital encounters in Maryland, Delaware, West Virginia, and the District of Columbia. Specific procedures and codes that will be used to reflect burdensome care include intubation and mechanical ventilation, tracheostomy, gastrostomy feeding tube placement, hemodialysis, enteral and parenteral nutrition, and cardiopulmonary resuscitation. Analysis limited to patients with diagnosis codes indicative of serious illness, for whom these procedures would be considered potentially burdensome, drawing from a list of ICD-10 codes.",
+     "populationDescription": "Patients with diagnosis codes indicative of serious illness only",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "6 months preceding patient death",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "SHARING Choices Sites",
+       "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nSHARING Choices was embedded in randomized primary care practices between September 2020 and March 2021 in a phased process involving partnership and input from health system and primary care practice leaders and repeated meetings and contacts with clinicians and staff to socialize the study and refine workflows and monitoring.\n\nThe intervention comprises 5 components: 1) outreach from the primary care practice introducing SHARING Choices to prepare patients and families to engage in ACP conversations, 2) access to a facilitator trained in all elements of SHARING Choices, including Respecting CHOICES and leading ACP for persons with ADRD and their families, 3) person-family agenda-setting to align perspectives about the role of family and stimulate conversation about health care issues and ACP, 4) information about registration for the patient portal to enable and extend electronic interactions and information access to patients and family, and 5) ADRD educational materials and resources for staff and clinicians."
+      },
+      {
+       "id": "OG001",
+       "title": "Usual Care",
+       "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nPrimary care practices randomized to Usual Care received no intervention and provided standard care."
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "521"
+        },
+        {
+         "groupId": "OG001",
+         "value": "977"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "title": "Potentially Burdensome Care at End-of-Life - Full Cohort",
+       "denoms": [
+        {
+         "units": "Participants",
+         "counts": [
+          {
+           "groupId": "OG000",
+           "value": "521"
+          },
+          {
+           "groupId": "OG001",
+           "value": "977"
+          }
+         ]
+        }
+       ],
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "150"
+          },
+          {
+           "groupId": "OG001",
+           "value": "204"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Potentially Burdensome Care at End-of-Life - Diagnosed Dementia",
+       "denoms": [
+        {
+         "units": "Participants",
+         "counts": [
+          {
+           "groupId": "OG000",
+           "value": "181"
+          },
+          {
+           "groupId": "OG001",
+           "value": "409"
+          }
+         ]
+        }
+       ],
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "37"
+          },
+          {
+           "groupId": "OG001",
+           "value": "53"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "adverseEventsModule": {
+   "frequencyThreshold": "0",
+   "description": "Adverse events were not collected for this pragmatic trial.",
+   "eventGroups": [
+    {
+     "id": "EG000",
+     "title": "SHARING Choices Sites",
+     "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nSHARING Choices was embedded in randomized primary care practices between September 2020 and March 2021 in a phased process involving partnership and input from health system and primary care practice leaders and repeated meetings and contacts with clinicians and staff to socialize the study and refine workflows and monitoring.\n\nThe intervention comprises 5 components: 1) outreach from the primary care practice introducing SHARING Choices to prepare patients and families to engage in ACP conversations, 2) access to a facilitator trained in all elements of SHARING Choices, including Respecting CHOICES and leading ACP for persons with ADRD and their families, 3) person-family agenda-setting to align perspectives about the role of family and stimulate conversation about health care issues and ACP, 4) information about registration for the patient portal to enable and extend electronic interactions and information access to patients and family, and 5) ADRD educational materials and resources for staff and clinicians.",
+     "deathsNumAffected": 0,
+     "deathsNumAtRisk": 0,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 0,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 0
+    },
+    {
+     "id": "EG001",
+     "title": "Usual Care",
+     "description": "We used a covariate-constrained randomization (CCR) method to assure approximate balance on selected site characteristics across intervention and control groups. We assigned practices to intervention or control in a 1:2 ratio because control practices incur no study cost and having more control practices affords greater precision in study outcomes estimates.\n\nPrimary care practices randomized to Usual Care received no intervention and provided standard care.",
+     "deathsNumAffected": 0,
+     "deathsNumAtRisk": 0,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 0,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 0
+    }
+   ]
+  },
+  "moreInfoModule": {
+   "certainAgreement": {
+    "piSponsorEmployee": false,
+    "restrictiveAgreement": false
+   },
+   "pointOfContact": {
+    "title": "Jennifer Wolff, PhD",
+    "organization": "Johns Hopkins Bloomberg School of Public Health",
+    "email": "jwolff2@jhu.edu",
+    "phone": "(410) 502-0458"
+   }
+  }
+ },
+ "documentSection": {
+  "largeDocumentModule": {
+   "largeDocs": [
+    {
+     "typeAbbrev": "Prot_SAP",
+     "hasProtocol": true,
+     "hasSap": true,
+     "hasIcf": false,
+     "label": "Study Protocol and Statistical Analysis Plan",
+     "date": "2023-08-31",
+     "uploadDate": "2025-01-13T14:46",
+     "filename": "Prot_SAP_000.pdf",
+     "size": 692094
+    }
+   ]
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  },
+  "conditionBrowseModule": {
+   "meshes": [
+    {
+     "id": "D003704",
+     "term": "Dementia"
+    }
+   ],
+   "ancestors": [
+    {
+     "id": "D001927",
+     "term": "Brain Diseases"
+    },
+    {
+     "id": "D002493",
+     "term": "Central Nervous System Diseases"
+    },
+    {
+     "id": "D009422",
+     "term": "Nervous System Diseases"
+    },
+    {
+     "id": "D019965",
+     "term": "Neurocognitive Disorders"
+    },
+    {
+     "id": "D001523",
+     "term": "Mental Disorders"
+    }
+   ]
+  }
+ },
+ "hasResults": true
+}

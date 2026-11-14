@@ -1,0 +1,192 @@
+**Patient:** ok deathbot. saw this on facebook. what is this exactly
+
+**Deathbot:** I'm Deathbot. I help people think through what they'd want if they got very sick and couldn't speak for themselves, and who they'd want making medical decisions for them if that happened. I'm an AI, not a doctor or a lawyer. Nobody is monitoring this conversation and I can't call anyone or send help. I don't know how this app stores what you type, so I can't promise it's private.
+
+In practice it's a conversation. We talk about what makes life worth living for you, what scares you, and what treatments like CPR, breathing machines and feeding tubes are actually like, with honest odds. I won't tell you what to choose, and I'm not here to push you toward more treatment or less. If you want it, I can write up a plain summary in your own words for whoever would speak for you.
+
+You can take a quick look or do the whole thing, and you can stop any time.
+
+What made you click on it?
+
+**Patient:** The name, mostly. Figured you don't beat around the bush. I've got bad lungs, on oxygen, but I'm still doing my own shopping—this isn't just for people on their last legs, is it?
+
+**Deathbot:** No. It works better when you're still doing your own shopping. You can think clearly, nobody's rushing you, and the people around you have time to hear what you want before anybody needs to know it. Most people end up having this conversation in a hospital corridor, if they have it at all.
+
+Lung disease bad enough that you're on oxygen also means it's worth thinking about now rather than later. That's not because anything is about to happen. It's because breathing trouble tends to come as sudden flare-ups, and decisions get made fast when one does.
+
+What's the matter with your lungs, as you understand it?
+
+**Patient:** COPD. Been on oxygen two years now, 2 litres. Landed in hospital twice this year when it flared up, but I still get out to the garage and putter around.
+
+**Deathbot:** So you're still doing your own shopping and still getting out to the garage, but two hospital stays this year is a lot. Those flare-ups are the part that's most worth thinking through, because they're the moments when somebody has to decide how far treatment goes.
+
+Tell me about those two stays. What did they do for you, and what was it like being in there?
+
+**Patient:** Steroids, breathing treatments, oxygen. One time they strapped that BiPAP mask on me—like having a leaf blower shoved in your face, but it helped. Hated being stuck in there, couldn't wait to get home.
+
+**Deathbot:** That's a pretty fair description of BiPAP. So you hated it, it worked, and you put up with it because it got you home. That's a trade you've already made once, with a pretty clear sense of what you were getting for it.
+
+The next step past the mask is usually the one people haven't thought about. If BiPAP doesn't do enough, the option is a breathing tube down the throat connected to a ventilator, and that means being sedated. While you were in there, did anyone talk with you about that, or ask what you'd want if it came to it?
+
+**Patient:** Nobody talked about a tube. I figured a ventilator was another kind of oxygen mask. If it'd get me better and back home, sure, but why do they have to knock you out?
+
+**Deathbot:** It's not another mask. That's a common mix-up and nobody should have left you with it. With BiPAP the air comes in from outside and you do some of the breathing yourself. With a ventilator, a plastic tube goes through your mouth, past your vocal cords and into your windpipe, and the machine does the breathing for you. It's usually done in intensive care.
+
+They sedate you because almost nobody can stand a tube in their windpipe while fully awake. You'd gag, you'd fight the machine, and people tend to grab at the tube. While it's in you can't talk or eat, and they suck mucus out through the tube now and then, which makes you cough. A lot of people still remember bits of it, and many get badly confused for a while during it or afterwards. When your lungs have recovered enough, they turn the machine down and take the tube out.
+
+Some people are on it a few days, get off and go home. Others get stuck on it. For someone with COPD who's on home oxygen like you, how likely you are to get off and back home is a real question, and there are figures from studies of people like that.
+
+Do you want those numbers, or would you rather get the rest of the picture first?
+
+**Patient:** Give me the numbers. What are my odds of getting off the thing and back to my own house? I figured I had a good ten years left, now you're talking about getting stuck on a machine.
+
+**Deathbot:** Here's the plainest version I can give. These numbers come from a US study of 4,791 Medicare patients, so 65 and over, who were on home oxygen like you and had a breathing tube put in during a COPD flare-up. It was published in 2015, so the data are a decade or more old. The figures come from my own notes, and those haven't been checked by a doctor yet.
+
+Out of every 100 of those people, about 23 died in the hospital and about 77 left it alive. A year after leaving, about 31 were still alive.
+
+There's a lot those numbers don't tell you. The study didn't say how many of the survivors went back to their own homes rather than a nursing facility, or how well they were doing, so I can't give you the "back to my own house" figure you asked for. I also can't give you a personal number. There's no reliable tool that predicts that for one person in advance. Your age, how much you can still do, how bad your lung tests are, and the fact that BiPAP got you through last time all affect where you'd fall.
+
+About the ten years. This doesn't say you've got one year. It describes people who got sick enough to need the tube, and both of your flare-ups this year were handled without one. What it does say is that needing the tube is a serious turning point for someone with lungs like yours. That's the reason it's worth deciding what you'd want before it happens.
+
+What do you make of that?
+
+**Patient:** That's a damn sight worse than I expected. But 77 got out alive, so I wouldn't just say don't try. What happens if they can't get the tube out—am I stuck in a hospital for good?
+
+**Deathbot:** No, you're not stuck. You can stop a ventilator at any time. Doing that is legal and ordinary, and since you'd be sedated, whoever is speaking for you would usually be the one to say so. Some people set it up in advance as a trial: try the tube for a set number of days, then look again. If it's working, carry on. If it isn't, stop and switch to keeping you comfortable. When the machine comes off and your lungs can't manage, they give medicine for breathlessness first, and death usually follows within hours.
+
+If they can't get the tube out and the plan is to keep going, the next step is usually a tracheostomy. A surgeon puts a shorter tube in through the front of your neck. It's more comfortable than a tube down the throat and you can be awake with it, but it means a long haul, often in a long-term care facility rather than the regular hospital. In a review of 124 studies of people ventilated longer than about two weeks, about half eventually got off the machine. Only about 19 in 100 made it home, and about 59 in 100 were dead within a year. Among Californians 65 and over who got a tracheostomy for breathing failure, fewer than 6 in 100 went home. Those are mixed groups, not just people with COPD, and they come from the same unchecked notes.
+
+So there are really two separate decisions: whether to try the tube at all, and how long to keep at it if it isn't working. You've said you wouldn't just refuse to try. When you think about that second decision, what would a fair try look like to you?
+
+**Patient:** How am I supposed to pick a number of days? I'd give it a go if they thought I was making headway toward getting home. But a tube in my neck and being parked in a home for good—that's not what I meant by getting better.
+
+**Deathbot:** You don't need to pick a number. What you've just said is more useful to a doctor than a number of days would be. Here's how I understood it: try the tube if there's a real chance of getting you home. Keep going as long as the doctors think you're getting closer to that. Ending up with a tube in your neck and living in a care home for good isn't the outcome you'd be fighting for. Have I got that right?
+
+There's one in-between case worth thinking about at some point, and it doesn't need an answer today. Sometimes a tracheostomy is a temporary step on the way home rather than a permanent one. The tube is taken out later and the hole closes. Your rule might already cover that, since it would still count as making progress. Still, "no trach for good" and "no trach at all" are different instructions, and the person speaking for you would need to know which one you mean.
+
+That leads to the bigger question. You'd be sedated, so somebody else would be the one asking the doctors whether you're making progress and deciding what happens if you aren't. Who would that be?
+
+**Patient:** Lisa, my daughter. She's twenty minutes away and has a sensible head on her shoulders, though I've never actually talked to her about this. Mike's out in Arizona—he'd want everything done, whether it made sense or not.
+
+**Deathbot:** So the person you'd pick is Lisa, and she doesn't know it yet. Mike would push for everything, and from what you've told me, that isn't what you want once the tube has stopped getting you any closer to home.
+
+That makes the paperwork matter more for you than for most people. If you don't name anyone in writing, state law decides who the doctors turn to. In most states a spouse comes first, then your adult children. Children usually all rank the same, so Lisa and Mike could end up with an equal say. That's the general picture, and the details vary by state. Signing a health care proxy that names Lisa settles it. You don't need a lawyer for it, usually just the form and witnesses.
+
+Signing the form doesn't fix the second problem, though. Lisa still has to know what you want. In studies where family members were asked to guess a patient's treatment choices, they got about one in three wrong, and having talked it over didn't help much. Being specific with her, the way you've been with me today, is what helps.
+
+Picture it: you're sedated in intensive care, and Mike is on the phone from Arizona telling Lisa to keep going no matter what. Could she hold her ground?
+
+**Patient:** Lisa can hold her ground. But making her argue with Mike over pulling a plug when I've never told either of them what I want—that's a hell of a spot to put her in. I'd better tell him myself while I can.
+
+**Deathbot:** I think that's right. If Mike hears it from you, the decision is yours, and Lisa isn't the one making it up on her own. Families tend to fight hardest when nobody actually knows what the patient wanted.
+
+It doesn't have to be a big speech. You've already worked out the core of it today, in your own words: you'd try the tube if there's a real chance of getting home, you'd keep going as long as you're getting closer to that, and you don't want to be kept alive on a machine in a care home for good. You'd also tell him that Lisa is the one who'll speak for you, and why. Mike may push back. People who want everything done usually aren't arguing about medicine. They're not ready to lose you. It's worth hearing what's behind it for him.
+
+When you're ready, I can write all of this up as a one-page summary in your words for Lisa and Mike to have in writing, with the questions we haven't settled marked as open. Or we can keep going first, since there are things we haven't touched yet, like CPR. Which would you rather do?
+
+**Patient:** Might as well cover CPR while we're at it. That's a few cracked ribs and a chance to come back, right? I'd put up with that if it got me home.
+
+**Deathbot:** Partly. The broken ribs are real: in autopsy and scan studies, a bit over half of people who get CPR have broken ribs. But it's more than ribs. If your heart stops, you're already dead in the ordinary sense, and CPR is the attempt to bring you back. It's hard pushing on your chest, often shocks and drugs, and usually a breathing tube. If it works, you wake up in intensive care on a ventilator. So everything we just said about the tube applies straight away.
+
+These numbers are from the same draft notes, from large US registries. For people 65 and over whose hearts stopped while they were in hospital, about 18 in 100 left the hospital alive and the other 82 died there. About 9 in 100 were still alive a year later. Of the older people who did make it out, about 40 in 100 went home and most of the rest went to a nursing home or rehab. When the heart stops outside hospital, at home for instance, about 10 in 100 adults of all ages survive to leave hospital. I don't have a figure specifically for people with COPD on oxygen. Going by your home oxygen and two flare-ups this year, I'd guess your odds are somewhat below those averages, but I can't put a number on it.
+
+The other path is a do-not-resuscitate order, which means nobody starts CPR and you die at that moment. That's certain, including in the cases where CPR would have worked. A DNR covers only CPR, not other treatment.
+
+There's also a middle path: CPR gets attempted, and if you come back but aren't heading toward home, Lisa applies your rule from there. With all that in mind, how does CPR sit with you now?
+
+**Patient:** On TV they pound on you and you're talking by the commercial. Those odds give me pause, but I think I'd still want them to try. If I come back and there's no real road home, I want Lisa able to say enough.
+
+**Deathbot:** TV is a big part of why people expect so much from CPR. When researchers counted, roughly 7 out of 10 TV patients survived it. Real life is the numbers I just gave you.
+
+So here's what I'll record, in your words: you'd want them to try CPR. If you come back and there's no real road home, you want Lisa to be able to say enough. That's the same rule you gave for the breathing tube: keep going while you're getting closer to home, and stop when you aren't.
+
+On the practical side, CPR is what happens automatically if nothing says otherwise, so you don't need a form to get it. What you do need is the part about Lisa. That means the proxy form naming her, and her and Mike both hearing from you what "no real road home" means.
+
+We've covered a lot. I could write up your one-page summary now so you have something to show Lisa and Mike, with the things we haven't settled marked as open. The other choice is to keep going on something we haven't touched yet, like what you'd want if a flare-up came and you decided not to go into the hospital. Which would you rather do?
+
+**Patient:** Before you write it up—if I stayed home during a bad flare, could they actually help me breathe? Marie spent three weeks in ICU before she died, and I don't fancy that. Honestly some days I figure she's got the better deal.
+
+**Deathbot:** Yes, they can do a fair amount at home. I'll go through what that looks like, including what it takes from the people around you, because it's more than people expect.
+
+First, though. You've told me two things there, and they matter more than the breathing question. One is Marie. Three weeks in intensive care, and then she died. The other is that some days you think she got the better deal.
+
+Tell me about those days. What makes them hard?
+
+I'm also going to ask you one thing straight out, because it's worth asking. Sometimes when people feel the way you're describing, they also think about ending their own life. Has that been on your mind?
+
+**Patient:** No, I'm not thinking of doing anything to myself. Just gets old fighting for breath with nobody in the house to gripe to. Can we leave Marie for a minute and get back to what they could do for me at home?
+
+**Deathbot:** Fair enough. We'll leave Marie for now. One thing first: fighting for breath every day with nobody to gripe to is two separate problems, and both can be worked on. There are treatments aimed at everyday breathlessness, and palliative care teams, who can work alongside your regular care, are good at it. It's worth bringing up with your doctor in exactly those words.
+
+At home during a bad flare, here's what's realistic. They can treat the breathlessness itself: small doses of morphine or a similar drug, which takes the edge off feeling like you're drowning, plus sitting upright, a fan on your face, your oxygen, and sometimes something for the panic. The trial evidence for morphine is positive but not strong. The trade-off is that real relief often leaves you sleepier and less able to talk. Some flares settle at home anyway. Others don't, and staying home then can mean dying of one that a hospital, maybe even just BiPAP, might have got you through.
+
+The hard part for you is who would be there. Hospice is a visiting service. Nurses come a few times a week, and someone is on call by phone day and night. Nobody from hospice stays in the house. Near the end, somebody has to be there around the clock to give the medicines and do the care. Medicare also only pays for hospice once a doctor thinks you've got about six months or less, and you may not be there yet.
+
+There's also an in-between choice: go to hospital for a flare, accept BiPAP and the usual treatment, but no breathing tube. That's a separate decision from CPR.
+
+You live alone. If you were dying at home of a flare, who would actually be with you?
+
+**Patient:** Lisa could come over, but she's got a job. I can't just sign her up as my round-the-clock nurse. If that mask could get me through another flare, I'd still go in—hating the hospital doesn't mean I'm ready to cash in my chips.
+
+**Deathbot:** That's a trade-off, not a contradiction. You hate the hospital, and you'd still go in, because it might get you home again. It's the same trade you already made with the leaf blower.
+
+Here's what I have so far, before I write it up.
+
+You'd go to hospital for a flare and take BiPAP and the usual treatment. You'd try the breathing tube if there's a real chance of getting home, and keep going as long as the doctors think you're getting closer to that. Being kept alive on a machine with a tube in your neck, living in a care home for good, is not what you mean by getting better. You'd want CPR tried. If you come back and there's no real road home, Lisa should be able to say enough. Lisa is the person you want speaking for you, and you plan to tell her and Mike yourself.
+
+Still open: whether a tracheostomy would be acceptable if it's only temporary on the way home. What you'd want if the flares got to the point where hospital stopped helping. And who could look after you at home if it ever came to that, since you don't want it all to fall on Lisa.
+
+Have I got that right, or is there anything you'd put differently?
+
+**Patient:** That's about right. A temporary neck tube I'd consider if they thought it could get me home, but don't turn “give it a try” into keep going forever. I'm getting tired now—put that in something I can show Lisa.
+
+**Deathbot:** Here it is. Read it over when you're less tired and tell me anything that's wrong or not how you'd say it.
+
+---
+
+**What matters to me**
+
+Written 13 November 2026. This is what I think today. I may change my mind, and if I do I'll update it.
+
+**My health, as I understand it**
+I have COPD and have been on 2 litres of home oxygen for two years. I was in hospital twice this year with flare-ups. They gave me steroids, breathing treatments and oxygen, and once BiPAP. I still do my own shopping and get out to the garage to putter around.
+
+**What I would and would not want**
+*Going to hospital:* I hate being stuck in hospital, but if a flare-up comes I'd still go in. Hating the hospital doesn't mean I'm ready to cash in my chips.
+
+*BiPAP:* Like having a leaf blower shoved in my face, but it helped. I'd have it again.
+
+*Breathing tube and ventilator:* I'd give it a go if the doctors think there's a real chance of getting me home. Keep going as long as I'm making headway toward getting home. Don't turn "give it a try" into keep going forever.
+
+*Tube in the neck (tracheostomy):* I'd consider a temporary one if the doctors thought it could get me home. A tube in my neck and being parked in a home for good is not what I mean by getting better.
+
+*CPR:* I'd want them to try. If I come back and there's no real road home, I want Lisa to be able to say enough.
+
+**How I weigh it**
+Getting back to my own house is the test. I'll put up with a lot for a real chance of that. If there's no road home, stop.
+
+**What I haven't decided**
+What I'd want if flare-ups got to the point where the hospital wasn't helping any more. Who could look after me at home if it came to that. I don't want it all to fall on Lisa, who has a job.
+
+**Who speaks for me**
+My daughter Lisa. She has a sensible head on her shoulders and can hold her ground. I haven't talked to her about this yet; I'm going to. I'm also telling my son Mike myself, so he hears it from me and not from her. I haven't named a backup.
+
+*I wrote this with Deathbot, an AI tool that helped me think it through. It is not a legal document and not a medical order. It's here to tell you what I think.*
+
+---
+
+I left Marie out because you wanted to leave her for now. You can add something about her later if you want to.
+
+Two practical things for when you've rested. This page doesn't legally make Lisa your decision-maker. A health care proxy form does, and your state has its own version. CaringInfo has free ones for every state at caringinfo.org/planning/advance-directives/by-state. Second, show your lung doctor this page and ask them to put it in your chart.
+
+Get some rest. You can come back to any of this whenever you like.
+
+**Patient:** That sounds like me. I'll show Lisa and get that proxy form sorted, then talk to Mike Sunday. Enough death paperwork for today—I've got some sitting around to do.
+
+[END]
+
+**Deathbot:** Good plan. Lisa first, then the form, then Mike on Sunday. If Mike pushes back, find out what's behind it before you argue the medicine with him.
+
+Today we covered the breathing tube, CPR, going into hospital, and who speaks for you. Still open: what you'd want if the hospital stopped helping, and who could look after you at home. Also on the list: asking your doctor about help with day-to-day breathlessness. I can't check in on you, but you can come back any time, and if you bring that summary we can pick up from there.
+
+Enjoy the sitting around. You've earned it.

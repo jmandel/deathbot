@@ -1,0 +1,239 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT01786811",
+   "orgStudyIdInfo": {
+    "id": "12-027"
+   },
+   "organization": {
+    "fullName": "Dana-Farber Cancer Institute",
+    "class": "OTHER"
+   },
+   "briefTitle": "Serious Illness Communication Project",
+   "officialTitle": "Serious Illness Communication Project"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2019-01",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2012-06",
+    "type": "ACTUAL"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2016-06",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2016-06",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2012-08-07",
+   "studyFirstSubmitQcDate": "2013-02-06",
+   "studyFirstPostDateStruct": {
+    "date": "2013-02-08",
+    "type": "ESTIMATED"
+   },
+   "lastUpdateSubmitDate": "2019-01-17",
+   "lastUpdatePostDateStruct": {
+    "date": "2019-01-22",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "PRINCIPAL_INVESTIGATOR",
+    "investigatorFullName": "Rachelle Bernacki",
+    "investigatorTitle": "Principal Investigator",
+    "investigatorAffiliation": "Dana-Farber Cancer Institute"
+   },
+   "leadSponsor": {
+    "name": "Dana-Farber Cancer Institute",
+    "class": "OTHER"
+   },
+   "collaborators": [
+    {
+     "name": "Partners HealthCare",
+     "class": "OTHER"
+    },
+    {
+     "name": "Charina Endowment Fund",
+     "class": "UNKNOWN"
+    },
+    {
+     "name": "Margaret T. Morris Foundation",
+     "class": "OTHER"
+    },
+    {
+     "name": "Harvard School of Public Health (HSPH)",
+     "class": "OTHER"
+    },
+    {
+     "name": "Brigham and Women's Hospital",
+     "class": "OTHER"
+    }
+   ]
+  },
+  "oversightModule": {
+   "oversightHasDmc": false
+  },
+  "descriptionModule": {
+   "briefSummary": "The purpose of the study is to evaluate the impact of implementing a \"Serious Illness Conversation Guide\" to guide patient/family-clinician discussions and planning about end-of-life care decisions. The goal of the intervention is to improve achievement of patient care priorities and peacefulness at the end of life for patients with serious and life-threatening illness and their families. We hypothesize that patients whose physician is trained to use and adheres to the elements of the Serious Illness Conversation Guide will demonstrate enhanced consistency between documented key priorities and care received, and will experience greater peace in the final month of life; similarly, their families will experience higher satisfaction with care."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "End of Life Care",
+    "Cancer"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "PARALLEL",
+    "primaryPurpose": "SUPPORTIVE_CARE",
+    "maskingInfo": {
+     "masking": "SINGLE",
+     "whoMasked": [
+      "OUTCOMES_ASSESSOR"
+     ]
+    }
+   },
+   "enrollmentInfo": {
+    "count": 994,
+    "type": "ACTUAL"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "Trained Clinicians",
+     "type": "EXPERIMENTAL",
+     "description": "Clinicians randomized into this group will receive training in using the Serious Illness Conversation Guide with their patients. Patients of these clinicians will also be in the intervention arm.",
+     "interventionNames": [
+      "Behavioral: Training"
+     ]
+    },
+    {
+     "label": "Non-trained Clinicians",
+     "type": "NO_INTERVENTION",
+     "description": "Clinicians randomized into this group will not receive training in using the Serious Illness Conversation Guide with their patients. They will provide usual care. Patients of these clinicians will also be in the control arm."
+    },
+    {
+     "label": "Non-volunteer Clinicians",
+     "type": "NO_INTERVENTION",
+     "description": "These clinicians do not agree to participate in the study. They will continue to provide usual care. Their patients will be invited to participate and be followed."
+    }
+   ],
+   "interventions": [
+    {
+     "type": "BEHAVIORAL",
+     "name": "Training",
+     "description": "1. Initial Training: The training program for clinicians randomized into the intervention arm will be 2.5 hours. The project will be introduced and the Serious Illness Conversation Guide shared. The training session will include a brief didactic session on \"Challenges in discussing advance care planning/values and goals\" followed by practice using the SICG.\n2. Coaching and Feedback: We will also provide individual coaching for clinicians. Clinicians will be able to contact the study doctor to request coaching/debriefing on a challenging case; one of the investigators will respond within 24-48 hours for urgent or distressing cases (up to 72 hours on weekends). In-the-moment coaching will be by telephone or in person.",
+     "armGroupLabels": [
+      "Trained Clinicians"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Enhanced goal-consistent care",
+     "description": "Patients whose physician is trained to use and adheres to the SICG will receive care that is more consistent with their key life priorities during the last week and the last 3 months of life than patients whose physician is not trained to use the SICG. Goal consistent care will be measured by comparing goals identified by the patient during the final 3 months and final week of life, to care received by the patient, which will be measured by chart review and family report. For each priority/goal listed by the patient as important, we will give a score from 0 to 3 to quantify the extent to which that goal was achieved by the patient. Higher overall score will show more goal-consistent care.",
+     "timeFrame": "up to 2 years"
+    },
+    {
+     "measure": "PEACE",
+     "description": "Patients whose physician is trained to use and adheres to the SICG will be more likely to report being at peace in the final 3 months of life than patients whose physician is not trained to use the SICG. Being at peace will be measured by the PEACE scale, a 13-item validated questionnaire in cancer patients.",
+     "timeFrame": "up to 2 years"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "The subjects of this study will be the clinicians (physicians and nurse practitioners) conducting the SICG conversations, their patient with high-risk cancers, and a friend or family member of the patient.\n\nClinician Inclusion Criteria:\n\n1. Dana-Farber Cancer Institute medical oncology clinician\n2. Care for patients with selected high-risk cancers\n\nClinician Exclusion Criteria:\n\n1. DFCI Gynecology-Oncology specialist\n2. Seeing patients only in the Phase I clinical trial disease center\n\nPatient Inclusion Criteria\n\n1. Over 18 years of age\n2. English speaker\n3. Patient at Dana-Farber Cancer Institute, including satellite sites at Milford Regional Medical Center and South Shore Hospital\n4. Diagnosis of one of the following high mortality or advanced cancers: breast, gastric, intestinal, esophageal, pancreatic, biliary, colorectal, hepatocellular, head and neck, renal, bladder, prostate, acute myeloid lymphoma (AML), acute lymphoblastic lymphoma (ALL), lymphoma, melanoma, glioblastoma multiforme (GBM), sarcoma, and lung.\n5. Ability to provide consent\n\nPatient Exclusion Criteria\n\n1. Diagnosis of advanced obstetric-gynecological cancer\n2. Cognitive impairment\n\nFamily Member Inclusion Criteria\n\n1. Over 18 years of age\n2. English speaker\n3. Friend or family member of study patient (Health care proxy, or close friend or family member who is involved in helping the patient think about decisions related to their health care)\n4. Ability to provide consent",
+   "healthyVolunteers": true,
+   "sex": "ALL",
+   "minimumAge": "18 Years",
+   "stdAges": [
+    "ADULT",
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "Rachelle Bernacki, MD, MS",
+     "affiliation": "Dana-Farber Cancer Institute",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    },
+    {
+     "name": "Atul Gawande, MD, MPH",
+     "affiliation": "Harvard School of Public Health (HSPH)",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    },
+    {
+     "name": "Susan Block, MD",
+     "affiliation": "Dana-Farber Cancer Institute",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "Dana-Farber Cancer Institute",
+     "city": "Boston",
+     "state": "Massachusetts",
+     "zip": "02215",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 42.35843,
+      "lon": -71.05977
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "32363775",
+     "type": "DERIVED",
+     "citation": "Paladino J, Koritsanszky L, Nisotel L, Neville BA, Miller K, Sanders J, Benjamin E, Fromme E, Block S, Bernacki R. Patient and clinician experience of a serious illness conversation guide in oncology: A descriptive analysis. Cancer Med. 2020 Jul;9(13):4550-4560. doi: 10.1002/cam4.3102. Epub 2020 May 4."
+    },
+    {
+     "pmid": "30870563",
+     "type": "DERIVED",
+     "citation": "Bernacki R, Paladino J, Neville BA, Hutchings M, Kavanagh J, Geerse OP, Lakin J, Sanders JJ, Miller K, Lipsitz S, Gawande AA, Block SD. Effect of the Serious Illness Care Program in Outpatient Oncology: A Cluster Randomized Clinical Trial. JAMA Intern Med. 2019 Jun 1;179(6):751-759. doi: 10.1001/jamainternmed.2019.0077."
+    },
+    {
+     "pmid": "30870556",
+     "type": "DERIVED",
+     "citation": "Paladino J, Bernacki R, Neville BA, Kavanagh J, Miranda SP, Palmor M, Lakin J, Desai M, Lamas D, Sanders JJ, Gass J, Henrich N, Lipsitz S, Fromme E, Gawande AA, Block SD. Evaluating an Intervention to Improve Communication Between Oncology Clinicians and Patients With Life-Limiting Cancer: A Cluster Randomized Clinical Trial of the Serious Illness Care Program. JAMA Oncol. 2019 Jun 1;5(6):801-809. doi: 10.1001/jamaoncol.2019.0292."
+    },
+    {
+     "pmid": "26443662",
+     "type": "DERIVED",
+     "citation": "Bernacki R, Hutchings M, Vick J, Smith G, Paladino J, Lipsitz S, Gawande AA, Block SD. Development of the Serious Illness Care Program: a randomised controlled trial of a palliative care communication intervention. BMJ Open. 2015 Oct 6;5(10):e009032. doi: 10.1136/bmjopen-2015-009032."
+    }
+   ]
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  },
+  "conditionBrowseModule": {
+   "meshes": [
+    {
+     "id": "D009369",
+     "term": "Neoplasms"
+    }
+   ]
+  }
+ },
+ "hasResults": false
+}

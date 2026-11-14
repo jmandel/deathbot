@@ -1,0 +1,1201 @@
+{
+ "protocolSection": {
+  "identificationModule": {
+   "nctId": "NCT01565642",
+   "orgStudyIdInfo": {
+    "id": "10-0699"
+   },
+   "secondaryIdInfos": [
+    {
+     "id": "R01AG037483",
+     "type": "NIH",
+     "link": "https://reporter.nih.gov/quickSearch/R01AG037483"
+    }
+   ],
+   "organization": {
+    "fullName": "University of North Carolina, Chapel Hill",
+    "class": "OTHER"
+   },
+   "briefTitle": "Goals of Care: A Nursing Home Trial of Decision Support for Advanced Dementia",
+   "officialTitle": "Goals of Care: A Nursing Home Trial of Decision Support for Advanced Dementia",
+   "acronym": "GOC"
+  },
+  "statusModule": {
+   "statusVerifiedDate": "2016-03",
+   "overallStatus": "COMPLETED",
+   "expandedAccessInfo": {
+    "hasExpandedAccess": false
+   },
+   "startDateStruct": {
+    "date": "2012-05"
+   },
+   "primaryCompletionDateStruct": {
+    "date": "2015-07",
+    "type": "ACTUAL"
+   },
+   "completionDateStruct": {
+    "date": "2015-07",
+    "type": "ACTUAL"
+   },
+   "studyFirstSubmitDate": "2012-03-26",
+   "studyFirstSubmitQcDate": "2012-03-26",
+   "studyFirstPostDateStruct": {
+    "date": "2012-03-28",
+    "type": "ESTIMATED"
+   },
+   "resultsFirstSubmitDate": "2018-05-25",
+   "resultsFirstSubmitQcDate": "2018-07-09",
+   "resultsFirstPostDateStruct": {
+    "date": "2018-08-10",
+    "type": "ACTUAL"
+   },
+   "lastUpdateSubmitDate": "2018-07-09",
+   "lastUpdatePostDateStruct": {
+    "date": "2018-08-10",
+    "type": "ACTUAL"
+   }
+  },
+  "sponsorCollaboratorsModule": {
+   "responsibleParty": {
+    "type": "SPONSOR"
+   },
+   "leadSponsor": {
+    "name": "University of North Carolina, Chapel Hill",
+    "class": "OTHER"
+   },
+   "collaborators": [
+    {
+     "name": "National Institute on Aging (NIA)",
+     "class": "NIH"
+    }
+   ]
+  },
+  "oversightModule": {
+   "oversightHasDmc": true
+  },
+  "descriptionModule": {
+   "briefSummary": "This cluster randomized controlled trial is to examine whether decision support for goals of care can improve quality of communication and decision-making and improve the quality of palliative care for nursing home residents with advanced dementia."
+  },
+  "conditionsModule": {
+   "conditions": [
+    "Dementia"
+   ],
+   "keywords": [
+    "Dementia, decision making"
+   ]
+  },
+  "designModule": {
+   "studyType": "INTERVENTIONAL",
+   "phases": [
+    "NA"
+   ],
+   "designInfo": {
+    "allocation": "RANDOMIZED",
+    "interventionModel": "PARALLEL",
+    "primaryPurpose": "SUPPORTIVE_CARE",
+    "maskingInfo": {
+     "masking": "TRIPLE",
+     "whoMasked": [
+      "PARTICIPANT",
+      "CARE_PROVIDER",
+      "OUTCOMES_ASSESSOR"
+     ]
+    }
+   },
+   "enrollmentInfo": {
+    "count": 302,
+    "type": "ACTUAL"
+   }
+  },
+  "armsInterventionsModule": {
+   "armGroups": [
+    {
+     "label": "Decision support intervention",
+     "type": "EXPERIMENTAL",
+     "description": "Decision aid and care plan meeting",
+     "interventionNames": [
+      "Behavioral: Goals of care decision support"
+     ]
+    },
+    {
+     "label": "Control",
+     "type": "NO_INTERVENTION",
+     "description": "Attention control information on dementia care"
+    }
+   ],
+   "interventions": [
+    {
+     "type": "BEHAVIORAL",
+     "name": "Goals of care decision support",
+     "description": "Decision aid and care plan meeting",
+     "armGroupLabels": [
+      "Decision support intervention"
+     ]
+    }
+   ]
+  },
+  "outcomesModule": {
+   "primaryOutcomes": [
+    {
+     "measure": "Quality of Communication and Decision-making",
+     "description": "The Quality of Communication (QOC) score with its End of Life (EOL) subscale score. Scores range 0-10 on QOC and its subscales, with higher scores indicating better communication quality.",
+     "timeFrame": "3 months"
+    }
+   ],
+   "secondaryOutcomes": [
+    {
+     "measure": "Number of Palliative Care Domains in Care Plan",
+     "description": "Index score ranging from 0-10 with one point given for care plan addressing each domain: prognosis, goals of care, physical symptoms, emotional needs, spiritual needs, resuscitation, artificial feeding, intravenous fluids, antibiotics, hospitalization. Higher scores indicate better palliative care.",
+     "timeFrame": "9 months"
+    },
+    {
+     "measure": "Satisfaction With Care",
+     "description": "Satisfaction with Care at the End of Life in Dementia (SWC-EOLD) scale; 10 items rated 1-4 and summed with total potential range 10-40. Higher scores indicate better satisfaction.",
+     "timeFrame": "9 months"
+    },
+    {
+     "measure": "Comfort in Dying",
+     "description": "Comfort Assessment in Dying for Dementia (CAD-EOLD) includes 14 items rated on a 3 point scale, summed for a total potential score of 14-42. Higher scores indicate better comfort.",
+     "timeFrame": "9 months"
+    },
+    {
+     "measure": "Alzheimer Disease Related Quality of Life",
+     "description": "The Alzheimer Disease Related Quality of Life scale (ADRQL) ranges from 0-100 with higher scores indicating better quality of life.",
+     "timeFrame": "9 months"
+    },
+    {
+     "measure": "Quality of Dying",
+     "description": "Quality of Dying in Long-term Care (QOD-LTC) instrument has 11 items in 3 subscales measuring personhood, closure and preparation for dying, for total scores ranging 5-55. Higher scores indicate better quality of the dying experience.",
+     "timeFrame": "9 months"
+    },
+    {
+     "measure": "Frequency of Communication",
+     "description": "Number of participants who report discussions of goals of care with providers -- physicians, nurse practitioners, physician assistants or nursing home staff -- counted during follow-up",
+     "timeFrame": "9 months"
+    },
+    {
+     "measure": "Hospice Referral",
+     "description": "Number of participants with a referral to hospice services",
+     "timeFrame": "9 months"
+    },
+    {
+     "measure": "Hospitalizations",
+     "description": "Number and timing of transfer to hospital from nursing home care, measured as hospital transfers per 90 person-days of follow-up, with follow-up censored at death.",
+     "timeFrame": "9 months"
+    }
+   ]
+  },
+  "eligibilityModule": {
+   "eligibilityCriteria": "Inclusion Criteria:\n\n* Surrogate for nursing home resident with advanced dementia, paired with resident with advanced dementia\n\nExclusion Criteria:\n\n* Non-related legal surrogate without personal knowledge of resident",
+   "healthyVolunteers": false,
+   "sex": "ALL",
+   "minimumAge": "65 Years",
+   "stdAges": [
+    "OLDER_ADULT"
+   ]
+  },
+  "contactsLocationsModule": {
+   "overallOfficials": [
+    {
+     "name": "Laura C Hanson, MD, MPH",
+     "affiliation": "University of North Carolina, Chapel Hill",
+     "role": "PRINCIPAL_INVESTIGATOR"
+    }
+   ],
+   "locations": [
+    {
+     "facility": "University of North Carolina",
+     "city": "Chapel Hill",
+     "state": "North Carolina",
+     "zip": "27599",
+     "country": "United States",
+     "geoPoint": {
+      "lat": 35.9132,
+      "lon": -79.05584
+     }
+    }
+   ]
+  },
+  "referencesModule": {
+   "references": [
+    {
+     "pmid": "29957095",
+     "type": "DERIVED",
+     "citation": "Ernecoff NC, Zimmerman S, Mitchell SL, Song MK, Lin FC, Wessell KL, Hanson LC. Concordance between Goals of Care and Treatment Decisions for Persons with Dementia. J Palliat Med. 2018 Oct;21(10):1442-1447. doi: 10.1089/jpm.2018.0103. Epub 2018 Jun 29."
+    },
+    {
+     "pmid": "27893884",
+     "type": "DERIVED",
+     "citation": "Hanson LC, Zimmerman S, Song MK, Lin FC, Rosemond C, Carey TS, Mitchell SL. Effect of the Goals of Care Intervention for Advanced Dementia: A Randomized Clinical Trial. JAMA Intern Med. 2017 Jan 1;177(1):24-31. doi: 10.1001/jamainternmed.2016.7031."
+    },
+    {
+     "pmid": "27271683",
+     "type": "DERIVED",
+     "citation": "Hanson LC, Song MK, Zimmerman S, Gilliam R, Rosemond C, Chisholm L, Lin FC. Fidelity to a behavioral intervention to improve goals of care decisions for nursing home residents with advanced dementia. Clin Trials. 2016 Dec;13(6):599-604. doi: 10.1177/1740774516650863. Epub 2016 Jun 7."
+    }
+   ]
+  }
+ },
+ "resultsSection": {
+  "participantFlowModule": {
+   "recruitmentDetails": "April 2012 to September 2014 enrolled dyads of persons with advanced dementia and family decision-makers from 22 participating nursing home sites.",
+   "typeUnitsAnalyzed": "nursing homes",
+   "groups": [
+    {
+     "id": "FG000",
+     "title": "Decision Support Intervention",
+     "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+    },
+    {
+     "id": "FG001",
+     "title": "Control",
+     "description": "Attention control information on dementia care"
+    }
+   ],
+   "periods": [
+    {
+     "title": "Overall Study",
+     "milestones": [
+      {
+       "type": "STARTED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "151",
+         "numUnits": "11"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "151",
+         "numUnits": "11"
+        }
+       ]
+      },
+      {
+       "type": "COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "149",
+         "numUnits": "11"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "150",
+         "numUnits": "11"
+        }
+       ]
+      },
+      {
+       "type": "NOT COMPLETED",
+       "achievements": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "2",
+         "numUnits": "0"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1",
+         "numUnits": "0"
+        }
+       ]
+      }
+     ],
+     "dropWithdraws": [
+      {
+       "type": "Withdrawal by Subject",
+       "reasons": [
+        {
+         "groupId": "FG000",
+         "numSubjects": "2"
+        },
+        {
+         "groupId": "FG001",
+         "numSubjects": "1"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "baselineCharacteristicsModule": {
+   "groups": [
+    {
+     "id": "BG000",
+     "title": "Decision Support Intervention",
+     "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+    },
+    {
+     "id": "BG001",
+     "title": "Control",
+     "description": "Attention control information on dementia care"
+    },
+    {
+     "id": "BG002",
+     "title": "Total",
+     "description": "Total of all reporting groups"
+    }
+   ],
+   "denoms": [
+    {
+     "units": "Participants",
+     "counts": [
+      {
+       "groupId": "BG000",
+       "value": "151"
+      },
+      {
+       "groupId": "BG001",
+       "value": "151"
+      },
+      {
+       "groupId": "BG002",
+       "value": "302"
+      }
+     ]
+    }
+   ],
+   "measures": [
+    {
+     "title": "Age, Continuous",
+     "paramType": "MEAN",
+     "dispersionType": "STANDARD_DEVIATION",
+     "unitOfMeasure": "years",
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "85.7",
+           "spread": "7.6"
+          },
+          {
+           "groupId": "BG001",
+           "value": "87.3",
+           "spread": "6.7"
+          },
+          {
+           "groupId": "BG002",
+           "value": "86.5",
+           "spread": "6.9"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Sex: Female, Male",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "Female",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "121"
+          },
+          {
+           "groupId": "BG001",
+           "value": "125"
+          },
+          {
+           "groupId": "BG002",
+           "value": "246"
+          }
+         ]
+        },
+        {
+         "title": "Male",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "30"
+          },
+          {
+           "groupId": "BG001",
+           "value": "26"
+          },
+          {
+           "groupId": "BG002",
+           "value": "56"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Race/Ethnicity, Customized",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "title": "Race",
+       "categories": [
+        {
+         "title": "African American",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "14"
+          },
+          {
+           "groupId": "BG001",
+           "value": "25"
+          },
+          {
+           "groupId": "BG002",
+           "value": "39"
+          }
+         ]
+        },
+        {
+         "title": "White",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "134"
+          },
+          {
+           "groupId": "BG001",
+           "value": "123"
+          },
+          {
+           "groupId": "BG002",
+           "value": "257"
+          }
+         ]
+        },
+        {
+         "title": "Other",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "3"
+          },
+          {
+           "groupId": "BG001",
+           "value": "3"
+          },
+          {
+           "groupId": "BG002",
+           "value": "6"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Region of Enrollment",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "title": "United States",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "151"
+          },
+          {
+           "groupId": "BG001",
+           "value": "151"
+          },
+          {
+           "groupId": "BG002",
+           "value": "302"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Dementia Stage: Global Deterioration Scale (GDS)",
+     "description": "The Global deterioration scale includes seven different diagnostic stages ranging between \"no cognitive deterioration\" and \"very serious cognitive deterioration.\" It investigates the cognitive impairment. Scores range between 1 (no cognitive deterioration) and 7 (very severe cognitive decline) with higher scores reflecting greater severity of cognitive deterioration.",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "classes": [
+      {
+       "categories": [
+        {
+         "title": "GDS 5",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "38"
+          },
+          {
+           "groupId": "BG001",
+           "value": "36"
+          },
+          {
+           "groupId": "BG002",
+           "value": "74"
+          }
+         ]
+        },
+        {
+         "title": "GDS 6",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "79"
+          },
+          {
+           "groupId": "BG001",
+           "value": "73"
+          },
+          {
+           "groupId": "BG002",
+           "value": "152"
+          }
+         ]
+        },
+        {
+         "title": "GDS 7",
+         "measurements": [
+          {
+           "groupId": "BG000",
+           "value": "34"
+          },
+          {
+           "groupId": "BG001",
+           "value": "42"
+          },
+          {
+           "groupId": "BG002",
+           "value": "76"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "outcomeMeasuresModule": {
+   "outcomeMeasures": [
+    {
+     "type": "PRIMARY",
+     "title": "Quality of Communication and Decision-making",
+     "description": "The Quality of Communication (QOC) score with its End of Life (EOL) subscale score. Scores range 0-10 on QOC and its subscales, with higher scores indicating better communication quality.",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Standard Deviation",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "3 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "149"
+        },
+        {
+         "groupId": "OG001",
+         "value": "150"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "title": "QOC score",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "6.0",
+           "spread": "2.0"
+          },
+          {
+           "groupId": "OG001",
+           "value": "5.6",
+           "spread": "1.8"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "QOC End of Life score",
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "3.7",
+           "spread": "2.7"
+          },
+          {
+           "groupId": "OG001",
+           "value": "3.0",
+           "spread": "2.6"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Number of Palliative Care Domains in Care Plan",
+     "description": "Index score ranging from 0-10 with one point given for care plan addressing each domain: prognosis, goals of care, physical symptoms, emotional needs, spiritual needs, resuscitation, artificial feeding, intravenous fluids, antibiotics, hospitalization. Higher scores indicate better palliative care.",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Standard Deviation",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "149"
+        },
+        {
+         "groupId": "OG001",
+         "value": "150"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "5.9",
+           "spread": "2.2"
+          },
+          {
+           "groupId": "OG001",
+           "value": "5.3",
+           "spread": "1.9"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Satisfaction With Care",
+     "description": "Satisfaction with Care at the End of Life in Dementia (SWC-EOLD) scale; 10 items rated 1-4 and summed with total potential range 10-40. Higher scores indicate better satisfaction.",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Standard Deviation",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "149"
+        },
+        {
+         "groupId": "OG001",
+         "value": "150"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "31.0",
+           "spread": "5.9"
+          },
+          {
+           "groupId": "OG001",
+           "value": "31.6",
+           "spread": "5.3"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Comfort in Dying",
+     "description": "Comfort Assessment in Dying for Dementia (CAD-EOLD) includes 14 items rated on a 3 point scale, summed for a total potential score of 14-42. Higher scores indicate better comfort.",
+     "populationDescription": "Decedents only--this outcome measure applies only to residents who die during Follow-Up.",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Standard Deviation",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "27"
+        },
+        {
+         "groupId": "OG001",
+         "value": "33"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "34.0",
+           "spread": "5.7"
+          },
+          {
+           "groupId": "OG001",
+           "value": "32.7",
+           "spread": "5.4"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Alzheimer Disease Related Quality of Life",
+     "description": "The Alzheimer Disease Related Quality of Life scale (ADRQL) ranges from 0-100 with higher scores indicating better quality of life.",
+     "populationDescription": "This measure applies only to those persons with dementia who remained alive through the 9 month follow-up. In addition there were 3 withdrawals from the study by 9 months. Thus the overall number of participants for this outcome measure are n=239 (n=302 after removal of 60 decedents and 3 withdrawn participants).",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Standard Deviation",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "122"
+        },
+        {
+         "groupId": "OG001",
+         "value": "117"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "67.8",
+           "spread": "15.9"
+          },
+          {
+           "groupId": "OG001",
+           "value": "65.9",
+           "spread": "16.8"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Quality of Dying",
+     "description": "Quality of Dying in Long-term Care (QOD-LTC) instrument has 11 items in 3 subscales measuring personhood, closure and preparation for dying, for total scores ranging 5-55. Higher scores indicate better quality of the dying experience.",
+     "populationDescription": "Decedents only--this measure applies only to residents who die during Follow-Up.",
+     "reportingStatus": "POSTED",
+     "paramType": "MEAN",
+     "dispersionType": "Standard Deviation",
+     "unitOfMeasure": "units on a scale",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "27"
+        },
+        {
+         "groupId": "OG001",
+         "value": "33"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "41.7",
+           "spread": "7.1"
+          },
+          {
+           "groupId": "OG001",
+           "value": "41.7",
+           "spread": "7.1"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Frequency of Communication",
+     "description": "Number of participants who report discussions of goals of care with providers -- physicians, nurse practitioners, physician assistants or nursing home staff -- counted during follow-up",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "149"
+        },
+        {
+         "groupId": "OG001",
+         "value": "150"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "121"
+          },
+          {
+           "groupId": "OG001",
+           "value": "123"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Hospice Referral",
+     "description": "Number of participants with a referral to hospice services",
+     "reportingStatus": "POSTED",
+     "paramType": "COUNT_OF_PARTICIPANTS",
+     "unitOfMeasure": "Participants",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "149"
+        },
+        {
+         "groupId": "OG001",
+         "value": "150"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "17"
+          },
+          {
+           "groupId": "OG001",
+           "value": "18"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "SECONDARY",
+     "title": "Hospitalizations",
+     "description": "Number and timing of transfer to hospital from nursing home care, measured as hospital transfers per 90 person-days of follow-up, with follow-up censored at death.",
+     "reportingStatus": "POSTED",
+     "paramType": "NUMBER",
+     "unitOfMeasure": "Hospital transfers per 90 person-days",
+     "timeFrame": "9 months",
+     "groups": [
+      {
+       "id": "OG000",
+       "title": "Decision Support Intervention",
+       "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting"
+      },
+      {
+       "id": "OG001",
+       "title": "Control",
+       "description": "Attention control information on dementia care"
+      }
+     ],
+     "denoms": [
+      {
+       "units": "Participants",
+       "counts": [
+        {
+         "groupId": "OG000",
+         "value": "149"
+        },
+        {
+         "groupId": "OG001",
+         "value": "150"
+        }
+       ]
+      }
+     ],
+     "classes": [
+      {
+       "categories": [
+        {
+         "measurements": [
+          {
+           "groupId": "OG000",
+           "value": "0.08"
+          },
+          {
+           "groupId": "OG001",
+           "value": "0.16"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "adverseEventsModule": {
+   "frequencyThreshold": "1",
+   "timeFrame": "9 months",
+   "eventGroups": [
+    {
+     "id": "EG000",
+     "title": "Decision Support Intervention",
+     "description": "Decision aid and care plan meeting\n\nGoals of care decision support: Decision aid and care plan meeting",
+     "deathsNumAffected": 27,
+     "deathsNumAtRisk": 151,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 151,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 151
+    },
+    {
+     "id": "EG001",
+     "title": "Control",
+     "description": "Attention control information on dementia care",
+     "deathsNumAffected": 33,
+     "deathsNumAtRisk": 151,
+     "seriousNumAffected": 0,
+     "seriousNumAtRisk": 151,
+     "otherNumAffected": 0,
+     "otherNumAtRisk": 151
+    }
+   ]
+  },
+  "moreInfoModule": {
+   "certainAgreement": {
+    "piSponsorEmployee": true,
+    "restrictiveAgreement": false
+   },
+   "pointOfContact": {
+    "title": "Laura C. Hanson, MD, MPH",
+    "organization": "University of North Carolina at Chapel Hill",
+    "email": "lhanson@med.unc.edu",
+    "phone": "919-843-4096"
+   }
+  }
+ },
+ "derivedSection": {
+  "miscInfoModule": {
+   "versionHolder": "2026-11-13"
+  },
+  "conditionBrowseModule": {
+   "meshes": [
+    {
+     "id": "D003704",
+     "term": "Dementia"
+    }
+   ],
+   "ancestors": [
+    {
+     "id": "D001927",
+     "term": "Brain Diseases"
+    },
+    {
+     "id": "D002493",
+     "term": "Central Nervous System Diseases"
+    },
+    {
+     "id": "D009422",
+     "term": "Nervous System Diseases"
+    },
+    {
+     "id": "D019965",
+     "term": "Neurocognitive Disorders"
+    },
+    {
+     "id": "D001523",
+     "term": "Mental Disorders"
+    }
+   ]
+  }
+ },
+ "hasResults": true
+}
