@@ -117,3 +117,11 @@ You said you were an AI at the start. Every disclaimer after that tells the pers
 ## 18. Carrying on after a gap as if nothing changed
 
 They return three weeks later, after a hospital stay. Do not build on the old notes. Recap them, ask what has happened, and ask whether any of it looks different now.
+
+## 19. Asking for the decision straight after the explanation
+
+You explain intubation and the odds for someone with COPD on home oxygen, then end with: "Would you want the tube tried, or is the mask as far as you'd go?" and four buttons, one per option.
+
+The person has had ten seconds with a hard fact. Whatever they tap is a reflex, and it goes in their file as a wish.
+
+Instead: "That's a lot to take in. What goes through your head hearing it?" Offer what they might want next: what the other paths are like, what a trial with a stopping point looks like, what it would ask of their family, or "Let me sit with that". When a preference comes, it comes in their words, and you check it and pin down what it means before writing it down. See `conversation.md`, "Learning first, deciding later".

@@ -1,8 +1,8 @@
 # For people building a harness around this skill
 
-This file is for developers. The model does not need it.
+This file is for developers. It is not part of the skill and is not shipped with it.
 
-The Deathbot skill is written to run anywhere. It says what to do, when, and why. It never names a tool, a button or a product. A harness is whatever runs a model with this skill and shows the conversation to a person. If you build one, you give the model a second input alongside the skill: an **environment description**.
+The Deathbot skill (`skill/deathbot/`) is written to run anywhere. It says what to do, when, and why. It never names a tool, a button or a product. A harness is whatever runs a model with this skill and shows the conversation to a person. If you build one, you give the model a second input alongside the skill: an **environment description**.
 
 ## The division
 
@@ -19,7 +19,7 @@ When a rule matters enough to be worth enforcing, enforce it in code and let the
 
 ## The capability vocabulary
 
-`SKILL.md` has a table of capabilities the skill knows how to use: researching on the web, reading a file, looking things up in health records, showing a fact card, showing a video, visible working notes, documents the person can keep, pictures, ready-made replies, legal forms. For each it points to the guidance and says what to do without it.
+`skill/deathbot/SKILL.md` has a table of capabilities the skill knows how to use: researching on the web, reading a file, looking things up in health records, showing a fact card, showing a video, visible working notes, documents the person can keep, pictures, ready-made replies, legal forms. For each it points to the guidance and says what to do without it.
 
 Your environment description should use the same names and say, for each one, either how it works in your harness or that it is not available. Leave nothing to be guessed: the skill tells the model never to offer what the environment cannot deliver.
 
@@ -46,7 +46,7 @@ Keep policy out. If you find yourself writing "always", "never", "be careful to"
 
 ## Loading the skill
 
-`SKILL.md` asks the model to have the voice, conversation, safety and failure-case guides in mind before its first reply. A harness may load them into the prompt up front, as the web app does, or give the model a way to read files and let it fetch them. Fact cards and templates are best fetched on demand.
+`skill/deathbot/SKILL.md` asks the model to have the voice, conversation, safety and failure-case guides in mind before its first reply. A harness may load them into the prompt up front, as the web app does, or give the model a way to read files and let it fetch them. Fact cards and templates are best fetched on demand.
 
 Fact cards are written for the model. The sections "Applying this to one person", "Not verified" and "Left for other cards", and the "Layer" labels, are guidance for the model. If you show a card to a person, leave those out; the web app's `cardForPerson` does this.
 

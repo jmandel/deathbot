@@ -28,7 +28,7 @@ The name is a hook. The work underneath is serious.
 
 ## How the pieces fit
 
-The skill says what to do, when and why, and knows nothing about where it runs. A harness supplies an environment description alongside it: how each capability works there, what is not possible, and the true privacy facts. `web/environment.md` is the one for the web app. In a general-purpose host there is none, and the agent works from the tools it can see. `skill/deathbot/HARNESS.md` explains the division for anyone building another harness.
+The skill says what to do, when and why, and knows nothing about where it runs. A harness supplies an environment description alongside it: how each capability works there, what is not possible, and the true privacy facts. `web/environment.md` is the one for the web app. In a general-purpose host there is none, and the agent works from the tools it can see. `HARNESS.md` explains the division for anyone building another harness.
 
 ## Licence
 
