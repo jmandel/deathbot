@@ -728,6 +728,9 @@ function listenOnce() {
     for (let i = 0; i < e.results.length; i++) said += e.results[i][0].transcript;
     input.value = join(said);
     fitInput();
+    // Once the box is at its full height, keep the newest words in view, with the cursor after them.
+    input.scrollTop = input.scrollHeight;
+    input.setSelectionRange(input.value.length, input.value.length);
   };
   rec.onerror = (e: any) => {
     if (e.error === "no-speech" || e.error === "aborted") return; // silence is fine; keep listening
