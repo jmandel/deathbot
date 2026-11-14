@@ -68,7 +68,11 @@ Nothing on this card can predict for an individual how long hospice will last or
 - "Hospice guarantees a comfortable death." At the median hospice, 1 in 10 families said needed symptom help came only sometimes or never [5].
 
 ## Worth watching or reading
-No reputable video showing normal dying was found; these are explainers.
+The only real footage of normal dying found is on a hospice nurse's personal channel and is not listed; the videos below are animations and narration (searched 2026-11-14).
+- [Palliative Care and Hospice Care: What is the difference?](https://www.youtube.com/watch?v=BteIA1kUizE) (National Institute on Aging, 2024, 2:07): animation of who each is for and where each is given.
+- [Dying for Beginners](https://www.youtube.com/watch?v=ayMhA1pRLeY) (Dr. Kathryn Mannix, a UK palliative care doctor, for the Theos think tank, 2023, 4:19): animation of the usual course of dying: more sleep, unconsciousness, changes in breathing, the last breath. UK.
+- [What Dying Looks Like During Final Days of Life](https://www.youtube.com/watch?v=3oTxX5g0MpU) (Heart House Hospice, Ontario, 3:23): a hospice nurse on breathing changes, skin colour, unconsciousness and signs of pain in the last days. Canadian practice.
+- [How to Care for a Dying Loved One at Home in Hospice](https://www.youtube.com/watch?v=OqX11cSQMNw) (Julie McFadden, a US hospice nurse's personal channel, 2026, 10:12): that hospice does not do the daily hands-on care, and what family end up doing. The channel sells a course and a book.
 - [Medicare Hospice Benefits booklet](https://www.medicare.gov/publications/02154-medicare-hospice-benefits.pdf): official rules on coverage, costs and stopping.
 - [Medicare Care Compare](https://www.medicare.gov/care-compare/?providerType=Hospice): compare local hospices on family ratings.
 - [NIA: Providing Care and Comfort at the End of Life](https://www.nia.nih.gov/health/end-life/providing-care-and-comfort-end-life): what a caregiver sees and does.
@@ -114,4 +118,6 @@ No reputable video showing normal dying was found; these are explainers.
 - How well symptoms are controlled in non-cancer deaths on home hospice, measured directly, not by family recall.
 - Whether people who live alone can be kept at home on hospice to the end. No current US data found.
 - NIA says respite can last "as long as several weeks" [1]; Medicare's rule is up to 5 days at a time [4][6]. The two differ; the Medicare rule is used.
+- **The four videos** were checked with YouTube's oEmbed service and their auto-generated transcripts read on 2026-11-14; the pictures were not watched. Where they go further than the body: Mannix says noisy breathing "is not uncomfortable" (the body says it does not upset the dying person in most cases [8]); Heart House says death usually follows within about 24 hours of mottled skin (no source read); McFadden says that without family or hired carers the person cannot die at home and must go to a nursing facility, which leaves out hospices that do not require a caregiver [20], and she advises hiring help if the family can afford it.
+- **Videos left out:** VNS Health's "Hospice Nurse Explains the Phases of the End of Life" (2025) urges starting hospice "as early as possible". Hospice Nurse Julie's videos with real footage of dying patients do not say how consent was obtained.
 - Sources read as abstracts only are marked above. The by-setting figures from Teno 2016 appear in the abstract itself.

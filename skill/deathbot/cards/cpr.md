@@ -75,7 +75,10 @@ Facts that inform the discussion: in hospital or at home? Independent in daily a
 - **"DNR means no treatment," or "my living will covers it."** A DNR is an order about CPR only [21]; a living will is not a medical order [7].
 
 ## Worth watching or reading
-A search on 2026-11-13 found no reputable patient-facing video of a real resuscitation.
+No reputable video of CPR on a real patient was found (searched 2026-11-14); the videos below are explanations and a staged simulation.
+- [What ACTUALLY Happens in a CODE BLUE](https://www.youtube.com/watch?v=DKXnyn6fblw) (The Intense MD, a US intensive care doctor's personal channel, 8:32): who comes to a hospital cardiac arrest, compressions, drugs, shocks and the breathing tube, and how the team decides to stop.
+- [CPR conversation: CPR is not like the movies](https://www.youtube.com/watch?v=INv9L80s9b0) (Chelsey the Palliative PA, a US physician assistant's personal channel, 2:51): an acted conversation about broken ribs, the breathing tube and brain damage; the patient decides to keep CPR.
+- [Cardiac Arrest Experience - Patient point of view](https://www.youtube.com/watch?v=BTkM9CDQjc4) (Oxford Medical Education, 7:15): a staged hospital resuscitation filmed from where the patient lies. Simulation, not a real patient; UK practice, from a medical-education channel; fast and loud. It ends with the heart restarting, which the makers note is not the usual outcome.
 - [MedlinePlus: Do-not-resuscitate order](https://medlineplus.gov/ency/patientinstructions/000473.htm): what a DNR is, what it leaves untouched, how to get one.
 - [National Institute on Aging: Preparing a living will](https://www.nia.nih.gov/health/advance-care-planning/preparing-living-will): plain description of CPR, ventilators and other choices.
 - [National Institute on Aging: Advance directives](https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care): proxy, DNR, DNI, out-of-hospital DNR and POLST.
@@ -123,4 +126,6 @@ A search on 2026-11-13 found no reputable patient-facing video of a real resusci
 - **What the person experiences as the heart stops,** beyond loss of consciousness: no source read.
 - **How often death after CPR follows a decision to stop life support:** no figure read.
 - **Whether a DNR order changes other care in practice:** not researched.
-- **A Canadian CPR decision-aid video** (https://vimeo.com/48147363; CARENET / Providence Health Care, 7 minutes): loads, but was not watched, so it is left out of the reading list.
+- **A Canadian CPR decision-aid video** (CARENET, 7 minutes; also on YouTube as "CPR Decision Aid with Subtitles", UTI9uFXuGIU): its transcript was read on 2026-11-14. It gives older Canadian figures that differ from this card (13 of 18 survivors going home, against 40% of US survivors 65 and older in [18]), so it is left out of the reading list.
+- **The three videos listed above** were checked with YouTube's oEmbed service and their auto-generated transcripts read on 2026-11-14; the pictures were not watched. Transcripts can mishear words.
+- **A short West Virginia POST video on CPR in older people** (Dr. Alvin Moss, 1:44, hMDVu7GPWbU, 2013) has no transcript and was not watched, so it is left out.

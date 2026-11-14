@@ -86,11 +86,12 @@ Only the Lee and Schonberg indices use information a person can supply. If the p
 - **"A median survival is my deadline."** By definition half of the group lived longer than the median.
 
 ## Worth watching or reading
-- [Understanding Cancer Prognosis (National Cancer Institute)](https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis): plain-language explainer with videos of three patients and their doctors.
-- [Being Mortal (PBS Frontline, 2015, 54 min)](https://www.pbs.org/wgbh/frontline/documentary/being-mortal/): a surgeon follows doctors and patients near the end of life.
+- [Understanding Your Cancer Prognosis](https://www.youtube.com/watch?v=_0YvVNjWNWI) (National Cancer Institute, 2018, 6:39): three people with cancer and their oncologist on what prognosis means, how much each wanted to know, and what survival statistics can and cannot say. Cancer only; shows real patients.
+- [Being Mortal](https://www.youtube.com/watch?v=lQhI3Jb7vMg) (FRONTLINE, PBS, 2015, 54:02): the surgeon Atul Gawande follows doctors and seriously ill patients, mostly with cancer, through conversations about prognosis and stopping treatment. Shows real patients near death. The film argues that doctors should talk about dying sooner.
+- [Understanding Cancer Prognosis (National Cancer Institute)](https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis): the page around the video above, with the patients' longer stories.
 - [ePrognosis (UCSF)](https://eprognosis.ucsf.edu/): the calculators above. Written for clinicians.
 
-No patient-facing explainer of the trajectories themselves was found.
+No patient-facing explainer of the trajectories themselves could be checked (searched 2026-11-14).
 
 ## Left for other cards
 - **Where people die:** Teno 2018 (PMID 29946682) and 2013 (PMID 23385273); Cross and Warraich 2019 (PMID 31826345); Teasdale 2024 (PMID 38190187).
@@ -135,4 +136,6 @@ No patient-facing explainer of the trajectories themselves was found.
 - Lunney 2003: the full text was not read, so the exact later time point for cancer and organ failure (last month or 3 months before death) is unresolved; the table reports the abstract's wording.
 - Whether newer validations supersede the Lee, Schonberg, BODE, Seattle and Palliative Prognostic Score figures was not checked; a 2024 systematic review of the Palliative Prognostic Score and later Seattle validations exist and were not read.
 - Why prognosis is harder in organ failure (for example, that a fatal flare-up resembles earlier survived ones): no source read; omitted.
-- Video playback on the National Cancer Institute and PBS pages was not tested; only the pages were read.
+- **The two videos** were checked with YouTube's oEmbed service and their auto-generated transcripts read on 2026-11-14; the pictures were not watched. *Being Mortal* is the same film the card earlier linked on pbs.org (https://www.pbs.org/wgbh/frontline/documentary/being-mortal/); the YouTube copy can be embedded.
+- **Joanne Lynn's "3 Trajectories of Serious Illness to End of Life"** (Canadian Virtual Hospice, 2011, two parts of about 3:45; YouTube 07FCdFPLLcM and OCSMxyQqcWs) is by the originator of the trajectory model and would fill the gap above, but it has no transcript and was not watched, so it is not listed.
+- Hospice Nurse Julie's "The Truth About When They're Going To Die" (2025, 14:42) matches the card on uncertainty but is about people already on hospice, long, and on a personal channel; not listed.

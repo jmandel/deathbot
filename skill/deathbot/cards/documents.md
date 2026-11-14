@@ -71,7 +71,10 @@ National POLST guidance sets out these levels [10]; state forms differ. On the n
 - "A POLST is for everyone, and always means less treatment." It is meant for the seriously ill or frail, and it can order full treatment [9][10].
 
 ## Worth watching or reading
-No video search was done for this card; these are text explainers.
+- [How POLST does more than a DNR](https://www.youtube.com/watch?v=TXJDZrM3mHo) (National POLST, 2020, 1:54): what emergency crews do with a DNR order and with each POLST treatment level. National forms have changed since; state forms differ.
+- [POLST is more specialized than Advance Directives](https://www.youtube.com/watch?v=QuRMTUZ76C0) (National POLST, 2020, 3:07): why crews and emergency departments act on a POLST but not on an advance directive, and why someone might have both.
+- [Living will doesn't mean DNR TODAY](https://www.youtube.com/watch?v=ut1xVuV5Ro8) (Chelsey the Palliative PA, a US physician assistant's personal channel, 2025, 1:52): reads a typical living will to show it covers end-stage illness or permanent unconsciousness, not a fixable emergency now.
+- [Who Will Speak for You?](https://www.youtube.com/watch?v=0TFyfwWziPM) (The Conversation Project, Institute for Healthcare Improvement, 2020, 2:02): short comic sketches of unhelpful and helpful choices of health care proxy.
 - NIA, advance directives in plain language: https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care
 - National POLST, what a POLST is and who it is for: https://polst.org/for-patients/about-polst-form/
 - National POLST, each state's form and program: https://polst.org/state-programs/
@@ -79,7 +82,7 @@ No video search was done for this card; these are text explainers.
 - MedlinePlus, the DNR order explained: https://medlineplus.gov/ency/patientinstructions/000473.htm
 - The Conversation Project, guide to being a proxy (PDF): https://theconversationproject.org/wp-content/uploads/2020/12/BeAProxyGuide.pdf
 
-All six loaded on 2026-11-13 in a browser-like client; the NIA page returns HTTP 405 to scripts, so check it by hand.
+All six pages loaded on 2026-11-14 in a browser-like client; the NIA page has returned HTTP 405 to scripts before, so check it by hand if it fails.
 
 ## Sources
 1. National Institute on Aging. Advance Care Planning: Advance Directives for Health Care. Reviewed 31 Oct 2022. https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care [official page]
@@ -122,3 +125,5 @@ Nothing in this list is relied on in the body.
 - Whether any randomized trial of POLST has been published since February 2020.
 - Subgroup details of studies read as abstracts only [16], [19], [20], [22], [25].
 - National POLST's standalone "intended population" policy document (404).
+- **The four videos** were checked with YouTube's oEmbed service and their auto-generated transcripts read on 2026-11-14; the pictures were not watched. The National POLST videos describe the national model; the "selective" level and transport rules differ by state.
+- **Videos left out:** NIA's "What Are Advance Directives?" (2020) says a DNR order tells providers "when you don't want life-saving treatments to continue", which blurs that it covers CPR only [6]. UCSF's "What is a POLST Form" (2026) says a POLST is "essential" for anyone who wants to limit CPR.

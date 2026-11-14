@@ -19,6 +19,7 @@ Read `format.md` (the card format and its rules) and `lessons.md` (what has gone
 
 1. **Scope.** List the questions a patient would actually ask about this topic and the decisions it bears on. List the paths that must be described (the treatment, declining it, anything in between). Check `skill/deathbot/cards/INDEX.md` so the card does not duplicate another; cross-reference instead.
 2. **Research.** Search for the best current sources (see the source order in `format.md`). Open each one. For every figure you intend to use, record: the exact figure as stated, the population, the years of data, the source and where in it the figure appears. Do not write figures from memory, from abstracts of papers you could not open when the full text disagrees, or from secondary sites when the primary is available.
+   Then look for videos and plain-language explainers, as described under "Finding and checking videos" in `format.md`. Read or watch each one before listing it.
 3. **Draft** the card in the format. Keep the three layers separate. Write the patient-facing parts in plain words.
 4. **Self-audit** before anyone else looks:
    - Every number has population, range or interval where available, source and year.
@@ -26,7 +27,7 @@ Read `format.md` (the card format and its rules) and `lessons.md` (what has gone
    - Each path gets comparable detail, including the burdens of the comfort-focused path.
    - Nothing recommends a choice.
    - "Applying this to one person" says what can and cannot fairly be said about an individual.
-   - Every link was opened and is what the card says it is.
+   - Every link was opened and is what the card says it is. Every video passed the oEmbed check, and its content was read or watched and does not contradict the card.
 5. **Independent verification.** Run `scripts/verify_card.sh <card path>`. A different model re-opens the sources and checks each figure, whether the population fits the claim, and whether any path is missing or slanted. It writes `<card>.verify.md` next to the card.
 6. **Resolve.** For each finding, and each table row the verifier did not confirm, open the source and settle it. The verifier can be wrong: do not accept or dismiss a finding without checking. Fix the card, and write `<card>.resolution.md` recording each finding, whether it was valid, and what changed. Re-run verification if you changed any figure. Do not mark a card `checked` with open findings.
    - Fixes introduce new errors (in the first batch, two of five did), so the second pass matters.
@@ -45,7 +46,7 @@ Deathbot may use `draft` cards but must tell the person the figures have not bee
 
 ## Keeping cards current
 
-A card older than 18 months, or whose main source has been superseded, is stale: re-run steps 2 to 7. Statutes, Medicare benefit rules and annual statistical reports change most often.
+A card older than 18 months, or whose main source has been superseded, is stale: re-run steps 2 to 7. Statutes, Medicare benefit rules and annual statistical reports change most often. Videos get taken down: recheck each with oEmbed whenever the card is touched.
 
 ## Improving this skill
 

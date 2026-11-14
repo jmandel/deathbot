@@ -65,13 +65,16 @@ These are historical groups, not forecasts for one person. The first row mixes p
 - "Refusing intubation means refusing treatment." Other treatment, including mask ventilation, can continue.
 
 ## Worth watching or reading
+- [Delirium in the ICU](https://www.youtube.com/watch?v=FpAKs1ZWH04) (IC Connect, a Dutch ICU patient organisation, 3:27): animation of a ventilated woman's confusion and hallucinations after waking, and what family and staff can do. It says delirium affects half of ICU patients, all ICU patients rather than only ventilated ones.
+- [Why a stay in the ICU can leave patients worse off](https://www.youtube.com/watch?v=iKB5dPZU6CI) (PBS NewsHour, 2017, 7:50): ICU survivors on lasting changes in memory, mood and strength, and one hospital's efforts to use less sedation. Shows real patients.
+- [What Happens When Life Support is Removed](https://www.youtube.com/watch?v=UaahFTetvK0) (The Intense MD, a US intensive care doctor's personal channel, 6:04): step by step, what happens when a ventilator is stopped, the medicines given first, and how long death usually takes. Explanation only, no patient footage.
 - NHLBI, "What to Expect" on a ventilator, with animations of intubation (playback not tested). https://www.nhlbi.nih.gov/health/ventilator/what-to-expect
 - NHLBI, "Going Home on a Ventilator": what caregivers must learn. https://www.nhlbi.nih.gov/health/ventilator/home-care
 - MedlinePlus, "Learning about ventilators": how it feels, restraints, suctioning. https://medlineplus.gov/ency/patientinstructions/000458.htm
 - American Thoracic Society, "Tracheostomy in Adults" (PDF). https://www.thoracic.org/patients/patient-resources/resources/tracheostomy-in-adults-1.pdf
 - Palliative Care Network of Wisconsin, Fast Fact 35: what families are told before a ventilator is withdrawn (written for clinicians). https://www.mypcnow.org/fast-fact/information-for-patients-and-families-about-ventilator-withdrawal/
 
-No reputable video of a real ventilated patient or of a withdrawal was found.
+No video of a real withdrawal, or a short patient-facing video on time-limited trials or tracheostomy in older adults, was found (searched 2026-11-14).
 
 ## Sources
 1. NHLBI. Ventilator/Ventilator Support: What to Expect. https://www.nhlbi.nih.gov/health/ventilator/what-to-expect [official page]
@@ -131,3 +134,5 @@ Abstracts were read through the NCBI E-utilities API by PMID, because pubmed.ncb
 - Whether opioid trial evidence (source 30, mostly long-standing breathlessness) applies to the last days of life. A 2024 European Respiratory Society guideline was reported by the verifier as advising, conditionally, against opioids for chronic daily-life breathlessness while noting its studies excluded people at the very end of life; it was not read for this card.
 - Source 8's abstract prints "n=4, 21%" for survivors with complete dependency. The table arithmetic (70 survivors minus 11 independent and 33 partly dependent = 26 of 126, 21%) supports the percentage; the "4" and the 21% differ in the source.
 - Journal volume and page numbers were not all checked.
+- **The three videos** were checked with YouTube's oEmbed service and their auto-generated transcripts read on 2026-11-14; the pictures were not watched. The withdrawal video says patients on several blood-pressure drugs usually die within minutes and most others within minutes to hours; that is one doctor's experience, not the study figure in the body. The PBS report's "one third improve, one third stay the same, one third decline" was preliminary data and is not used here.
+- **Videos left out:** Atrium Health's "What Really Happens When You Go on a Ventilator" (2021) is framed around COVID and ends urging vaccination; the SF GWEP time-limited-trial podcast says the approach improves care, where the American Thoracic Society calls the evidence thin (source 24).

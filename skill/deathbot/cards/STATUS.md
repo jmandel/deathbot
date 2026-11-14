@@ -4,8 +4,8 @@ Status: `draft` (written and self-audited), `checked` (independent verification 
 
 | Card | File | Last verified | Status |
 | --- | --- | --- | --- |
-| CPR | `cpr.md` | 2026-11-13 | draft, verified twice |
-| Mechanical ventilation | `ventilation.md` | 2026-11-13 | draft, verified twice |
-| Comfort-focused care and hospice | `comfort-care-and-hospice.md` | 2026-11-13 | draft, verified twice |
-| The documents | `documents.md` | 2026-11-13 | draft, verified twice |
-| Illness trajectories and uncertainty | `trajectories-and-uncertainty.md` | 2026-11-13 | draft, verified twice |
+| CPR | `cpr.md` | 2026-11-14 | draft, verified twice |
+| Mechanical ventilation | `ventilation.md` | 2026-11-14 | draft, verified twice |
+| Comfort-focused care and hospice | `comfort-care-and-hospice.md` | 2026-11-14 | draft, verified twice |
+| The documents | `documents.md` | 2026-11-14 | draft, verified twice |
+| Illness trajectories and uncertainty | `trajectories-and-uncertainty.md` | 2026-11-14 | draft, verified twice |
