@@ -202,8 +202,19 @@ const DISPLAY_TOOLS = new Set(["update_notes", "update_progress", "show_card", "
 function stopAtFirstQuestion(message: StreamResult["message"]): boolean {
   const text = message.content ?? "";
   const end = text.indexOf("</replies>");
-  if (end < 0 || !text.slice(end + "</replies>".length).trim()) return false;
-  message.content = text.slice(0, end + "</replies>".length);
+  if (end >= 0 && text.slice(end + "</replies>".length).trim()) {
+    message.content = text.slice(0, end + "</replies>".length);
+    delete message.tool_calls;
+    return true;
+  }
+  // A paragraph that asks the person something, then more paragraphs ending in another question: the model has
+  // answered for them and moved on. Keep the reply up to the first question.
+  const body = end >= 0 ? text.slice(0, text.indexOf("<replies>")) : text;
+  const paras = body.split(/\n\s*\n/);
+  const asks = (p: string) => /\?["”’)]*$/.test(p.trim());
+  const first = paras.findIndex(asks);
+  if (first < 0 || !paras.slice(first + 1).some(asks)) return false;
+  message.content = paras.slice(0, first + 1).join("\n\n");
   delete message.tool_calls;
   return true;
 }

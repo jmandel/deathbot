@@ -6,7 +6,8 @@
 //   bun drive.ts taptext TEXT [SCOPE]     tap the visible button or link whose text contains TEXT
 //   bun drive.ts choose SELECTOR VALUE    set a dropdown, as if picked from the list
 //   bun drive.ts type TEXT                tap the message box and type TEXT
-//   bun drive.ts speak WAV                dictate: mic on, inject WAV into the emulator mic, mic off (voice mixed in by edit.py)
+//   bun drive.ts install-shim             register the dictation stand-in and reload the page (keep it running)
+//   bun drive.ts speak WAV                dictate: mic on, the stand-in types WAV's line as it is spoken, mic off (voice mixed in by edit.py)
 //   bun drive.ts send                     tap Send
 //   bun drive.ts wait [MIN]               wait for the reply, then read all of it at reading pace (at least MIN seconds)
 //   bun drive.ts cut start|end            mark a stretch to remove from the recording
@@ -55,6 +56,64 @@ async function tapRect(rect: { x: number; y: number; w: number; h: number } | nu
 }
 const rectOf = (expr: string) => evaluate(`(()=>{const el=${expr}; if(!el) return null; el.scrollIntoView({block:"nearest"}); const r=el.getBoundingClientRect(); const v=visualViewport; return {x:r.x-v.offsetLeft,y:r.y-v.offsetTop,w:r.width,h:r.height};})()`);
 
+/**
+ * When each word of a clip's line is said. The line is split into phrases at punctuation, and each phrase
+ * boundary is put at one of the clip's pauses, choosing the pauses that make every phrase's speaking time best
+ * match its length. Within a phrase, words are spread by length, and each appears as it ends.
+ */
+async function wordTimes(wav: string): Promise<[number, string][]> {
+  const text = (await Bun.file(wav.replace(/\.wav$/, ".txt")).text()).trim();
+  const words = text.split(/\s+/);
+  const probe = await $`ffmpeg -hide_banner -i ${wav} -af silencedetect=noise=-35dB:d=0.25 -f null -`.quiet().nothrow();
+  const log = probe.stderr.toString();
+  const dur = Number(/Duration: (\d+):(\d+):([\d.]+)/.exec(log)!.slice(1).reduce((a, x, i) => a + Number(x) * [3600, 60, 1][i], 0));
+  const gaps: [number, number][] = [];
+  for (const m of log.matchAll(/silence_start: ([\d.]+)[\s\S]*?silence_end: ([\d.]+)/g)) {
+    const g: [number, number] = [Number(m[1]), Number(m[2])];
+    if (gaps.length && g[0] - gaps[gaps.length - 1][1] < 0.25) gaps[gaps.length - 1][1] = g[1]; else gaps.push(g);
+  }
+  const lead = gaps.length && gaps[0][0] < 0.05 ? gaps.shift()![1] : 0;
+  const tail = gaps.length && gaps[gaps.length - 1][1] > dur - 0.05 ? gaps.pop()![0] : dur;
+  let phrases: string[][] = [[]];
+  for (const w of words) { phrases[phrases.length - 1].push(w); if (/[.,;:?!]["”’)]?$/.test(w)) phrases.push([]); }
+  if (!phrases[phrases.length - 1].length) phrases.pop();
+  const len = (ws: string[]) => ws.reduce((a, w) => a + w.length + 1, 0);
+  // More phrases than pauses: join the shortest neighbours until each boundary can have a pause.
+  while (phrases.length - 1 > gaps.length) {
+    let k = 0;
+    for (let i = 1; i < phrases.length - 1; i++) if (len(phrases[i]) + len(phrases[i + 1]) < len(phrases[k]) + len(phrases[k + 1])) k = i;
+    phrases.splice(k, 2, [...phrases[k], ...phrases[k + 1]]);
+  }
+  const n = phrases.length, G = gaps.length;
+  const speechIn = (a: number, b: number) => (b - a) - gaps.reduce((s, [x, y]) => s + Math.max(0, Math.min(b, y) - Math.max(a, x)), 0);
+  const rate = speechIn(lead, tail) / len(words);
+  const startAfter = (i: number) => (i < 0 ? lead : gaps[i][1]);
+  const endAt = (i: number) => (i >= G ? tail : gaps[i][0]);
+  const cost = (j: number, from: number, to: number) => { const d = speechIn(startAfter(from), endAt(to)) - rate * len(phrases[j]); return d * d; };
+  // best[j][i]: least cost with phrase j ending at pause i (i = G means the end of the clip).
+  const best = Array.from({ length: n }, () => new Array(G + 1).fill(Infinity));
+  const from = Array.from({ length: n }, () => new Array(G + 1).fill(-1));
+  for (let i = 0; i <= G; i++) if (n === 1 ? i === G : i < G) best[0][i] = cost(0, -1, i);
+  for (let j = 1; j < n; j++)
+    for (let i = j; i <= G; i++) {
+      if (j < n - 1 && i === G) continue;
+      if (j === n - 1 && i !== G) continue;
+      for (let p = j - 1; p < i; p++) {
+        const c = best[j - 1][p] + cost(j, p, i);
+        if (c < best[j][i]) { best[j][i] = c; from[j][i] = p; }
+      }
+    }
+  const ends: number[] = new Array(n);
+  ends[n - 1] = G;
+  for (let j = n - 1; j > 0; j--) ends[j - 1] = from[j][ends[j]];
+  const out: [number, string][] = [];
+  phrases.forEach((ph, j) => {
+    const a = startAfter(j ? ends[j - 1] : -1), b = endAt(ends[j]);
+    let acc = 0;
+    for (const w of ph) { acc += w.length + 1; out.push([Math.round((a + (acc / len(ph)) * (b - a)) * 1000), w]); }
+  });
+  return out;
+}
 const busy = () => evaluate(`!document.getElementById("stop").hidden`);
 
 const [cmd, ...args] = process.argv.slice(2);
@@ -115,16 +174,30 @@ try {
       }
       break;
     }
+    case "install-shim": {
+      // Registers the dictation stand-in (dictation-shim.js) and reloads. The registration lasts only while this
+      // DevTools session is open, so run it in the background and keep it running.
+      const src = await Bun.file(path.join(import.meta.dir, "dictation-shim.js")).text();
+      await send("Page.enable");
+      await send("Page.addScriptToEvaluateOnNewDocument", { source: src });
+      await send("Page.reload", {});
+      await sleep(3000);
+      console.log(await evaluate(`String(window.webkitSpeechRecognition).slice(0,40)`));
+      await new Promise(() => {});
+      break;
+    }
     case "speak": {
-      // Frank speaks: the clip is injected into the emulator's microphone and Chrome's own speech
-      // recognition transcribes it live into the message box. The soundtrack gets his voice in the edit:
-      // the injection time is logged to marks.log ("voice START WAV") and edit.py mixes the clip in there.
+      // Frank speaks: the mic button is tapped, and the stand-in recognizer types his line (WAV's .txt) into the
+      // message box word by word at the moments he says each word in the clip. The time is logged to marks.log
+      // ("voice WAV") and edit.py mixes the clip into the soundtrack there.
       const wav = args[0];
+      const words = await wordTimes(wav);
       await tapRect(await rectOf(`document.getElementById("mic")`), "mic");
-      await sleep(1200);
+      await sleep(900);
+      if (!(await evaluate(`!!window.__demoRec`))) throw new Error("the dictation stand-in is not installed (run install-shim)");
       await mark(`voice ${path.resolve(wav)}`);
-      await $`${SAY} ${wav}`.quiet();
-      await sleep(1500); // let the recognizer finish the last words
+      await evaluate(`window.__demoRec.say(${JSON.stringify(words)})`);
+      await sleep(900);
       console.log(`heard: ${await evaluate(`document.getElementById("input").value`)}`);
       await tapRect(await rectOf(`document.getElementById("mic")`), "mic");
       break;

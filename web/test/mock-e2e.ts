@@ -116,6 +116,9 @@ const server = Bun.serve({
       if (last.role === "user" && lastText.includes("Coffee shop and friends")) {
         return sse([delta({ content: "Coffee and friends. Who are they?" }), delta({}, "stop")]);
       }
+      if (last.role === "user" && lastText.includes("got the better deal")) {
+        return sse([delta({ content: "That sounds heavy.\n\nWhat's been making the days hardest?\n\nThat sounds exhausting, the mailbox and the quiet house.\n\nHave you told Lisa?" }), delta({}, "stop")]);
+      }
       if (last.role === "user" && lastText.includes("Not right now")) {
         return sse([delta({ content: "That's fine. We can leave it." }), delta({}, "stop")]);
       }
@@ -374,6 +377,13 @@ try {
   await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("Who are they"))`, "reply after Try again");
   await waitFor(`document.getElementById("stop").hidden`, "retry turn finished");
   check((await evaluate(`document.getElementById("error").hidden`)) && (await evaluate(`document.querySelectorAll("#log .msg.user").length`)) === (await evaluate(`[...document.querySelectorAll("#log .msg.user")].filter(m=>m.textContent==="Coffee shop and friends").length`)) + (await evaluate(`[...document.querySelectorAll("#log .msg.user")].filter(m=>m.textContent!=="Coffee shop and friends").length`)) && (await evaluate(`[...document.querySelectorAll("#log .msg.user")].filter(m=>m.textContent==="Coffee shop and friends").length`)) === 1, "Try again gets the reply without sending the message twice");
+
+  // A reply that asks something, then answers for the person and asks again, is cut back to the first question.
+  await evaluate(`(()=>{document.getElementById("input").value="Some days I figure she got the better deal.";document.getElementById("composer").requestSubmit();})()`);
+  await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("making the days hardest"))`, "reply to a passive wish");
+  await waitFor(`document.getElementById("stop").hidden`, "turn finished");
+  const lastReply = await text("#log .turn:last-child .msg.bot");
+  check(lastReply.includes("making the days hardest?") && !lastReply.includes("mailbox") && !lastReply.includes("told Lisa"), `a reply that answers its own question stops at the question (got: ${lastReply})`);
 
   // reload: everything should come back from browser storage
   await send("Page.navigate", { url: `http://127.0.0.1:${PORT}/index.html` });
