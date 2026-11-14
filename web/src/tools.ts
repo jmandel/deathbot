@@ -44,11 +44,6 @@ const fn = (name: string, description: string, properties: Record<string, unknow
 export const clientTools = [
   fn("read_skill_file", "Returns the text of a file from the Deathbot skill (a fact card, a template or a guide). The person does not see it.",
     { path: { ...str, description: "Path relative to the skill, e.g. cards/cpr.md" } }, ["path"]),
-  fn("show_card", "Puts a fact card in the conversation as a block the person can open and read, with its sources.",
-    { path: { ...str, description: "Card path, e.g. cards/cpr.md" } }, ["path"]),
-  fn("show_video", "Embeds a video in the conversation. Returns an error unless the link appears in a fact card.",
-    { url: str, title: str, note: { ...str, description: "One or two sentences shown above the video, saying what the person will see." } },
-    ["url", "title", "note"]),
   fn("update_notes", "Replaces the working notes shown to the person under Your file. Markdown.",
     { markdown: str }, ["markdown"]),
   fn("update_progress", "Updates the map of the conversation shown to the person under Your file. Send only the items that changed. An id that is not one of the standard areas creates a new item and needs a title. `next` replaces the list of suggested next steps.",
@@ -61,28 +56,26 @@ export const clientTools = [
       }, required: ["id", "status"] } },
       next: { type: "array", maxItems: 2, items: str, description: "Ids of up to two items to show as suggested next steps. Send an empty list to clear them." },
     }, ["items"]),
-  fn("show_document", "Puts a document in the conversation with buttons to read, print, copy and download, and lists it under Your file. Sending the same kind again replaces the earlier one there, except kind \"other\".",
-    { kind: { type: "string", enum: ["summary", "other"], description: "summary for \"What matters to me\"; other for anything else" }, title: str, markdown: str },
-    ["kind", "title", "markdown"]),
-  fn("show_scenes", "Draws one to three pictures and shows them together in the conversation. Shows whichever are drawn and reports any that failed; returns an error only if none could be drawn. Usually under a minute; gives up after two. Governed by guide/images.md in the skill.",
+  fn("reply", "Says something to the person, with anything you want to show them alongside it. This ends your turn: the page shows the reply and waits for the person. Tool calls in the same response still run, but you see their results only on your next turn, so read what you need before replying.",
     {
-      scenes: {
-        type: "array", minItems: 1, maxItems: 3,
-        items: {
-          type: "object",
-          properties: {
+      text: { ...str, description: "What you say to the person, in markdown. Shown as your message." },
+      replies: { type: "array", maxItems: 5, items: str, description: "Optional ready-made answers, each written as the person would say it. Shown as buttons under your message; tapping one sends it." },
+      card: { ...str, description: "Optional: a fact card to show as a block the person can open and read, with its sources, e.g. cards/cpr.md" },
+      video: { type: "object", description: "Optional: a video to embed. Only links that appear in a fact card are accepted.",
+        properties: { url: str, title: str, note: { ...str, description: "One or two sentences shown above the video, saying what the person will see." } }, required: ["url", "title", "note"] },
+      document: { type: "object", description: "Optional: a document shown with buttons to read, print, copy and download, and kept under Your file. Sending the same kind again replaces the earlier one there, except kind \"other\".",
+        properties: { kind: { type: "string", enum: ["summary", "other"], description: "summary for \"What matters to me\"; other for anything else" }, title: str, markdown: str }, required: ["kind", "title", "markdown"] },
+      scenes: { type: "object", description: "Optional: one to three pictures, drawn after your message is shown and shown together under it. Usually under a minute; gives up after two. Governed by guide/images.md in the skill.",
+        properties: {
+          pictures: { type: "array", minItems: 1, maxItems: 3, items: { type: "object", properties: {
             title: { ...str, description: "Short label, e.g. 'In intensive care on a breathing machine'" },
             prompt: { ...str, description: "The full prompt given to the image model" },
             caption: { ...str, description: "Text shown under the picture" },
-          },
-          required: ["title", "prompt", "caption"],
-        },
-      },
-      use_photo: { type: "boolean", description: "Base the pictures on the photo the person added. Ignored if they have not added one." },
-    },
-    ["scenes", "use_photo"]),
-  fn("offer_health_records", "Shows a two-step block in the conversation: a link to health-skillz, and a button to choose the downloaded records file. Returns at once; the records arrive later with one of the person's messages.",
-    {}, []),
+          }, required: ["title", "prompt", "caption"] } },
+          use_photo: { type: "boolean", description: "Base the pictures on the photo the person added. Ignored if they have not added one." },
+        }, required: ["pictures", "use_photo"] },
+      health_records: { type: "boolean", description: "Optional: show the two-step block for bringing in health records: a link to health-skillz, and a button to choose the downloaded records file. The records arrive later with one of the person's messages." },
+    }, ["text"]),
   fn("search_health_records", "Searches the loaded health records (clinical notes and structured entries) for words. Returns matching notes with snippets, and matching entries.",
     { query: { ...str, description: "One or more words that must all appear, e.g. 'ejection fraction' or 'palliative'" } }, ["query"]),
   fn("list_health_records", "Lists entries of one kind from the loaded health records, newest first, one line each.",
@@ -141,6 +134,22 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
       const file = resolveSkillPath(need(input, "path").path);
       if (file.startsWith("cards/")) ctx.onStatus(`Reading up on ${cardTitle(file).replace(/\s*\(.*\)$/, "")}`);
       return skillFiles[file];
+    }
+    case "reply": {
+      // Each part is shown if it can be; the result tells the model, on its next turn, what was not.
+      const o = input as { text?: unknown; card?: unknown; video?: unknown; document?: unknown; scenes?: { pictures?: unknown; use_photo?: unknown }; health_records?: unknown };
+      if (typeof o?.text !== "string" || !o.text.trim()) throw new Error("reply needs text");
+      const notes: string[] = ["Shown to the person."];
+      const part = async (label: string, run: () => Promise<string | Part[]>) => {
+        try { const r = await run(); if (typeof r === "string" && label === "pictures") notes.push(r); }
+        catch (e) { notes.push(`The ${label} was not shown: ${e instanceof Error ? e.message : String(e)}`); }
+      };
+      if (o.card !== undefined) await part("card", () => runTool("show_card", { path: o.card }, ui, ctx));
+      if (o.video !== undefined) await part("video", () => runTool("show_video", o.video, ui, ctx));
+      if (o.document !== undefined) await part("document", () => runTool("show_document", o.document, ui, ctx));
+      if (o.health_records === true) notes.push(ui.getRecords() ? `Health records are already loaded in this browser.\n\n${overview(ui.getRecords()!)}` : "The block for bringing in health records was shown. When the person gives you the file you will receive an overview, and the lookup tools will work.");
+      if (o.scenes !== undefined) await part("pictures", () => runTool("show_scenes", { scenes: o.scenes?.pictures, use_photo: o.scenes?.use_photo }, ui, ctx));
+      return notes.join(" ");
     }
     case "show_card": {
       const file = resolveSkillPath(need(input, "path").path);

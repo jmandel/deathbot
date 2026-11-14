@@ -39,9 +39,15 @@ function sse(chunks: any[]): Response {
     for (const a of d.annotations ?? []) annotations.push({ type: "url_citation", url: a.url_citation.url, title: a.url_citation.title });
   }
   // In Gemini's order: the text, then the reasoning that goes with the tool calls, then the calls.
-  if (text) ev.push({ type: "response.output_item.done", item: { type: "message", role: "assistant", content: [{ type: "output_text", text, annotations }] } });
+  if (text || annotations.length) ev.push({ type: "response.output_item.done", item: { type: "message", role: "assistant", content: [{ type: "output_text", text, annotations }] } });
   if (thought.length) ev.push({ type: "response.output_item.done", item: { type: "reasoning", id: "rs_1", summary: [], encrypted_content: `${thought.join("")}|${signature}` } });
-  for (const c of calls) if (c) ev.push({ type: "response.output_item.done", item: { type: "function_call", call_id: c.id, name: c.name, arguments: c.args } });
+  calls.forEach((c, i) => {
+    if (!c) return;
+    const id = `fc_item_${i}`;
+    ev.push({ type: "response.output_item.added", item: { type: "function_call", id, call_id: c.id, name: c.name, arguments: "" } });
+    for (let k = 0; k < c.args.length; k += 7) ev.push({ type: "response.function_call_arguments.delta", item_id: id, delta: c.args.slice(k, k + 7) });
+    ev.push({ type: "response.output_item.done", item: { type: "function_call", id, call_id: c.id, name: c.name, arguments: c.args } });
+  });
   ev.push({ type: "response.completed", response: { status: "completed" } });
   const body = ": OPENROUTER PROCESSING\n\n" + ev.map((e) => `event: ${e.type}\ndata: ${JSON.stringify(e)}\n\n`).join("") + "data: [DONE]\n\n";
   return new Response(body, { headers: { "Content-Type": "text/event-stream" } });
@@ -102,16 +108,14 @@ const server = Bun.serve({
       // Second conversation turn: the person hands over a records file.
       if (last.role === "user" && lastText.includes("Here are my health records")) {
         return sse([
-          delta({ content: "Got them." }),
           ...call(0, "r1", "search_health_records", { query: "ejection fraction" }),
           ...call(1, "r2", "list_health_records", { type: "Condition" }),
           ...call(2, "r3", "read_health_record", { id: "note-0-0" }),
-          ...call(3, "r4", "offer_health_records", {}),
           delta({}, "tool_calls"),
         ]);
       }
-      if (last.role === "tool" && last.tool_call_id === "r4") {
-        return sse([delta({ content: "I have read your lung clinic note. Want to go through it?\n\n<rep" }), delta({ content: "lies>\nYes, go through it\n- Not right now\nI'm not sure\n</replies>" }), delta({}, "stop")]);
+      if (last.role === "tool" && last.tool_call_id === "r3") {
+        return sse([...call(0, "r4", "reply", { text: "I have read your lung clinic note. Want to go through it?", replies: ["Yes, go through it", "Not right now", "I'm not sure"], health_records: true }), delta({}, "tool_calls")]);
       }
       if (last.role === "user" && lastText.includes("what matters most to me")) {
         return sse([delta({ content: "Good. What makes a day a good day for you?" }), delta({}, "stop")]);
@@ -130,30 +134,32 @@ const server = Bun.serve({
           delta({ content: "Here's the short version on **CPR**." }),
           delta({ content: "\n\nCPR is rougher than it looks on television. Someone pushes hard on your chest, hard enough that ribs often break, and you would usually end up on a breathing machine afterwards. Sometimes it works well. How well depends a lot on age and health.\n\nDo you want the numbers?" }),
           ...call(0, "c1", "read_skill_file", { path: "cards/cpr.md" }),
-          ...call(1, "c2", "show_card", { path: "cards/cpr.md" }),
           ...call(2, "c3", "update_notes", { markdown: "## Notes\n- Asked what this is" }),
-          ...call(4, "c3b", "update_progress", { items: [
+          ...call(3, "c3b", "update_progress", { items: [
             { id: "speaker", status: "done", summary: "Lisa, my daughter. Haven't asked her yet." },
             { id: "realities", status: "started" },
             { id: "pictures", status: "set_aside" },
             { id: "talk-to-mike", status: "open", title: "Telling Mike" } ], next: ["matters", "talk-to-mike"] }),
-          ...call(3, "c4", "show_video", { url: "https://evil.example/not-in-cards", title: "x", note: "y" }),
           delta({}, "tool_calls"),
         ]);
       }
-      if (toolMsgs === 5) {
+      if (toolMsgs === 3) {
+        // One reply carries the message and everything shown with it, and ends the turn.
         return sse([
-          ...call(0, "c5", "show_scenes", { use_photo: true, scenes: [
-            { title: "In intensive care", prompt: "p1", caption: "cap one" },
-            { title: "Home afterwards", prompt: "p2", caption: "cap two" } ] }),
-          ...call(1, "c6", "show_document", { kind: "summary", title: "What matters to me", markdown: "# What matters to me\nHome." }),
+          delta({ content: "", annotations: [{ type: "url_citation", url_citation: { url: "https://medlineplus.gov/x", title: "MedlinePlus" } }] }),
+          ...call(0, "c5", "reply", {
+            text: "All shown. What do you notice?",
+            card: "cards/cpr.md",
+            video: { url: "https://evil.example/not-in-cards", title: "x", note: "y" },
+            document: { kind: "summary", title: "What matters to me", markdown: "# What matters to me\nHome." },
+            scenes: { use_photo: true, pictures: [
+              { title: "In intensive care", prompt: "p1", caption: "cap one" },
+              { title: "Home afterwards", prompt: "p2", caption: "cap two" } ] },
+          }),
           delta({}, "tool_calls"),
         ]);
       }
-      return sse([
-        delta({ content: "All shown. What do you notice?", annotations: [{ type: "url_citation", url_citation: { url: "https://medlineplus.gov/x", title: "MedlinePlus" } }] }),
-        delta({}, "stop"),
-      ]);
+      return sse([delta({ content: "That should not happen: the turn ended with the reply." }), delta({}, "stop")]);
     }
     if (url.pathname === "/api/v1/images") {
       requests.push({ image: await req.json() });
@@ -288,7 +294,8 @@ try {
 
   const chat = requests.filter((r) => r.messages);
   const imgs = requests.filter((r) => r.image);
-  check(chat.length === 3, `three chat requests made (got ${chat.length})`);
+  check(chat.length === 2, `two chat requests made, the second ending with a reply (got ${chat.length})`);
+  check(!(await text("#log")).includes("should not happen"), "the model is not called again after a reply");
 
   // Health records: the file goes into the browser's store; the model gets an overview and looks things up.
   const recordsJson = await Bun.file(path.join(import.meta.dir, "fixtures", "health-records.json")).text();
@@ -298,15 +305,14 @@ try {
   await evaluate(`(()=>{document.getElementById("input").value="Here are my health records.";document.getElementById("composer").requestSubmit();})()`);
   await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("lung clinic note"))`, "records reply");
   await waitFor(`document.getElementById("stop").hidden`, "records turn finished");
-  const rec = requests.filter((r) => r.messages).slice(3);
+  const rec = requests.filter((r) => r.messages).slice(2);
   const sent = JSON.stringify(rec[0].messages[rec[0].messages.length - 1]);
   check(sent.includes("Overview") && sent.includes("Chronic obstructive pulmonary disease") && sent.includes("note-0-0"), "the model receives an overview of the records");
   check(!sent.includes("ZEBRA-MARKER-IN-NOTE") && sent.length < 6000, `the records file itself is not sent (message was ${sent.length} characters for a ${recordsJson.length}-character file)`);
-  const recTools = rec[1].messages.filter((m: any) => m.role === "tool").slice(-4).map((m: any) => m.content);
+  const recTools = rec[1].messages.filter((m: any) => m.role === "tool").slice(-3).map((m: any) => m.content);
   check(recTools[0].includes("note-0-1") && recTools[0].includes("ejection fraction 55%"), "search finds the note that mentions the words");
   check(recTools[1].includes("3 entries") && recTools[1].includes("Hypertension"), "list returns the conditions");
   check(recTools[2].includes("ZEBRA-MARKER-IN-NOTE") && recTools[2].includes("Pulmonary clinic note"), "read returns the full note");
-  check(recTools[3].includes("already loaded"), "offering records again reports they are loaded");
   check((await text("#file-body")).includes("Remove my records") && (await text("#file-body")).includes("Lakeshore Health"), "Your file shows the loaded records with a way to remove them");
   check((await text("#log")).includes("Health records loaded"), "the conversation shows the records are loaded");
   // Ready-made replies: shown as buttons under the latest message, never as raw text, and tapping one sends it.
@@ -328,7 +334,7 @@ try {
   check(chat[0].messages[0].content[0].text.includes("Web search is on.") && !chat[0].messages[0].content[0].text.includes("web search turned off") && !chat[0].messages[0].content[0].text.includes("WEB:"), "environment text reflects web search being on");
   check(chat[0].tools.some((t: any) => t.type === "openrouter:web_search"), "web search server tool requested");
   const assistant1 = chat[1].messages.find((m: any) => m.role === "assistant");
-  check(assistant1?.tool_calls?.length === 5 && assistant1.tool_calls[1].function.arguments === '{"path":"cards/cpr.md"}', "split tool-call arguments were reassembled");
+  check(assistant1?.tool_calls?.length === 3 && assistant1.tool_calls[0].function.arguments === '{"path":"cards/cpr.md"}', "split tool-call arguments were reassembled");
   check(assistant1?.reasoning_details?.[0]?.type === "reasoning" && assistant1.reasoning_details[0].encrypted_content === "think more|sig", "the reasoning item is sent back with the next request");
   const order1 = (rawInputs.find((r) => r.includes("reasoning")) ?? []).filter((t) => t !== "user-message" && t !== "function_call_output");
   check(order1.slice(0, 3).join(",") === "assistant-message,reasoning,function_call", `the model's output goes back in the order it came: text, reasoning, calls (got ${order1.slice(0, 3).join(",")})`);
@@ -337,8 +343,11 @@ try {
   const sys = chat[0].messages[0].content[0].text;
   check(sys.includes("<skill>") && sys.includes("<environment>") && sys.indexOf("<skill>") < sys.indexOf("<environment>"), "the prompt carries the skill and the environment as separate parts");
   check(!sys.includes("For people building a harness"), "the developer guide is not sent to the model");
-  check(toolResults[3].content.startsWith("Error:"), "the rejected video came back to the model as an error");
-  check(!JSON.stringify(chat[2]).includes("_sources"), "private fields are not sent to the API");
+  const replyResult = rec[0].messages.find((m: any) => m.role === "tool" && m.tool_call_id === "c5")?.content ?? "";
+  check(replyResult.includes("The video was not shown") && replyResult.includes("In intensive care"), `the reply's result tells the model, on its next turn, what was not shown (got: ${replyResult.slice(0, 160)})`);
+  const recordsResult = requests.filter((r) => r.messages).find((r) => JSON.stringify(r.messages).includes("Not right now"))?.messages.find((m: any) => m.role === "tool" && m.tool_call_id === "r4")?.content ?? "";
+  check(recordsResult.includes("already loaded"), "offering records again reports they are loaded");
+  check(!JSON.stringify(chat[1]).includes("_sources") && !JSON.stringify(chat[1]).includes("_order"), "private fields are not sent to the API");
   check(imgs.length === 2 && imgs.every((r) => r.image.input_references?.[0]?.image_url?.url.startsWith("data:image/")), "a photo attached in the conversation is used for the pictures without a separate step");
 
   // Tapping an item on the map starts that part of the conversation.

@@ -98,6 +98,24 @@ function toInput(messages: Msg[], model: string): unknown[] {
   return out;
 }
 
+/** The "text" value of a reply's arguments so far, decoded, from JSON that may still be arriving. */
+export function partialText(args: string): string {
+  const m = /"text"\s*:\s*"/.exec(args);
+  if (!m) return "";
+  let out = "";
+  for (let i = m.index + m[0].length; i < args.length; i++) {
+    const c = args[i];
+    if (c === '"') break;
+    if (c !== "\\") { out += c; continue; }
+    const n = args[i + 1];
+    if (n === undefined) break;
+    if (n === "u") { if (i + 5 >= args.length) break; out += String.fromCharCode(parseInt(args.slice(i + 2, i + 6), 16)); i += 5; continue; }
+    out += ({ n: "\n", t: "\t", r: "\r", b: "\b", f: "\f" } as Record<string, string>)[n] ?? n;
+    i++;
+  }
+  return out;
+}
+
 async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal: AbortSignal | undefined, system: string): Promise<StreamResult> {
   const claude = s.model.startsWith("anthropic/");
   const tools: unknown[] = clientTools.map((t) => ({ type: "function", name: t.function.name, description: t.function.description, parameters: t.function.parameters }));
@@ -143,6 +161,7 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
   const calls: ToolCall[] = [];
   const reasoning: any[] = [];
   const order: string[] = [];
+  const replyArgs = new Map<unknown, string>();
   const sources: Source[] = [];
   const addSource = (a: any) => {
     const url = a?.url ?? a?.url_citation?.url, title = a?.title ?? a?.url_citation?.title;
@@ -168,6 +187,15 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
         throw new AgentError(msg ?? "The AI service returned an error.", "other");
       }
       if (e.type === "response.output_text.delta" && typeof e.delta === "string") { streamed += e.delta; h.onText(e.delta); }
+      // A reply's text arrives inside its arguments; pass it on as it streams, so the person sees it being written.
+      if (e.type === "response.output_item.added" && e.item?.type === "function_call" && e.item.name === "reply") replyArgs.set(e.item.id ?? e.output_index, "");
+      if (e.type === "response.function_call_arguments.delta" && replyArgs.has(e.item_id ?? e.output_index)) {
+        const key = e.item_id ?? e.output_index;
+        const before = partialText(replyArgs.get(key)!);
+        replyArgs.set(key, replyArgs.get(key)! + e.delta);
+        const after = partialText(replyArgs.get(key)!);
+        if (after.length > before.length) h.onText(after.slice(before.length));
+      }
       if (e.type === "response.output_item.done") {
         const item = e.item ?? {};
         if (item.type === "message") {
@@ -202,22 +230,10 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
  * Runs one user turn to completion, including tool round-trips.
  * Appends to `messages` in place so the caller can persist after every step.
  */
-// Tools that only change what the person sees. Once Deathbot has said something to the person and called
-// only these, the turn is over: calling the model again invites it to carry on as if the person had replied.
-const DISPLAY_TOOLS = new Set(["update_notes", "update_progress", "show_card", "show_video", "show_document"]);
-
-/**
- * A reply that runs past its ready-made answers is the model answering its own question. Keep it up to the
- * first <replies> block and drop the rest, along with any tool calls made for the part that is dropped.
- */
-function stopAtFirstQuestion(message: StreamResult["message"]): boolean {
-  const text = message.content ?? "";
-  const end = text.indexOf("</replies>");
-  if (end < 0 || !text.slice(end + "</replies>".length).trim()) return false;
-  message.content = text.slice(0, end + "</replies>".length);
-  delete message.tool_calls;
-  return true;
-}
+// Tools that only change what the person sees. Once Deathbot has said something to the person as plain text
+// and called only these, the turn is over: calling the model again invites it to carry on as if the person
+// had replied.
+const DISPLAY_TOOLS = new Set(["update_notes", "update_progress"]);
 
 export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: TurnHandlers, signal?: AbortSignal): Promise<void> {
   const system = buildSystemPrompt({ webSearch: s.webSearch });
@@ -239,7 +255,6 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
     if (finish === "length" && calls.length) {
       throw new AgentError("The reply was cut off. Try sending your message again.", "other");
     }
-    if (stopAtFirstQuestion(message)) { messages.push(message); return; }
     messages.push(message);
     if (!calls.length) return;
 
@@ -257,6 +272,8 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
       }
       messages.push({ role: "tool", tool_call_id: call.id, content });
     }
+    // A reply is always the end of the turn: the person answers next. Other calls in the same response have run.
+    if (calls.some((c) => c.function.name === "reply")) return;
     // Spoke to the person and only updated the screen: their turn now.
     if (message.content?.trim() && calls.every((c) => DISPLAY_TOOLS.has(c.function.name))) return;
   }
@@ -273,7 +290,11 @@ export interface ScribeResult { items: ProgressUpdate[]; next: string[]; notes?:
 
 function plainText(m: Msg): string {
   if (m.role === "tool") return "";
-  if (typeof m.content === "string" || m.content === null) return (m.content ?? "").replace(/<replies>[\s\S]*?(<\/replies>|$)/i, "").trim();
+  if (m.role === "assistant") {
+    const said = (m.tool_calls ?? []).filter((c) => c.function.name === "reply").map((c) => { try { return String(JSON.parse(c.function.arguments).text ?? ""); } catch { return ""; } });
+    return [(m.content ?? "").replace(/<replies>[\s\S]*?(<\/replies>|$)/i, "").trim(), ...said].filter(Boolean).join("\n\n");
+  }
+  if (typeof m.content === "string" || m.content === null) return (m.content ?? "").trim();
   return m.content.flatMap((p) => (p.type === "text" ? [p.text.slice(0, 1500)] : p.type === "file" ? [`[attached ${p.file.filename}]`] : ["[attached a picture]"])).join("\n");
 }
 

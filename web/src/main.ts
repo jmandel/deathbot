@@ -195,19 +195,42 @@ const openDoc = (title: string, markdown: string) => openReader(md(markdown), do
 // ---------- things Deathbot shows, drawn from its tool calls ----------
 
 interface Shown { call: ToolCall; args: any }
-/** Tool calls that succeeded, in order. A refused or failed call showed the person nothing. */
+/**
+ * What was shown in the conversation, in order, one entry per thing. A reply's card, video, document, pictures
+ * and records block each count as their own entry, under the reply's call id. A refused or failed call, or a
+ * part of a reply its result says was not shown, showed the person nothing. (Older conversations have
+ * separate show_* calls; they are drawn the same way.)
+ */
 function shownCalls(messages: Msg[]): Shown[] {
-  const failed = new Set<string>(), done = new Set<string>();
-  for (const m of messages) if (m.role === "tool") (typeof m.content === "string" && m.content.startsWith("Error:") ? failed : done).add(m.tool_call_id);
+  const result = new Map<string, string>();
+  for (const m of messages) if (m.role === "tool") result.set(m.tool_call_id, typeof m.content === "string" ? m.content : "");
   const out: Shown[] = [];
+  const as = (call: ToolCall, name: string, args: any): Shown => ({ call: { ...call, function: { name, arguments: "" } }, args });
   for (const m of messages) {
     if (m.role !== "assistant") continue;
     for (const call of m.tool_calls ?? []) {
-      if (failed.has(call.id) || !done.has(call.id)) continue;
-      try { out.push({ call, args: JSON.parse(call.function.arguments || "{}") }); } catch { /* unreadable call: skip */ }
+      const r = result.get(call.id);
+      if (r === undefined || r.startsWith("Error:")) continue;
+      let args: any;
+      try { args = JSON.parse(call.function.arguments || "{}"); } catch { continue; /* unreadable call: skip */ }
+      if (call.function.name !== "reply") { out.push({ call, args }); continue; }
+      const ok = (label: string) => !r.includes(`The ${label} was not shown`);
+      if (args.card && ok("card")) out.push(as(call, "show_card", { path: args.card }));
+      if (args.video && ok("video")) out.push(as(call, "show_video", args.video));
+      if (args.document && ok("document")) out.push(as(call, "show_document", args.document));
+      if (args.health_records === true) out.push(as(call, "offer_health_records", {}));
+      if (args.scenes && ok("pictures")) out.push(as(call, "show_scenes", args.scenes));
     }
   }
   return out;
+}
+/** The text and ready-made answers of a reply call, or null for any other call. */
+function replyOf(call: ToolCall): { text: string; replies: string[] } | null {
+  if (call.function.name !== "reply") return null;
+  try {
+    const a = JSON.parse(call.function.arguments || "{}");
+    return { text: typeof a.text === "string" ? a.text : "", replies: Array.isArray(a.replies) ? a.replies.filter((x: unknown) => typeof x === "string" && x.trim()).slice(0, 5) : [] };
+  } catch { return null; }
 }
 function youtubeId(url: string): string | null {
   const m = url.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
@@ -316,7 +339,8 @@ function userBubble(m: Extract<Msg, { role: "user" }>): HTMLElement | null {
 
 /** Rebuild the conversation from the stored messages, one block per turn. */
 function renderThread() {
-  const shown = new Map(shownCalls(state.messages).map((s) => [s.call.id, s]));
+  const shown = new Map<string, Shown[]>();
+  for (const s of shownCalls(state.messages)) shown.set(s.call.id, [...(shown.get(s.call.id) ?? []), s]);
   log.replaceChildren();
   let turn: HTMLElement | null = null;
   const current = () => turn ?? (turn = log.appendChild(h("div", "turn")));
@@ -340,18 +364,27 @@ function renderThread() {
         current().append(s);
       }
       for (const call of m.tool_calls ?? []) {
-        const s = shown.get(call.id);
-        const block = s && shownBlock(s);
-        if (block) current().append(block);
+        const said = replyOf(call);
+        if (said?.text.trim()) current().append(htmlEl("div", "msg bot", md(said.text)));
+        for (const s of shown.get(call.id) ?? []) {
+          const block = shownBlock(s);
+          if (block) current().append(block);
+        }
       }
     }
   }
   // Ready-made replies belong only to the latest message, and only while it is the person's move.
-  const lastMsg = state.messages[state.messages.length - 1];
-  if (!busy && lastMsg?.role === "assistant") {
-    const { replies } = splitReplies(lastMsg.content ?? "");
-    if (replies.length) current().append(replyButtons(replies));
+  // The latest message is Deathbot's last reply call if it made one, or its last plain message.
+  let lastSaid: string[] = [];
+  for (let i = state.messages.length - 1; i >= 0; i--) {
+    const m = state.messages[i];
+    if (m.role === "user") break;
+    if (m.role !== "assistant") continue;
+    const call = [...(m.tool_calls ?? [])].reverse().find((c) => c.function.name === "reply");
+    lastSaid = call ? replyOf(call)?.replies ?? [] : splitReplies(m.content ?? "").replies;
+    break;
   }
+  if (!busy && lastSaid.length) current().append(replyButtons(lastSaid));
   // A "Read aloud" button under Deathbot's words in each finished turn.
   if (voice.canSpeak) {
     const turns = [...log.children];
