@@ -7,6 +7,8 @@ WORKDIR holds session-cfr.mkv (the scrcpy recording converted to 30 fps), marks.
 and busy.json (stretches where the app showed Stop instead of Send, detected from the video).
 --offset is how far the video clock runs ahead of marks.log (found by lining up the spoken turns).
 --drop removes visible segments by index, after drop-previous marks are applied.
+Frank's spoken clips are injected into the emulator's microphone, not played on the phone, so they are not in the
+recording. Each "voice <wav>" mark puts its clip into the soundtrack at that moment.
 """
 import argparse, json, os, subprocess
 
@@ -16,16 +18,19 @@ ap.add_argument("--offset", type=float, default=19.9)
 ap.add_argument("--drop", default="")
 ap.add_argument("--speed", type=float, default=4.0)
 ap.add_argument("--out", default="demo.mp4")
+ap.add_argument("--device-gain", type=float, default=0.0, help="dB added to the phone's own audio (Deathbot reading aloud)")
 ap.add_argument("--source", default="session-cfr.mkv", help="constant-frame-rate copy of the recording (scrcpy writes frames only on change)")
 a = ap.parse_args()
 W = a.workdir
 
-marks = [l.split() for l in open(os.path.join(W, "marks.log"))]
+marks = [l.split() for l in open(os.path.join(W, "marks.log")) if l.strip()]
 rec = int(marks[0][0])
-segs, start = [], None
-for t, what in marks[1:]:
+segs, start, voices = [], None, []
+for t, what, *rest in marks[1:]:
     t = (int(t) - rec) / 1000 + a.offset
-    if what == "cut-end":
+    if what == "voice":
+        voices.append((t, rest[0]))
+    elif what == "cut-end":
         start = t
     elif what == "cut-start" and start is not None:
         segs.append((start, t)); start = None
@@ -49,17 +54,24 @@ for s0, s1 in segs:
     pieces.append((t, s1, 1.0))
 pieces = [p for p in pieces if p[1] - p[0] > 0.05]
 
-parts, labels = [], []
+# The soundtrack: the phone's own audio with Frank's clips laid in where he spoke, split once per piece.
+mix = [f"[0:a]volume={a.device_gain}dB[dev]"]
+for j, (t, _) in enumerate(voices):
+    mix.append(f"[{j + 1}:a]aresample=48000,aformat=channel_layouts=stereo,adelay={max(0, t) * 1000:.0f}:all=1[vo{j}]")
+ins = "[dev]" + "".join(f"[vo{j}]" for j in range(len(voices)))
+mix.append(f"{ins}amix=inputs={len(voices) + 1}:normalize=0:duration=first,asplit={len(pieces)}" + "".join(f"[m{i}]" for i in range(len(pieces))))
+parts, labels = mix, []
 for i, (p0, p1, sp) in enumerate(pieces):
     v = f"[0:v]trim={p0:.3f}:{p1:.3f},setpts=(PTS-STARTPTS)/{sp}[v{i}]"
     tempo = "anull" if sp == 1 else "atempo=2.0,atempo=2.0" if sp == 4 else f"atempo={sp}"
-    au = f"[0:a]atrim={p0:.3f}:{p1:.3f},asetpts=PTS-STARTPTS,{tempo}[a{i}]"
+    au = f"[m{i}]atrim={p0:.3f}:{p1:.3f},asetpts=PTS-STARTPTS,{tempo}[a{i}]"
     parts += [v, au]; labels.append(f"[v{i}][a{i}]")
-graph = ";".join(parts) + ";" + "".join(labels) + f"concat=n={len(pieces)}:v=1:a=1[v][a0];[a0]volume=26dB,alimiter=limit=0.9[a]"
+graph = ";".join(parts) + ";" + "".join(labels) + f"concat=n={len(pieces)}:v=1:a=1[v][a0];[a0]alimiter=limit=0.9[a]"
 gfile = os.path.join(W, "edit.filter")
 open(gfile, "w").write(graph)
 out = os.path.join(W, a.out)
 subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", os.path.join(W, a.source),
+                *[x for _, wav in voices for x in ("-i", wav)],
                 "-/filter_complex", gfile, "-map", "[v]", "-map", "[a]",
                 "-c:v", "libx264", "-crf", "22", "-preset", "medium", "-pix_fmt", "yuv420p",
                 "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", out], check=True)

@@ -1,10 +1,10 @@
 // Drives Deathbot in Chrome on the Android emulator for the demo recording.
 // Needs: adb forward tcp:9471 localabstract:chrome_devtools_remote
 //
-//   bun drive.ts install-shim             register the dictation stand-in and reload the page (keep it running)
 //   bun drive.ts state                    what is on screen: busy, last reply, reply buttons
 //   bun drive.ts tap SELECTOR [N]         tap the Nth element matching SELECTOR (CSS) with a real touch
 //   bun drive.ts taptext TEXT [SCOPE]     tap the visible button or link whose text contains TEXT
+//   bun drive.ts choose SELECTOR VALUE    set a dropdown, as if picked from the list
 //   bun drive.ts type TEXT                tap the message box and type TEXT
 //   bun drive.ts speak WAV                dictate: mic on, inject WAV into the emulator mic, mic off (voice mixed in by edit.py)
 //   bun drive.ts send                     tap Send
@@ -87,6 +87,11 @@ try {
       break;
     case "tap":
       await tapRect(await rectOf(`document.querySelectorAll(${JSON.stringify(args[0])})[${Number(args[1] ?? 0)}]`), args[0]);
+      break;
+    case "choose":
+      // choose SELECTOR VALUE sets a dropdown the way picking from it would (Android's native picker is not in the page).
+      await evaluate(`(()=>{const s=document.querySelector(${JSON.stringify(args[0])});s.scrollIntoView({block:"center",behavior:"smooth"});s.value=${JSON.stringify(args[1])};s.dispatchEvent(new Event("input",{bubbles:true}));s.dispatchEvent(new Event("change",{bubbles:true}));})()`);
+      await sleep(800);
       break;
     case "tapjs":
       await tapRect(await rectOf(args.join(" ")), args.join(" "));
