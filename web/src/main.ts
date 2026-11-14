@@ -9,6 +9,7 @@ import {
 import { cardForPerson, cardTitle, areas, release } from "./skill";
 import { shrink, cardFile, type Surface, type SceneItem, type ProgressStatus } from "./tools";
 import { normalise, overview, summary, RECORDS_URL, type Provider } from "./records";
+import * as voice from "./speech";
 import { INLINE_TOKEN_LIMIT, estimateTokens, newId, storedNote, pdfText, type StoredFile } from "./files";
 
 // ---------- state ----------
@@ -130,6 +131,25 @@ function button(label: string, cls: string, onClick: () => void): HTMLButtonElem
   b.onclick = onClick;
   return b;
 }
+// ---------- reading aloud ----------
+// Each reply and each document can be read aloud, and the person can have every new reply read as it
+// arrives. Off by default: these are private conversations, and a phone may be in a waiting room.
+const speechLang = () => SPEECH_LANG[getStyle().language] ?? (navigator.language || "en-US");
+const readLabel = (id: string) => (voice.speakingId() === id ? "Stop reading" : "Read aloud");
+function readButton(id: string, text: () => string): HTMLButtonElement {
+  const b = button(readLabel(id), "link read-aloud", () => {
+    if (voice.speakingId() === id) return voice.stop();
+    voice.speak(id, text(), speechLang(), () => { for (const e of document.querySelectorAll<HTMLElement>(`[data-read="${id}"]`)) e.textContent = readLabel(id); });
+    b.textContent = readLabel(id);
+  });
+  b.dataset.read = id;
+  return b;
+}
+const turnText = (turn: Element) => [...turn.querySelectorAll<HTMLElement>(".msg.bot")].map((e) => e.innerText).join("\n\n");
+
+function renderReadLabels() {
+  for (const e of document.querySelectorAll<HTMLElement>("[data-read]")) e.textContent = readLabel(e.dataset.read!);
+}
 function externalLink(url: string, text: string): HTMLAnchorElement {
   const a = document.createElement("a");
   a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = text;
@@ -156,7 +176,7 @@ const reader = $<HTMLDialogElement>("reader");
 function openReader(html: string, actions: HTMLElement[] = []) {
   $("reader-body").innerHTML = "";
   $("reader-body").append(htmlEl("div", "", html));
-  $("reader-actions").replaceChildren(...actions);
+  $("reader-actions").replaceChildren(...(voice.canSpeak ? [readButton("reader", () => $("reader-body").innerText)] : []), ...actions);
   reader.showModal();
   reader.scrollTop = 0;
 }
@@ -329,6 +349,15 @@ function renderThread() {
   if (!busy && lastMsg?.role === "assistant") {
     const { replies } = splitReplies(lastMsg.content ?? "");
     if (replies.length) current().append(replyButtons(replies));
+  }
+  // A "Read aloud" button under Deathbot's words in each finished turn.
+  if (voice.canSpeak) {
+    const turns = [...log.children];
+    turns.forEach((t, i) => {
+      if (busy && i === turns.length - 1) return;
+      const bots = t.querySelectorAll(".msg.bot");
+      if (bots.length) bots[bots.length - 1].after(readButton(`turn-${i}`, () => turnText(t)));
+    });
   }
   renderWelcome();
   renderFile();
@@ -592,6 +621,7 @@ function tidyRecords(settings: Settings, turnStart: number) {
 
 async function send(text: string) {
   if (dictating) stopDictation();
+  voice.stop();
   if (busy || (!text.trim() && !pendingFiles.length)) return;
   const settings = getSettings();
   if (!settings.apiKey) return;
@@ -667,6 +697,11 @@ async function answer() {
     renderThread();
     pinLastTurn(false);
     scroller.scrollTop = at;
+    if (voice.canSpeak && ls("read-aloud") === "on") {
+      const turns = log.children, last = turns[turns.length - 1];
+      if (last) voice.speak(`turn-${turns.length - 1}`, turnText(last), speechLang(), () => renderReadLabels());
+      renderReadLabels();
+    }
     $("announce").textContent = "Deathbot replied. " + ((log.lastElementChild as HTMLElement)?.querySelector(".msg.bot:last-of-type")?.textContent ?? "").slice(0, 600);
   } catch (e) {
     // Keep the person's message; drop only the unfinished reply, so trying again starts clean.
@@ -710,6 +745,7 @@ function stopDictation() {
 }
 function startDictation() {
   showError(null);
+  voice.stop(); // never talk over the person
   dictating = true;
   $("mic").setAttribute("aria-pressed", "true");
   $("mic-label").textContent = "Stop listening";
@@ -922,7 +958,13 @@ async function start() {
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey && !e.isComposing && !touch) { e.preventDefault(); send(input.value); }
   });
-  input.addEventListener("input", fitInput);
+  input.addEventListener("input", () => { fitInput(); voice.stop(); });
+  document.addEventListener("visibilitychange", () => { if (document.hidden) voice.stop(); });
+  reader.addEventListener("close", () => { if (voice.speakingId() === "reader") voice.stop(); });
+  const readAloud = $<HTMLInputElement>("read-aloud");
+  readAloud.closest("label")!.hidden = !voice.canSpeak;
+  readAloud.checked = ls("read-aloud") === "on";
+  readAloud.onchange = () => { lsSet("read-aloud", readAloud.checked ? "on" : null); if (!readAloud.checked) voice.stop(); };
   wireDictation();
   $("stop").onclick = () => abort?.abort();
   $<HTMLInputElement>("file-input").addEventListener("change", (e) => {

@@ -205,6 +205,9 @@ try {
 
   // A stand-in for the browser's speech-to-text, so dictation can be tested without a microphone.
   await send("Page.addScriptToEvaluateOnNewDocument", { source: `
+    window.__spoken = [];
+    Object.defineProperty(window, "speechSynthesis", { configurable: true, value: { getVoices: () => [], cancel() { window.__cancelled = (window.__cancelled || 0) + 1; }, speak(u) { window.__spoken.push(u.text); window.__lastU = u; } } });
+    window.SpeechSynthesisUtterance = class { constructor(t) { this.text = t; } };
     window.SpeechRecognition = window.webkitSpeechRecognition = class {
       start() { window.__rec = this; }
       stop() { setTimeout(() => this.onend && this.onend(), 0); }
@@ -238,6 +241,14 @@ try {
   await waitFor(`document.getElementById("stop").hidden`, "turn finished");
 
   check((await text("#log")).includes("I'm Deathbot. Here's the short version on CPR."), "streamed text is assembled and rendered as markdown");
+  // Reading aloud: a button under the reply reads it with the device's voice; typing stops it.
+  check(await evaluate(`!!document.querySelector(".turn .read-aloud")`) && (await evaluate(`window.__spoken.length`)) === 0, "each reply offers Read aloud, and nothing is read unasked");
+  await evaluate(`document.querySelector(".turn .read-aloud").click()`);
+  const spoken = await evaluate(`window.__spoken.join(" ")`);
+  check(spoken.includes("short version on CPR") && !spoken.includes("**") && !spoken.includes("<"), `the reply is read as plain words (got: ${spoken.slice(0, 80)})`);
+  check((await text(".turn .read-aloud")) === "Stop reading", "the button turns into Stop reading");
+  await evaluate(`(()=>{const i=document.getElementById("input");i.value="x";i.dispatchEvent(new Event("input"));i.value="";})()`);
+  check((await text(".turn .read-aloud")) === "Read aloud", "typing in the message box stops the reading");
   check(await evaluate(`(()=>{const r=document.getElementById("composer").getBoundingClientRect();return r.bottom<=innerHeight+1&&r.top>0})()`), "the message box is on screen");
   check(await evaluate(`document.querySelector(".top").getBoundingClientRect().height < 70`), "the header is a single row");
   check(await evaluate(`(()=>{const r=[...document.querySelectorAll(".composer-controls > :not([hidden]):not(.grow)")].map(e=>e.getBoundingClientRect());return r.every(x=>Math.abs(x.height-r[0].height)<1&&Math.abs(x.top-r[0].top)<1)})()`), "the controls under the message box are one row of equal height");

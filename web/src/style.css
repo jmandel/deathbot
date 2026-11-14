@@ -92,6 +92,7 @@ input[type="password"], input[type="text"], select { padding: .55rem .7rem; bord
 .msg.bot ul, .msg.bot ol { padding-left: 1.2em; margin: 0 0 .7em; }
 .msg.bot li { margin-bottom: .3em; }
 .msg.user { align-self: flex-end; max-width: 88%; background: var(--me); color: var(--on-me); padding: .55rem .9rem; border-radius: .9rem .9rem .2rem .9rem; white-space: pre-wrap; }
+.read-aloud { align-self: flex-start; font-size: .9rem; color: var(--muted); padding: .1rem .15rem; margin-top: -.6rem; }
 .file-note { font-size: .85rem; opacity: .8; margin-top: .25rem; }
 .sources { font-size: .85rem; color: var(--muted); }
 .sources a { color: inherit; }
