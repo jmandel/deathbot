@@ -1,4 +1,4 @@
-// Agent loop over OpenRouter's Chat Completions API (https://openrouter.ai/docs), called
+// Agent loop over OpenRouter's Responses API (https://openrouter.ai/docs; the bookkeeping pass below uses Chat Completions),
 // straight from the browser with the person's own key. One key covers chat, web search and images.
 import { buildSystemPrompt, skillSection, areas } from "./skill";
 import { clientTools, runTool, type Surface, type ProgressUpdate } from "./tools";
@@ -15,8 +15,8 @@ export type Part =
   | { type: "file"; file: { filename: string; file_data: string } };
 export type Msg =
   | { role: "user"; content: string | Part[] }
-  | { role: "assistant"; content: string | null; tool_calls?: ToolCall[]; reasoning_details?: unknown[]; _sources?: Source[] }
-  | { role: "tool"; tool_call_id: string; content: string };
+  | { role: "assistant"; content: string | null; tool_calls?: ToolCall[]; reasoning_details?: unknown[]; _sources?: Source[]; _model?: string }
+  | { role: "tool"; tool_call_id: string; content: string | Part[] };
 
 export const CHAT_MODELS: { id: string; label: string }[] = [
   { id: "google/gemini-4-hydrogen", label: "Gemini 4 Hydrogen (recommended)" },
@@ -64,38 +64,46 @@ export interface TurnHandlers {
   onStatus(text: string | null): void;
 }
 
-// Reasoning blocks arrive in pieces while streaming and must be sent back whole on the next
-// request of a tool loop, or models that think between tool calls lose (or reject) the thread.
-function mergeReasoning(acc: any[], chunks: any[]) {
-  for (const c of chunks) {
-    const prev = acc.find((a) => a.index === c.index && a.type === c.type);
-    if (!prev) { acc.push({ ...c }); continue; }
-    for (const [k, v] of Object.entries(c)) {
-      if ((k === "text" || k === "summary" || k === "data") && typeof v === "string") {
-        prev[k] = (prev[k] ?? "") + v;
-      } else if (v !== null && v !== undefined) {
-        prev[k] = v;
-      }
-    }
-  }
-}
 
 interface StreamResult { message: Extract<Msg, { role: "assistant" }>; finish: string | null }
 
+// Conversations are kept in the chat-completions shape (role, content, tool_calls, tool messages) that the
+// page stores and draws; each request translates them to the Responses API's input items, which OpenRouter
+// handles more reliably for some models (Gemini 4 Hydrogen failed on chat completions with web tools).
+function inputPart(p: Part): unknown {
+  if (p.type === "text") return { type: "input_text", text: p.text };
+  if (p.type === "image_url") return { type: "input_image", image_url: p.image_url.url, detail: "auto" };
+  return { type: "input_file", filename: p.file.filename, file_data: p.file.file_data };
+}
+function toInput(messages: Msg[], model: string): unknown[] {
+  const out: unknown[] = [];
+  messages.forEach((m, i) => {
+    if (m.role === "user") {
+      out.push({ type: "message", role: "user", content: typeof m.content === "string" ? [{ type: "input_text", text: m.content }] : m.content.map(inputPart) });
+    } else if (m.role === "assistant") {
+      // Reasoning items belong to the model that wrote them; another model may reject them.
+      if (m._model === model) for (const r of m.reasoning_details ?? []) if ((r as any)?.type === "reasoning") out.push(r);
+      if (m.content) out.push({ type: "message", role: "assistant", id: `msg_${i}`, status: "completed", content: [{ type: "output_text", text: m.content, annotations: [] }] });
+      (m.tool_calls ?? []).forEach((c, j) => out.push({ type: "function_call", id: `fc_${i}_${j}`, call_id: c.id, name: c.function.name, arguments: c.function.arguments || "{}" }));
+    } else {
+      out.push({ type: "function_call_output", call_id: m.tool_call_id, output: typeof m.content === "string" ? m.content : m.content.map(inputPart) });
+    }
+  });
+  return out;
+}
+
 async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal: AbortSignal | undefined, system: string): Promise<StreamResult> {
   const claude = s.model.startsWith("anthropic/");
-  const tools: unknown[] = [...clientTools];
+  const tools: unknown[] = clientTools.map((t) => ({ type: "function", name: t.function.name, description: t.function.description, parameters: t.function.parameters }));
   // Search returns excerpts; fetch lets the model open the page itself, which the skill's research rules require.
   if (s.webSearch) tools.push({ type: "openrouter:web_search", parameters: { max_results: 5 } }, { type: "openrouter:web_fetch", parameters: { max_uses: 6, max_content_tokens: 30000 } });
   const body = {
     model: s.model,
     stream: true,
-    max_tokens: 16000,
-    messages: [
-      // The system prompt is byte-stable for a build, so mark it as a cacheable prefix.
-      { role: "system", content: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }] },
-      ...messages.map(({ _sources, ...m }: any) => m),
-    ],
+    max_output_tokens: 16000,
+    // The system prompt is byte-stable for a build, so it stays a cacheable prefix.
+    instructions: system,
+    input: toInput(messages, s.model),
     tools,
     reasoning: { effort: "medium" },
     // Claude also supports a moving cache breakpoint over the growing conversation.
@@ -108,7 +116,7 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
   for (let attempt = 1; ; attempt++) {
     let failed: string | null = null;
     try {
-      res = await fetch(`${API}/chat/completions`, { method: "POST", headers: headers(s.apiKey), body: JSON.stringify(body), signal });
+      res = await fetch(`${API}/responses`, { method: "POST", headers: headers(s.apiKey), body: JSON.stringify(body), signal });
       if (res.status >= 500 || res.status === 429) failed = res.status === 429 ? "The AI service is busy." : "The AI service had a problem.";
     } catch (e) {
       if (signal?.aborted) throw e;
@@ -125,10 +133,14 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
   }
   if (!res.ok || !res.body) await fail(res);
 
-  let text = "", finish: string | null = null;
+  let text = "", streamed = "", finish: string | null = null;
   const calls: ToolCall[] = [];
   const reasoning: any[] = [];
   const sources: Source[] = [];
+  const addSource = (a: any) => {
+    const url = a?.url ?? a?.url_citation?.url, title = a?.title ?? a?.url_citation?.title;
+    if (a?.type === "url_citation" && url && !sources.some((x) => x.url === url)) sources.push({ url, title });
+  };
   const reader = res.body!.pipeThrough(new TextDecoderStream()).getReader();
   let buf = "";
   for (;;) {
@@ -139,35 +151,38 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
     while ((nl = buf.indexOf("\n")) >= 0) {
       const line = buf.slice(0, nl).trim();
       buf = buf.slice(nl + 1);
-      if (!line.startsWith("data:")) continue; // blank lines and ": OPENROUTER PROCESSING" keep-alives
+      if (!line.startsWith("data:")) continue; // event names, blank lines and keep-alives
       const data = line.slice(5).trim();
       if (data === "[DONE]") continue;
-      let chunk: any;
-      try { chunk = JSON.parse(data); } catch { continue; }
-      if (chunk.error) throw new AgentError(chunk.error.message ?? "The AI service returned an error.", "other");
-      const choice = chunk.choices?.[0];
-      if (!choice) continue;
-      const d = choice.delta ?? {};
-      if (typeof d.content === "string" && d.content) { text += d.content; h.onText(d.content); }
-      for (const tc of d.tool_calls ?? []) {
-        const i = tc.index ?? 0;
-        calls[i] ??= { id: "", type: "function", function: { name: "", arguments: "" } };
-        if (tc.id) calls[i].id = tc.id;
-        if (tc.function?.name) calls[i].function.name += tc.function.name;
-        if (tc.function?.arguments) calls[i].function.arguments += tc.function.arguments;
+      let e: any;
+      try { e = JSON.parse(data); } catch { continue; }
+      if (e.type === "error" || e.type === "response.failed" || (e.error && !e.type)) {
+        const msg = e.message ?? e.error?.message ?? e.response?.error?.message;
+        throw new AgentError(msg ?? "The AI service returned an error.", "other");
       }
-      if (Array.isArray(d.reasoning_details)) mergeReasoning(reasoning, d.reasoning_details);
-      for (const a of d.annotations ?? []) {
-        const u = a?.url_citation?.url;
-        if (a?.type === "url_citation" && u && !sources.some((x) => x.url === u)) sources.push({ url: u, title: a.url_citation.title });
+      if (e.type === "response.output_text.delta" && typeof e.delta === "string") { streamed += e.delta; h.onText(e.delta); }
+      if (e.type === "response.output_item.done") {
+        const item = e.item ?? {};
+        if (item.type === "message") {
+          for (const c of item.content ?? []) {
+            if (c.type === "output_text") { text += c.text ?? ""; for (const a of c.annotations ?? []) addSource(a); }
+          }
+        } else if (item.type === "function_call") {
+          calls.push({ id: item.call_id, type: "function", function: { name: item.name, arguments: item.arguments ?? "" } });
+        } else if (item.type === "reasoning") {
+          reasoning.push(item);
+        }
       }
-      if (choice.finish_reason) finish = choice.finish_reason;
+      if (e.type === "response.completed" || e.type === "response.incomplete") {
+        const r = e.response ?? {};
+        finish = r.status === "incomplete" && r.incomplete_details?.reason === "max_output_tokens" ? "length" : calls.length ? "tool_calls" : "stop";
+      }
     }
   }
+  if (!text && streamed) text = streamed; // a stream that ended without its completed message item
   const message: StreamResult["message"] = { role: "assistant", content: text || null };
-  const real = calls.filter((c) => c && c.function.name);
-  if (real.length) message.tool_calls = real;
-  if (reasoning.length) message.reasoning_details = reasoning;
+  if (calls.length) message.tool_calls = calls;
+  if (reasoning.length) { message.reasoning_details = reasoning; message._model = s.model; }
   if (sources.length) message._sources = sources;
   return { message, finish };
 }
@@ -200,7 +215,7 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
     if (!calls.length) return;
 
     for (const call of calls) {
-      let content: string;
+      let content: string | Part[];
       try {
         const input = JSON.parse(call.function.arguments || "{}");
         content = await runTool(call.function.name, input, ui, { settings: s, callId: call.id, knownProgressIds: ui.progressIds(), onStatus: h.onStatus, signal });

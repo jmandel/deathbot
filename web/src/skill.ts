@@ -79,7 +79,7 @@ export function buildSystemPrompt(opts: { webSearch: boolean }): string {
     (which === "on") === opts.webSearch ? body : "")
     .replace("<!--MAP-->", areas.map((a) => `| \`${a.id}\` | ${a.title}${a.optional ? " (optional)" : ""} |`).join("\n"));
   const onDemand = Object.keys(skillFiles)
-    .filter((f) => f !== "SKILL.md" && f !== "HARNESS.md" && !PRELOADED.includes(f))
+    .filter((f) => f !== "SKILL.md" && !PRELOADED.includes(f))
     .sort()
     .map((f) => `- \`${f}\`${f.startsWith("cards/") ? ` (${cardTitle(f)})` : ""}`)
     .join("\n");

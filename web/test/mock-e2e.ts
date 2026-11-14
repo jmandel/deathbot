@@ -1,5 +1,6 @@
 // End-to-end check of the web app against a local stand-in for OpenRouter.
-// Serves dist/, fakes /api/v1/chat/completions (streamed, with tool calls) and /api/v1/images,
+// Serves dist/, fakes /api/v1/responses (streamed, with tool calls), /api/v1/chat/completions (the
+// bookkeeping pass) and /api/v1/images,
 // drives headless Chromium over the DevTools protocol, and asserts on what ends up on the page.
 // Run: bun run build && bun test/mock-e2e.ts [screenshot.png]
 import path from "node:path";
@@ -14,9 +15,52 @@ let outage = 4;
 // 1x1 PNG
 const PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
 
+// The scripted replies below are written as chat-completions chunks, which are easy to read; sse() turns them
+// into the Responses API events the app now consumes. fromResponses() turns the app's Responses request back
+// into the chat shape, so the checks can read it the same way.
 function sse(chunks: any[]): Response {
-  const body = ": OPENROUTER PROCESSING\n\n" + chunks.map((c) => `data: ${JSON.stringify(c)}\n\n`).join("") + "data: [DONE]\n\n";
+  const ev: any[] = [{ type: "response.created", response: { status: "in_progress" } }];
+  let text = "";
+  const calls: { id: string; name: string; args: string }[] = [];
+  const thought: string[] = [];
+  let signature = "";
+  const annotations: any[] = [];
+  for (const c of chunks) {
+    const d = c.choices?.[0]?.delta ?? {};
+    if (d.content) { text += d.content; ev.push({ type: "response.output_text.delta", delta: d.content }); }
+    for (const tc of d.tool_calls ?? []) {
+      calls[tc.index] ??= { id: "", name: "", args: "" };
+      if (tc.id) calls[tc.index].id = tc.id;
+      if (tc.function?.name) calls[tc.index].name += tc.function.name;
+      if (tc.function?.arguments) calls[tc.index].args += tc.function.arguments;
+    }
+    for (const rd of d.reasoning_details ?? []) { thought.push(rd.text ?? ""); if (rd.signature) signature = rd.signature; }
+    for (const a of d.annotations ?? []) annotations.push({ type: "url_citation", url: a.url_citation.url, title: a.url_citation.title });
+  }
+  if (thought.length) ev.push({ type: "response.output_item.done", item: { type: "reasoning", id: "rs_1", summary: [], encrypted_content: `${thought.join("")}|${signature}` } });
+  if (text) ev.push({ type: "response.output_item.done", item: { type: "message", role: "assistant", content: [{ type: "output_text", text, annotations }] } });
+  for (const c of calls) if (c) ev.push({ type: "response.output_item.done", item: { type: "function_call", call_id: c.id, name: c.name, arguments: c.args } });
+  ev.push({ type: "response.completed", response: { status: "completed" } });
+  const body = ": OPENROUTER PROCESSING\n\n" + ev.map((e) => `event: ${e.type}\ndata: ${JSON.stringify(e)}\n\n`).join("") + "data: [DONE]\n\n";
   return new Response(body, { headers: { "Content-Type": "text/event-stream" } });
+}
+function fromResponses(b: any): any {
+  const part = (x: any) => x.type === "input_text" ? { type: "text", text: x.text } : x.type === "input_image" ? { type: "image_url", image_url: { url: x.image_url } } : { type: "file", file: { filename: x.filename, file_data: x.file_data } };
+  const messages: any[] = [{ role: "system", content: [{ type: "text", text: b.instructions }] }];
+  let assistant: any = null;
+  for (const it of b.input) {
+    if (it.type === "reasoning" || (it.type === "message" && it.role === "assistant") || it.type === "function_call") {
+      if (!assistant) { assistant = { role: "assistant", content: null }; messages.push(assistant); }
+      if (it.type === "reasoning") (assistant.reasoning_details ??= []).push(it);
+      else if (it.type === "message") assistant.content = it.content.map((c: any) => c.text).join("");
+      else (assistant.tool_calls ??= []).push({ id: it.call_id, type: "function", function: { name: it.name, arguments: it.arguments } });
+      continue;
+    }
+    assistant = null;
+    if (it.type === "message") messages.push({ role: "user", content: it.content.length === 1 && it.content[0].type === "input_text" ? it.content[0].text : it.content.map(part) });
+    else if (it.type === "function_call_output") messages.push({ role: "tool", tool_call_id: it.call_id, content: typeof it.output === "string" ? it.output : it.output.map(part) });
+  }
+  return { ...b, stream: true, messages, tools: (b.tools ?? []).map((t: any) => t.type === "function" ? { type: "function", function: { name: t.name, description: t.description, parameters: t.parameters } } : t) };
 }
 const delta = (d: any, finish: string | null = null) => ({ choices: [{ delta: d, finish_reason: finish }] });
 const call = (index: number, id: string, name: string, args: object) => {
@@ -32,8 +76,9 @@ const server = Bun.serve({
   port: PORT,
   async fetch(req) {
     const url = new URL(req.url);
-    if (url.pathname === "/api/v1/chat/completions") {
-      const body = await req.json();
+    if (url.pathname === "/api/v1/chat/completions" || url.pathname === "/api/v1/responses") {
+      const raw = await req.json();
+      const body = url.pathname.endsWith("/responses") ? fromResponses(raw) : raw;
       // The scribe's quiet bookkeeping pass is not streamed; answer it separately so it does not disturb the counts below.
       if (!body.stream) {
         scribeRequests.push(body);
@@ -117,6 +162,7 @@ const server = Bun.serve({
         await new Promise((r) => { const d = indexedDB.deleteDatabase("keyval-store"); d.onsuccess = d.onerror = d.onblocked = r; });
         if (!location.search.includes("nokey")) localStorage.setItem("deathbot-key","sk-or-test");
         localStorage.setItem("deathbot-api-base", location.origin + "/api/v1");
+        localStorage.setItem("deathbot-web-search", "on"); // off by default; this test covers search
         location.href = "/index.html";</script>`, { headers: { "Content-Type": "text/html" } });
     }
     const file = Bun.file(path.join(dist, url.pathname === "/" ? "index.html" : url.pathname));
@@ -259,12 +305,12 @@ try {
   await waitFor(`document.getElementById("stop").hidden`, "choice turn finished");
   check((await text("#log .turn:last-child .msg.user")) === "Not right now", "tapping a reply sends it as the person's message");
   check((await evaluate(`document.querySelectorAll(".replies").length`)) === 0, "old replies disappear once answered");
-  check(chat[0].messages[0].role === "system" && chat[0].messages[0].content[0].cache_control, "system prompt sent with a cache marker");
+  check(typeof chat[0].instructions === "string" && chat[0].instructions.includes("You are running the Deathbot skill"), "system prompt sent as the request's instructions");
   check(chat[0].messages[0].content[0].text.includes("Web search is on.") && !chat[0].messages[0].content[0].text.includes("web search turned off") && !chat[0].messages[0].content[0].text.includes("WEB:"), "environment text reflects web search being on");
   check(chat[0].tools.some((t: any) => t.type === "openrouter:web_search"), "web search server tool requested");
   const assistant1 = chat[1].messages.find((m: any) => m.role === "assistant");
   check(assistant1?.tool_calls?.length === 5 && assistant1.tool_calls[1].function.arguments === '{"path":"cards/cpr.md"}', "split tool-call arguments were reassembled");
-  check(assistant1?.reasoning_details?.[0]?.text === "think more" && assistant1.reasoning_details[0].signature === "sig", "reasoning blocks were merged and sent back");
+  check(assistant1?.reasoning_details?.[0]?.type === "reasoning" && assistant1.reasoning_details[0].encrypted_content === "think more|sig", "the reasoning item is sent back with the next request");
   const toolResults = chat[1].messages.filter((m: any) => m.role === "tool");
   check(toolResults[0].content.includes("Layer 1") && toolResults[0].content.includes("Applying this to one person"), "read_skill_file returns the whole card to the model");
   const sys = chat[0].messages[0].content[0].text;

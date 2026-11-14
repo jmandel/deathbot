@@ -14,3 +14,6 @@ research/ACP_RCT_evidence_package/registry/*.pdf
 # private working notes and stray files
 research/log.md
 *.ics
+
+# local secrets (OPENROUTER_API_KEY for test/live.ts)
+.env

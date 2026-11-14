@@ -1,7 +1,7 @@
 // Drives the built web app against the real OpenRouter service in headless Chromium.
 // The key comes from the OPENROUTER_API_KEY environment variable and is never written to disk here.
 // Run: OPENROUTER_API_KEY=... bun test/live.ts OUT_DIR "first message" "second message" ...
-//   optional env: SITE (a published URL to test instead of the local build), MODEL, IMAGE_MODEL, WEB_SEARCH=off, PHOTO=/path/to/photo.jpg, ATTACH=/path/to/file.pdf (sent with the first message),
+//   optional env: SITE (a published URL to test instead of the local build), MODEL, IMAGE_MODEL, WEB_SEARCH=on (off by default), PHOTO=/path/to/photo.jpg, ATTACH=/path/to/file.pdf (sent with the first message),
 //   HEADED=1 to watch it, KEEP_OPEN=1 to leave the window open afterwards
 import path from "node:path";
 import { mkdir } from "node:fs/promises";
@@ -49,7 +49,7 @@ try {
   const settings: Record<string, string> = { "deathbot-key": key };
   if (process.env.MODEL) settings["deathbot-model"] = process.env.MODEL;
   if (process.env.IMAGE_MODEL) settings["deathbot-image-model"] = process.env.IMAGE_MODEL;
-  if (process.env.WEB_SEARCH === "off") settings["deathbot-web-search"] = "off";
+  if (process.env.WEB_SEARCH === "on") settings["deathbot-web-search"] = "on";
   if (process.env.STYLE) settings["deathbot-style"] = process.env.STYLE;
   await evaluate(`(()=>{const s=${JSON.stringify(settings)};for(const k in s)localStorage.setItem(k,s[k]);})()`);
   await send("Page.navigate", { url: SITE });
@@ -67,6 +67,9 @@ try {
     await evaluate(`(()=>{const dt=new DataTransfer();dt.items.add(new File([Uint8Array.from(atob("${b64}"),c=>c.charCodeAt(0))],${JSON.stringify(name)},{type:"${type}"}));const i=document.getElementById("file-input");i.files=dt.files;i.dispatchEvent(new Event("change"));})()`);
     await Bun.sleep(800);
   }
+
+  // Keep the body of every model request that fails, at the HTTP level or with an error inside the stream, so it can be replayed exactly (test/probe-model.ts FAILED=...).
+  await evaluate(`(()=>{window.__failed=[];const f=window.fetch;window.fetch=async(u,o)=>{const r=await f(u,o);if(String(u).includes("/responses")){r.clone().text().then(t=>{const e=t.match(/"error":\\{[^}]*\\}/);if(!r.ok||e)window.__failed.push({status:r.status,error:(e?e[0]:t).slice(0,300),streamed:t.length,body:o&&o.body})})}return r}})()`);
 
   for (let i = 0; i < turns.length; i++) {
     const before = await evaluate(`document.querySelectorAll("#log .turn").length`);
@@ -93,7 +96,12 @@ try {
     const m = imgs[i].match(/^data:image\/(\w+);base64,(.*)$/);
     if (m) await Bun.write(path.join(outDir, `scene-${i + 1}.${m[1] === "jpeg" ? "jpg" : m[1]}`), Buffer.from(m[2], "base64"));
   }
-  console.log(`\nsaved ${imgs.length} picture(s) and your-file.txt to ${outDir}`);
+  // The conversation as the app stores it, for replaying exact requests (see test/probe-model.ts).
+  const saved = await evaluate(`new Promise((res)=>{const r=indexedDB.open("keyval-store");r.onsuccess=()=>{const g=r.result.transaction("keyval").objectStore("keyval").get("deathbot-conversation-v3");g.onsuccess=()=>res(JSON.stringify(g.result?.messages ?? []))}})`);
+  await Bun.write(path.join(outDir, "messages.json"), saved);
+  const failed = await evaluate(`JSON.stringify(window.__failed ?? [])`);
+  await Bun.write(path.join(outDir, "failed-requests.json"), failed);
+  console.log(`\nsaved ${imgs.length} picture(s), your-file.txt and messages.json to ${outDir}`);
 } catch (e) {
   console.log("FAILED:", e instanceof Error ? e.message : e);
   code = 1;

@@ -9,6 +9,7 @@ import {
 import { cardForPerson, cardTitle, areas, release } from "./skill";
 import { shrink, cardFile, type Surface, type SceneItem, type ProgressStatus } from "./tools";
 import { normalise, overview, summary, RECORDS_URL, type Provider } from "./records";
+import { INLINE_TOKEN_LIMIT, estimateTokens, newId, storedNote, pdfText, type StoredFile } from "./files";
 
 // ---------- state ----------
 // The stored messages are the single source of truth. Cards, videos and documents are drawn from
@@ -44,6 +45,15 @@ function setRecords(r: Provider[] | null) {
   renderFile();
 }
 
+// Long files and JSON are kept the same way: the person can remove them, and only what Deathbot reads is sent.
+const FILES_KEY = "deathbot-files-v1";
+let files: StoredFile[] = [];
+function setFiles(f: StoredFile[]) {
+  files = f;
+  (f.length ? set(FILES_KEY, f) : del(FILES_KEY)).catch((e) => console.warn("Could not save files.", e));
+  renderFile();
+}
+
 // ---------- settings ----------
 // A shared link carries the key in the URL fragment (#k=…&m=…). The fragment is never sent to
 // the server hosting this page. We move it into storage and strip it from the address bar.
@@ -65,7 +75,7 @@ function getSettings(): Settings {
     apiKey: ls("key") ?? "",
     model: ls("model") ?? DEFAULT_MODEL,
     imageModel: ls("image-model") ?? DEFAULT_IMAGE_MODEL,
-    webSearch: ls("web-search") !== "off",
+    webSearch: ls("web-search") === "on", // off unless the person turns it on in Settings
   };
 }
 // How the person wants to be spoken to. What each choice means is defined by the skill's voice guide;
@@ -164,7 +174,7 @@ interface Shown { call: ToolCall; args: any }
 /** Tool calls that succeeded, in order. A refused or failed call showed the person nothing. */
 function shownCalls(messages: Msg[]): Shown[] {
   const failed = new Set<string>(), done = new Set<string>();
-  for (const m of messages) if (m.role === "tool") (m.content.startsWith("Error:") ? failed : done).add(m.tool_call_id);
+  for (const m of messages) if (m.role === "tool") (typeof m.content === "string" && m.content.startsWith("Error:") ? failed : done).add(m.tool_call_id);
   const out: Shown[] = [];
   for (const m of messages) {
     if (m.role !== "assistant") continue;
@@ -392,6 +402,15 @@ function renderFile() {
     rec.append(...recordsSteps());
   }
 
+  if (files.length) {
+    const fs = section("Files you've shared", "Too long to send whole, so they are kept in this browser. Only the parts Deathbot reads are sent to the AI service.");
+    for (const f of files) {
+      const item = h("div", "item");
+      item.append(h("p", "", f.name), button("Remove", "quiet", () => { if (confirm(`Remove ${f.name} from this browser?`)) setFiles(files.filter((x) => x.id !== f.id)); }));
+      fs.append(item);
+    }
+  }
+
   const pics = section("Pictures", "");
   pics.querySelector(".fine")!.remove();
   const sets = calls.flatMap(({ call }) => (call.function.name === "show_scenes" && state.scenes[call.id] ? [state.scenes[call.id]] : []));
@@ -512,6 +531,7 @@ function lastAttachedPicture(): string | null {
 
 const surface: Surface = {
   getRecords: () => records,
+  getFiles: () => files,
   setNotes(markdown) { state.notes = markdown; flagFile(); renderFile(); },
   progressIds: () => Object.keys(state.progress),
   setProgress(items, next) {
@@ -744,11 +764,27 @@ const readDataUrl = (file: File) => new Promise<string>((resolve, reject) => {
   r.onerror = () => reject(r.error);
   r.readAsDataURL(file);
 });
-async function attach(files: FileList) {
-  for (const f of files) {
+function store(name: string, kind: StoredFile["kind"], text: string, pages?: number, data?: Blob) {
+  const stored: StoredFile = { id: newId(files), name, kind, text, pages, data, addedAt: Date.now() };
+  setFiles([...files, stored]);
+  flagFile();
+  pendingFiles.push({ name, part: { type: "text", text: `${ATTACHED}${name}]\n${storedNote(stored)}` } });
+}
+async function attach(chosen: FileList) {
+  // Copied first: the input is cleared as soon as this is called, which empties the live FileList.
+  for (const f of [...chosen]) {
     if (f.size > 20 * 1024 * 1024) { showError(`${f.name} is too large. The limit is 20 MB.`); continue; }
     if (f.type === "application/pdf") {
-      pendingFiles.push({ name: f.name, part: { type: "file", file: { filename: f.name, file_data: await readDataUrl(f) } } });
+      // Sent whole when it fits, so the model sees layout and pictures. A long PDF is kept here as text instead;
+      // a scanned one (little text to extract) is always sent whole, since its text is only in the images.
+      let extracted: { text: string; pages: number } | null = null;
+      try { extracted = await pdfText(f); } catch (e) { console.warn("Could not read the PDF's text.", e); }
+      const scanned = !extracted || extracted.text.replace(/--- page \d+ ---|\s/g, "").length < extracted.pages * 100;
+      if (extracted && !scanned && estimateTokens(extracted.text.length) > INLINE_TOKEN_LIMIT) {
+        store(f.name, "pdf", extracted.text, extracted.pages, f);
+      } else {
+        pendingFiles.push({ name: f.name, part: { type: "file", file: { filename: f.name, file_data: await readDataUrl(f) } } });
+      }
     } else if (/^image\/(png|jpeg|gif|webp)$/.test(f.type)) {
       pendingFiles.push({ name: f.name, part: { type: "image_url", image_url: { url: await shrink(await readDataUrl(f), 1600) } } });
     } else {
@@ -758,11 +794,17 @@ async function attach(files: FileList) {
       if (f.name.endsWith(".json") || f.type === "application/json") {
         try { loaded = normalise(JSON.parse(text)); } catch { /* not JSON after all: send as text */ }
       }
+      let json = false;
+      if (!loaded && (f.name.endsWith(".json") || f.type === "application/json")) {
+        try { JSON.parse(text); json = true; } catch { /* not valid JSON: treat as text */ }
+      }
       if (loaded) {
         setRecords(loaded);
         flagFile();
         renderThread();
         pendingFiles.push({ name: f.name, part: { type: "text", text: `${ATTACHED}${f.name}]\n[Harness note: this was a health records file. It is now loaded in this browser for search_health_records, list_health_records and read_health_record; its contents are not in this message. Overview:\n${overview(loaded)}]` } });
+      } else if (json || estimateTokens(text.length) > INLINE_TOKEN_LIMIT) {
+        store(f.name, json ? "json" : "text", text);
       } else {
         pendingFiles.push({ name: f.name, part: { type: "text", text: `${ATTACHED}${f.name}]\n${text}` } });
       }
@@ -845,6 +887,7 @@ function wireSettings() {
     state = empty();
     await del(STATE_KEY);
     setRecords(null);
+    setFiles([]);
     renderThread();
     dialog.close();
   };
@@ -889,6 +932,11 @@ async function start() {
     records = (await get<Provider[]>(RECORDS_KEY)) ?? null;
   } catch (e) {
     console.warn("Could not read saved health records.", e);
+  }
+  try {
+    files = (await get<StoredFile[]>(FILES_KEY)) ?? [];
+  } catch (e) {
+    console.warn("Could not read saved files.", e);
   }
   try {
     const saved = await get<Saved>(STATE_KEY);

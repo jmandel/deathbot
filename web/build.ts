@@ -9,7 +9,7 @@ const dist = path.join(here, "dist");
 
 const files: Record<string, string> = {};
 for await (const f of new Glob("**/*.md").scan(skillDir)) {
-  if (/\.(verify(-\d+)?|resolution)\.md$/.test(f) || f === "HARNESS.md") continue; // author- and developer-side files, not for the agent
+  if (/\.(verify(-\d+)?|resolution)\.md$/.test(f)) continue; // card authors' working files, not for the agent
   files[f] = await Bun.file(path.join(skillDir, f)).text();
 }
 const environment = await Bun.file(path.join(here, "environment.md")).text();
@@ -27,6 +27,7 @@ const result = await Bun.build({
   entrypoints: [path.join(here, "src", "main.ts")],
   outdir: dist,
   target: "browser",
+  splitting: true, // pdf.js is loaded only when a long PDF arrives
   minify: true,
   sourcemap: "linked",
 });
@@ -36,6 +37,7 @@ if (!result.success) {
 }
 await cp(path.join(here, "src", "index.html"), path.join(dist, "index.html"));
 await cp(path.join(here, "src", "style.css"), path.join(dist, "style.css"));
+await cp(path.join(here, "node_modules", "pdfjs-dist", "build", "pdf.worker.min.mjs"), path.join(dist, "pdf.worker.min.mjs"));
 // Typefaces are served from our own files so the page makes no third-party font requests.
 const fonts: [string, string][] = [
   ["@fontsource/atkinson-hyperlegible/files", "atkinson-hyperlegible-latin-400-normal.woff2"],

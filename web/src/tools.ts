@@ -1,6 +1,7 @@
 import { skillFiles, knownUrls, normaliseUrl, listCards, cardTitle, areas } from "./skill";
-import { generateImage, type Settings } from "./agent";
+import { generateImage, type Settings, type Part } from "./agent";
 import { overview, search, list, read, type Provider } from "./records";
+import { listFiles, searchFiles, readFile, readPdfPages, renderPdfPages, MAX_IMAGE_PAGES, type StoredFile } from "./files";
 
 export interface DocumentItem { kind: string; title: string; markdown: string; savedAt: number }
 export interface VideoItem { url: string; title: string; note: string }
@@ -23,6 +24,8 @@ export interface Surface {
   getPhoto(): string | null;
   /** Health records loaded in this browser, if any. */
   getRecords(): Provider[] | null;
+  /** Long files and JSON the person shared, kept in this browser as text. */
+  getFiles(): StoredFile[];
 }
 export interface ToolContext { settings: Settings; callId: string; knownProgressIds: string[]; onStatus(text: string | null): void; signal?: AbortSignal }
 
@@ -85,6 +88,14 @@ export const clientTools = [
   fn("list_health_records", "Lists entries of one kind from the loaded health records, newest first, one line each.",
     { type: { ...str, description: "A FHIR resource type, e.g. Condition, MedicationRequest, Observation, Encounter, Procedure, AllergyIntolerance, Immunization" },
       contains: { ...str, description: "Optional: only entries whose line contains this text, e.g. 'creatinine'" } }, ["type"]),
+  fn("list_files", "Lists the files the person shared that are kept in this browser as text (too long to send whole, or JSON), with ids and sizes.", {}, []),
+  fn("search_files", "Searches the stored files for passages containing all the given words. Returns snippets with the file id and the offset to read from.",
+    { query: { ...str, description: "One or more words that must all appear near each other" } }, ["query"]),
+  fn("read_file", "Reads a stored file: 40,000 characters (about 10,000 tokens) from an offset, or with whole set, the entire file up to 400,000 characters.",
+    { id: { ...str, description: "File id, e.g. file-1" }, offset: { type: "integer", description: "Character offset to start from; default 0" }, whole: { type: "boolean", description: "Return the entire file in one go" } }, ["id"]),
+  fn("read_pdf_pages", "Reads pages of a stored PDF by page number: as text (up to 20 pages per call), or with as_images, as pictures of the pages showing layout, tables and figures (up to 5 pages per call).",
+    { id: { ...str, description: "File id, e.g. file-1" }, from: { type: "integer", description: "First page, counting from 1" }, to: { type: "integer", description: "Last page, inclusive" },
+      as_images: { type: "boolean", description: "Return the pages as images instead of text" } }, ["id", "from", "to"]),
   fn("read_health_record", "Returns one item from the loaded health records: a clinical note by its id (e.g. note-0-12), in pages of 12,000 characters, or a structured entry (e.g. Observation/abc), cut off at 8,000 characters.",
     { id: str, offset: { type: "integer", description: "For long notes: character offset to continue from" } }, ["id"]),
 ];
@@ -124,7 +135,7 @@ function resolveSkillPath(p: string): string {
 }
 
 /** Runs one tool call. Returns the text for the tool result; throws on bad input. */
-export async function runTool(name: string, input: unknown, ui: Surface, ctx: ToolContext): Promise<string> {
+export async function runTool(name: string, input: unknown, ui: Surface, ctx: ToolContext): Promise<string | Part[]> {
   switch (name) {
     case "read_skill_file": {
       const file = resolveSkillPath(need(input, "path").path);
@@ -202,6 +213,25 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
       const records = ui.getRecords();
       const o = input as { offset?: unknown };
       return records ? read(records, need(input, "id").id, typeof o.offset === "number" ? o.offset : 0) : NO_RECORDS;
+    }
+    case "list_files":
+      return listFiles(ui.getFiles());
+    case "search_files":
+      return searchFiles(ui.getFiles(), need(input, "query").query);
+    case "read_file": {
+      const o = input as { offset?: unknown; whole?: unknown };
+      return readFile(ui.getFiles(), need(input, "id").id, typeof o.offset === "number" ? o.offset : 0, o.whole === true);
+    }
+    case "read_pdf_pages": {
+      const o = input as { from?: unknown; to?: unknown };
+      if (typeof o.from !== "number" || typeof o.to !== "number") throw new Error("from and to must be page numbers");
+      const id = need(input, "id").id;
+      if ((input as { as_images?: unknown }).as_images !== true) return readPdfPages(ui.getFiles(), id, o.from, o.to);
+      const f = ui.getFiles().find((x) => x.id === id);
+      if (!f || f.kind !== "pdf") throw new Error(`no stored PDF with id "${id}"`);
+      const { first, last, images } = await renderPdfPages(f, o.from, o.to);
+      const more = last < Math.min(f.pages ?? last, o.to) ? ` At most ${MAX_IMAGE_PAGES} pages per call: continue from page ${last + 1}.` : "";
+      return [{ type: "text", text: `${f.name}, pages ${first}-${last} of ${f.pages}, as images.${more}` }, ...images.map((url): Part => ({ type: "image_url", image_url: { url } }))];
     }
     default:
       throw new Error(`unknown tool: ${name}`);
