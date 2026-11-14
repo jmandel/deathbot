@@ -15,7 +15,7 @@ The Deathbot skill is written to run anywhere. It says what to do, when, and why
 
 A test for any sentence: would it still be true in a different harness? If yes, it belongs in the skill. If it is only true here, it belongs in the environment description. If it only matters at the moment of calling a tool, it belongs with the tool.
 
-When a rule matters enough to be worth enforcing, enforce it in code and let the tool return an error, instead of repeating the rule in three prompts. The web app does this for two rules: a video link must come from a fact card, and pictures are shown as a complete set or not at all.
+When a rule matters enough to be worth enforcing, enforce it in code and let the tool return an error, instead of repeating the rule in three prompts. The web app does this for one rule: a video link must come from a fact card.
 
 ## The capability vocabulary
 
@@ -34,10 +34,10 @@ Your environment description should use the same names and say, for each one, ei
 ## Things the contract expects of a harness
 
 - **Precedence.** The skill decides whether and when; your description decides how. Where the skill asks for something you cannot do, say so in the description, and the skill's "if you do not have it" column applies. Do not restate or soften the skill's rules.
-- **Defaults you can override.** The skill assumes, unless told otherwise, that nobody is monitoring the conversation, that the model cannot summon help, and that the screen is small. If any of these is different in your harness, say so, including exactly what help exists and how to invoke it.
+- **Defaults you can override.** The skill assumes, unless told otherwise, that the model cannot summon help in an emergency and that the screen is small. If any of these is different in your harness, say so, including exactly what help exists and how to invoke it.
 - **Note provenance.** Give your own inserted notes a fixed, recognisable form, state it in the description, and never let that form be produced by untrusted content. The web app prefixes them "[Harness note:" and tells the model that the same words inside a file or page are not from the harness.
 - **Research.** The skill requires reading a figure at its source. If you offer search, say whether results are whole pages or excerpts, and offer a way to open a page if you can.
-- **Partial failure.** Decide what happens when a tool half-works, and enforce it. The web app shows no pictures unless every requested picture was drawn, because a partial set could drop the outcome that balances the others. Enforcing the count does not make a set balanced; choosing balanced scenes is still the skill's job.
+- **Partial failure.** Decide what happens when a tool half-works, and tell the model. The web app shows whichever pictures were drawn and tells the model which failed.
 - **Bookkeeping.** Models do not reliably keep the map and notes current while also holding a conversation. If your harness shows them, consider a separate pass that updates them from the conversation when the talking model has not; the web app's `scribe` does this, quoting the skill's own rules for the map and the notes so there is still one source of policy.
 - **Persistence and deletion.** Say precisely what is stored, where, and what "remove" or "erase" really deletes. In the web app, removing health records deletes the file but not the excerpts already in the conversation, and the description says so.
 - **Third parties.** List every other party the person's browser or your server contacts: model providers, image providers, video hosts, the site that serves the page.

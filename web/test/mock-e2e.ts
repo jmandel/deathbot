@@ -200,7 +200,6 @@ try {
   check((await text("#log .open-card")).includes("CPR (cardiopulmonary resuscitation)"), "the fact card appears in the conversation");
   check(!(await text("#log")).includes("evil.example") && !(await evaluate(`document.querySelector("#log iframe")`)), "a link that is not in the cards is not shown");
   check((await evaluate(`document.querySelectorAll("#log .scene img").length`)) === 2, "two pictures are shown together in the conversation");
-  check((await text("#log .scene-set")).includes("don't show what will happen to you"), "pictures carry the not-a-prediction line");
   check((await text("#log .doc-preview")).includes("What matters to me"), "the document appears in the conversation");
   check((await text("#log .sources")).includes("MedlinePlus"), "web-search sources are listed under the reply");
   check(!(await text("#log")).includes("Updated its notes"), "no tool chatter in the conversation");

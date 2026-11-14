@@ -24,4 +24,4 @@ I may change my mind as things change, and I'll tell you if I do. I'd like to ta
 
 ---
 
-*Written with the help of Deathbot, an AI tool. This letter is not a legal document. Naming someone as a health care agent legally requires a signed form under your state's rules.*
+*Written with the help of Deathbot, an AI tool.*

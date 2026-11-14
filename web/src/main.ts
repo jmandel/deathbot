@@ -181,7 +181,6 @@ function youtubeId(url: string): string | null {
 }
 function sceneGrid(items: SceneItem[]): HTMLElement {
   const box = h("div", "scene-set");
-  box.append(h("p", "fine", "AI-drawn illustrations of what these situations can look like. They don't show what will happen to you, and details may be wrong."));
   const grid = h("div", "scenes");
   for (const s of items) {
     const fig = h("div", "scene");

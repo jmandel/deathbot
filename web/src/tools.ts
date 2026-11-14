@@ -61,10 +61,10 @@ export const clientTools = [
   fn("show_document", "Puts a document in the conversation with buttons to read, print, copy and download, and lists it under Your file. Sending the same kind again replaces the earlier one there, except kind \"other\".",
     { kind: { type: "string", enum: ["summary", "proxy_letter", "clinician_note", "other"] }, title: str, markdown: str },
     ["kind", "title", "markdown"]),
-  fn("show_scenes", "Draws two or three pictures and shows them together in the conversation. Returns an error, and shows nothing, if any of them cannot be drawn. Usually under a minute; gives up after two. Governed by guide/images.md in the skill.",
+  fn("show_scenes", "Draws one to three pictures and shows them together in the conversation. Shows whichever are drawn and reports any that failed; returns an error only if none could be drawn. Usually under a minute; gives up after two. Governed by guide/images.md in the skill.",
     {
       scenes: {
-        type: "array", minItems: 2, maxItems: 3,
+        type: "array", minItems: 1, maxItems: 3,
         items: {
           type: "object",
           properties: {
@@ -139,7 +139,7 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
     case "show_video": {
       const { url, title, note } = need(input, "url", "title", "note");
       if (!knownUrls.has(normaliseUrl(url))) {
-        throw new Error("That link is not in a fact card, so it has not been checked and cannot be embedded. Use a link from a card, or give the link in your reply and say it is unchecked.");
+        throw new Error("That link is not in a fact card, so it has not been checked and cannot be embedded. Use a link from a card, or give the link in your reply as ordinary text.");
       }
       void title; void note;
       return "Shown to the person.";
@@ -166,7 +166,7 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
     }
     case "show_scenes": {
       const o = input as { scenes?: unknown; use_photo?: unknown };
-      if (!Array.isArray(o?.scenes) || o.scenes.length < 2) throw new Error("show_scenes needs at least two scenes, shown together");
+      if (!Array.isArray(o?.scenes) || o.scenes.length < 1) throw new Error("show_scenes needs at least one scene");
       const scenes = o.scenes.slice(0, 3).map((s) => need(s, "title", "prompt", "caption"));
       const photo = o.use_photo === true ? ui.getPhoto() : null;
       ctx.onStatus(`Drawing ${scenes.length} pictures. This can take a minute…`);
@@ -180,8 +180,7 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
         if (r.status === "fulfilled") shown.push({ title: scenes[i].title, caption: scenes[i].caption, dataUrl: r.value.dataUrl, personalised: !!photo });
         else failed.push(`${scenes[i].title}: ${r.reason instanceof Error ? r.reason.message : r.reason}`);
       });
-      // All or nothing: a partial set could lose the path that balances the others.
-      if (failed.length || shown.length < 2) throw new Error(`Could not make all the pictures (${failed.join("; ") || "unknown error"}). Nothing was shown.`);
+      if (!shown.length) throw new Error(`Could not make the pictures (${failed.join("; ") || "unknown error"}). Nothing was shown.`);
       ui.showScenes(ctx.callId, shown);
       const photoNote = o.use_photo === true && !photo ? " The person has not added a photo, so a generic person was drawn." : "";
       return `Shown in the conversation: ${shown.map((s) => s.title).join("; ")}.${failed.length ? ` Failed: ${failed.join("; ")}.` : ""}${photoNote} You cannot see the pictures yourself; ask the person what they notice.`;

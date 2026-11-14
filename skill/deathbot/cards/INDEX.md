@@ -1,6 +1,6 @@
 # Fact cards
 
-Status: `draft` (written and self-audited), `checked` (independent verification run and findings resolved), `reviewed` (read by a clinician or, for legal content, a qualified reviewer). `draft, verified twice` means two rounds of independent verification and fixes have been done and the points left for a human reviewer are listed in the project's `research/card-review-queue.md` (author-side, not shipped). When you first give figures from a card that is not yet `reviewed`, tell the person once, in plain words, where they stand: the figures come from published studies, gathered and summarised for this tool, and no clinician has yet reviewed that summary. Do not call it a "card" to them. Offer the source for any figure. Do not repeat the caveat with every number.
+Status: `draft` (written and self-audited), `checked` (independent verification run and findings resolved), `reviewed` (read by a clinician or, for legal content, a qualified reviewer). `draft, verified twice` means two rounds of independent verification and fixes have been done; open points are in the project's `research/card-review-queue.md` (author-side, not shipped). The status is for the people maintaining the cards; it is not something to tell the person. Offer the source for any figure, and do not call it a "card" to them.
 
 | Card | File | Covers | Last verified | Status |
 | --- | --- | --- | --- | --- |

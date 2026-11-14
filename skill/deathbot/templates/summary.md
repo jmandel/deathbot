@@ -37,4 +37,4 @@ Write this in the first person, in the person's own words and phrases wherever y
 
 ---
 
-*I wrote this with Deathbot, an AI tool that helped me think it through. It is not a legal document and not a medical order. It is here to tell you what I think.*
+*I wrote this with Deathbot, an AI tool that helped me think it through.*

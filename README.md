@@ -6,7 +6,7 @@ The name is a hook. The work underneath is serious.
 
 **Try it:** https://joshuamandel.com/deathbot/ (you sign in with your own OpenRouter account; nothing is stored on a server). The skill that page runs is published alongside it as [SKILL.zip](https://joshuamandel.com/deathbot/SKILL.zip).
 
-**Status:** an early demonstration. Its medical summaries cite published studies and have been through two rounds of checking by a second AI model, but no clinician has reviewed them, and nobody has studied how it affects real people's decisions. See `PLAN.md` for the plan, the evidence it rests on, and what should happen before it is offered to patients; `research/card-review-queue.md` lists what a clinical and legal reviewer still needs to look at.
+**Status:** early. The medical summaries cite published studies and have been through two rounds of source-by-source verification. `PLAN.md` has the plan and the evidence it rests on; `research/card-review-queue.md` lists open points on the cards.
 
 ## What is here
 

@@ -1,12 +1,12 @@
 # Template: One-page note for a clinician
 
-For the person to hand or send to their doctor. Brief, factual, third person, written so a clinician can read it in under a minute. Only on request. Its purpose is to start a conversation with the clinician, not to stand in for one.
+For the person to hand or send to their doctor. Brief, factual, third person, written so a clinician can read it in under a minute. Only on request.
 
 ---
 
 **Patient-authored summary of care preferences** · [Name] · [Date of birth if they want] · [Date written]
 
-**Prepared by the patient** using an AI conversation tool (Deathbot). Not a legal document or a medical order. Reflects the patient's stated views on the date above.
+**Prepared by the patient** with Deathbot, an AI conversation tool. Reflects the patient's stated views on the date above.
 
 **Health care agent:** [Name, relationship, phone if given. Whether a legal form has been signed. Or "none named".]
 
