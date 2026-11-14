@@ -4,13 +4,14 @@ Tools for recording a scripted session of the web app on an Android emulator: a 
 
 ## Setup
 
-- Emulator `deathbot_demo` (Pixel 8 profile, `android-37.0;google_apis_playstore`). Start it with its audio output going to a virtual PulseAudio sink: `PULSE_SINK=demo_mic PULSE_SOURCE=demo_mic_src emulator -avd deathbot_demo -allow-host-audio -gpu swiftshader_indirect`. Media volume to maximum, `settings put system show_touches 1`.
+- Emulator `deathbot_demo` (Pixel 8 profile, `android-37.0;google_apis_playstore`). Start it with `PULSE_SINK=demo_mic emulator -avd deathbot_demo -no-boot-anim -no-snapshot-load -gpu swiftshader_indirect`. Media volume to maximum, `settings put system show_touches 1`.
 - Open the site in Chrome with a share link (`#k=…`), then `adb forward tcp:9471 localabstract:chrome_devtools_remote`. Port 9333 belongs to the desktop Chrome on this machine; do not use it.
-- `bun drive.ts install-shim` in the background. It must stay running: the dictation stand-in is registered only while its DevTools session is open.
 
 ## Speech
 
-The emulator's microphone input garbles audio into clicks, whatever is fed into it, and Google speech recognition does not work on the image without a signed-in Google account. So spoken turns work like this. The patient's line is synthesised with `gemini-api tts --voice Algenib`. `drive.ts speak` turns the app's microphone on and plays the clip through the phone, so it is on the recording's soundtrack. It then transcribes that clip with Gemini, and `dictation-shim.js` delivers the words through the same events the browser's recognizer would. The app's own dictation code handles them from there.
+Frank's spoken lines are synthesised with `./frank-say.sh "TEXT" OUT.wav` (Gemini TTS, voice Charon, with director's notes for an older man short of breath). Gemini sometimes reads style instructions aloud, so the script transcribes each clip and regenerates it until the notes are absent and the clip starts with the line's own words.
+
+`bun drive.ts speak OUT.wav` taps the app's microphone and injects the clip into the emulator's microphone over gRPC (`~/hobby/.agent-scratch/mic-debug/tools/say.sh`, real-time mode). Chrome's own speech recognition transcribes it live into the message box, word by word. Launch the emulator without `-allow-host-audio`; playing audio in the page while injecting crashed it. The soundtrack does not carry the voice: `speak` logs `voice <time> <wav>` to `marks.log`, and the edit mixes each clip in at that time. Set `ANDROID_SERIAL=emulator-5554` when a phone is also connected.
 
 ## Recording and editing
 
