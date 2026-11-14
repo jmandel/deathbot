@@ -159,6 +159,9 @@ try {
     case "key":
       await $`adb shell input keyevent ${args[0]}`;
       break;
+    case "clearcache":
+      await send("Network.clearBrowserCache");
+      break;
     case "pause":
       await sleep(Number(args[0]) * 1000);
       break;
