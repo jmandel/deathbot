@@ -13,13 +13,13 @@ Apply the same rule to any letter or message you draft for their proxy, family o
 **[Name]** · [Date of birth, if they want it] · Summary of views expressed on [date].
 
 ## Who speaks for me
-[Name, relationship, how to reach them. Whether they have agreed. Whether the proxy form is signed. A backup. Or: "I haven't chosen anyone yet."]
+[Name, relationship, how to reach them. Whether they have agreed. Whether the proxy form is signed. A backup. Or a line saying no one is chosen yet.]
 
 ## Who I am
 [What my life is like, who is in it, what a good day looks like.]
 
 ## My health, as I understand it
-[Conditions and outlook in their words, and where it came from: "what my doctors have told me", "from my records".]
+[Conditions and outlook in their words, and where it came from: [what their doctors told them], [their records].]
 
 ## What matters most to me
 [What they would not want to live without; what they are living for; faith, where they want to be, who they want there.]
