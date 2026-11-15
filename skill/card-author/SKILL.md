@@ -20,7 +20,7 @@ Read `format.md` (the card format and its rules) and `lessons.md` (what has gone
 1. **Scope.** List the questions a patient would actually ask about this topic and the decisions it bears on. List the paths that must be described (the treatment, declining it, anything in between). Check `skill/deathbot/cards/INDEX.md` so the card does not duplicate another; cross-reference instead.
 2. **Research.** Search for the best current sources (see the source order in `format.md`). Open each one. For every figure you intend to use, record: the exact figure as stated, the population, the years of data, the source and where in it the figure appears. Do not write figures from memory, from abstracts of papers you could not open when the full text disagrees, or from secondary sites when the primary is available.
    Then look for videos and plain-language explainers, as described under "Finding and checking videos" in `format.md`. Read or watch each one before listing it.
-3. **Draft** the card in the format. Keep the three layers separate. Write the patient-facing parts in plain words.
+3. **Draft** the card in the format. Keep the two parts separate: the part for the person in plain words, the evidence in the part for Deathbot.
 4. **Self-audit** before anyone else looks:
    - Every number has population, range or interval where available, source and year.
    - No number is in the body that you could not confirm; those are under "Not verified".
@@ -42,7 +42,7 @@ Read `format.md` (the card format and its rules) and `lessons.md` (what has gone
 - `checked`: independent verification run and all findings resolved.
 - `reviewed`: a clinician (or for legal cards, a qualified reviewer) has read it. Record who and when.
 
-Deathbot may use `draft` cards but must tell the person the figures have not been independently checked.
+Deathbot may use `draft` cards. Card status is for the people maintaining the cards, not something Deathbot tells the person.
 
 ## Keeping cards current
 

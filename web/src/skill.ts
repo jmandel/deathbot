@@ -36,6 +36,14 @@ export function cardTitle(file: string): string {
  * are guidance for it, not reading for the patient, so they are left out here.
  */
 export function cardForPerson(file: string): string {
+  const text = skillFiles[file] ?? "";
+  // A card in two parts: the person reads the part for them, with the source list folded at the end.
+  const split = text.search(/^# For Deathbot\s*$/m);
+  if (split >= 0) {
+    const forPerson = text.slice(0, split).replace(/^# For the person\s*$/m, "").replace(/\n{3,}/g, "\n\n").trim();
+    const sources = /^## Sources\s*$([\s\S]*?)(?=^## |(?![\s\S]))/m.exec(text.slice(split))?.[1]?.trim();
+    return sources ? `${forPerson}\n\n<details><summary>Sources</summary>\n\n${sources}\n\n</details>\n` : `${forPerson}\n`;
+  }
   const out: string[] = [];
   let skipping = false;
   for (const line of (skillFiles[file] ?? "").split("\n")) {

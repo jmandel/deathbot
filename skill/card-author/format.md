@@ -2,7 +2,7 @@
 
 A fact card is reference material the Deathbot skill reads while talking with a person about end-of-life care. It must be accurate, sourced, balanced and written so the model can explain it to a non-clinician.
 
-Length: at most 1,800 words before the Sources list, not counting the "Worth watching or reading" list (draft to about 1,400, because verification fixes add words; count without table pipes and citation markers), with at most 12 rows in the evidence table. If the scope will not fit, split the card along a natural seam and cross-reference; do not squeeze, and do not silently overrun.
+Length: the part for the person at most about 700 words (not counting "Worth watching or reading"); the whole card at most 1,800 words before the Sources list, not counting that list (draft to about 1,400, because verification fixes add words; count without table pipes and citation markers), with at most 12 rows in the evidence table. If the scope will not fit, split the card along a natural seam and cross-reference; do not squeeze, and do not silently overrun.
 
 Rules:
 - Every number states who was studied, the figure with its range or confidence interval where available, the source and the year. Open the source and read the number there; do not write numbers from memory, and never take a figure from a search-result snippet or an AI summary of a page.
@@ -21,43 +21,53 @@ Rules:
 - If no good patient-facing video or explainer exists for the topic, say so under "Worth watching or reading", with the search date. Fewer honest links beat padded ones.
 - Videos: see "Finding and checking videos" below.
 
-Cards are written for the model, but a harness may show one to the person. Two sections are for the model only and are left out when a card is shown: "Applying this to one person" and "Not verified". Put nothing in them that the person would need, and nothing elsewhere that only the model should see. Keep the "(Layer 1: ...)" style labels on their own line so they can be dropped too.
+A card has two parts, one for each reader:
 
-Sections, in this order:
+- **For the person.** A harness shows this part to the person and their family when the card is offered; it is what they read, perhaps aloud, perhaps later with the person who would speak for them. Write it for a non-clinician of about 75 on a phone: plain words, short paragraphs, no tables, no cohort sizes, no inline citations. Give only the few figures that matter most, each with who was studied in a few words ("people over 80 whose hearts stopped in hospital"), its year, and what it does not capture. Every figure here must appear, with its source, in the part for Deathbot. At most about 700 words, not counting the list of videos and reading.
+- **For Deathbot.** Everything the model needs to answer questions accurately: the evidence in detail, what changes the odds, how to reason about one person, the sources and what could not be verified. The person never sees this part, except the source list, which a harness may offer folded at the end. Put nothing here that the person needs, and nothing in the person's part that only the model should see.
+
+Sections, in this order (keep the two part headings exactly; a harness splits the card at them):
 
 ```
 # <Topic>
 
 Last verified: YYYY-MM-DD
 
+# For the person
+
 ## In one breath
 Two or three plain sentences.
 
 ## What it is and what it involves
-(Layer 1: established fact.) What is physically done, by whom, where, for how long.
+What is physically done, by whom, where, for how long.
 
 ## What it is like
 For the person. For the family.
 
 ## How it tends to go
-(Layer 2: population estimates.) A table:
-| Finding | Who was studied | Figure (range) | Source, year |
-Then a sentence or two on what the numbers do not capture.
-
-## What changes the odds
-Factors that make outcomes better or worse, with sources.
+The few figures that matter most, in plain sentences, each with who was studied and the year, and what the numbers do not capture. No table.
 
 ## The other paths
-What happens without it; time-limited trials; less invasive options. Same level of detail and honesty.
-
-## Applying this to one person
-(Layer 3 guidance for the bot.) What can fairly be reasoned about an individual, which facts would settle the picture, and any validated prediction tools (name, what it needs, what it predicts, its limits, link).
+What happens without it; time-limited trials; less invasive options. Same honesty, same plainness.
 
 ## Common misunderstandings
 Each with the correction.
 
 ## Worth watching or reading
 Links a patient could use: 2 to 4 videos, then up to 6 plain-language explainers from reputable sources. One line each: linked title, who made it, year if known, length, and what it shows in one plain sentence. Say "shows a real patient", "simulation", "UK practice", "made for clinicians" or "personal channel" where true. Confirm each link loads.
+
+# For Deathbot
+
+## The evidence in detail
+A table, at most 12 rows:
+| Finding | Who was studied | Figure (range) | Source, year |
+Then a sentence or two on what the numbers do not capture.
+
+## What changes the odds
+Factors that make outcomes better or worse, with sources.
+
+## Applying this to one person
+What can fairly be reasoned about an individual, which facts would settle the picture, and any validated prediction tools (name, what it needs, what it predicts, its limits, link).
 
 ## Sources
 Numbered, with URLs. End each entry with how you read it: [full text], [abstract only], [official page], or [secondary copy]. A legal or benefit rule must be read in the statute, regulation or official page itself; if you only saw a summary of it, say [summary only] and list it under Not verified.
