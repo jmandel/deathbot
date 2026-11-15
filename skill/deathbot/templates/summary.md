@@ -10,7 +10,7 @@ Apply the same rule to any letter or message you draft for their proxy, family o
 
 # What matters to me
 
-**[Name]** · [Date of birth, if they want it] · Written [date] · This is my thinking today. If I change my mind I'll update this and replace the old copies.
+**[Name]** · [Date of birth, if they want it] · Summary of views expressed on [date].
 
 ## Who speaks for me
 [Name, relationship, how to reach them. Whether they have agreed. Whether the proxy form is signed. A backup. Or: "I haven't chosen anyone yet."]
@@ -28,13 +28,13 @@ Apply the same rule to any letter or message you draft for their proxy, family o
 [In their words.]
 
 ## What I would and would not want
-[Each treatment or situation they addressed, with its conditions: "I'd accept a ventilator for a short trial if there's a real chance I'd recover. Not more than a couple of weeks if I'm not getting better."]
+[Only preferences they expressed, with their conditions and unresolved questions.]
 
 ## How I weigh the hard trade-offs
-[Time against comfort, a chance of recovery against surviving in a state they would hate. Their words.]
+[Trade-offs they actually described; omit if already captured above.]
 
 ## What I haven't decided
-[Open questions, stated honestly.]
+[Questions the person identified or clarification needed for something they expressed. Do not list every untouched topic.]
 
 ## To the person who speaks for me
 [How much leeway that person has when situations do not match what is written here, and anything the person specifically asked to say to them.]
@@ -44,4 +44,4 @@ Apply the same rule to any letter or message you draft for their proxy, family o
 
 ---
 
-*I wrote this with Deathbot, an AI tool that helped me think it through.*
+*Prepared with Deathbot from this conversation.*

@@ -44,7 +44,7 @@ const fn = (name: string, description: string, properties: Record<string, unknow
 export const clientTools = [
   fn("read_skill_file", "Returns the text of a file from the Deathbot skill (a fact card, a template or a guide). The person does not see it.",
     { path: { ...str, description: "Path relative to the skill, e.g. cards/cpr.md" } }, ["path"]),
-  fn("update_notes", "Replaces the working notes shown to the person under Your file. Markdown.",
+  fn("update_notes", "Replaces the working notes shown to the person under Your file. Markdown. Record what the person said and where it came from, with what is still unresolved; keep your own interpretations apart from what they confirmed.",
     { markdown: str }, ["markdown"]),
   fn("update_progress", "Updates the map of the conversation shown to the person under Your file. Send only the items that changed. An id that is not one of the standard areas creates a new item and needs a title. `next` replaces the list of suggested next steps.",
     {
@@ -54,12 +54,12 @@ export const clientTools = [
         summary: { ...str, description: "One short line shown under the title" },
         title: { ...str, description: "Only for a new item of your own: the title shown to the person" },
       }, required: ["id", "status"] } },
-      next: { type: "array", maxItems: 2, items: str, description: "Ids of up to two items to show as suggested next steps. Send an empty list to clear them." },
+      next: { type: "array", maxItems: 2, items: str, description: "Optional: ids of up to two items to mark quietly on the map as possible next steps. This is for the map under Your file, not something to suggest in your reply. Omit to leave unchanged; an empty list clears them." },
     }, ["items"]),
   fn("reply", "Says something to the person, with anything you want to show them alongside it. This ends your turn: the page shows the reply and waits for the person. Tool calls in the same response still run, but you see their results only on your next turn, so read what you need before replying.",
     {
-      text: { ...str, description: "What you say to the person, in markdown. Shown as your message." },
-      replies: { type: "array", maxItems: 5, items: str, description: "Optional ready-made answers, each written as the person would say it. Shown as buttons under your message; tapping one sends it." },
+      text: { ...str, description: "Your message to the person. Follow guide/voice.md; long formatted text belongs in a document." },
+      replies: { type: "array", maxItems: 5, items: str, description: "Omit by default. Include only when buttons help the person answer a choice already in front of them, following guide/conversation.md. Each button sends its text as the person's message." },
       card: { ...str, description: "Optional: a fact card to show as a block the person can open and read, with its sources, e.g. cards/cpr.md" },
       video: { type: "object", description: "Optional: a video to embed. Only links that appear in a fact card are accepted.",
         properties: { url: str, title: str, note: { ...str, description: "One or two sentences shown above the video, saying what the person will see." } }, required: ["url", "title", "note"] },
@@ -203,7 +203,7 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
       if (!shown.length) throw new Error(`Could not make the pictures (${failed.join("; ") || "unknown error"}). Nothing was shown.`);
       ui.showScenes(ctx.callId, shown);
       const photoNote = o.use_photo === true && !photo ? " The person has not added a photo, so a generic person was drawn." : "";
-      return `Shown in the conversation: ${shown.map((s) => s.title).join("; ")}.${failed.length ? ` Failed: ${failed.join("; ")}.` : ""}${photoNote} You cannot see the pictures yourself; ask the person what they notice.`;
+      return `Shown in the conversation: ${shown.map((s) => s.title).join("; ")}.${failed.length ? ` Failed: ${failed.join("; ")}.` : ""}${photoNote} You cannot see the pictures.`;
     }
     case "offer_health_records":
       return ui.getRecords()

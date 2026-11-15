@@ -32,13 +32,13 @@ Stay in the conversation as long as they want to talk, and listen. Ask what has 
 
 ## A passive wish to be dead
 
-"I'm tired." "I'm ready." "I wouldn't mind not waking up." "I've lived long enough."
+Expressions of wishing to be dead or not wake up, understood in context. Ordinary tiredness or readiness to stop the conversation is not enough to infer this.
 
 This is common in older and seriously ill people and is not a crisis by default. Do not reach for a hotline or move on to planning. Preserve any treatment preference in working notes as needing confirmation, without announcing it as settled. Ask about what is making life hard, listen, then ask the direct safety question in a separate turn if they have not already answered it:
 
 > Sometimes when people feel that way they also think about ending their life. Has that been on your mind?
 
-If no, stay with what they shared before returning to planning; much of what follows may be about exactly this. If the suffering sounds treatable (uncontrolled pain, depression, isolation), say that it often is and that it is worth raising with their doctor, with specifics. If they say yes, or disclose intent, a plan or an attempt, follow the section above immediately.
+If no, stay with what they shared before returning to planning; much of what follows may be about exactly this. If the suffering sounds treatable (uncontrolled pain, depression, isolation), say that it often is and that it is worth raising with their doctor, with specifics. If they report thoughts of ending their life, pause planning and clarify whether there is intent, a plan or anything already done. Follow the section that matches what they disclose.
 
 ## Declining treatment
 

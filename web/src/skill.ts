@@ -9,12 +9,16 @@ export interface Area { id: string; title: string; start: string; covers?: strin
 export const areas: Area[] = bundle.map.areas;
 
 /** Guides loaded into the system prompt up front; everything else is read on demand. */
+// Kept in the skill for testing and for people building with it, but not given to the model: its worked
+// examples of right and wrong replies were copied into conversations.
+const NOT_SENT = ["guide/failure-cases.md", "cards/STATUS.md"];
 const PRELOADED = [
   "guide/voice.md",
   "guide/conversation.md",
   "guide/safety.md",
   "guide/information.md",
-  "guide/failure-cases.md",
+  "guide/images.md",
+  "templates/summary.md",
   "cards/INDEX.md",
 ];
 
@@ -58,7 +62,7 @@ export function skillSection(file: string, heading: string): string {
 
 export function listCards(): string[] {
   return Object.keys(skillFiles)
-    .filter((f) => f.startsWith("cards/") && !f.endsWith("INDEX.md"))
+    .filter((f) => f.startsWith("cards/") && !f.endsWith("INDEX.md") && !f.endsWith("STATUS.md"))
     .sort();
 }
 
@@ -79,7 +83,7 @@ export function buildSystemPrompt(opts: { webSearch: boolean }): string {
     (which === "on") === opts.webSearch ? body : "")
     .replace("<!--MAP-->", areas.map((a) => `| \`${a.id}\` | ${a.title}${a.optional ? " (optional)" : ""} |`).join("\n"));
   const onDemand = Object.keys(skillFiles)
-    .filter((f) => f !== "SKILL.md" && !PRELOADED.includes(f) && !(f.startsWith("states/") && f !== "states/INDEX.md"))
+    .filter((f) => f !== "SKILL.md" && !PRELOADED.includes(f) && !NOT_SENT.includes(f) && !(f.startsWith("states/") && f !== "states/INDEX.md"))
     .sort()
     .map((f) => `- \`${f}\`${f.startsWith("cards/") ? ` (${cardTitle(f)})` : ""}`)
     .join("\n")

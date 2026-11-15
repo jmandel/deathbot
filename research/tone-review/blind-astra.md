@@ -1,0 +1,32 @@
+Scores assess Deathbot’s behavior, not the simulated person’s satisfaction. The transcripts show document titles but omit their contents, so I cannot assess summary fidelity; approval from the simulated person is not evidence that a document is accurate.
+
+1. **T1 — 5/10.** Deathbot explains the proxy’s role and respects Rosa’s wish for treatment, but permission for “a little bit” becomes a long, unsolicited statistical briefing across several populations. Repeated menus and “How does that sit with you” leave less room for her response than the apparent openness suggests. Evidence: “about 23 in 100 … about 16 in 100 … about 18 in 100 … about 40 in 100.”
+
+2. **T2 — 4/10.** There is useful attention to whether Ana can honor Rosa’s wishes, but Deathbot introduces assumptions about ICU nurses before Rosa describes Ana’s concerns, then repeatedly steers toward treatment limits. Its reassurance about withdrawal exceeds what it can promise and is visibly taken as a guarantee. Evidence: “stopping a breathing machine in the ICU is planned, never rushed.”
+
+3. **T3 — 7/10.** This is comparatively responsive: no statistical dump or button menus, and meaningful exploration of acceptable life after treatment rather than immediate treatment selection. It still claims to understand Ana’s perspective, repeats a generic check-in, and simplifies prolonged ventilation into a narrow choice. Evidence of its stronger approach: “what kind of life afterward would still feel worth pushing through a long recovery for?”
+
+4. **T4 — 5/10.** Deathbot follows Frank’s history, respects his refusal to revisit Marie’s death, and accepts his volunteered denial of self-harm without forcing another screening question. But explanations become long, menus recur, family conflict is treated as something a form will prevent, and feeding-tube preferences are elicited immediately after a simplified explanation. Evidence: “Putting her name on that form … keeps the two of them out of a fight.”
+
+5. **T5 — 6/10.** It explicitly asks whether Frank wants numbers, distinguishes the ventilated population from everyone using oxygen, and later explores Lisa’s discretion. However, alarming figures from substantially different populations accumulate without checking what Frank inferred, while reflections prematurely declare clarity and the CPR discussion returns to a lengthy recital. Evidence: “That only counts people who needed the tube, not everyone on home oxygen.” The conversation ends before a settled CPR preference or document.
+
+6. **T6 — 7/10.** Deathbot answers Rosa’s practical concerns, prepares the proxy, offers rather than imposes numbers, and honors her refusal of statistics. Its remaining weakness is steering through confident interpretations: it repeatedly explains what Ana supposedly thinks and presents a tracheostomy/facility scenario as the decisive boundary. Evidence: “That’s likely what Ana has in mind.” “Remarkably clear” also overstates how much has been resolved.
+
+7. **T7 — 6/10.** Permission before figures, correction of Frank’s prognosis misunderstanding, respect for his grief boundary, and exploration of Lisa’s leeway are strengths. But Deathbot endorses refusal more readily than it examines it, supplies a three-option treatment menu, and records no CPR immediately after Frank equates survival with an inevitable nursing-home outcome. Evidence: “That’s crystal clear—no CPR if your heart stops.”
+
+8. **T8 — 4/10.** Deathbot makes some useful distinctions about study populations and acknowledges Frank’s wish not to discuss Marie. Nevertheless, menus dominate, it endorses Mike as backup without checking whether he could honor Frank’s wishes, and its later CPR explanation changes hospital-discharge survival into the chance of restarting the heart. Evidence: “a small chance of restarting your heart—roughly 1 in 10 outside a hospital.” It then accepts the refusal produced by that framing without clarification.
+
+Two groups are visible, although I would not claim certainty about the hidden prompt assignment:
+
+- **T1, T2, T4, T8:** more button menus, longer statistical explanations, more administrative transitions and repeated choices about what to discuss next.
+- **T3, T5, T6, T7:** fewer menus and more sustained conversational threads. T5 and T7 ask before giving outcome figures; T6 offers them and respects refusal; T3 explains without requiring statistics.
+
+The second group is better on conversational shape, but not consistently better on neutrality or precision. Both groups retain formulaic empathy, premature declarations of clarity and a tendency to organize the discussion around eventual treatment limits.
+
+The three most important remaining problems are:
+
+1. **Neutrality is declared more reliably than practiced.** Rosa’s preference for full treatment repeatedly leads to finding a stopping boundary; Frank’s refusal often receives affirmation despite unresolved understanding. T7 says a nursing home with tracheostomy is “a hard no,” then later accepts “no CPR” without addressing his assumption that survivors inevitably enter nursing homes. T6 asks whether there is “a point where you’d want Ana to step in and say enough” while Rosa is asking how to ensure treatment is tried. Exploring limits is legitimate; making limits the recurring destination is the problem.
+
+2. **Information is insufficiently paced and sometimes changes meaning.** T1 and T2 supply multiple populations and outcomes without asking whether Rosa wants figures; T8 eventually confuses restarting the heart with surviving to discharge. T5’s different-population evidence culminates in Frank’s “9 out of 100,” but Deathbot does not check which population he now thinks that number describes. Naming a study is not enough to establish understanding.
+
+3. **Helpful reassurance becomes unsupported certainty.** T2 promises withdrawal is “never rushed”; T4 says naming Lisa “keeps the two of them out of a fight”; T8 calls naming Mike backup something that “makes a lot of sense” without testing his suitability. These claims smooth the conversation while concealing unresolved practical questions. The facilitator standard is preparation for uncertainty, including the proxy’s willingness and judgment—not reassurance that the difficult parts have been solved.
