@@ -214,6 +214,7 @@ function shownCalls(messages: Msg[]): Shown[] {
   const result = new Map<string, string>();
   for (const m of messages) if (m.role === "tool") result.set(m.tool_call_id, typeof m.content === "string" ? m.content : "");
   const out: Shown[] = [];
+  const cardsShown = new Set<string>();
   const as = (call: ToolCall, name: string, args: any): Shown => ({ call: { ...call, function: { name, arguments: "" } }, args });
   for (const m of messages) {
     if (m.role !== "assistant") continue;
@@ -224,7 +225,11 @@ function shownCalls(messages: Msg[]): Shown[] {
       try { args = JSON.parse(call.function.arguments || "{}"); } catch { continue; /* unreadable call: skip */ }
       if (call.function.name !== "reply") { out.push({ call, args }); continue; }
       const ok = (label: string) => !r.includes(`The ${label} was not shown`);
-      if (given("card", args.card) && ok("card")) out.push(as(call, "show_card", { path: args.card }));
+      // A card appears once in a conversation; showing it again adds nothing.
+      if (given("card", args.card) && ok("card") && !cardsShown.has(cardFile(args.card) ?? args.card)) {
+        cardsShown.add(cardFile(args.card) ?? args.card);
+        out.push(as(call, "show_card", { path: args.card }));
+      }
       if (given("video", args.video) && ok("video")) out.push(as(call, "show_video", args.video));
       if (given("document", args.document) && ok("document")) out.push(as(call, "show_document", args.document));
       if (args.health_records === true) out.push(as(call, "offer_health_records", {}));

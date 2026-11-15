@@ -20,13 +20,16 @@ export type Msg =
       _order?: string[] }
   | { role: "tool"; tool_call_id: string; content: string | Part[] };
 
+// The models tested with Deathbot in simulated conversations (research/tone-review/blind*), best first.
+// Any other OpenRouter model can be picked under "Other…".
 export const CHAT_MODELS: { id: string; label: string }[] = [
   { id: "google/gemini-4-hydrogen", label: "Gemini 4 Hydrogen (recommended)" },
-  { id: "anthropic/claude-opus-5.5", label: "Claude Opus 5.5" },
-  { id: "anthropic/claude-sonnet-5.5", label: "Claude Sonnet 5.5 (faster, cheaper)" },
-  { id: "anthropic/claude-fable-5.2", label: "Claude Fable 5.2 (most capable, slowest)" },
-  { id: "openai/gpt-6-astra", label: "GPT-6 Astra" },
-  { id: "google/gemini-3.8-flash", label: "Gemini 3.8 Flash (cheapest)" },
+  { id: "openai/gpt-6.1-sol", label: "GPT-6.1 Sol" },
+  { id: "openai/gpt-6.1-terra", label: "GPT-6.1 Terra" },
+  { id: "anthropic/claude-sonnet-5.5", label: "Claude Sonnet 5.5" },
+  { id: "google/gemini-4-argon", label: "Gemini 4 Argon" },
+  { id: "thinkingmachines/inkling-2-small", label: "Inkling 2 Small (cheap, less reliable)" },
+  { id: "deepseek/deepseek-v4.1-flash-1017", label: "DeepSeek V4.1 Flash (cheapest, less reliable)" },
 ];
 export const IMAGE_MODELS: { id: string; label: string }[] = [
   { id: "openai/gpt-image-2", label: "GPT Image 2" },
