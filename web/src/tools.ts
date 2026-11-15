@@ -112,6 +112,21 @@ export async function shrink(dataUrl: string, maxWidth = 1280): Promise<string> 
   }
 }
 
+/**
+ * Whether an optional part of a reply was really given. Some models fill every optional field with an empty
+ * placeholder (an empty string, an object of empty strings); a part counts only if what defines it is filled in.
+ */
+export function given(part: string, v: any): boolean {
+  const filled = (x: unknown) => typeof x === "string" && x.trim().length > 0;
+  switch (part) {
+    case "card": return filled(v);
+    case "video": return filled(v?.url);
+    case "document": return filled(v?.markdown);
+    case "scenes": return Array.isArray(v?.pictures) && v.pictures.some((p: any) => filled(p?.prompt));
+    default: return false;
+  }
+}
+
 function need(input: unknown, ...keys: string[]): Record<string, string> {
   if (!input || typeof input !== "object") throw new Error("input must be an object");
   const o = input as Record<string, unknown>;
@@ -144,11 +159,11 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
         try { const r = await run(); if (typeof r === "string" && label === "pictures") notes.push(r); }
         catch (e) { notes.push(`The ${label} was not shown: ${e instanceof Error ? e.message : String(e)}`); }
       };
-      if (o.card !== undefined) await part("card", () => runTool("show_card", { path: o.card }, ui, ctx));
-      if (o.video !== undefined) await part("video", () => runTool("show_video", o.video, ui, ctx));
-      if (o.document !== undefined) await part("document", () => runTool("show_document", o.document, ui, ctx));
+      if (given("card", o.card)) await part("card", () => runTool("show_card", { path: o.card }, ui, ctx));
+      if (given("video", o.video)) await part("video", () => runTool("show_video", o.video, ui, ctx));
+      if (given("document", o.document)) await part("document", () => runTool("show_document", o.document, ui, ctx));
       if (o.health_records === true) notes.push(ui.getRecords() ? `Health records are already loaded in this browser.\n\n${overview(ui.getRecords()!)}` : "The block for bringing in health records was shown. When the person gives you the file you will receive an overview, and the lookup tools will work.");
-      if (o.scenes !== undefined) await part("pictures", () => runTool("show_scenes", { scenes: o.scenes?.pictures, use_photo: o.scenes?.use_photo }, ui, ctx));
+      if (given("scenes", o.scenes)) await part("pictures", () => runTool("show_scenes", { scenes: o.scenes?.pictures, use_photo: o.scenes?.use_photo }, ui, ctx));
       return notes.join(" ");
     }
     case "show_card": {

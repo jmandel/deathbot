@@ -22,6 +22,7 @@ globalThis.fetch = (async (url: any, init?: any) => {
   return realFetch(url, init);
 }) as typeof fetch;
 const { runTurn } = await import("../src/agent");
+const { given } = await import("../src/tools");
 
 const apiKey = process.env.OPENROUTER_API_KEY!;
 const persona = await Bun.file(personaPath).text();
@@ -35,10 +36,11 @@ function lastReply(added: any[]): Said {
     if (m.content) out.text += (out.text ? "\n\n" : "") + m.content;
     for (const c of m.tool_calls ?? []) {
       if (c.function.name !== "reply") continue;
-      const a = JSON.parse(c.function.arguments || "{}");
+      let a: any;
+      try { a = JSON.parse(c.function.arguments || "{}"); } catch { out.text += `[unreadable reply arguments: ${String(c.function.arguments).slice(0, 200)}]`; continue; }
       out.text += (out.text ? "\n\n" : "") + (a.text ?? "");
       out.replies = a.replies ?? [];
-      for (const k of ["card", "video", "document", "scenes", "health_records"]) if (a[k] !== undefined) out.shown.push(k === "document" ? `document: ${a.document?.title}` : k === "scenes" ? `pictures: ${(a.scenes?.pictures ?? []).map((p: any) => p.title).join("; ")}` : k);
+      for (const k of ["card", "video", "document", "scenes", "health_records"]) if (k === "health_records" ? a[k] === true : given(k, a[k])) out.shown.push(k === "document" ? `document: ${a.document?.title}` : k === "scenes" ? `pictures: ${(a.scenes?.pictures ?? []).map((p: any) => p.title).join("; ")}` : k);
     }
   }
   return out;

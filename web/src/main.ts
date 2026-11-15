@@ -7,7 +7,7 @@ import {
   type Msg, type Part, type Settings, type ToolCall,
 } from "./agent";
 import { cardForPerson, cardTitle, areas, release } from "./skill";
-import { shrink, cardFile, type Surface, type SceneItem, type ProgressStatus } from "./tools";
+import { shrink, cardFile, given, type Surface, type SceneItem, type ProgressStatus } from "./tools";
 import { normalise, overview, summary, RECORDS_URL, type Provider } from "./records";
 import * as voice from "./speech";
 import { INLINE_TOKEN_LIMIT, estimateTokens, newId, storedNote, pdfText, type StoredFile } from "./files";
@@ -215,11 +215,11 @@ function shownCalls(messages: Msg[]): Shown[] {
       try { args = JSON.parse(call.function.arguments || "{}"); } catch { continue; /* unreadable call: skip */ }
       if (call.function.name !== "reply") { out.push({ call, args }); continue; }
       const ok = (label: string) => !r.includes(`The ${label} was not shown`);
-      if (args.card && ok("card")) out.push(as(call, "show_card", { path: args.card }));
-      if (args.video && ok("video")) out.push(as(call, "show_video", args.video));
-      if (args.document && ok("document")) out.push(as(call, "show_document", args.document));
+      if (given("card", args.card) && ok("card")) out.push(as(call, "show_card", { path: args.card }));
+      if (given("video", args.video) && ok("video")) out.push(as(call, "show_video", args.video));
+      if (given("document", args.document) && ok("document")) out.push(as(call, "show_document", args.document));
       if (args.health_records === true) out.push(as(call, "offer_health_records", {}));
-      if (args.scenes && ok("pictures")) out.push(as(call, "show_scenes", args.scenes));
+      if (given("scenes", args.scenes) && ok("pictures")) out.push(as(call, "show_scenes", args.scenes));
     }
   }
   return out;

@@ -272,8 +272,10 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
       }
       messages.push({ role: "tool", tool_call_id: call.id, content });
     }
-    // A reply is always the end of the turn: the person answers next. Other calls in the same response have run.
-    if (calls.some((c) => c.function.name === "reply")) return;
+    // A reply that was shown ends the turn: the person answers next. Other calls in the same response have run.
+    // A reply that failed (unreadable arguments, no text) showed nothing, so the model sees the error and goes on.
+    const replied = calls.some((c) => c.function.name === "reply" && !String(messages.find((m) => m.role === "tool" && m.tool_call_id === c.id)?.content ?? "").startsWith("Error:"));
+    if (replied) return;
     // Spoke to the person and only updated the screen: their turn now.
     if (message.content?.trim() && calls.every((c) => DISPLAY_TOOLS.has(c.function.name))) return;
   }
