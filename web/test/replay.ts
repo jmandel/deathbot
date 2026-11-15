@@ -19,7 +19,11 @@ await mkdir(outDir, { recursive: true });
 async function one(i: number) {
   const messages = structuredClone(base);
   const rounds: { text: string; tools: string[] }[] = [];
+  // The notes file as it stood: the latest one sent to the model in the conversation so far.
+  let doc = "";
+  for (const m of base) if (m.role === "user" && Array.isArray(m.content)) for (const p of m.content) if (p.type === "text" && p.text.startsWith("[Harness note: your working notes")) doc = p.text.slice(p.text.indexOf("\n") + 1).replace(/\]$/, "");
   const ui = {
+    getNotesFile: () => doc, setNotesFile(d: string) { doc = d; },
     setNotes() {}, progressIds: () => Object.keys(state.progress ?? {}), setProgress() {},
     showScenes() {}, getPhoto: () => null, getRecords: () => null, getFiles: () => [],
   };
