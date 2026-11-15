@@ -116,6 +116,9 @@ export function partialText(args: string): string {
   return out;
 }
 
+/** Models whose provider rejected a required tool call; asked without it from then on. */
+const NO_REQUIRED_TOOL = new Set<string>();
+
 async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal: AbortSignal | undefined, system: string): Promise<StreamResult> {
   const claude = s.model.startsWith("anthropic/");
   const tools: unknown[] = clientTools.map((t) => ({ type: "function", name: t.function.name, description: t.function.description, parameters: t.function.parameters }));
@@ -130,6 +133,9 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
     input: toInput(messages, s.model),
     tools,
     reasoning: { effort: "medium" },
+    // Deathbot speaks only through reply, so every response must call a tool: it can neither go silent
+    // nor say something outside a reply. Some models refuse this setting; for them it is left out.
+    ...(NO_REQUIRED_TOOL.has(s.model) ? {} : { tool_choice: "required" }),
     // Claude also supports a moving cache breakpoint over the growing conversation.
     ...(claude ? { cache_control: { type: "ephemeral" } } : {}),
   };
@@ -154,6 +160,13 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
       signal?.addEventListener("abort", () => { clearTimeout(t); reject(new DOMException("Aborted", "AbortError")); }, { once: true });
     });
     h.onStatus(null);
+  }
+  if (res.status === 400 && !NO_REQUIRED_TOOL.has(s.model)) {
+    const detail = await res.clone().text();
+    if (/tool_choice/i.test(detail)) {
+      NO_REQUIRED_TOOL.add(s.model);
+      return streamOnce(s, messages, h, signal, system);
+    }
   }
   if (!res.ok || !res.body) await fail(res);
 
@@ -237,6 +250,7 @@ const DISPLAY_TOOLS = new Set(["update_notes", "update_progress"]);
 
 export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: TurnHandlers, signal?: AbortSignal): Promise<void> {
   const system = buildSystemPrompt({ webSearch: s.webSearch });
+  let empty = 0;
   for (let round = 0; round < 12; round++) {
     h.onAssistantStart();
     let result: StreamResult;
@@ -256,7 +270,14 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
       throw new AgentError("The reply was cut off. Try sending your message again.", "other");
     }
     messages.push(message);
-    if (!calls.length) return;
+    if (!calls.length) {
+      // With a tool call required, an answer with nothing in it is a slip by the service or the model.
+      // Try again rather than leave the person with nothing; a plain-text answer still counts as said.
+      if (message.content?.trim()) return;
+      messages.pop();
+      if (++empty > 2) throw new AgentError("Deathbot did not answer. Try sending your message again.", "other");
+      continue;
+    }
 
     for (const call of calls) {
       let content: string | Part[];

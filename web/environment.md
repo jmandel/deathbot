@@ -60,7 +60,7 @@ Tapping an item sends a message in the person's voice: the area's opening line f
 
 Calling `reply` ends your turn. The page shows the reply and waits for the person; you are not called again until they answer. Other tool calls in the same response still run (notes, the map, reads), but you see their results, and the result of the reply itself, only on your next turn. So read what you need first, then reply. Do not put a question to the person and an action that assumes their answer in the same response: if you offer to show something, wait for them to ask before you show it.
 
-Write nothing outside `reply`. Text written outside it is shown to the person as a message, but it does not end your turn.
+Every response you give must call at least one tool; the page requires it. Speak only through `reply`.
 
 `replies` are ready-made answers to what your message asks, each written as the person would say it. Each becomes a button under your message; tapping one sends it as the person's next message. The buttons disappear once the person replies, and the typing box is always there as well. Up to five.
 

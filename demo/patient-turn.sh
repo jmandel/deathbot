@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# terra-turn.sh N [NOTE] [PRE-STEPS...]  -- one turn where the patient model decides what Frank does next.
+# patient-turn.sh N [NOTE] [PRE-STEPS...]  (PATIENT_MODEL picks the model playing Frank; default GPT-6.1 Terra)
+#  -- one turn where the patient model decides what Frank does next.
 # Long lines are spoken (frank-say.sh + speak), short ones typed, buttons tapped. PRE-STEPS run before it (e.g. attaching a file).
 D="$(cd "$(dirname "$0")" && pwd)"; n=$1; note=${2:-}; shift 2 || shift $#
 T=${DEMO_OUT:?}/turns
-move=$(bun "$D/frank-next.ts" openai/gpt-6.1-terra "$note")
+move=$(bun "$D/frank-next.ts" "${PATIENT_MODEL:-openai/gpt-6.1-terra}" "$note")
 echo "FRANK MOVE: $move" | tee -a "$DEMO_OUT/frank-moves.log"
 tap=$(echo "$move" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("tap",""))')
 say=$(echo "$move" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("say",""))')
