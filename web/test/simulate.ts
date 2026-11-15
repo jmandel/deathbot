@@ -13,6 +13,7 @@ const patientModel = opt("patient", "google/gemini-4-argon");
 const maxTurns = Number(opt("turns", "18"));
 const stateCode = opt("state", "");
 
+
 (globalThis as any).localStorage = { getItem: () => null, setItem() {}, removeItem() {} };
 // The image endpoint gets a one-pixel stand-in, so a picture "is shown" without spending on image generation.
 const realFetch = globalThis.fetch;
@@ -22,6 +23,7 @@ globalThis.fetch = (async (url: any, init?: any) => {
   return realFetch(url, init);
 }) as typeof fetch;
 const { runTurn } = await import("../src/agent");
+const { noteTemplate, notesNote } = await import("../src/notes");
 const { given } = await import("../src/tools");
 
 const apiKey = process.env.OPENROUTER_API_KEY!;
@@ -31,11 +33,12 @@ await mkdir(outDir, { recursive: true });
 type Said = { text: string; replies: string[]; shown: string[] };
 function lastReply(added: any[]): Said {
   const out: Said = { text: "", replies: [], shown: [] };
+  const failed = new Set(added.filter((m) => m.role === "tool" && typeof m.content === "string" && m.content.startsWith("Error:")).map((m) => m.tool_call_id));
   for (const m of added) {
     if (m.role !== "assistant") continue;
     if (m.content) out.text += (out.text ? "\n\n" : "") + m.content;
     for (const c of m.tool_calls ?? []) {
-      if (c.function.name !== "reply") continue;
+      if (c.function.name !== "reply" || failed.has(c.id)) continue;
       let a: any;
       try { a = JSON.parse(c.function.arguments || "{}"); } catch { out.text += `[unreadable reply arguments: ${String(c.function.arguments).slice(0, 200)}]`; continue; }
       out.text += (out.text ? "\n\n" : "") + (a.text ?? "");
@@ -60,13 +63,17 @@ async function patientSays(history: { who: string; text: string }[]): Promise<st
 }
 
 const messages: any[] = [];
+// The working notes file, kept by the model with the notes tool and sent with the person's message when it changes.
+let doc = noteTemplate();
+let docSent = "";
 const history: { who: string; text: string }[] = [];
 const log: any[] = [];
-const ui = { setNotes() {}, progressIds: () => [], setProgress() {}, showScenes() {}, getPhoto: () => null, getRecords: () => null, getFiles: () => [] };
+const ui = { setNotes() {}, progressIds: () => [], setProgress() {}, getNotesFile: () => doc, setNotesFile(d: string) { doc = d; }, showScenes() {}, getPhoto: () => null, getRecords: () => null, getFiles: () => [] };
 const opener = await patientSays([{ who: "Deathbot (welcome screen)", text: "I'm an AI. I can explain what treatments like CPR and breathing machines are really like, help you work out what you'd want, and write it down for whoever would speak for you. What brought you here?" }]);
 let said = opener;
 for (let turn = 0; turn < maxTurns; turn++) {
   const notes = turn === 0 ? [`[Harness note: for the person it is now Sunday, November 15, 2026, 2:00 PM.]`, ...(stateCode ? [`[Harness note: the person chose their state on the first screen. Its forms and signing rules are in states/${stateCode}.md.]`] : [])] : [];
+  if (doc !== docSent) { notes.push(notesNote(doc)); docSent = doc; }
   messages.push({ role: "user", content: notes.length ? [...notes.map((t) => ({ type: "text", text: t })), { type: "text", text: said }] : said });
   history.push({ who: "Person", text: said });
   const before = messages.length;
@@ -75,10 +82,11 @@ for (let turn = 0; turn < maxTurns; turn++) {
     await runTurn({ apiKey, model, imageModel: "stand-in", webSearch: false }, messages, ui as any, { onAssistantStart() {}, onText() {}, onToolUse() {}, onStatus() {} });
   } catch (e) { log.push({ turn, error: String(e) }); break; }
   const r = lastReply(messages.slice(before));
+
   log.push({ turn, person: said, deathbot: r.text, replies: r.replies, shown: r.shown, ms: Date.now() - t0 });
   history.push({ who: "Deathbot", text: r.text + (r.shown.length ? `\n[shown: ${r.shown.join(", ")}]` : "") + (r.replies.length ? `\n[buttons: ${r.replies.join(" | ")}]` : "") });
   console.log(`--- ${turn}\nPERSON: ${said}\nDEATHBOT: ${r.text}${r.replies.length ? `\n[buttons: ${r.replies.join(" | ")}]` : ""}${r.shown.length ? `\n[shown: ${r.shown.join(", ")}]` : ""}\n`);
   said = await patientSays(history);
   if (!said || said.includes("[END]")) { if (said) log.push({ turn: turn + 1, person: said.replace("[END]", "").trim(), end: true }); break; }
 }
-await Bun.write(path.join(outDir, "conversation.json"), JSON.stringify({ model, patientModel, persona: personaPath, log, messages }, null, 1));
+await Bun.write(path.join(outDir, "conversation.json"), JSON.stringify({ model, patientModel, persona: personaPath, log, messages, notes: doc }, null, 1));

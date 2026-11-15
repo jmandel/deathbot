@@ -1,7 +1,7 @@
-// Agent loop over OpenRouter's Responses API (https://openrouter.ai/docs; the bookkeeping pass below uses Chat Completions),
+// Agent loop over OpenRouter's Responses API (https://openrouter.ai/docs),
 // straight from the browser with the person's own key. One key covers chat, web search and images.
-import { buildSystemPrompt, skillSection, areas } from "./skill";
-import { clientTools, runTool, type Surface, type ProgressUpdate } from "./tools";
+import { buildSystemPrompt } from "./skill";
+import { clientTools, runTool, type Surface } from "./tools";
 
 // Tests point this at a local stand-in by setting a localStorage entry. It is deliberately not
 // settable from the URL, so a link can never redirect someone's key to another server.
@@ -246,7 +246,7 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
 // Tools that only change what the person sees. Once Deathbot has said something to the person as plain text
 // and called only these, the turn is over: calling the model again invites it to carry on as if the person
 // had replied.
-const DISPLAY_TOOLS = new Set(["update_notes", "update_progress"]);
+const DISPLAY_TOOLS = new Set(["notes", "update_notes", "update_progress"]);
 
 export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: TurnHandlers, signal?: AbortSignal): Promise<void> {
   const system = buildSystemPrompt({ webSearch: s.webSearch });
@@ -279,8 +279,16 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
       continue;
     }
 
-    for (const call of calls) {
+    // State first, then the reply: the reply runs last, and only if every other call in the response worked.
+    // A reply sent alongside a failed edit is held back, so the model fixes its notes and then replies again.
+    const ordered = [...calls.filter((c) => c.function.name !== "reply"), ...calls.filter((c) => c.function.name === "reply")];
+    let failed = false;
+    for (const call of ordered) {
       let content: string | Part[];
+      if (call.function.name === "reply" && failed) {
+        messages.push({ role: "tool", tool_call_id: call.id, content: "Error: not shown, because another call in the same response failed. Fix that first, then reply again." });
+        continue;
+      }
       try {
         const input = JSON.parse(call.function.arguments || "{}");
         content = await runTool(call.function.name, input, ui, { settings: s, callId: call.id, knownProgressIds: ui.progressIds(), onStatus: h.onStatus, signal });
@@ -288,6 +296,7 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
       } catch (e) {
         if (signal?.aborted) throw e;
         content = `Error: ${e instanceof Error ? e.message : String(e)}`;
+        failed = true;
       } finally {
         h.onStatus(null);
       }
@@ -301,60 +310,6 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
     if (message.content?.trim() && calls.every((c) => DISPLAY_TOOLS.has(c.function.name))) return;
   }
   throw new AgentError("The reply took too many steps. Try sending your message again.", "other");
-}
-
-// ---------- the scribe ----------
-// The talking model is asked to keep the map and the notes current, and often does. When it does not,
-// a second, quiet pass reads the latest exchange and brings them up to date, so what the person sees
-// under Your file never depends on the talking model remembering its bookkeeping. The rules it works to
-// are the skill's own, quoted from the conversation guide.
-
-export interface ScribeResult { items: ProgressUpdate[]; next: string[]; notes?: string }
-
-function plainText(m: Msg): string {
-  if (m.role === "tool") return "";
-  if (m.role === "assistant") {
-    const said = (m.tool_calls ?? []).filter((c) => c.function.name === "reply").map((c) => { try { return String(JSON.parse(c.function.arguments).text ?? ""); } catch { return ""; } });
-    return [(m.content ?? "").replace(/<replies>[\s\S]*?(<\/replies>|$)/i, "").trim(), ...said].filter(Boolean).join("\n\n");
-  }
-  if (typeof m.content === "string" || m.content === null) return (m.content ?? "").trim();
-  return m.content.flatMap((p) => (p.type === "text" ? [p.text.slice(0, 1500)] : p.type === "file" ? [`[attached ${p.file.filename}]`] : ["[attached a picture]"])).join("\n");
-}
-
-export async function scribe(
-  s: Settings, messages: Msg[], current: { progress: Record<string, { status: string; summary?: string; title?: string }>; next: string[]; notes: string },
-  want: { map: boolean; notes: boolean }, signal?: AbortSignal,
-): Promise<ScribeResult | null> {
-  const recent = messages.filter((m) => m.role !== "tool").slice(-6).map((m) => `${m.role === "user" ? "PERSON" : "DEATHBOT"}: ${plainText(m)}`).filter((l) => l.length > 12).join("\n\n");
-  const system = [
-    "You keep the records for a conversation between a person and Deathbot, an AI that helps people think through end-of-life care. You do not talk to the person. You read the latest part of the conversation and bring the records up to date. Work to these rules from Deathbot's own guide:",
-    skillSection("guide/conversation.md", "Keeping a map the person can see"),
-    skillSection("guide/conversation.md", "Working notes"),
-    `The standard areas of the map:\n${areas.map((a) => `- ${a.id}: ${a.title}${a.optional ? " (optional)" : ""}. ${a.covers ?? ""}`).join("\n")}`,
-    `Reply with one JSON object and nothing else: {"items":[{"id":"...","status":"open|started|done|set_aside","summary":"one short line","title":"only for a new item of your own"}],"next":["up to two ids"]${want.notes ? ',"notes":"the full working notes as markdown"' : ""}}. In "items" include only what should change; an empty list is fine. Record only what the person said or what happened; never infer a preference they did not state.${want.notes ? "" : " Do not include notes."}`,
-  ].join("\n\n");
-  const user = `The map now:\n${JSON.stringify({ items: current.progress, next: current.next })}\n\n${want.notes ? `The working notes now:\n${current.notes || "(none yet)"}\n\n` : ""}The latest part of the conversation:\n\n${recent}`;
-  const res = await fetch(`${API}/chat/completions`, {
-    method: "POST", headers: headers(s.apiKey), signal,
-    body: JSON.stringify({ model: s.model, max_tokens: 2000, reasoning: { effort: "low" }, messages: [{ role: "system", content: system }, { role: "user", content: user }] }),
-  });
-  if (!res.ok) return null;
-  const text: string = (await res.json())?.choices?.[0]?.message?.content ?? "";
-  const m = text.match(/\{[\s\S]*\}/);
-  if (!m) return null;
-  try {
-    const j = JSON.parse(m[0]);
-    const statuses = ["open", "started", "done", "set_aside"];
-    const items: ProgressUpdate[] = (Array.isArray(j.items) ? j.items : [])
-      .filter((it: any) => it && typeof it.id === "string" && statuses.includes(it.status))
-      .filter((it: any) => areas.some((a) => a.id === it.id) || current.progress[it.id] || typeof it.title === "string")
-      .map((it: any) => ({ id: it.id, status: it.status, summary: typeof it.summary === "string" ? it.summary : undefined, title: typeof it.title === "string" ? it.title : undefined }));
-    return {
-      items,
-      next: (Array.isArray(j.next) ? j.next : current.next).filter((x: unknown): x is string => typeof x === "string").slice(0, 2),
-      notes: want.notes && typeof j.notes === "string" && j.notes.trim() ? j.notes : undefined,
-    };
-  } catch { return null; }
 }
 
 // ---------- images ----------

@@ -4,7 +4,7 @@ First person, in the person's own words and natural register; plain enough for f
 
 Write only what the person has said or specifically confirmed. Keep their conditions, time limits and uncertainty as they stated them, without turning a rough timeframe or goal into a firmer rule than they gave. You may organize and faithfully paraphrase what they said. Do not add wishes, motives, family judgements or emotional reassurances they did not express, and do not repeat a single phrase of theirs across every section. Leave out any section they have not talked about. Distinguish what they have said they want from what still needs clarification; do not present either as more settled than it is.
 
-Apply the same rule to any letter or message you draft for their proxy, family or doctors. Before asking whether a draft sounds right, check that the draft adds no meaning they did not express or specifically confirm. A general "sounds right" to a whole draft does not settle an uncertain treatment instruction; ask about that interpretation separately or leave it open. Show the draft and revise it with them; call it finished only when they say it is right. Follow SKILL.md's guidance on when to explain formal-document steps.
+Apply the same rule to any letter or message you draft for their proxy, family or doctors. Before asking whether a draft is right, check that it adds no meaning they did not express or specifically confirm. General approval of a whole draft does not settle an uncertain treatment instruction; ask about that interpretation separately or leave it open. Show the draft and revise it with them; call it finished only when they confirm it. Follow `SKILL.md`'s guidance on when to explain formal-document steps.
 
 ---
 

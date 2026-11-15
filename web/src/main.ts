@@ -2,7 +2,7 @@ import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { get, set, del } from "idb-keyval";
 import {
-  runTurn, scribe, AgentError, beginSignIn, completeSignIn,
+  runTurn, AgentError, beginSignIn, completeSignIn,
   CHAT_MODELS, IMAGE_MODELS, DEFAULT_MODEL, DEFAULT_IMAGE_MODEL,
   type Msg, type Part, type Settings, type ToolCall,
 } from "./agent";
@@ -10,6 +10,7 @@ import { cardForPerson, cardTitle, areas, release } from "./skill";
 import { shrink, cardFile, given, type Surface, type SceneItem, type ProgressStatus } from "./tools";
 import { normalise, overview, summary, RECORDS_URL, type Provider } from "./records";
 import * as voice from "./speech";
+import { noteTemplate, fromLegacy, parseNotes, notesNote } from "./notes";
 import { INLINE_TOKEN_LIMIT, estimateTokens, newId, storedNote, pdfText, type StoredFile } from "./files";
 
 // ---------- state ----------
@@ -24,6 +25,10 @@ interface Saved {
   dateSent?: string;
   /** The style settings last passed on to the model, so they are sent again only when they change. */
   styleSent?: string;
+  /** The working notes file the model keeps with the notes tool; notes and progress are read from it. */
+  doc?: string;
+  /** The notes file last passed on to the model, so it is sent again only when it changes. */
+  docSent?: string;
   /** What the person told the first screen: what to call them and their state (a two-letter code, "outside" or "none"). */
   profile?: { name?: string; state?: string };
   /** The map of the conversation: status and one-line summary per area, plus items Deathbot added. */
@@ -339,6 +344,7 @@ function userBubble(m: Extract<Msg, { role: "user" }>): HTMLElement | null {
 
 /** Rebuild the conversation from the stored messages, one block per turn. */
 function renderThread() {
+  const failedCalls = new Set(state.messages.flatMap((m) => (m.role === "tool" && typeof m.content === "string" && m.content.startsWith("Error:") ? [m.tool_call_id] : [])));
   const shown = new Map<string, Shown[]>();
   for (const s of shownCalls(state.messages)) shown.set(s.call.id, [...(shown.get(s.call.id) ?? []), s]);
   log.replaceChildren();
@@ -364,7 +370,7 @@ function renderThread() {
         current().append(s);
       }
       for (const call of m.tool_calls ?? []) {
-        const said = replyOf(call);
+        const said = failedCalls.has(call.id) ? null : replyOf(call); // a reply held back was never shown
         if (said?.text.trim()) current().append(htmlEl("div", "msg bot", md(said.text)));
         for (const s of shown.get(call.id) ?? []) {
           const block = shownBlock(s);
@@ -380,7 +386,7 @@ function renderThread() {
     const m = state.messages[i];
     if (m.role === "user") break;
     if (m.role !== "assistant") continue;
-    const call = [...(m.tool_calls ?? [])].reverse().find((c) => c.function.name === "reply");
+    const call = [...(m.tool_calls ?? [])].reverse().find((c) => c.function.name === "reply" && !failedCalls.has(c.id));
     lastSaid = call ? replyOf(call)?.replies ?? [] : splitReplies(m.content ?? "").replies;
     break;
   }
@@ -600,6 +606,13 @@ const surface: Surface = {
   getRecords: () => records,
   getFiles: () => files,
   setNotes(markdown) { state.notes = markdown; flagFile(); renderFile(); },
+  getNotesFile: () => notesFile(),
+  setNotesFile(doc) {
+    state.doc = doc;
+    const p = parseNotes(doc);
+    state.notes = p.notes; state.progress = p.progress; state.next = p.next;
+    flagFile(); renderFile();
+  },
   progressIds: () => Object.keys(state.progress),
   setProgress(items, next) {
     for (const it of items) {
@@ -640,19 +653,10 @@ function describeGap(ms: number): string | null {
  * After a turn, if Deathbot did not update the map or the notes itself, a quiet second pass does it
  * from the conversation. It runs in the background; the person can carry on typing.
  */
-function tidyRecords(settings: Settings, turnStart: number) {
-  const called = new Set(state.messages.slice(turnStart).flatMap((m) => (m.role === "assistant" ? (m.tool_calls ?? []).map((c) => c.function.name) : [])));
-  const want = { map: !called.has("update_progress"), notes: !called.has("update_notes") };
-  if (!want.map && !want.notes) return;
-  const before = state;
-  scribe(settings, state.messages, { progress: state.progress, next: state.next, notes: state.notes }, want)
-    .then((r) => {
-      if (!r || state !== before) return; // erased or replaced meanwhile
-      if (want.map) surface.setProgress(r.items, r.next);
-      if (want.notes && r.notes) surface.setNotes(r.notes);
-      save();
-    })
-    .catch((e) => console.warn("Could not tidy the map and notes.", e));
+/** The working notes file; a conversation from before the file existed gets one built from its notes and map. */
+function notesFile(): string {
+  if (state.doc === undefined) state.doc = state.messages.length ? fromLegacy(state.notes, state.progress, state.next) : noteTemplate();
+  return state.doc;
 }
 
 async function send(text: string, notes: string[] = []) {
@@ -677,6 +681,10 @@ async function send(text: string, notes: string[] = []) {
     const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     parts.push({ type: "text", text: `[Harness note: for the person it is now ${today}, ${time} (${zone}).]` });
   }
+  // The model keeps its notes in a file; the current file comes with the person's message whenever it has changed.
+  const doc = notesFile();
+  const docChanged = doc !== state.docSent;
+  if (docChanged) parts.push({ type: "text", text: notesNote(doc) });
   const style = describeStyle(getStyle());
   const styleChanged = style !== (state.styleSent ?? describeStyle(STANDARD));
   if (styleChanged) parts.push({ type: "text", text: `[Harness note: how the person wants you to talk, as of now. ${style}]` });
@@ -687,6 +695,7 @@ async function send(text: string, notes: string[] = []) {
 
   state.messages.push({ role: "user", content: parts.length === 1 ? typed : parts });
   if (styleChanged) state.styleSent = style;
+  if (docChanged) state.docSent = doc;
   state.dateSent = today;
   state.lastActive = Date.now();
   renderThread();
@@ -728,7 +737,6 @@ async function answer() {
       onToolUse() { /* drawn when the round is re-rendered below */ },
       onStatus(t) { bubble = null; status(t); },
     }, abort.signal);
-    tidyRecords(settings, turnStart);
     busy = false; // so the redraw includes any ready-made replies
     const at = scroller.scrollTop;
     renderThread();

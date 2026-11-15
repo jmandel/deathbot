@@ -1,0 +1,10 @@
+ 1962 skill/deathbot/SKILL.md
+  950 skill/deathbot/guide/voice.md
+ 1713 skill/deathbot/guide/conversation.md
+ 1146 skill/deathbot/guide/safety.md
+ 1427 skill/deathbot/guide/information.md
+  965 skill/deathbot/guide/images.md
+  462 skill/deathbot/templates/summary.md
+  170 skill/deathbot/cards/INDEX.md
+ 2703 web/environment.md
+11498 total

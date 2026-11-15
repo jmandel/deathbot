@@ -2,6 +2,7 @@ import { skillFiles, knownUrls, normaliseUrl, listCards, cardTitle, areas } from
 import { generateImage, type Settings, type Part } from "./agent";
 import { overview, search, list, read, type Provider } from "./records";
 import { listFiles, searchFiles, readFile, readPdfPages, renderPdfPages, MAX_IMAGE_PAGES, type StoredFile } from "./files";
+import { editNotes } from "./notes";
 
 export interface DocumentItem { kind: string; title: string; markdown: string; savedAt: number }
 export interface VideoItem { url: string; title: string; note: string }
@@ -15,6 +16,9 @@ export interface SceneItem { title: string; caption: string; dataUrl: string; pe
  */
 export interface Surface {
   setNotes(markdown: string): void;
+  /** The working notes file, which the notes tool reads and edits. */
+  getNotesFile(): string;
+  setNotesFile(doc: string): void;
   /** Ids of items already on the progress map, including ones the model added. */
   progressIds(): string[];
   /** Applies changes to the progress map and replaces the suggested next steps. */
@@ -44,18 +48,13 @@ const fn = (name: string, description: string, properties: Record<string, unknow
 export const clientTools = [
   fn("read_skill_file", "Returns the text of a file from the Deathbot skill (a fact card, a template or a guide). The person does not see it.",
     { path: { ...str, description: "Path relative to the skill, e.g. cards/cpr.md" } }, ["path"]),
-  fn("update_notes", "Replaces the working notes shown to the person under Your file. Markdown. Record what the person said and where it came from, with what is still unresolved; keep your own interpretations apart from what they confirmed.",
-    { markdown: str }, ["markdown"]),
-  fn("update_progress", "Updates the map of the conversation shown to the person under Your file. Send only the items that changed. An id that is not one of the standard areas creates a new item and needs a title. `next` replaces the list of suggested next steps.",
+  fn("notes", "Your working notes: one markdown file the person can see under Your file, and the map of the conversation in its \"Where we are\" list. view shows it with line numbers; str_replace replaces old_str, which must match exactly one place, with new_str; insert puts new_str after line insert_line (0 for the top). The current file comes with the person's message whenever it has changed.",
     {
-      items: { type: "array", items: { type: "object", properties: {
-        id: { ...str, description: "A standard area id, or a short id of your own for a new item" },
-        status: { type: "string", enum: ["open", "started", "done", "set_aside"] },
-        summary: { ...str, description: "One short line shown under the title" },
-        title: { ...str, description: "Only for a new item of your own: the title shown to the person" },
-      }, required: ["id", "status"] } },
-      next: { type: "array", maxItems: 2, items: str, description: "Optional: ids of up to two items to mark quietly on the map as possible next steps. This is for the map under Your file, not something to suggest in your reply. Omit to leave unchanged; an empty list clears them." },
-    }, ["items"]),
+      command: { type: "string", enum: ["view", "str_replace", "insert"] },
+      old_str: { ...str, description: "For str_replace: the exact text to replace, copied from the file" },
+      new_str: { ...str, description: "For str_replace and insert: the new text" },
+      insert_line: { type: "integer", description: "For insert: the line to insert after" },
+    }, ["command"]),
   fn("reply", "Says something to the person, with anything you want to show them alongside it. This ends your turn: the page shows the reply and waits for the person. Tool calls in the same response still run, but you see their results only on your next turn, so read what you need before replying.",
     {
       text: { ...str, description: "Your message to the person. Follow guide/voice.md; long formatted text belongs in a document." },
@@ -149,6 +148,11 @@ export async function runTool(name: string, input: unknown, ui: Surface, ctx: To
       const file = resolveSkillPath(need(input, "path").path);
       if (file.startsWith("cards/")) ctx.onStatus(`Reading up on ${cardTitle(file).replace(/\s*\(.*\)$/, "")}`);
       return skillFiles[file];
+    }
+    case "notes": {
+      const { doc, result } = editNotes(ui.getNotesFile(), input);
+      if (doc !== ui.getNotesFile()) ui.setNotesFile(doc);
+      return result;
     }
     case "reply": {
       // Each part is shown if it can be; the result tells the model, on its next turn, what was not.

@@ -10,7 +10,6 @@ const dist = path.join(import.meta.dir, "..", "dist");
 const PORT = 4175;
 const requests: any[] = [];
 const rawInputs: string[][] = [];
-const scribeRequests: any[] = [];
 let failedOnce = false;
 let outage = 4;
 // 1x1 PNG
@@ -88,15 +87,6 @@ const server = Bun.serve({
       const raw = await req.json();
       const body = url.pathname.endsWith("/responses") ? fromResponses(raw) : raw;
       if (url.pathname.endsWith("/responses")) rawInputs.push(raw.input.map((it: any) => it.type === "message" ? `${it.role}-message` : it.type));
-      // The scribe's quiet bookkeeping pass is not streamed; answer it separately so it does not disturb the counts below.
-      if (!body.stream) {
-        scribeRequests.push(body);
-        const convo = body.messages[1].content as string;
-        const out = convo.includes("lung clinic note")
-          ? { items: [{ id: "records", status: "done", summary: "Lakeshore Health records loaded" }], next: ["tradeoffs"], notes: "## Notes\n- Asked what this is\n- Brought in health records" }
-          : { items: [], next: [] };
-        return Response.json({ choices: [{ message: { role: "assistant", content: "```json\n" + JSON.stringify(out) + "\n```" } }] });
-      }
       // The very first chat request fails once with a 502, as the real service sometimes does.
       if (!failedOnce) { failedOnce = true; return new Response("bad gateway", { status: 502 }); }
       // Later, a message meets a service that stays down through every automatic attempt.
@@ -115,7 +105,14 @@ const server = Bun.serve({
         ]);
       }
       if (last.role === "tool" && last.tool_call_id === "r3") {
-        return sse([...call(0, "r4", "reply", { text: "I have read your lung clinic note. Want to go through it?", replies: ["Yes, go through it", "Not right now", "I'm not sure"], health_records: true }), delta({}, "tool_calls")]);
+        // An edit that does not match, sent with a reply: the reply must be held back.
+        return sse([...call(0, "n1", "notes", { command: "str_replace", old_str: "- records: started", new_str: "- records: done" }),
+          ...call(1, "r4x", "reply", { text: "HELD BACK REPLY", replies: ["x"] }), delta({}, "tool_calls")]);
+      }
+      if (last.role === "tool" && last.tool_call_id === "r4x") {
+        return sse([...call(0, "n2", "notes", { command: "str_replace", old_str: "- records: open", new_str: "- records: done — Lakeshore Health records loaded" }),
+          ...call(1, "n3", "notes", { command: "str_replace", old_str: "## Health, as they understand it\n", new_str: "## Health, as they understand it\n- Brought in health records\n" }),
+          ...call(2, "r4", "reply", { text: "I have read your lung clinic note. Want to go through it?", replies: ["Yes, go through it", "Not right now", "I'm not sure"], health_records: true }), delta({}, "tool_calls")]);
       }
       if (last.role === "user" && lastText.includes("what matters most to me")) {
         return sse([delta({ content: "Good. What makes a day a good day for you?" }), delta({}, "stop")]);
@@ -134,16 +131,15 @@ const server = Bun.serve({
           delta({ content: "Here's the short version on **CPR**." }),
           delta({ content: "\n\nCPR is rougher than it looks on television. Someone pushes hard on your chest, hard enough that ribs often break, and you would usually end up on a breathing machine afterwards. Sometimes it works well. How well depends a lot on age and health.\n\nDo you want the numbers?" }),
           ...call(0, "c1", "read_skill_file", { path: "cards/cpr.md" }),
-          ...call(2, "c3", "update_notes", { markdown: "## Notes\n- Asked what this is" }),
-          ...call(3, "c3b", "update_progress", { items: [
-            { id: "speaker", status: "done", summary: "Lisa, my daughter. Haven't asked her yet." },
-            { id: "realities", status: "started" },
-            { id: "pictures", status: "set_aside" },
-            { id: "talk-to-mike", status: "open", title: "Telling Mike" } ], next: ["matters", "talk-to-mike"] }),
+          ...call(1, "c2", "notes", { command: "str_replace", old_str: "## About them\n", new_str: "## About them\n- Asked what this is\n" }),
+          ...call(2, "c3", "notes", { command: "str_replace", old_str: "- speaker: open", new_str: "- speaker: done — Lisa, my daughter. Haven't asked her yet." }),
+          ...call(3, "c3b", "notes", { command: "str_replace", old_str: "- realities: open", new_str: "- realities: started" }),
+          ...call(4, "c3c", "notes", { command: "str_replace", old_str: "- pictures: open", new_str: "- pictures: set aside" }),
+          ...call(5, "c3d", "notes", { command: "str_replace", old_str: "Suggested next:", new_str: "- talk-to-mike (Telling Mike): open\nSuggested next: matters, talk-to-mike" }),
           delta({}, "tool_calls"),
         ]);
       }
-      if (toolMsgs === 3) {
+      if (toolMsgs === 6) {
         // One reply carries the message and everything shown with it, and ends the turn.
         return sse([
           delta({ content: "", annotations: [{ type: "url_citation", url_citation: { url: "https://medlineplus.gov/x", title: "MedlinePlus" } }] }),
@@ -318,12 +314,14 @@ try {
   // Ready-made replies: shown as buttons under the latest message, never as raw text, and tapping one sends it.
   check((await evaluate(`[...document.querySelectorAll(".replies .starter")].map(b=>b.textContent).join("|")`)) === "Yes, go through it|Not right now|I'm not sure", "ready-made replies appear as buttons");
   check(!(await text("#log")).includes("replies>") && !(await text("#log")).includes("<rep"), "the reply markup is never shown as text");
-  // Deathbot made no map or notes update in that turn, so the page's own bookkeeping pass does it.
-  await waitFor(`document.querySelector('.map-item[data-id="records"]')?.closest(".map-group")?.querySelector("h4")?.textContent === "Talked through"`, "scribe update");
-  check((await text('.map-item[data-id="records"]')).includes("Lakeshore Health records loaded"), "when Deathbot does not update the map, the bookkeeping pass does");
-  check((await text("#file-body")).includes("Brought in health records"), "the bookkeeping pass also brings the notes up to date");
-  check(scribeRequests.length >= 1 && scribeRequests[0].messages[0].content.includes("Keeping a map the person can see") && scribeRequests[0].messages[0].content.includes("It is not a checklist"), "the bookkeeping pass works to the skill's own rules");
-  check(!JSON.stringify(scribeRequests[0]).includes("ZEBRA-MARKER-IN-NOTE"), "the bookkeeping pass is not sent tool results such as record contents");
+  // Notes edits come before the reply: a reply sent with a failed edit is held back, and the model fixes the edit first.
+  check(!(await text("#log")).includes("HELD BACK REPLY"), "a reply sent with a failed notes edit is not shown");
+  const heldResult = requests.filter((r) => r.messages).flatMap((r) => r.messages).find((m: any) => m.role === "tool" && m.tool_call_id === "r4x")?.content ?? "";
+  check(heldResult.startsWith("Error: not shown"), "the model is told its reply was held back");
+  check((await text('.map-item[data-id="records"]')).includes("Lakeshore Health records loaded") && (await evaluate(`document.querySelector('.map-item[data-id="records"]')?.closest(".map-group")?.querySelector("h4")?.textContent`)) === "Talked through", "the map is read from the notes file");
+  check((await text("#file-body")).includes("Brought in health records") && !(await text("#file-body")).includes("Where we are\n- speaker"), "the notes under Your file come from the notes file, without the raw map list");
+  const sentState = JSON.stringify(requests.filter((r) => r.messages).map((r) => r.messages[r.messages.length - 1]));
+  check(sentState.includes("your working notes, as of now") && sentState.includes("## Where we are"), "the current notes file is passed to the model with the person's message");
   if (shots) await shot("2b-records.png");
   await evaluate(`document.querySelectorAll(".replies .starter")[1].click()`);
   await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("We can leave it"))`, "reply to a tapped choice");
@@ -334,7 +332,7 @@ try {
   check(chat[0].messages[0].content[0].text.includes("Web search is on.") && !chat[0].messages[0].content[0].text.includes("web search turned off") && !chat[0].messages[0].content[0].text.includes("WEB:"), "environment text reflects web search being on");
   check(chat[0].tools.some((t: any) => t.type === "openrouter:web_search"), "web search server tool requested");
   const assistant1 = chat[1].messages.find((m: any) => m.role === "assistant");
-  check(assistant1?.tool_calls?.length === 3 && assistant1.tool_calls[0].function.arguments === '{"path":"cards/cpr.md"}', "split tool-call arguments were reassembled");
+  check(assistant1?.tool_calls?.length === 6 && assistant1.tool_calls[0].function.arguments === '{"path":"cards/cpr.md"}', "split tool-call arguments were reassembled");
   check(assistant1?.reasoning_details?.[0]?.type === "reasoning" && assistant1.reasoning_details[0].encrypted_content === "think more|sig", "the reasoning item is sent back with the next request");
   const order1 = (rawInputs.find((r) => r.includes("reasoning")) ?? []).filter((t) => t !== "user-message" && t !== "function_call_output");
   check(order1.slice(0, 3).join(",") === "assistant-message,reasoning,function_call", `the model's output goes back in the order it came: text, reasoning, calls (got ${order1.slice(0, 3).join(",")})`);
