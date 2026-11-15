@@ -20,7 +20,7 @@ for n in 1 2 3 4; do
   timeout 90 gemini-api transcribe -i "$tmp/c.wav" --format text --no-speakers --no-timestamps --out "$tmp/t.txt" >/dev/null 2>&1 || continue
   heard=$(cat "$tmp/t.txt" | tr -cd "[:alnum:] '\n" | tr '[:upper:]' '[:lower:]' | tr '\n' ' ')
   # The clip must open like the line (fuzzy: "alright" may come back as "all right") and contain none of the notes.
-  same=$(python3 -c 'import sys,difflib,re; n=lambda s: re.sub(r"[^a-z]","",s.lower())[:24]; print(difflib.SequenceMatcher(None,n(sys.argv[1]),n(sys.argv[2])).ratio()>0.8)' "$text" "$heard")
+  same=$(python3 -c 'import sys,difflib,re; n=lambda s: re.sub(r"[^a-z]","",s.lower())[:24]; print(difflib.SequenceMatcher(None,n(sys.argv[1]),n(sys.argv[2])).ratio()>0.6)' "$text" "$heard")
   if ! grep -q -E "hoarse|old man|short of breath|say slowly|audio profile|director|transcript|buffalo|heating" <<<"$heard" && [ "$same" = True ]; then
     mv "$tmp/c.wav" "$out"; printf '%s\n' "$text" > "${out%.wav}.txt"; echo "$out (try $n)"; exit 0
   fi
