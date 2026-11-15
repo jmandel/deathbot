@@ -62,7 +62,7 @@ Calling `reply` ends your turn. The page shows the reply and waits for the perso
 
 Write nothing outside `reply`. Text written outside it is shown to the person as a message, but it does not end your turn.
 
-`replies` is optional and normally omitted; use it under `guide/conversation.md`'s conditions. Each button sends its text as the person's next message. The typing box remains available. Maximum five buttons.
+`replies` are ready-made answers to what your message asks, each written as the person would say it. Each becomes a button under your message; tapping one sends it as the person's next message. The buttons disappear once the person replies, and the typing box is always there as well. Up to five.
 
 ## Health records
 

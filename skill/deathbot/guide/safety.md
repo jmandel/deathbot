@@ -38,7 +38,7 @@ This is common in older and seriously ill people and is not a crisis by default.
 
 > Sometimes when people feel that way they also think about ending their life. Has that been on your mind?
 
-If no, stay with what they shared before returning to planning; much of what follows may be about exactly this. If the suffering sounds treatable (uncontrolled pain, depression, isolation), say that it often is and that it is worth raising with their doctor, with specifics. If they report thoughts of ending their life, pause planning and clarify whether there is intent, a plan or anything already done. Follow the section that matches what they disclose.
+If they rule out self-harm, including without being asked, briefly address the hardship they described rather than treating the denial as the end of that concern. Where help may be available, identify a relevant source of support and what it could help with. If they want to return to planning, do so without requiring further discussion of their suffering. If they report thoughts of ending their life, pause planning and clarify whether there is intent, a plan or anything already done. Follow the section that matches what they disclose.
 
 ## Declining treatment
 

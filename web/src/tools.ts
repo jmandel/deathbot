@@ -59,7 +59,7 @@ export const clientTools = [
   fn("reply", "Says something to the person, with anything you want to show them alongside it. This ends your turn: the page shows the reply and waits for the person. Tool calls in the same response still run, but you see their results only on your next turn, so read what you need before replying.",
     {
       text: { ...str, description: "Your message to the person. Follow guide/voice.md; long formatted text belongs in a document." },
-      replies: { type: "array", maxItems: 5, items: str, description: "Omit by default. Include only when buttons help the person answer a choice already in front of them, following guide/conversation.md. Each button sends its text as the person's message." },
+      replies: { type: "array", maxItems: 5, items: str, description: "Ready-made answers to what your message asks, each written as the person would say it. Shown as buttons under your message; tapping one sends it as their next message. See guide/conversation.md for when they help." },
       card: { ...str, description: "Optional: a fact card to show as a block the person can open and read, with its sources, e.g. cards/cpr.md" },
       video: { type: "object", description: "Optional: a video to embed. Only links that appear in a fact card are accepted.",
         properties: { url: str, title: str, note: { ...str, description: "One or two sentences shown above the video, saying what the person will see." } }, required: ["url", "title", "note"] },
