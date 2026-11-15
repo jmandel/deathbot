@@ -75,7 +75,7 @@ export function editNotes(doc: string, input: any): { doc: string; result: strin
     const oldStr = String(input.old_str ?? ""), newStr = String(input.new_str ?? "");
     if (!oldStr) throw new Error("str_replace needs old_str: the exact text to replace, copied from the file.");
     const count = doc.split(oldStr).length - 1;
-    if (count === 0) throw new Error("old_str was not found in the notes. Copy it exactly from the current file (use view to see it).");
+    if (count === 0) throw new Error(notFound(doc, oldStr));
     if (count > 1) throw new Error(`old_str matches ${count} places in the notes. Include more of the surrounding text so it matches once.`);
     return { doc: doc.replace(oldStr, () => newStr), result: "Edited." };
   }
@@ -87,6 +87,39 @@ export function editNotes(doc: string, input: any): { doc: string; result: strin
     return { doc: lines.join("\n"), result: "Inserted." };
   }
   throw new Error('command must be "view", "str_replace" or "insert".');
+}
+
+/** Bigram similarity of two strings, 0 to 1. */
+function similarity(a: string, b: string): number {
+  const grams = (t: string) => { const m = new Map<string, number>(); for (let i = 0; i < t.length - 1; i++) { const g = t.slice(i, i + 2); m.set(g, (m.get(g) ?? 0) + 1); } return m; };
+  const A = grams(a), B = grams(b);
+  let shared = 0;
+  for (const [g, n] of A) shared += Math.min(n, B.get(g) ?? 0);
+  return (2 * shared) / Math.max(1, a.length - 1 + b.length - 1);
+}
+
+/**
+ * The error for an old_str that is not in the file. Models often quote from memory and get a word wrong, so the
+ * error shows the closest passage in the file and where it first differs, to copy instead.
+ */
+function notFound(doc: string, oldStr: string): string {
+  const lines = doc.split("\n");
+  const starts: number[] = [];
+  let at = 0;
+  for (const l of lines) { starts.push(at); at += l.length + 1; }
+  let best = { score: 0, start: 0, line: 0 };
+  starts.forEach((start, line) => {
+    const score = similarity(oldStr, doc.slice(start, start + oldStr.length));
+    if (score > best.score) best = { score, start, line };
+  });
+  const plain = "old_str was not found in the notes. Copy it exactly from the current file.";
+  if (best.score < 0.5) return plain;
+  const lineEnd = doc.indexOf("\n", best.start + oldStr.length);
+  const passage = doc.slice(best.start, lineEnd < 0 ? doc.length : lineEnd);
+  let i = 0;
+  while (i < oldStr.length && oldStr[i] === passage[i]) i++;
+  const around = (t: string) => JSON.stringify(t.slice(Math.max(0, i - 25), i + 25));
+  return `${plain} The closest passage starts on line ${best.line + 1}:\n${passage}\nYour old_str first differs there: you wrote ${around(oldStr)}, the file has ${around(passage)}.`;
 }
 
 /** The harness note that gives the model the current file. */
