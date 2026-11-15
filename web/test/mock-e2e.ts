@@ -114,6 +114,12 @@ const server = Bun.serve({
           ...call(1, "n3", "notes", { command: "str_replace", old_str: "## Health, as they understand it\n", new_str: "## Health, as they understand it\n- Brought in health records\n" }),
           ...call(2, "r4", "reply", { text: "I have read your lung clinic note. Want to go through it?", replies: ["Yes, go through it", "Not right now", "I'm not sure"], health_records: true }), delta({}, "tool_calls")]);
       }
+      // A model that keeps fiddling with its notes: it views them every round until the reply is required.
+      const lastUser = [...body.messages].reverse().find((m: any) => m.role === "user");
+      if (JSON.stringify(lastUser?.content ?? "").includes("Keep fiddling")) {
+        if (raw.tool_choice?.name === "reply") return sse([...call(0, `fz${Date.now()}`, "reply", { text: "Done fiddling, here is my answer." }), delta({}, "tool_calls")]);
+        return sse([...call(0, `fv${Date.now()}${Math.random()}`, "notes", { command: "view" }), delta({}, "tool_calls")]);
+      }
       if (last.role === "user" && lastText.includes("what matters most to me")) {
         return sse([delta({ content: "Good. What makes a day a good day for you?" }), delta({}, "stop")]);
       }
@@ -348,6 +354,11 @@ try {
   check(!JSON.stringify(chat[1]).includes("_sources") && !JSON.stringify(chat[1]).includes("_order"), "private fields are not sent to the API");
   check(imgs.length === 2 && imgs.every((r) => r.image.input_references?.[0]?.image_url?.url.startsWith("data:image/")), "a photo attached in the conversation is used for the pictures without a separate step");
 
+  // After several rounds without a reply, the harness requires one, so a turn cannot end with nothing shown.
+  await evaluate(`(()=>{document.getElementById("input").value="Keep fiddling with your notes.";document.getElementById("composer").requestSubmit();})()`);
+  await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("Done fiddling"))`, "reply after notes fiddling");
+  await waitFor(`document.getElementById("stop").hidden`, "fiddling turn finished");
+  check((await evaluate(`document.getElementById("error").hidden`)), "a model that keeps editing its notes is made to reply instead of running out of steps");
   // Tapping an item on the map starts that part of the conversation.
   await evaluate(`document.querySelector('.map-item[data-id="matters"]').click()`);
   await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("good day for you"))`, "reply to a tapped map item");

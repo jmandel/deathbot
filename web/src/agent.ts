@@ -119,7 +119,7 @@ export function partialText(args: string): string {
 /** Models whose provider rejected a required tool call; asked without it from then on. */
 const NO_REQUIRED_TOOL = new Set<string>();
 
-async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal: AbortSignal | undefined, system: string): Promise<StreamResult> {
+async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal: AbortSignal | undefined, system: string, mustReply = false): Promise<StreamResult> {
   const claude = s.model.startsWith("anthropic/");
   const tools: unknown[] = clientTools.map((t) => ({ type: "function", name: t.function.name, description: t.function.description, parameters: t.function.parameters }));
   // Search returns excerpts; fetch lets the model open the page itself, which the skill's research rules require.
@@ -135,7 +135,8 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
     reasoning: { effort: "medium" },
     // Deathbot speaks only through reply, so every response must call a tool: it can neither go silent
     // nor say something outside a reply. Some models refuse this setting; for them it is left out.
-    ...(NO_REQUIRED_TOOL.has(s.model) ? {} : { tool_choice: "required" }),
+    // After several rounds without a reply (for example, editing notes over and over), the reply is required.
+    ...(NO_REQUIRED_TOOL.has(s.model) ? {} : { tool_choice: mustReply ? { type: "function", name: "reply" } : "required" }),
     // Claude also supports a moving cache breakpoint over the growing conversation.
     ...(claude ? { cache_control: { type: "ephemeral" } } : {}),
   };
@@ -165,7 +166,7 @@ async function streamOnce(s: Settings, messages: Msg[], h: TurnHandlers, signal:
     const detail = await res.clone().text();
     if (/tool_choice/i.test(detail)) {
       NO_REQUIRED_TOOL.add(s.model);
-      return streamOnce(s, messages, h, signal, system);
+      return streamOnce(s, messages, h, signal, system, mustReply);
     }
   }
   if (!res.ok || !res.body) await fail(res);
@@ -255,7 +256,7 @@ export async function runTurn(s: Settings, messages: Msg[], ui: Surface, h: Turn
     h.onAssistantStart();
     let result: StreamResult;
     try {
-      result = await streamOnce(s, messages, h, signal, system);
+      result = await streamOnce(s, messages, h, signal, system, round >= 6);
     } catch (e) {
       // If replayed reasoning blocks are rejected mid tool loop, retry once without them.
       const last = messages[messages.length - 1];
