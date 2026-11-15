@@ -163,6 +163,12 @@ const server = Bun.serve({
       }
       return sse([delta({ content: "That should not happen: the turn ended with the reply." }), delta({}, "stop")]);
     }
+    if (url.pathname === "/api/v1/models") {
+      return Response.json({ data: [
+        { id: "acme/talker-1", name: "Acme: Talker 1", pricing: { prompt: "0.000001", completion: "0.000002" }, supported_parameters: ["tools", "tool_choice"], architecture: { output_modalities: ["text"] } },
+        { id: "acme/no-tools", name: "Acme: No Tools", pricing: { prompt: "0", completion: "0" }, supported_parameters: [], architecture: { output_modalities: ["text"] } },
+      ] });
+    }
     if (url.pathname === "/api/v1/images") {
       requests.push({ image: await req.json() });
       return Response.json({ data: [{ b64_json: PNG, media_type: "image/png" }] });
@@ -359,6 +365,15 @@ try {
   await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("Done fiddling"))`, "reply after notes fiddling");
   await waitFor(`document.getElementById("stop").hidden`, "fiddling turn finished");
   check((await evaluate(`document.getElementById("error").hidden`)), "a model that keeps editing its notes is made to reply instead of running out of steps");
+  // Settings: "Other…" searches every OpenRouter model that can use tools, and the pick is saved.
+  await evaluate(`document.getElementById("btn-settings").click()`);
+  await evaluate(`(()=>{const m=document.getElementById("model");m.value="__other";m.dispatchEvent(new Event("change"));})()`);
+  await waitFor(`document.querySelectorAll("#model-list option").length > 0`, "model list");
+  check((await evaluate(`[...document.querySelectorAll("#model-list option")].map(o=>o.value).join(",")`)) === "acme/talker-1", "the model search lists only models that can use tools");
+  await evaluate(`(()=>{const i=document.getElementById("model-search");i.value="acme/talker-1";i.dispatchEvent(new Event("change"));document.getElementById("settings").close();})()`);
+  await Bun.sleep(150);
+  check((await evaluate(`localStorage.getItem("deathbot-model")`)) === "acme/talker-1", "a model picked from the search is saved");
+  await evaluate(`(()=>{localStorage.setItem("deathbot-model","google/gemini-4-hydrogen");})()`);
   // Tapping an item on the map starts that part of the conversation.
   await evaluate(`document.querySelector('.map-item[data-id="matters"]').click()`);
   await waitFor(`[...document.querySelectorAll(".msg.bot")].some(m=>m.textContent.includes("good day for you"))`, "reply to a tapped map item");

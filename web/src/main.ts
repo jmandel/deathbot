@@ -998,8 +998,50 @@ async function attach(chosen: FileList) {
 // ---------- settings ----------
 
 const dialog = $<HTMLDialogElement>("settings");
+// "Other…" under the model list opens a search over every OpenRouter model that can use tools.
+const OTHER = "__other";
+let openRouterModels: { id: string; label: string }[] | null = null;
+async function loadOpenRouterModels(): Promise<{ id: string; label: string }[]> {
+  if (openRouterModels) return openRouterModels;
+  const res = await fetch(`${localStorage.getItem("deathbot-api-base") ?? "https://openrouter.ai/api/v1"}/models`);
+  const data: any[] = (await res.json())?.data ?? [];
+  const price = (x: unknown) => { const n = Number(x) * 1e6; return n < 0.01 ? "free" : `$${n < 1 ? n.toFixed(2) : n.toFixed(n < 10 ? 1 : 0)}`; };
+  openRouterModels = data
+    .filter((m) => (m.supported_parameters ?? []).includes("tools") && (m.architecture?.output_modalities ?? ["text"]).includes("text"))
+    .map((m) => ({ id: m.id as string, label: `${m.name} · ${price(m.pricing?.prompt)} in / ${price(m.pricing?.completion)} out per million tokens` }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+  return openRouterModels;
+}
+function wireModelSearch(model: HTMLSelectElement) {
+  const box = $("model-other"), search = $<HTMLInputElement>("model-search"), note = $("model-other-note");
+  let previous = model.value;
+  model.addEventListener("focus", () => { if (model.value !== OTHER) previous = model.value; });
+  model.addEventListener("change", async () => {
+    box.hidden = model.value !== OTHER;
+    if (model.value !== OTHER) { previous = model.value; return; }
+    search.value = ""; search.focus();
+    note.textContent = "Loading the list…";
+    try {
+      const list = await loadOpenRouterModels();
+      $("model-list").replaceChildren(...list.map((m) => { const o = document.createElement("option"); o.value = m.id; o.label = m.label; return o; }));
+      note.textContent = `${list.length} models that can use tools. Not all of them will follow Deathbot's instructions well.`;
+    } catch {
+      note.textContent = "Could not load the list. You can still type a model id, for example provider/model-name.";
+    }
+  });
+  search.addEventListener("change", () => {
+    const id = search.value.trim();
+    if (!/^[\w.-]+\/[\w.:~-]+$/.test(id)) { note.textContent = "Pick a model from the list, or type an id like provider/model-name."; return; }
+    const known = openRouterModels?.find((m) => m.id === id);
+    if (![...model.options].some((o) => o.value === id)) model.insertBefore(new Option(known?.label.split(" · ")[0] ?? id, id), model.querySelector(`option[value="${OTHER}"]`));
+    model.value = id; previous = id;
+    box.hidden = true;
+  });
+  // Leaving the dialog with "Other…" still selected keeps the model that was in use.
+  $<HTMLDialogElement>("settings").addEventListener("close", () => { if (model.value === OTHER) { model.value = previous; box.hidden = true; } }, { capture: true });
+}
 function setSelect(sel: HTMLSelectElement, value: string) {
-  if (![...sel.options].some((o) => o.value === value)) sel.add(new Option(value, value));
+  if (![...sel.options].some((o) => o.value === value)) sel.insertBefore(new Option(value, value), sel.querySelector(`option[value="${OTHER}"]`));
   sel.value = value;
 }
 function markSize() {
@@ -1022,6 +1064,7 @@ function openSettings() {
   $<HTMLInputElement>("key").value = s.apiKey;
   $("conn-status").textContent = s.apiKey ? `Connected with a key ending in ${s.apiKey.slice(-4)}.` : "Not connected yet.";
   setSelect($<HTMLSelectElement>("model"), s.model);
+  $("model-other").hidden = true;
   setSelect($<HTMLSelectElement>("image-model"), s.imageModel);
   $<HTMLInputElement>("web-search").checked = s.webSearch;
   markSize();
@@ -1030,6 +1073,8 @@ function openSettings() {
 function wireSettings() {
   const model = $<HTMLSelectElement>("model"), imageModel = $<HTMLSelectElement>("image-model");
   for (const m of CHAT_MODELS) model.add(new Option(m.label, m.id));
+  model.add(new Option("Other…", OTHER));
+  wireModelSearch(model);
   for (const m of IMAGE_MODELS) imageModel.add(new Option(m.label, m.id));
   $("btn-settings").onclick = openSettings;
   $("release").textContent = `(release ${release.commit}, ${release.builtAt})`;

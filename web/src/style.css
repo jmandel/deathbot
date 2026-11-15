@@ -92,7 +92,7 @@ main { flex: 1; min-height: 0; display: flex; }
 .key-form label { display: block; font-weight: 700; margin-bottom: .3rem; }
 .inline-field { display: flex; gap: .5rem; flex-wrap: wrap; }
 .inline-field input { flex: 1 1 12rem; min-width: 0; }
-input[type="password"], input[type="text"], select { padding: .55rem .7rem; border: 1.5px solid var(--line); border-radius: .5rem; background: var(--surface); }
+input[type="password"], input[type="text"], input[type="search"], select { padding: .55rem .7rem; border: 1.5px solid var(--line); border-radius: .5rem; background: var(--surface); }
 .fine { font-size: .85rem; line-height: 1.45; color: var(--muted); }
 .replies { margin: 0; }
 .replies .starter { padding: .6rem .1rem; min-height: 2.75rem; }

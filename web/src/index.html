@@ -168,6 +168,12 @@
       <summary>Models</summary>
       <label for="model">AI model</label>
       <select id="model"></select>
+      <div id="model-other" hidden>
+        <label for="model-search">Search all models on OpenRouter</label>
+        <input id="model-search" type="search" list="model-list" autocomplete="off" spellcheck="false" placeholder="Type part of a name">
+        <datalist id="model-list"></datalist>
+        <p id="model-other-note" class="fine"></p>
+      </div>
       <label for="image-model">Picture model</label>
       <select id="image-model"></select>
     </details>
