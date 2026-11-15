@@ -175,7 +175,11 @@ function printHtml(html: string) {
   window.print();
   root.remove();
 }
-function fitInput() { input.style.height = "auto"; input.style.height = input.scrollHeight + 2 + "px"; }
+/** Sizes the message box to its text. A hidden box measures nothing, so it is left at its natural height. */
+function fitInput() {
+  input.style.height = "auto";
+  if (input.scrollHeight > 0) input.style.height = input.scrollHeight + 2 + "px";
+}
 
 // ---------- reader: cards and documents open here to be read properly ----------
 
@@ -418,7 +422,9 @@ function renderWelcome() {
   $("connect").hidden = connected;
   $("btn-start").hidden = !connected;
   // On the first screen the intake form is the way in; the message box appears once the conversation starts.
+  const wasHidden = $("composer").hidden;
   $("composer").hidden = !connected || fresh;
+  if (wasHidden && !$("composer").hidden) fitInput();
 }
 
 // ---------- Your file ----------

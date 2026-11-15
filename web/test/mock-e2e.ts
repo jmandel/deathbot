@@ -248,6 +248,7 @@ try {
   check((await text(".msg.user")).startsWith("I'm Frank. I live in New York. Today I'd like to understand what treatments like CPR, breathing machines and feeding tubes are really like. What is this, exactly?"), `the first screen's answers arrive as the person's first message (got: ${await text(".msg.user")})`);
   check(JSON.stringify(requests[0]).includes("states/ny.md"), "the chosen state's file is named in a note to the model");
   check(await visible("#composer") && !(await visible("#welcome")), "once the conversation starts, the message box replaces the first screen");
+  check((await evaluate(`document.getElementById("input").getBoundingClientRect().height`)) > 30, "the message box has room to type in after starting from the first screen");
   // Reading aloud: a button under the reply reads it with the device's voice; typing stops it.
   check(await evaluate(`!!document.querySelector(".turn .read-aloud")`) && (await evaluate(`window.__spoken.length`)) === 0, "each reply offers Read aloud, and nothing is read unasked");
   await evaluate(`document.querySelector(".turn .read-aloud").click()`);
